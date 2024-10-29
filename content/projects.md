@@ -9,15 +9,14 @@ title = 'Projects'
 
 # Projects
 ## 2024
-- [W1] Gus and the Search for the Golden Goose 
-- Command Line
+- [W1] [Gus and the Search for the Golden Goose](https://github.com/iniyanijoseph/DuckieAndTheSearchForTheGoldenGoose)
+- [Command Line](https://github.com/BenWowo/sish)
   - Simple Unix Shell written in C 
-- [W2] Bluff
-- Debian Rice
+- [Debian Rice](https://github.com/iniyanijoseph/Debian-Gruvbox)
   - Custom desktop environment in Debian operating system using BSPWM in Gruvbox Theme
 
 ## 2023
-- Nebula Labs
+- [Nebula Labs](https://github.com/UTDNebula/api-tools)
   - Wrote Scraper in Go for Nebula Project API Tools
 
 - Project Kaos
