@@ -1,0 +1,36 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Iniyan Joseph'
+theme = ['hugo-embed-pdf-shortcode', 'hugo-theme-nix']
+enableInlineShortcodes = true
+
+[params]
+  Name = "Iniyan Joseph"
+  HeaderUsername = "iniyan"
+  HeaderHostname = "joseph"
+  About = "My name is Iniyan Joseph. I am an undergraduate student studying Computer Science. I am interested in studying theory with interesting applications. I am especially interested in the problem of discrete fair division, i.e. the division of a finite set of goods amongst a finite set of agents \"fairly\". I am currently advised by Dr. Emily Fox. My prior work was in efficient text entry in virtual reality, where I was advised by Dr. Jin Ryong Kim."
+  ProfilePicture = "https://lh6.googleusercontent.com/3wZJcf6knUQb7GvpN_e2Lsi5MkZnUoI9Am-ZEDzjKms2bnkjTcE9LNDXP38Lap2TdyBrZvrQ6qx_zvVRX0TUjT-gN7oS-NQ5ER5G-CScDLkJ35iyo_3xlRpWQhi1QxGOJQ=w1280"
+  Email = "IIJ210000@utdallas.edu"
+  GithubID = 'iniyanijoseph'
+  LinkedInID = 'iniyan-joseph-a2846b277'
+  
+[menu]
+  [[menu.header]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects"
+    
+    # [[menu.header]]
+    #   parent = "projects"
+    #   name = "Project 1"
+    #   url = "/posts"
+    
+  [[menu.header]]
+    identifier = "music"
+    name = "Music"
+    url = "/music"
+  
+  [[menu.header]]
+    identifier = "other"
+    name = "Other"
+    url = "/other"
