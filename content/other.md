@@ -5,6 +5,4 @@ date = 0
 
 # Transcript
 
-git submodule add https://github.com/LordMathis/hugo-theme-nix
-
-{{< embed-pdf url="https://github.com/iniyanijoseph/iniyanijoseph.github.io/blob/main/static/IniyanJoseph_Resume.pdf" hideLoader="true">}}
+{{< embed-pdf url="https://raw.githubusercontent.com/iniyanijoseph/iniyanijoseph.github.io/refs/heads/main/static/IniyanJoseph_Resume.pdf" hideLoader="true">}}
