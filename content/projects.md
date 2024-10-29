@@ -1,6 +1,5 @@
 +++
 title = 'Projects'
-date = 0
 +++
 
 # Research

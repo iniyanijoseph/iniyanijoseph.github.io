@@ -9,11 +9,11 @@ enableInlineShortcodes = true
   HeaderUsername = "iniyan"
   HeaderHostname = "joseph"
   About = "My name is Iniyan Joseph. I am an undergraduate student studying Computer Science. I am interested in studying theory with interesting applications. I am especially interested in the problem of discrete fair division, i.e. the division of a finite set of goods amongst a finite set of agents \"fairly\". I am currently advised by Dr. Emily Fox. My prior work was in efficient text entry in virtual reality, where I was advised by Dr. Jin Ryong Kim."
-  ProfilePicture = ""
+  ProfilePicture = "/HomecomingPicture.png"
   Email = "IIJ210000@utdallas.edu"
   GithubID = 'iniyanijoseph'
   LinkedInID = 'iniyan-joseph-a2846b277'
-  
+
 [menu]
   [[menu.header]]
     identifier = "projects"
@@ -28,7 +28,7 @@ enableInlineShortcodes = true
   [[menu.header]]
     identifier = "music"
     name = "Music"
-    url = "/music"
+    url = "/music/"
   
   [[menu.header]]
     identifier = "other"

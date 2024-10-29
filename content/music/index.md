@@ -1,7 +1,8 @@
 +++
 title = 'Music'
-date = 0
 +++
+
+{{< figure src="/Portrait2.jpg" width=300 >}}
 
 # 2024
 
