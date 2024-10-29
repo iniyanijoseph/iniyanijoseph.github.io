@@ -4,4 +4,7 @@ date = 0
 +++
 
 # Transcript
-{{< embed-pdf url="/static/SSR_TSRPT.pdf" hideLoader="true">}}
+
+git submodule add https://github.com/LordMathis/hugo-theme-nix
+
+{{< embed-pdf url="https://github.com/iniyanijoseph/iniyanijoseph.github.io/blob/main/static/IniyanJoseph_Resume.pdf" hideLoader="true">}}
