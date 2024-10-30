@@ -3,8 +3,8 @@ title = 'Projects'
 +++
 
 # Research
-- [W1] Under Review
-- [W2] Under Review
+- [W1] Submitted for publication; under review
+- [W2] Submitted for publication; under review
 - [W3] Survey of Discrete Fair Division 
 
 # Projects
