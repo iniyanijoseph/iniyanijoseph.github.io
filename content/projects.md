@@ -14,6 +14,8 @@ title = 'Projects'
   - Simple Unix Shell written in C 
 - [Debian Rice](https://github.com/iniyanijoseph/Debian-Gruvbox)
   - Custom desktop environment in Debian operating system using BSPWM in Gruvbox Theme
+- [Sensory Profile Calculator](https://github.com/iniyanijoseph/Sensory-Profile-Calculator)
+	- Sensory profile assesment, currently in use by active Occupational Therapists (OTs).
 
 ## 2023
 - [Nebula Labs](https://github.com/UTDNebula/api-tools)
