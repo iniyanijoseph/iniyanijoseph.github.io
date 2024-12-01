@@ -5,13 +5,14 @@ title = 'Projects'
 # Research
 - [W1] Submitted for publication; under review
 - [W2] Submitted for publication; under review
-- [W3] Survey of Discrete Fair Division 
 
 # Projects
 ## 2024
+- Survey of Discrete Fair Division
+  - {{< embed-pdf url="/main.pdf" >}}
 - [W1] [Gus and the Search for the Golden Goose](https://github.com/iniyanijoseph/DuckieAndTheSearchForTheGoldenGoose)
 - [Command Line](https://github.com/BenWowo/sish)
-  - Simple Unix Shell written in C 
+  - Simple Unix Shell written in C
 - [Debian Rice](https://github.com/iniyanijoseph/Debian-Gruvbox)
   - Custom desktop environment in Debian operating system using BSPWM in Gruvbox Theme
 - [Sensory Profile Calculator](https://github.com/iniyanijoseph/Sensory-Profile-Calculator)
@@ -35,7 +36,7 @@ title = 'Projects'
 - Association for Computing Machinery
 	- Campus wide CS and engineering competition
 - Math Club
-	
+
 ## 2023
 - Nebula Labs
 	- Open Source Contribution to Nebula Project API Tools
