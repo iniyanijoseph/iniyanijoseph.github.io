@@ -9,7 +9,7 @@ title = 'Projects'
 # Projects
 ## 2024
 - Survey of Discrete Fair Division
-  - {{< embed-pdf url="/main.pdf" >}}
+  - {{< embed-pdf url="/FairDivisionSurvey.pdf" >}}
 - [W1] [Gus and the Search for the Golden Goose](https://github.com/iniyanijoseph/DuckieAndTheSearchForTheGoldenGoose)
 - [Command Line](https://github.com/BenWowo/sish)
   - Simple Unix Shell written in C

@@ -4,4 +4,4 @@ title = 'Other'
 
 # Transcript
 
-{{< embed-pdf url="/SSR_TSRPT.pdf" >}}
+{{< embed-pdf url="/Transcript.pdf" >}}
