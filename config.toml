@@ -20,11 +20,6 @@ enableInlineShortcodes = true
     name = "Projects"
     url = "/projects"
 
-    # [[menu.header]]
-    #   parent = "projects"
-    #   name = "Project 1"
-    #   url = "/posts"
-
   [[menu.header]]
     identifier = "music"
     name = "Music"
