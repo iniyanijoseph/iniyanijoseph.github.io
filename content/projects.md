@@ -11,6 +11,7 @@ title = 'Projects'
 - Survey of Discrete Fair Division
   - {{< embed-pdf url="/FairDivisionSurvey.pdf" >}}
 - [W1] [Gus and the Search for the Golden Goose](https://github.com/iniyanijoseph/DuckieAndTheSearchForTheGoldenGoose)
+- [Turbo Markdown](https://github.com/UTD-Fall-2024-Sec-6/TurboMarkdown)
 - [Command Line](https://github.com/BenWowo/sish)
   - Simple Unix Shell written in C
 - [Debian Rice](https://github.com/iniyanijoseph/Debian-Gruvbox)

@@ -25,14 +25,14 @@ title = 'Music'
 
 ## 2021
 - 46th Anniversary Texas Federation of Music Clubs, Difficult Class II - Oustanding
- - Beethoven Bagatelle Op. 119 No. 1 
+ - Beethoven Bagatelle Op. 119 No. 1
   - Roubos Rapsodia Española
 - National Federation of Music Clubs, Difficult Class II - Outstanding
   - Roubos Rapsodia Española
 
 # Performance
-Coming Up: 
-- Christmas Program at CCLUMC
+Coming Up:
+- [Joy has Downed](https://www.youtube.com/watch?v=z0EX8l6ZWnk)
 
 ## 2023
 - [A Christmas for All Time](https://www.youtube.com/watch?v=0odLKW9OCaA)
@@ -45,7 +45,7 @@ Coming Up:
 - Tuck Everlasting Musical
 
 # Repertoire
-- Clara Schumann Piano Concerto mvmt. 2 
+- Clara Schumann Piano Concerto mvmt. 2
 - Kabalevsky Youth Concerto mvmt. 3
 - Rachmaninov Op. 3 no. 4 - "Polichinelle"
 - Grieg Piano Concerto mvmt. 2
