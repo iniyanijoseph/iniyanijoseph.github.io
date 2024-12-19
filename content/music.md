@@ -2,8 +2,6 @@
 title = 'Music'
 +++
 
-{{< figure src="/Portrait2.jpg" width=300 >}}
-
 # Awards
 ## 2023
 - 48th Anniversary Texas Federation of Music Clubs, Musically Advanced Class II - Oustanding
@@ -31,7 +29,7 @@ title = 'Music'
   - Roubos Rapsodia Española
 
 # Performance
-Coming Up:
+## 2024
 - [Joy has Downed](https://www.youtube.com/watch?v=z0EX8l6ZWnk)
 
 ## 2023
