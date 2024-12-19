@@ -30,7 +30,7 @@ title = 'Music'
 
 # Performance
 ## 2024
-- [Joy has Downed](https://www.youtube.com/watch?v=z0EX8l6ZWnk)
+- [Joy has Dawned](https://www.youtube.com/watch?v=z0EX8l6ZWnk)
 
 ## 2023
 - [A Christmas for All Time](https://www.youtube.com/watch?v=0odLKW9OCaA)
