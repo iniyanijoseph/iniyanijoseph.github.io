@@ -8,6 +8,7 @@ title = 'Projects'
 # Projects
 ## 2025
 - PropType: Everyday Props as Typing Surfaces in Augmented Reality
+	- Hyunjae Gil, Ashish Pratap, Iniyan Joseph, Jin-Ryong Kim
 
 ## 2024
 - Survey of Discrete Fair Division
