@@ -4,9 +4,11 @@ title = 'Projects'
 
 # Research
 - [W1] Submitted for publication; under review
-- [W2] Submitted for publication; under review
 
 # Projects
+## 2025
+- PropType: Everyday Props as Typing Surfaces in Augmented Reality
+
 ## 2024
 - Survey of Discrete Fair Division
   - {{< embed-pdf url="/FairDivisionSurvey.pdf" >}}
