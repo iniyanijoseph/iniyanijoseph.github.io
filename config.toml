@@ -31,6 +31,6 @@ enableInlineShortcodes = true
     url = "/music"
 
   [[menu.header]]
-    identifier = "other"
-    name = "Other"
-    url = "/other"
+    identifier = "academics"
+    name = "Academics"
+    url = "/academics"
