@@ -22,7 +22,7 @@ enableInlineShortcodes = true
 
   [[menu.header]]
     identifier = "research"
-    name = "Reserach"
+    name = "Research"
     url = "/research"
 
   [[menu.header]]
