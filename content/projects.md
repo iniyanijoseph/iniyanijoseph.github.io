@@ -22,7 +22,7 @@ title = 'Projects'
   - Presented to Gearbox
 
 # Activities
-## 2024
+## 2024-2025
 - Fair Division Club
 	- Lead readings in Computational Economics and Fair Division research
 - Codeburners
