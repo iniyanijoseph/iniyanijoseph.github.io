@@ -1,8 +1,6 @@
 +++
 title = 'Research'
 +++
-
-# Research
 - [W1] Submitted for publication; under review
 ## 2025
 - PropType: Everyday Props as Typing Surfaces in Augmented Reality
