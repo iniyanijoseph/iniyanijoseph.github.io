@@ -21,9 +21,14 @@ enableInlineShortcodes = true
     url = "/projects"
 
   [[menu.header]]
+    identifier = "research"
+    name = "Reserach"
+    url = "/research"
+
+  [[menu.header]]
     identifier = "music"
     name = "Music"
-    url = "/music/"
+    url = "/music"
 
   [[menu.header]]
     identifier = "other"

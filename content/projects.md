@@ -2,17 +2,7 @@
 title = 'Projects'
 +++
 
-# Research
-- [W1] Submitted for publication; under review
-
-# Projects
-## 2025
-- PropType: Everyday Props as Typing Surfaces in Augmented Reality
-	- Hyunjae Gil, Ashish Pratap, Iniyan Joseph, Jin-Ryong Kim
-
 ## 2024
-- Survey of Discrete Fair Division
-  - {{< embed-pdf url="/FairDivisionSurvey.pdf" >}}
 - [W1] [Gus and the Search for the Golden Goose](https://github.com/iniyanijoseph/DuckieAndTheSearchForTheGoldenGoose)
 - [Turbo Markdown](https://github.com/UTD-Fall-2024-Sec-6/TurboMarkdown)
 - [Command Line](https://github.com/BenWowo/sish)
