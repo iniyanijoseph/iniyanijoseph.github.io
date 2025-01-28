@@ -23,7 +23,7 @@ title = 'Projects'
 
 # Activities
 ## 2024-2025
-- Fair Division Club
+- Economics and Computation Club 
 	- Lead readings in Computational Economics and Fair Division research
 - Codeburners
 	- Competitive Programming Club
@@ -40,3 +40,10 @@ title = 'Projects'
 	- Campus wide CS and engineering competition
 - Math Club
 
+# Economics and Computation Club Topics
+	- Art Galleries and Watchmen
+	- Data Structures (Hypergraphs and Layered Graphs)
+	- Social Choice
+## Past Topics
+	- Discrete Fair Division
+	- Continuous Fair Division
