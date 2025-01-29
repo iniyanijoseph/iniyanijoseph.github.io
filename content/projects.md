@@ -24,7 +24,7 @@ title = 'Projects'
 # Activities
 ## 2024-2025
 - Economics and Computation Club 
-	- Lead readings in Computational Economics and Fair Division research
+	- Lead readings in Design and Analysis of Algorithms, especially in Economics and Computation and Computational Geometry
 - Codeburners
 	- Competitive Programming Club
 - Association for Computing Machinery
