@@ -43,6 +43,7 @@ title = 'Music'
 - Tuck Everlasting Musical
 
 # Repertoire
+- Sibelius Piano Sonata mvmt. 1
 - Clara Schumann Piano Concerto mvmt. 2
 - Kabalevsky Youth Concerto mvmt. 3
 - Rachmaninov Op. 3 no. 4 - "Polichinelle"
@@ -52,4 +53,3 @@ title = 'Music'
 - Rachmaninov Op. 3 no. 2 - "Prelude c# minor"
 - Bach Gigue from Partita no. 1
 - Bach Invention no. 13 in a minor, BWV 784
-- Sibelius Piano Sonata mvmt. 1

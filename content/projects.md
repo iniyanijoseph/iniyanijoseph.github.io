@@ -3,7 +3,7 @@ title = 'Projects'
 +++
 
 ## 2024
-- [W1] [Gus and the Search for the Golden Goose](https://github.com/iniyanijoseph/DuckieAndTheSearchForTheGoldenGoose)
+- [W1] [Gus the Goose](https://github.com/iniyanijoseph/Gus_the_Goose)
 - [Turbo Markdown](https://github.com/UTD-Fall-2024-Sec-6/TurboMarkdown)
 - [Command Line](https://github.com/BenWowo/sish)
   - Simple Unix Shell written in C
@@ -23,8 +23,8 @@ title = 'Projects'
 
 # Activities
 ## 2024-2025
-- Economics and Computation Club 
-	- Lead readings in Design and Analysis of Algorithms, especially in Economics and Computation and Computational Geometry
+- Algorithms Club 
+	- Lead readings in algorithms research (List of topics found below in reverse-chronological order).
 - Codeburners
 	- Competitive Programming Club
 - Association for Computing Machinery
@@ -40,10 +40,8 @@ title = 'Projects'
 	- Campus wide CS and engineering competition
 - Math Club
 
-# Economics and Computation Club Topics
-	- Art Galleries and Watchmen
-	- Data Structures (Hypergraphs and Layered Graphs)
-	- Social Choice
-## Past Topics
+# Algorithms Club Topics
+	- Randomized Algorithms
+	- Hypergraph Algorithms
 	- Discrete Fair Division
 	- Continuous Fair Division
