@@ -22,7 +22,7 @@ title = 'Projects'
 - [Nebula Labs](https://github.com/UTDNebula/api-tools)
   - Wrote Scraper in Go for Nebula Project API Tools
  - Project Kaos
-  - Developed an RPG game using Unreal Engine 5 and motion tracking
+	- Developed an RPG game using Unreal Engine 5 and motion tracking
 
 # Activities
 ## 2024-2025
