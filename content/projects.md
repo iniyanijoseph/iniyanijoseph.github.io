@@ -2,24 +2,27 @@
 title = 'Projects'
 +++
 
-## 2024
+## 2025
 - [W1] [Gus the Goose](https://github.com/iniyanijoseph/Gus_the_Goose)
+	- Discrete Math Picture Book
+- UTD Battle of the Brains Problem Writing
+	- High school competitive programming event sponsored by StateFarm 
+	
+## 2024
 - [Turbo Markdown](https://github.com/UTD-Fall-2024-Sec-6/TurboMarkdown)
+	- Markdown to PDF converter (CS 3354)
 - [Command Line](https://github.com/BenWowo/sish)
-  - Simple Unix Shell written in C
+  - Simple Unix Shell written in C (CS 3377)
 - [Debian Rice](https://github.com/iniyanijoseph/Debian-Gruvbox)
-  - Custom desktop environment in Debian operating system using BSPWM in Gruvbox Theme
+  - Desktop environment in Debian operating system using BSPWM in Gruvbox Theme w/ Install Script
 - [Sensory Profile Calculator](https://github.com/iniyanijoseph/Sensory-Profile-Calculator)
-	- Sensory profile assesment, useful for Occupational Therapy.
+	- Sensory profile asessment, useful for occupational therapy.
 
 ## 2023
 - [Nebula Labs](https://github.com/UTDNebula/api-tools)
   - Wrote Scraper in Go for Nebula Project API Tools
-
-- Project Kaos
+ - Project Kaos
   - Developed an RPG game using Unreal Engine 5 and motion tracking
-  - Led team of 15 people as a Scrum Master and developer
-  - Presented to Gearbox
 
 # Activities
 ## 2024-2025
