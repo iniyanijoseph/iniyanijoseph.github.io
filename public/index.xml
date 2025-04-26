@@ -1,36 +1,92 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Iniyan Joseph</title>
-    <link>http://example.org/</link>
-    <description>Recent content on Iniyan Joseph</description>
+    <title>Rosa van den Ende</title>
+    <link>https://rosavandenende.github.io/</link>
+    <description>Recent content on Rosa van den Ende</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://rosavandenende.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Music</title>
-      <link>http://example.org/music/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Dataset Title</title>
+      <link>https://rosavandenende.github.io/data/data1/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/music/</guid>
-      <description>Awards 2023 48th Anniversary Texas Federation of Music Clubs, Musically Advanced Class II - Oustanding Rachmaninov Polichinelle op. 3 no. 4 National Federation of Music Clubs, Musically Advanced Class II - Superior+ Beethoven Tempest Sonata Mvmt 3 Rachmaninov Polichinelle op 3. no 4 UIL Solo and Ensemble Competition Division I - 1 Beethoven Tempest Sonata Mvmt 3 2022 47th Anniversary Texas Federation of Music Clubs, Very Difficult Class II - Oustanding Bach Invention A Minor BWV 784 Rachmaninoff Prelude c# minor op 3.</description>
+      <guid>https://rosavandenende.github.io/data/data1/</guid>
+      <description>This dataset contains things.</description>
     </item>
     
     <item>
-      <title>Other</title>
-      <link>http://example.org/other/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Course Name 1</title>
+      <link>https://rosavandenende.github.io/courses/course1/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/other/</guid>
-      <description>Transcript Previous Next &amp;nbsp; &amp;nbsp; / [pdf] View the PDF file here. </description>
+      <guid>https://rosavandenende.github.io/courses/course1/</guid>
+      <description>This graduate course presents various methods and results.</description>
     </item>
     
     <item>
-      <title>Projects</title>
-      <link>http://example.org/projects/</link>
+      <title>Course Title 2</title>
+      <link>https://rosavandenende.github.io/courses/course2/</link>
+      <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://rosavandenende.github.io/courses/course2/</guid>
+      <description>This undergraduate course presents many new things.</description>
+    </item>
+    
+    
+    <item>
+      <title>Diffusion in Dynamic Networks with Continuous Inputs to Allocate Responsibility</title>
+      <link>https://rosavandenende.github.io/papers/paper1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/projects/</guid>
-      <description>Research [W1] Submitted for publication; under review [W2] Submitted for publication; under review Projects 2024 Survey of Discrete Fair Division Previous Next &amp;nbsp; &amp;nbsp; / [pdf] View the PDF file here. [W1] Gus and the Search for the Golden Goose Command Line Simple Unix Shell written in C Debian Rice Custom desktop environment in Debian operating system using BSPWM in Gruvbox Theme Sensory Profile Calculator Sensory profile assesment, currently in use by active Occupational Therapists (OTs).</description>
+      <guid>https://rosavandenende.github.io/papers/paper1/</guid>
+      <description> We investigate how responsibility for any negative effect spreads in a dynamic network. Not just responsibility for carbon emissions, but also for example systemic risk.</description>
+    </item>
+    
+    <item>
+      <title>Location</title>
+      <link>https://rosavandenende.github.io/location/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rosavandenende.github.io/location/</guid>
+      <description>Office address Centre d&amp;rsquo;Économie de la Sorbonne (office 503) Université Paris I Panthéon-Sorbonne 106-112 Boulevard de l&amp;rsquo;Hôpital, 75013 Paris France
+On the map: </description>
+    </item>
+    
+    <item>
+      <title>Network-based allocation of responsibility for GHG emissions</title>
+      <link>https://rosavandenende.github.io/papers/paper2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rosavandenende.github.io/papers/paper2/</guid>
+      <description>In this paper we allocate responsibilities for GHG emissions in a network.</description>
+    </item>
+    
+    <item>
+      <title>Office Hours</title>
+      <link>https://rosavandenende.github.io/officehours/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rosavandenende.github.io/officehours/</guid>
+      <description>Schedule and location for office hours.</description>
+    </item>
+    
+    <item>
+      <title>Strategic environmental responsibility in networks</title>
+      <link>https://rosavandenende.github.io/papers/paper4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rosavandenende.github.io/papers/paper4/</guid>
+      <description>[Work in progress] We evaluate the effect of changing the underlying network structure on the responsibility allocation, and we investigate how we can use this to achieve the emisison reduction goals of the Paris Agreement. </description>
+    </item>
+    
+    <item>
+      <title>The quantum state reduction of general intital states through spontaneous unitarity violation</title>
+      <link>https://rosavandenende.github.io/papers/paper3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rosavandenende.github.io/papers/paper3/</guid>
+      <description>This paper shows other things. Published in Journal Name, 2015.</description>
     </item>
     
   </channel>

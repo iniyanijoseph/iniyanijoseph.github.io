@@ -1,0 +1,103 @@
+baseURL: "https://iniyanijoseph.github.io/" 
+title: Iniyan Joseph
+paginate: 20
+theme: PaperMod
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+
+taxonomies:
+    tag: tags
+menu:
+    main:
+        - name: Publications
+          url: papers/
+          weight: 1
+        - name: Projects
+          url: projects/
+          weight: 2
+        - name: Academics
+          url: academics/
+          weight: 3
+        - name: Resume
+          url: cv.pdf
+          weight: 4
+        - name: Timeline
+          url: archive/
+          weight: 5
+
+params:
+    description: "I am an undergraduate CS student at the University of Texas at Dallas researching combinatorial optimization."
+    author: Iniyan Joseph
+    DateFormat: "Jan 2006"
+    defaultTheme: light
+    hideFooter: false
+    disableThemeToggle: true
+    ShowShareButtons: false
+    ShowReadingTime: false
+    disableSpecial1stPost: true
+    disableAnchoredHeadings: true
+    ShowPostNavLinks: false
+    ShowBreadCrumbs: false
+    ShowCodeCopyButtons: true
+    ShowRssButtonInSectionTermList: false
+    ShowToc: false
+    disableScrollToTop: true
+    TocOpen: true
+    ShowWordCount: false
+    UseHugoToc: true
+    comments: false
+    math: true
+    profileMode:
+          enabled: true
+          title: Iniyan Joseph
+          subtitle: "My name is Iniyan Joseph. I am an undergraduate student at The University of Texas at Dallas (UTD) studying Computer Science. I am interested in studying theoretical CS, especially graph algorithms. Currently, I am advised by Professor Emily Fox at the Erik Jonsson School of Engineering and Computer Science at UTD researching algorithms for submodular optimization. My prior work was in efficient text entry in virtual reality, under Professor Jin Ryong Kim at the Erik Jonsson School of Engineering and Computer Science at UTD. I will be graduating in Fall 2025, and plan to apply to PhD programs to begin in 2026. I am also an grader for 'CS 2305 - Discrete Math for Computing' under Professor Daniel Gibney. I also am active in UTD Codeburners and run UTD's algorithms club."
+          imageUrl: "picture.jpg"
+          imageWidth: 160
+          imageHeight: 160
+          imageTitle: Iniyan Joseph
+          buttons:
+            # Note to self: The template first looks for the file example.md. If no file is found, then it looks for example/_index.md 
+            - name: Publications
+              url: papers/
+            - name: Projects
+              url: projects/
+            - name: Academics
+              url: academics/
+            - name: Music
+              url: music/
+            - name: Resume
+              url: cv.pdf
+    socialIcons:
+        - name: Email
+          url: mailto:iniyanijoseph@gmail.com
+        - name: Google Scholar
+          # url: https://scholar.google.com/citations?user=jwrYE5sAAAAJ&hl=fr
+        - name: LinkedIn
+          url: https://linkedin.com/in/iniyanijoseph
+        - name: GitHub
+          url: https://github.com/iniyanijoseph
+        - name: ORCID
+          url: https://orcid.org/0009-0008-8342-5755
+      
+    assets:
+        disableHLJS: true
+        disableScrollBarStyle: true
+    cover:
+        hiddenInList: false
+        hiddenInSingle: true
+    label:
+      text: "Iniyan Joseph"
+      icon: favicon.ico
+      iconHeight: 18
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
+    highlight:
+        guessSyntax: true
+        style: autumn 
+    tableOfContents:
+        endLevel: 2
+        ordered: false
+        startLevel: 2

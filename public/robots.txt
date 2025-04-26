@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://rosavandenende.github.io/sitemap.xml
