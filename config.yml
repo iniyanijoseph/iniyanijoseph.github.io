@@ -30,7 +30,7 @@ params:
     description: "I am an undergraduate CS student at the University of Texas at Dallas researching combinatorial optimization."
     author: Iniyan Joseph
     DateFormat: "Jan 2006"
-    defaultTheme: light
+    defaultTheme: dark
     hideFooter: false
     disableThemeToggle: true
     ShowShareButtons: false
