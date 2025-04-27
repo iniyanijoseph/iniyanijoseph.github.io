@@ -13,3 +13,6 @@ Fair division is a problem with roots in the Bible and in Greek mythology. When 
 
 [Survey of Discrete Fair Division](FairDivisionSurvey.pdf)
 
+## Paper Contents
+
+{{< embed file="FairDivisionSurvey.html" >}}

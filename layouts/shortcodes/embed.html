@@ -1,0 +1,12 @@
+<!-- {{ $file := .Get "file" }} -->
+<!-- {{ $content := readFile (printf "content/%s" $file) }} -->
+<!-- {{ $content | safeHTML }} -->
+{{ $file := .Get "file" }}
+{{ $currentPage := .Page }}
+{{ $path := printf "%s/%s" $currentPage.File.Dir $file }}
+{{ $content := readFile $path }}
+{{ if $content }}
+  {{ $content | safeHTML }}
+{{ else }}
+  <p>File not found: {{ $file }}</p>
+{{ end }}
