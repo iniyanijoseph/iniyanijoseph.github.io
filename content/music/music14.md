@@ -1,5 +1,5 @@
 ---
-title: "Fall Recital"
+title: "Fall 2024 Recital"
 date: 2024-08-25
 author: ["Iniyan Joseph"]
 sdescription: "Seth Thomas Studio Fall Recital" 
