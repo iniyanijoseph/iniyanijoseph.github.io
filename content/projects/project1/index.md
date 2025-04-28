@@ -2,8 +2,7 @@
 title: "Gus the Goose"
 date: 2025-01-10
 author: "Iniyan Joseph"
-sdescription: "Children's Math Book" 
-summary: "Children's Discrete Math Book" 
+summary: "Discrete Math Book for Children" 
 showToc: true
 disableAnchoredHeadings: false
 ---

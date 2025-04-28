@@ -2,8 +2,7 @@
 title: "Nebula Labs"
 date: 2023-12-01
 author: "Multiple"
-sdescription: "Develop scraper of UTD website for Nebula Labs API" 
-summary: "Develop scraper of UTD website for Nebula Labs API" 
+summary: "Scraper of UTD websites for Nebula Labs API" 
 showToc: true
 disableAnchoredHeadings: false
 ---

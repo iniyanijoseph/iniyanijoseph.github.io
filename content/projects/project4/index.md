@@ -2,8 +2,7 @@
 title: "Debian Rice"
 date: 2024-07-11
 author: ["Iniyan Joseph"]
-sdescription: "Dotfiles" 
-summary: "Dotfiles" 
+summary: "My Dotfiles for my Debian configuration"
 showToc: true
 disableAnchoredHeadings: false
 ---

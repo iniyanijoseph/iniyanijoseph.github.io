@@ -2,7 +2,6 @@
 title: "Sensory Profile Calculator"
 date: 2024-04-23
 author: "Iniyan Joseph"
-sdescription: "Calculator for the Sensory Profile for Occupational Therapists" 
 summary: "Calculator for the Sensory Profile for Occupational Therapists" 
 showToc: true
 disableAnchoredHeadings: false

@@ -2,7 +2,6 @@
 title: "National Federation of Music Clubs"
 date: 2022-03-10
 author: "Iniyan Joseph"
-sdescription: "Very Difficult Class II - Oustanding" 
 summary: "Very Difficult Class II - Outstanding" 
 showToc: true
 disableAnchoredHeadings: false
