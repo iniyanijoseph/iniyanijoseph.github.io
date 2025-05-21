@@ -8,37 +8,21 @@
 #let linkedin = "linkedin.com/in/iniyanijoseph"
 #let phone = "+1 (510) 936-4409"
 #let personal-site = "iniyanijoseph.github.io"
-
 #show: resume.with(
   author: name,
-  // All the lines below are optional. 
-  // For example, if you want to to hide your phone number:
-  // feel free to comment those lines out and they will not show.
   location: location,
   email: email,
   github: github,
   linkedin: linkedin,
-  phone: phone,
+  // phone: phone,
   personal-site: personal-site,
   accent-color: "#000000",
   font: "New Computer Modern",
   paper: "us-letter",
-  author-position: left,
+  author-position: center,
   personal-info-position: left,
 )
 
-/*
-* Lines that start with == are formatted into section headings
-* You can use the specific formatting functions if needed
-* The following formatting functions are listed below
-* #edu(dates: "", degree: "", gpa: "", institution: "", location: "")
-* #work(company: "", dates: "", location: "", title: "")
-* #project(dates: "", name: "", role: "", url: "")
-* #extracurriculars(activity: "", dates: "")
-* There are also the following generic functions that don't apply any formatting
-* #generic-two-by-two(top-left: "", top-right: "", bottom-left: "", bottom-right: "")
-* #generic-one-by-two(left: "", right: "")
-*/
 == Education
 
 #edu(
@@ -48,7 +32,6 @@
   degree: "Bachelor's of Science, Computer Science",
 )
 - Cumulative GPA: 3.99\/4 | Dean's List, Academic Excellence Scholarship
-// - Relevant Coursework: Data Structures, Program Development, Microprocessors, Abstract Algebra I: Groups and Rings, Linear Algebra, Discrete Mathematics, Multivariable & Single Variable Calculus, Principles and Practice of Comp Sci
 
 == Experience
 
@@ -78,7 +61,6 @@
 #project(
   name: "Survey of Discrete Fair Division",
   dates: dates-helper(start-date: "Aug 2024", end-date: "Dec 2024"),
-  // url: "Advised by Emily Fox"
 )
 - _Iniyan Joseph_
 
