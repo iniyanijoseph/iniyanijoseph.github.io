@@ -54,7 +54,7 @@
 == Publications
 #project(
   name: "PropType: Everyday Props as Typing Surfaces in Augmented Reality",
-  dates: "ACM Computer Human Interaction 2025"
+  dates: "ACM CHI 2025 Honorable Mention"
 )
 - _Hyunjae Gil, Ashish Pratap, Iniyan Joseph, Jin-Ryong Kim_
 
