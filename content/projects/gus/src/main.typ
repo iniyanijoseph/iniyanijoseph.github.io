@@ -1,4 +1,3 @@
-// Themes: default, simple, metropolis, dewdrop, university, aqua
 #import "@preview/touying:0.6.0": *
 #import themes.simple: *
 #import "@preview/diagraph:0.3.1":*
@@ -77,14 +76,9 @@ Just be careful 'bout the count,
 The sum of both may be large amounts!
 
 #set page(background: none, fill: rgb("5FB3EF"))
-Phew! Now that was quite a bit of work
+Soon the geese began to play
 
-Now lets go have a bit of mirth
-
-#set page(background: none, fill: rgb("5FB3EF"))
-One friend thought of a game to play
-
-Dodgeball would make it an excellent day!
+Dodgeball would make it a great day!
 
 #set page(background: none, fill: rgb("5FB3EF"))
 Lets make teams, two sets, $P$ and $T$
@@ -92,9 +86,9 @@ Lets make teams, two sets, $P$ and $T$
 Each one a *subset* of the big group $G$
 
 #set page(background: none, fill: rgb("5FB3EF"))
-Now how to think about who hit who?
+After they recorded the game
 
-Consider some pairs of goose to goose
+The 
 
 #set page(background: none, fill: rgb("5FB3EF"))
 This *relation* between them shows us the game
