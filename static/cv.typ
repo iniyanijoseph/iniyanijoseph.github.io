@@ -76,7 +76,7 @@
   name: "TurboMarkdown",
   dates: dates-helper(start-date: "Aug 2024", end-date: "Dec 2024"),
 )
-- Created website to easily compile Markdown Files into Latex
+- Created website to easily compile Markdown Files into pdf
 
 #project(
   name: "Simple Shell",
