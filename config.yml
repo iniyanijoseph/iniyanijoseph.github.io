@@ -54,13 +54,12 @@ params:
     profileMode:
           enabled: true
           title: Iniyan Joseph
-          subtitle: "I am an undergraduate student at The University of Texas at Dallas (UTD) studying Computer Science. I am interested in studying theoretical CS, especially graph algorithms. Currently, I am advised by Professor Emily Fox at the Erik Jonsson School of Engineering and Computer Science at UTD researching algorithms for submodular optimization. My prior work was in efficient text entry in virtual reality, under Professor Jin Ryong Kim at the Erik Jonsson School of Engineering and Computer Science at UTD. I will be graduating in Fall 2025, and plan to apply to PhD programs to begin in 2026. I am also an grader for 'CS 2305 - Discrete Math for Computing' under Professor Daniel Gibney. I also run UTD's algorithms club, and am active in competitive programming via UTD Codeburners."
+          subtitle: "I am an undergraduate student at The University of Texas at Dallas (UTD) studying Computer Science. I am interested in studying theoretical CS, especially combinatorial optimization. Currently, I am advised by Professor Emily Fox at the Erik Jonsson School of Engineering and Computer Science at UTD researching algorithms for submodular optimization. My prior work was in efficient text entry in virtual reality, under Professor Jin Ryong Kim at the Erik Jonsson School of Engineering and Computer Science at UTD. I will be graduating in August 2025, and plan to apply to PhD programs to begin in Fall 2026. I also run UTD's algorithms club, and am active in competitive programming via UTD Codeburners. Outside of CS, I love playing romantic-era piano, listening to music, and sport kiting."
           imageUrl: "picture.jpg"
           imageWidth: 256
           imageHeight: 256
           imageTitle: Iniyan Joseph
           buttons:
-            # Note to self: The template first looks for the file example.md. If no file is found, then it looks for example/_index.md 
             - name: Publications
               url: papers/
             - name: Projects

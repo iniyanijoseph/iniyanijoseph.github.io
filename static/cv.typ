@@ -22,7 +22,7 @@
   author-position: center,
   personal-info-position: left,
 )
-
+#set text(size : 9.5pt)
 == Education
 
 #edu(
@@ -70,48 +70,51 @@
   name: "Gus the Goose",
   dates: dates-helper(start-date: "Jan 2025", end-date: "Present"),
 )
-- Authoring picture book written to teach Discrete Mathematics for children
+- Authoring picture book written to teach Discrete Mathematics for children.
 
 #project(
   name: "TurboMarkdown",
   dates: dates-helper(start-date: "Aug 2024", end-date: "Dec 2024"),
 )
-- Created website to easily compile Markdown Files into pdfs.
+- Created website to easily compile Markdown Files into pdfs with custom coloring.
 
 #project(
   name: "Simple Shell",
   dates: dates-helper(start-date: "Jan 2024", end-date: "May 2024"),
 )
-- Wrote simple Bash shell application using C
+- Wrote simple Bash shell application using C with support for piping.
 
 #project(
   name: "Nebula Labs' API",
   dates: dates-helper(start-date: "Aug 2023", end-date: "Dec 2023"),
 )
-- Developed scrapers for UTD Nebula Labs' API
+- Developed scrapers for UTD Nebula Labs' API for aggregation of professor profile information.
 
 #project(
   name: "Sensory Profile Calculator",
   dates: "Jun 2023"
 )
-- Designed UI for Sensory Profile Assessment for sensory tendencies among neurodivergent students
+- Designed UI for Sensory Profile Assessment for sensory tendencies among neurodivergent students.
 
 #project(
   name: "Project Kaos",
   dates: dates-helper(start-date: "Aug 2022", end-date: "May 2023"),
 )
-- Lead team of 15 people using Scrum methodology
-- Developed UI for Role Playing Game using Unreal Engine 5
+- Designed UI for Role Playing Game using Unreal Engine 5.  
 
 == Extracurriculars & Certifications
 
 #extracurriculars(activity: "TCS Research - Advised by Emily Fox", dates: "Aug 2024 - Present")
+- Research algorithms for Symmetric Submodular Optimization.
 
 #extracurriculars(activity: "HCI Research - Advised by Jin-Ryong Kim", dates: "Sep 2023 - Sep 2024")
+- Coauthor two papers on efficient text entry in virtual and augmented reality.
 
 #extracurriculars(activity: "UTD Algorithms Club", dates: "May 2024 - Aug 2025")
+- Teach topics in Computational Geometry, Fair Division, and Combinatorial Optimization.
 
 #extracurriculars(activity: "UTD Codeburners", dates: "Aug 2023 - Aug 2025")
+- Participate in and host competitive programming competitions.
 
 #certificates(
   name: "HSP - Social and Behavioral",
@@ -124,3 +127,6 @@
   issuer: "CITI",
   date: "Jan 2024",
 )
+
+#extracurriculars(activity: "Piano", dates: "")
+- Compete in several music festivals and competitions, recieving Texas Federation of Music Clubs Gold Cup.
