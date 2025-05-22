@@ -49,7 +49,7 @@
   company: "Cedar Creek Lake United Methodist Church",
   dates: dates-helper(start-date: "Dec 2022", end-date: "Present"),
 )
-- Perform yearly christmas cantata
+- Perform yearly Christmas cantata
 
 == Publications
 #project(
@@ -76,19 +76,19 @@
   name: "TurboMarkdown",
   dates: dates-helper(start-date: "Aug 2024", end-date: "Dec 2024"),
 )
-- Created website to easily compile Markdown Files into pdf
+- Created website to easily compile Markdown Files into pdfs.
 
 #project(
   name: "Simple Shell",
   dates: dates-helper(start-date: "Jan 2024", end-date: "May 2024"),
 )
-- Wrote simple BASH Shell Application using C
+- Wrote simple Bash shell application using C
 
 #project(
-  name: "Nebula Labs API",
+  name: "Nebula Labs' API",
   dates: dates-helper(start-date: "Aug 2023", end-date: "Dec 2023"),
 )
-- Developed scrapers for UTD Nebula Labs API
+- Developed scrapers for UTD Nebula Labs' API
 
 #project(
   name: "Sensory Profile Calculator",

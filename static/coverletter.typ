@@ -26,25 +26,25 @@
 ]
 
 
+Dear Hiring Team,
 
-Dear Hiring Committee,
+I am writing to express my strong interest in the Math Curriculum Designer position at IXL Learning. As a Computer Science student at The University of Texas at Dallas with a passion for mathematics education and experience in creating educational content, I am excited about the opportunity to contribute to IXL's mission of making learning more effective and enjoyable for students worldwide.
 
-I am writing to express my interest in the Math Adjunct Faculty position at Dallas College. As a Computer Science student at The University of Texas at Dallas with a strong foundation in mathematics and experience as a grader for Discrete Mathematics, I am excited about the opportunity to share my knowledge and passion for mathematics with Dallas College students.
+My academic background has provided me with a comprehensive understanding of mathematical concepts that would be essential for curriculum design. Maintaining a 3.99/4.0 GPA while pursuing Computer Science has required mastery of advanced mathematics including calculus, linear algebra, discrete mathematics, and statistics. This deep mathematical foundation, combined with my current role as a Grader for Discrete Mathematics for Computing, has given me valuable insight into how students learn mathematical concepts and where they commonly encounter difficulties.
 
-My academic background has given me a deep appreciation for the importance of mathematics as a foundational discipline. Maintaining a 3.99/4.0 GPA while pursuing my Bachelor's of Science in Computer Science has required mastery of various mathematical concepts, from calculus and linear algebra to discrete mathematics and probability theory. This comprehensive understanding allows me to approach mathematical concepts from multiple angles, which is invaluable when teaching students with diverse learning styles.
+What sets me apart as a candidate is my unique blend of mathematical expertise and practical experience in educational content creation. My ongoing project "Gus the Goose," a picture book designed to teach Discrete Mathematics to children, demonstrates my ability to take complex mathematical concepts and present them in engaging, age-appropriate ways. This work has taught me the importance of scaffolding learning, using visual representations, and creating narratives that help students connect with mathematical ideas.
 
-My current role as a Grader for Discrete Mathematics for Computing (CS 2305) at UT Dallas has provided valuable insight into common student misconceptions and effective assessment methods. This experience has sharpened my ability to provide constructive feedback that helps students understand not just the correct answer, but the underlying mathematical reasoning. Additionally, my ongoing work authoring "Gus the Goose," a picture book designed to teach Discrete Mathematics to children, demonstrates my commitment to making mathematical concepts accessible and engaging for learners at all levels.
+My technical background in Computer Science aligns perfectly with IXL's technology-driven approach to education. My experience developing tools like TurboMarkdown and working with the UTD Nebula Labs API has given me understanding of how educational technology can enhance learning experiences. I appreciate how IXL leverages adaptive learning algorithms and data analytics to personalize education, and I would bring this technical perspective to curriculum design decisions.
 
-My publication "Survey of Discrete Fair Division" showcases my ability to delve deeply into mathematical topics and communicate complex concepts clearly. This skill is essential for effective mathematics instruction, particularly when introducing students to challenging new concepts.
+My research experience, including my publication "Survey of Discrete Fair Division," has honed my ability to analyze complex topics systematically and present information clearly—skills essential for creating well-structured, coherent curriculum materials. Additionally, my involvement with multiple research projects has taught me to approach problems methodically and consider multiple perspectives, which would be valuable when designing curricula that serve diverse learning needs.
 
-Beyond my technical qualifications, I bring strong communication skills developed through my experience as a researcher and team leader. My work with TCS Research and HCI Research has honed my ability to explain complex ideas in accessible ways, while my leadership of a 15-person team for Project Kaos has developed my skills in organization, preparation, and responsive teaching.
+Leadership experience managing a team of 15 people for Project Kaos has developed my project management skills and ability to collaborate effectively with cross-functional teams. I understand that curriculum design at IXL involves coordination with subject matter experts, educational researchers, and technology teams, and I am prepared to contribute effectively in this collaborative environment.
 
-I understand that teaching mathematics effectively requires not just knowledge of the subject matter, but also patience, clarity, and enthusiasm. My experience performing as a pianist at Cedar Creek Lake United Methodist Church has taught me the importance of preparation, presence, and connecting with an audience—skills that translate directly to the classroom environment.
+What particularly excites me about IXL is your commitment to using data and research to continuously improve educational outcomes. My analytical background would allow me to contribute not just to curriculum creation, but also to the ongoing analysis and refinement of educational materials based on student performance data.
 
-I am committed to creating an inclusive learning environment where students of all backgrounds feel supported in their mathematical journey. I believe that mathematics should be approachable for all students, and I am dedicated to implementing teaching strategies that address various learning needs.
+I am passionate about making mathematics accessible and engaging for all learners, and I believe that well-designed curriculum can transform how students experience and understand mathematical concepts. I would welcome the opportunity to discuss how my unique combination of mathematical knowledge, educational content creation experience, and technical skills could contribute to IXL's curriculum development efforts.
 
-I would welcome the opportunity to discuss how my background, skills, and teaching philosophy align with Dallas College's mission. Thank you for considering my application.
+Thank you for considering my application.
 
 Sincerely,
-
 Iniyan Joseph
