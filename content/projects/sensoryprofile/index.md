@@ -11,3 +11,4 @@ disableAnchoredHeadings: false
 
 [Github](https://github.com/iniyanijoseph/Sensory-Profile-Calculator)
 
+_In retrospect, I could do this using a Google Form and an Excel File_

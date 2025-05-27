@@ -6,4 +6,6 @@ summary: "Tiny Text Editor"
 showToc: true
 disableAnchoredHeadings: false
 ---
-A litle no-frills text editor I made while learning Tkinter
+A little no-frills text editor I made while learning Tkinter
+
+[Source](src/TextEditor.py)

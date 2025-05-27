@@ -17,5 +17,5 @@ Gus the Goose went out to play
 Out with friends one sunny day
 ...
 ```
-[Full Book](https://github.com/iniyanijoseph/Gus_the_Goose/blob/main/main.pdf)
+[Book PDF](src/main.pdf)
 
