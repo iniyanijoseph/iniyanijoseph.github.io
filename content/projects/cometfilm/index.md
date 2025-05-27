@@ -8,5 +8,4 @@ disableAnchoredHeadings: false
 ---
 Short stop-motion film made for extra credit for Introduction to Film with [Dylan Fischer]()
 
-![GIF](https://github.com/iniyanijoseph/iniyanijoseph.github.io/blob/main/static/cometfilm.gif?raw=true)
 [GIF](src/main.GIF)
