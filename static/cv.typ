@@ -14,7 +14,6 @@
   email: email,
   github: github,
   linkedin: linkedin,
-  // phone: phone,
   personal-site: personal-site,
   accent-color: "#000000",
   font: "New Computer Modern",
@@ -22,7 +21,7 @@
   author-position: center,
   personal-info-position: left,
 )
-#set text(size : 9.5pt)
+#set text(size : 8.7pt)
 == Education
 
 #edu(
@@ -130,3 +129,7 @@
 
 #extracurriculars(activity: "Piano", dates: "")
 - Compete in several music festivals and competitions, recieving Texas Federation of Music Clubs Gold Cup.
+== Skills
+- *Projects:* Python, Java, C/C++, Lua, Go, Bash, Typst, Latex, HTML/CSS, Nim, Nix, Lisp, Prolog
+- *Technologies:* Tensorflow, Unity, Godot, Unreal Engine 5, Git, Github, NixOS, Linux
+- *Languages:* English, Tamil, Esperanto
