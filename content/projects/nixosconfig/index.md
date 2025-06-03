@@ -1,21 +1,21 @@
 ---
-title: "Gus the Goose"
-date: 2025-01-10
+title: "NixOS Configuration"
+date: 2025-06-02
 author: "Iniyan Joseph"
-summary: "Discrete Math Book for Children" 
+summary: "My configuration files for NixOS" 
 showToc: true
 disableAnchoredHeadings: false
 ---
 
-> He declared that the future lies in the hand of the schoolmaster...He desired that society should labor without relaxation at the elevation of the moral and intellectual level, at coining science, at putting ideas into circulation, at increasing the mind in youthful persons. - Les Miserables
+NixOS is a tool for declarative software package management. It provides several benefits, like easy management of packages, dependency management, reproducability, etc.
 
-In my early education, I went to schools which taught me the 'fundamentals' of mathematics. This helped me develop some mathematical intuition, but when I came to college, I found an entirely new and interesting field which used little, if any, of my prior knowledge of math. In some way, it felt more relatable (having clear visualizations for many things), and its notation and concepts lent itself to a wealth of more difficult works, and re-introduced me to the concepts I already knew (and ultimately lead me to TCS). Because of this, I wanted to share discrete math with others, especially young people who had little prior exposure to math, in a simple way. 
+I recently switched from Debian (those dotfiles can also be found on my website) to NixOS.
 
+My files are heavily inspired by [Frost-Phoenix's](https://github.com/Frost-Phoenix/nixos-config/tree/main).
 
-```
-Gus the Goose went out to play
-Out with friends one sunny day
-...
-```
-[Book PDF](src/main.pdf)
+The system is configured via Hyprland, Waybar, Swaync, etc. My previous configuration used BSPWM (X Server).
+
+Wayland seems promising, and the configuration via Hyprland and NixOS was quite easy, since I was able to see exactly how things were configured.
+
+[DotFiles](https://github.com/iniyanijoseph/nixos-config)
 
