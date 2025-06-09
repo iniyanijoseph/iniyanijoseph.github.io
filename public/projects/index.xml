@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Projects on Iniyan Joseph</title>
+    <link>http://localhost:1313/projects/</link>
+    <description>Recent content in Projects on Iniyan Joseph</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NixOS Configuration</title>
+      <link>http://localhost:1313/projects/nixosconfig/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/nixosconfig/</guid>
+      <description>My configuration files for NixOS</description>
+    </item>
+    
+    <item>
+      <title>Gus the Goose</title>
+      <link>http://localhost:1313/projects/gus/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/gus/</guid>
+      <description>Discrete Math Book for Children</description>
+    </item>
+    
+    <item>
+      <title>Comets Short Film</title>
+      <link>http://localhost:1313/projects/cometfilm/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/cometfilm/</guid>
+      <description>&lt;p&gt;Short stop-motion film made for extra credit for Introduction to Film with &lt;a href=&#34;&#34;&gt;Dylan Fischer&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;src/main.GIF&#34;&gt;GIF&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Debian Rice</title>
+      <link>http://localhost:1313/projects/debian/</link>
+      <pubDate>Thu, 11 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/debian/</guid>
+      <description>My Dotfiles for my Debian configuration</description>
+    </item>
+    
+    <item>
+      <title>Sensory Profile Calculator</title>
+      <link>http://localhost:1313/projects/sensoryprofile/</link>
+      <pubDate>Tue, 23 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/sensoryprofile/</guid>
+      <description>Calculator for the Sensory Profile for Occupational Therapists</description>
+    </item>
+    
+    <item>
+      <title>Nebula Labs</title>
+      <link>http://localhost:1313/projects/nebula/</link>
+      <pubDate>Fri, 01 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/nebula/</guid>
+      <description>Scraper of UTD websites for Nebula Labs API</description>
+    </item>
+    
+    <item>
+      <title>AI Weather Prediction</title>
+      <link>http://localhost:1313/projects/weatherprediction/</link>
+      <pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/weatherprediction/</guid>
+      <description>Weadher Prediction</description>
+    </item>
+    
+    <item>
+      <title>Text Editor</title>
+      <link>http://localhost:1313/projects/tinytexteditor/</link>
+      <pubDate>Sat, 11 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/tinytexteditor/</guid>
+      <description>Tiny Text Editor</description>
+    </item>
+    
+    <item>
+      <title>Asteroids</title>
+      <link>http://localhost:1313/projects/asteroids/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/asteroids/</guid>
+      <description>Asteroids</description>
+    </item>
+    
+  </channel>
+</rss>

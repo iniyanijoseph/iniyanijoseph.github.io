@@ -1,93 +1,249 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Rosa van den Ende</title>
-    <link>https://rosavandenende.github.io/</link>
-    <description>Recent content on Rosa van den Ende</description>
+    <title>Iniyan Joseph</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Iniyan Joseph</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://rosavandenende.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Dataset Title</title>
-      <link>https://rosavandenende.github.io/data/data1/</link>
-      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      <title>NixOS Configuration</title>
+      <link>http://localhost:1313/projects/nixosconfig/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://rosavandenende.github.io/data/data1/</guid>
-      <description>This dataset contains things.</description>
+      <guid>http://localhost:1313/projects/nixosconfig/</guid>
+      <description>My configuration files for NixOS</description>
     </item>
     
     <item>
-      <title>Course Name 1</title>
-      <link>https://rosavandenende.github.io/courses/course1/</link>
+      <title>PropType: Everyday Props as Typing Surfaces in Augmented Reality</title>
+      <link>http://localhost:1313/papers/proptype/</link>
+      <pubDate>Wed, 23 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/papers/proptype/</guid>
+      <description>ACM CHI 2025 Best Paper Honorable Mention</description>
+    </item>
+    
+    <item>
+      <title>Gus the Goose</title>
+      <link>http://localhost:1313/projects/gus/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/gus/</guid>
+      <description>Discrete Math Book for Children</description>
+    </item>
+    
+    <item>
+      <title>Joy Has Dawned</title>
+      <link>http://localhost:1313/music/music9/</link>
+      <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/music/music9/</guid>
+      <description>Cedar Creek Lake Methodist Church Christmas Cantata</description>
+    </item>
+    
+    <item>
+      <title>Survey of Discrete Fair Division</title>
+      <link>http://localhost:1313/papers/fairdivisionsurvey/</link>
+      <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/papers/fairdivisionsurvey/</guid>
+      <description>Survey of Discrete Fair Division written for Independent Study</description>
+    </item>
+    
+    <item>
+      <title>Comets Short Film</title>
+      <link>http://localhost:1313/projects/cometfilm/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/cometfilm/</guid>
+      <description>&lt;p&gt;Short stop-motion film made for extra credit for Introduction to Film with &lt;a href=&#34;&#34;&gt;Dylan Fischer&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;src/main.GIF&#34;&gt;GIF&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Fall 2024 Recital</title>
+      <link>http://localhost:1313/music/music14/</link>
+      <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/music/music14/</guid>
+      <description>Seth Thomas Studio Fall Recital</description>
+    </item>
+    
+    <item>
+      <title>Debian Rice</title>
+      <link>http://localhost:1313/projects/debian/</link>
+      <pubDate>Thu, 11 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/debian/</guid>
+      <description>My Dotfiles for my Debian configuration</description>
+    </item>
+    
+    <item>
+      <title>Sensory Profile Calculator</title>
+      <link>http://localhost:1313/projects/sensoryprofile/</link>
+      <pubDate>Tue, 23 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/sensoryprofile/</guid>
+      <description>Calculator for the Sensory Profile for Occupational Therapists</description>
+    </item>
+    
+    <item>
+      <title>A Christmas for All Time</title>
+      <link>http://localhost:1313/music/music10/</link>
+      <pubDate>Mon, 25 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/music/music10/</guid>
+      <description>Cedar Creek Lake Methodist Church Christmas Cantata</description>
+    </item>
+    
+    <item>
+      <title>Nebula Labs</title>
+      <link>http://localhost:1313/projects/nebula/</link>
+      <pubDate>Fri, 01 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/nebula/</guid>
+      <description>Scraper of UTD websites for Nebula Labs API</description>
+    </item>
+    
+    <item>
+      <title>Senior Recital</title>
+      <link>http://localhost:1313/music/music12/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/music/music12/</guid>
+      <description>Senior Recital</description>
+    </item>
+    
+    <item>
+      <title>Senior Recital @ CCLUMC</title>
+      <link>http://localhost:1313/music/music13/</link>
+      <pubDate>Wed, 12 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/music/music13/</guid>
+      <description>Senior Recital at Cedar Creek Lake United Methodist Church</description>
+    </item>
+    
+    <item>
+      <title>48th Anniversary Texas Federation of Music Clubs</title>
+      <link>http://localhost:1313/music/music1/</link>
+      <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/music/music1/</guid>
+      <description>Musically Advanced Class II - Outstanding</description>
+    </item>
+    
+    <item>
+      <title>National Federation of Music Clubs</title>
+      <link>http://localhost:1313/music/music5/</link>
+      <pubDate>Fri, 10 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/music/music5/</guid>
+      <description>Musically Advanced Class II - Outstanding</description>
+    </item>
+    
+    <item>
+      <title>UIL Solo and Ensemble</title>
+      <link>http://localhost:1313/music/music7/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/music/music7/</guid>
+      <description>Division 1</description>
+    </item>
+    
+    <item>
+      <title>Let There Be Christmas</title>
+      <link>http://localhost:1313/music/music11/</link>
+      <pubDate>Sun, 25 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/music/music11/</guid>
+      <description>Cedar Creek Lake Methodist Church Christmas Cantata</description>
+    </item>
+    
+    <item>
+      <title>47th Anniversary Texas Federation of Music Clubs</title>
+      <link>http://localhost:1313/music/music2/</link>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/music/music2/</guid>
+      <description>Very Difficult Class II - Outstanding</description>
+    </item>
+    
+    <item>
+      <title>National Federation of Music Clubs</title>
+      <link>http://localhost:1313/music/music4/</link>
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://rosavandenende.github.io/courses/course1/</guid>
-      <description>This graduate course presents various methods and results.</description>
+      <guid>http://localhost:1313/music/music4/</guid>
+      <description>Very Difficult Class II - Outstanding</description>
     </item>
     
     <item>
-      <title>Course Title 2</title>
-      <link>https://rosavandenende.github.io/courses/course2/</link>
-      <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
+      <title>UIL Solo and Ensemble</title>
+      <link>http://localhost:1313/music/music8/</link>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://rosavandenende.github.io/courses/course2/</guid>
-      <description>This undergraduate course presents many new things.</description>
+      <guid>http://localhost:1313/music/music8/</guid>
+      <description>Division 2</description>
     </item>
     
+    <item>
+      <title>AI Weather Prediction</title>
+      <link>http://localhost:1313/projects/weatherprediction/</link>
+      <pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/weatherprediction/</guid>
+      <description>Weadher Prediction</description>
+    </item>
     
     <item>
-      <title>Diffusion in Dynamic Networks with Continuous Inputs to Allocate Responsibility</title>
-      <link>https://rosavandenende.github.io/papers/paper1/</link>
+      <title>46th Anniversary Texas Federation of Music Clubs</title>
+      <link>http://localhost:1313/music/music3/</link>
+      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/music/music3/</guid>
+      <description>Difficult Class II - Outstanding</description>
+    </item>
+    
+    <item>
+      <title>National Federation of Music Clubs</title>
+      <link>http://localhost:1313/music/music6/</link>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/music/music6/</guid>
+      <description>Difficult Class II - Outstanding</description>
+    </item>
+    
+    <item>
+      <title>Text Editor</title>
+      <link>http://localhost:1313/projects/tinytexteditor/</link>
+      <pubDate>Sat, 11 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/tinytexteditor/</guid>
+      <description>Tiny Text Editor</description>
+    </item>
+    
+    <item>
+      <title>Asteroids</title>
+      <link>http://localhost:1313/projects/asteroids/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/asteroids/</guid>
+      <description>Asteroids</description>
+    </item>
+    
+    <item>
+      <title>Academics</title>
+      <link>http://localhost:1313/academics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://rosavandenende.github.io/papers/paper1/</guid>
-      <description> We investigate how responsibility for any negative effect spreads in a dynamic network. Not just responsibility for carbon emissions, but also for example systemic risk.</description>
+      <guid>http://localhost:1313/academics/</guid>
+      <description>School</description>
     </item>
     
-    <item>
-      <title>Location</title>
-      <link>https://rosavandenende.github.io/location/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://rosavandenende.github.io/location/</guid>
-      <description>Office address Centre d&amp;rsquo;Économie de la Sorbonne (office 503) Université Paris I Panthéon-Sorbonne 106-112 Boulevard de l&amp;rsquo;Hôpital, 75013 Paris France
-On the map: </description>
-    </item>
-    
-    <item>
-      <title>Network-based allocation of responsibility for GHG emissions</title>
-      <link>https://rosavandenende.github.io/papers/paper2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://rosavandenende.github.io/papers/paper2/</guid>
-      <description>In this paper we allocate responsibilities for GHG emissions in a network.</description>
-    </item>
-    
-    <item>
-      <title>Office Hours</title>
-      <link>https://rosavandenende.github.io/officehours/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://rosavandenende.github.io/officehours/</guid>
-      <description>Schedule and location for office hours.</description>
-    </item>
-    
-    <item>
-      <title>Strategic environmental responsibility in networks</title>
-      <link>https://rosavandenende.github.io/papers/paper4/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://rosavandenende.github.io/papers/paper4/</guid>
-      <description>[Work in progress] We evaluate the effect of changing the underlying network structure on the responsibility allocation, and we investigate how we can use this to achieve the emisison reduction goals of the Paris Agreement. </description>
-    </item>
-    
-    <item>
-      <title>The quantum state reduction of general intital states through spontaneous unitarity violation</title>
-      <link>https://rosavandenende.github.io/papers/paper3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://rosavandenende.github.io/papers/paper3/</guid>
-      <description>This paper shows other things. Published in Journal Name, 2015.</description>
-    </item>
     
   </channel>
 </rss>

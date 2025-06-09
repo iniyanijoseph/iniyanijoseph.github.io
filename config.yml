@@ -1,6 +1,6 @@
 baseURL: "https://iniyanijoseph.github.io/" 
 title: Iniyan Joseph
-paginate: 20
+pagination.pagerSize : 20
 theme: PaperMod
 
 enableInlineShortcodes: true
