@@ -7,3 +7,6 @@
 [submodule "content/projects/sensoryprofile/src/Sensory-Profile-Calculator"]
 	path = content/projects/sensoryprofile/src/Sensory-Profile-Calculator
 	url = https://github.com/iniyanijoseph/Sensory-Profile-Calculator.git
+[submodule "content/projects/weatherprediction/src/Weather"]
+	path = content/projects/weatherprediction/src/Weather
+	url = https://github.com/iniyanijoseph/Weather.git

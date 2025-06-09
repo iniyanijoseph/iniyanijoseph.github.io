@@ -14,9 +14,6 @@
     <loc>http://localhost:1313/papers/</loc>
     <lastmod>2025-04-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/papers/paper2/</loc>
-    <lastmod>2025-04-23T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/papers/proptype/</loc>
     <lastmod>2025-04-23T00:00:00+00:00</lastmod>
   </url><url>
@@ -30,9 +27,6 @@
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/papers/fairdivisionsurvey/</loc>
-    <lastmod>2024-12-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/papers/paper1/</loc>
     <lastmod>2024-12-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/projects/cometfilm/</loc>
@@ -52,6 +46,9 @@
   </url><url>
     <loc>http://localhost:1313/projects/nebula/</loc>
     <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/fishfilm/</loc>
+    <lastmod>2023-09-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/music/music12/</loc>
     <lastmod>2023-08-12T00:00:00+00:00</lastmod>
