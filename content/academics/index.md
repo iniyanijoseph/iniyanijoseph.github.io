@@ -5,7 +5,7 @@ hidemeta: true
 ---
 
 ## At a Glance
-GPA - 3.982
+GPA - 3.99
 
 ## Elective Coursework
 Combinatorial Optimization
