@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Don&rsquo;t block the runtime
+Let&rsquo;s circle back to yield points.
+Unlike threads, Rust tasks cannot be preempted.
+tokio cannot, on its own, decide to pause a task and run another one in its place.
+The control goes back to the executor exclusively when the task yields—i.e.
+when Future::poll returns Poll::Pending or, in the case of async fn, when
+you .await a future.
+This exposes the runtime to a risk: if a task never yields, the runtime will never
+be able to run another task. This is called blocking the runtime.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/08_futures/05_blocking/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/08_futures/05_blocking/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Don&rsquo;t block the runtime
+Let&rsquo;s circle back to yield points.
+Unlike threads, Rust tasks cannot be preempted.
+tokio cannot, on its own, decide to pause a task and run another one in its place.
+The control goes back to the executor exclusively when the task yields—i.e.
+when Future::poll returns Poll::Pending or, in the case of async fn, when
+you .await a future.
+This exposes the runtime to a risk: if a task never yields, the runtime will never
+be able to run another task. This is called blocking the runtime." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/08_futures/05_blocking/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Don&rsquo;t block the runtime
+Let&rsquo;s circle back to yield points.
+Unlike threads, Rust tasks cannot be preempted.
+tokio cannot, on its own, decide to pause a task and run another one in its place.
+The control goes back to the executor exclusively when the task yields—i.e.
+when Future::poll returns Poll::Pending or, in the case of async fn, when
+you .await a future.
+This exposes the runtime to a risk: if a task never yields, the runtime will never
+be able to run another task. This is called blocking the runtime."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/08_futures/05_blocking/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Don\u0026rsquo;t block the runtime Let\u0026rsquo;s circle back to yield points.\nUnlike threads, Rust tasks cannot be preempted.\ntokio cannot, on its own, decide to pause a task and run another one in its place. The control goes back to the executor exclusively when the task yields—i.e. when Future::poll returns Poll::Pending or, in the case of async fn, when you .await a future.\nThis exposes the runtime to a risk: if a task never yields, the runtime will never be able to run another task. This is called blocking the runtime.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Don’t block the runtime Let’s circle back to yield points.\nUnlike threads, Rust tasks cannot be preempted.\ntokio cannot, on its own, decide to pause a task and run another one in its place. The control goes back to the executor exclusively when the task yields—i.e. when Future::poll returns Poll::Pending or, in the case of async fn, when you .await a future.\nThis exposes the runtime to a risk: if a task never yields, the runtime will never be able to run another task. This is called blocking the runtime.\nWhat is blocking? How long is too long? How much time can a task spend without yielding before it becomes a problem?\nIt depends on the runtime, the application, the number of in-flight tasks, and many other factors. But, as a general rule of thumb, try to spend less than 100 microseconds between yield points.\nConsequences Blocking the runtime can lead to:\nDeadlocks: if the task that’s not yielding is waiting for another task to complete, and that task is waiting for the first one to yield, you have a deadlock. No progress can be made, unless the runtime is able to schedule the other task on a different thread. Starvation: other tasks might not be able to run, or might run after a long delay, which can lead to poor performances (e.g. high tail latencies). Blocking is not always obvious Some types of operations should generally be avoided in async code, like:\nSynchronous I/O. You can’t predict how long it will take, and it’s likely to be longer than 100 microseconds. Expensive CPU-bound computations. The latter category is not always obvious though. For example, sorting a vector with a few elements is not a problem; that evaluation changes if the vector has billions of entries.\nHow to avoid blocking OK, so how do you avoid blocking the runtime assuming you must perform an operation that qualifies or risks qualifying as blocking?\nYou need to move the work to a different thread. You don’t want to use the so-called runtime threads, the ones used by tokio to run tasks.\ntokio provides a dedicated threadpool for this purpose, called the blocking pool. You can spawn a synchronous operation on the blocking pool using the tokio::task::spawn_blocking function. spawn_blocking returns a future that resolves to the result of the operation when it completes.\nuse tokio::task; fn expensive_computation() -\u003e u64 { // [...] } async fn run() { let handle = task::spawn_blocking(expensive_computation); // Do other stuff in the meantime let result = handle.await.unwrap(); } The blocking pool is long-lived. spawn_blocking should be faster than creating a new thread directly via std::thread::spawn because the cost of thread initialization is amortized over multiple calls.\nFurther reading Check out Alice Ryhl’s blog post on the topic. ",
+  "wordCount" : "459",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/08_futures/05_blocking/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="dont-block-the-runtime">Don&rsquo;t block the runtime</h1>
+<p>Let&rsquo;s circle back to yield points.<br>
+Unlike threads, <strong>Rust tasks cannot be preempted</strong>.</p>
+<p><code>tokio</code> cannot, on its own, decide to pause a task and run another one in its place.
+The control goes back to the executor <strong>exclusively</strong> when the task yields—i.e.
+when <code>Future::poll</code> returns <code>Poll::Pending</code> or, in the case of <code>async fn</code>, when
+you <code>.await</code> a future.</p>
+<p>This exposes the runtime to a risk: if a task never yields, the runtime will never
+be able to run another task. This is called <strong>blocking the runtime</strong>.</p>
+<h2 id="what-is-blocking">What is blocking?</h2>
+<p>How long is too long? How much time can a task spend without yielding before it
+becomes a problem?</p>
+<p>It depends on the runtime, the application, the number of in-flight tasks, and
+many other factors. But, as a general rule of thumb, try to spend less than 100
+microseconds between yield points.</p>
+<h2 id="consequences">Consequences</h2>
+<p>Blocking the runtime can lead to:</p>
+<ul>
+<li><strong>Deadlocks</strong>: if the task that&rsquo;s not yielding is waiting for another task to
+complete, and that task is waiting for the first one to yield, you have a deadlock.
+No progress can be made, unless the runtime is able to schedule the other task on
+a different thread.</li>
+<li><strong>Starvation</strong>: other tasks might not be able to run, or might run after a long
+delay, which can lead to poor performances (e.g. high tail latencies).</li>
+</ul>
+<h2 id="blocking-is-not-always-obvious">Blocking is not always obvious</h2>
+<p>Some types of operations should generally be avoided in async code, like:</p>
+<ul>
+<li>Synchronous I/O. You can&rsquo;t predict how long it will take, and it&rsquo;s likely to be
+longer than 100 microseconds.</li>
+<li>Expensive CPU-bound computations.</li>
+</ul>
+<p>The latter category is not always obvious though. For example, sorting a vector with
+a few elements is not a problem; that evaluation changes if the vector has billions
+of entries.</p>
+<h2 id="how-to-avoid-blocking">How to avoid blocking</h2>
+<p>OK, so how do you avoid blocking the runtime assuming you <em>must</em> perform an operation
+that qualifies or risks qualifying as blocking?<br>
+You need to move the work to a different thread. You don&rsquo;t want to use the so-called
+runtime threads, the ones used by <code>tokio</code> to run tasks.</p>
+<p><code>tokio</code> provides a dedicated threadpool for this purpose, called the <strong>blocking pool</strong>.
+You can spawn a synchronous operation on the blocking pool using the
+<code>tokio::task::spawn_blocking</code> function. <code>spawn_blocking</code> returns a future that resolves
+to the result of the operation when it completes.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>tokio::task;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">fn</span> <span style="color:#0a0">expensive_computation</span>()<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">u64</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">run</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>handle<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>task::spawn_blocking(expensive_computation);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// Do other stuff in the meantime
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>result<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>handle.<span style="color:#00a">await</span>.unwrap();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The blocking pool is long-lived. <code>spawn_blocking</code> should be faster
+than creating a new thread directly via <code>std::thread::spawn</code>
+because the cost of thread initialization is amortized over multiple calls.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li>Check out <a href="https://ryhl.io/blog/async-what-is-blocking/" target="_blank">Alice Ryhl&rsquo;s blog post</a>
+
+on the topic.</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

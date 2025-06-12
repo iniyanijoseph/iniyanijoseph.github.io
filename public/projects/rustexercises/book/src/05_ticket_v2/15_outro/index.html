@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Wrapping up
+When it comes to domain modelling, the devil is in the details.
+Rust offers a wide range of tools to help you represent the constraints of your domain directly in the type system,
+but it takes some practice to get it right and write code that looks idiomatic.
+Let&rsquo;s close the chapter with one final refinement of our Ticket model.
+We&rsquo;ll introduce a new type for each of the fields in Ticket to encapsulate the respective constraints.
+Every time someone accesses a Ticket field, they&rsquo;ll get back a value that&rsquo;s guaranteed to be valid—i.e. a
+TicketTitle instead of a String. They won&rsquo;t have to worry about the title being empty elsewhere in the code:
+as long as they have a TicketTitle, they know it&rsquo;s valid by construction.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/15_outro/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/15_outro/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Wrapping up
+When it comes to domain modelling, the devil is in the details.
+Rust offers a wide range of tools to help you represent the constraints of your domain directly in the type system,
+but it takes some practice to get it right and write code that looks idiomatic.
+Let&rsquo;s close the chapter with one final refinement of our Ticket model.
+We&rsquo;ll introduce a new type for each of the fields in Ticket to encapsulate the respective constraints.
+Every time someone accesses a Ticket field, they&rsquo;ll get back a value that&rsquo;s guaranteed to be valid—i.e. a
+TicketTitle instead of a String. They won&rsquo;t have to worry about the title being empty elsewhere in the code:
+as long as they have a TicketTitle, they know it&rsquo;s valid by construction." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/15_outro/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Wrapping up
+When it comes to domain modelling, the devil is in the details.
+Rust offers a wide range of tools to help you represent the constraints of your domain directly in the type system,
+but it takes some practice to get it right and write code that looks idiomatic.
+Let&rsquo;s close the chapter with one final refinement of our Ticket model.
+We&rsquo;ll introduce a new type for each of the fields in Ticket to encapsulate the respective constraints.
+Every time someone accesses a Ticket field, they&rsquo;ll get back a value that&rsquo;s guaranteed to be valid—i.e. a
+TicketTitle instead of a String. They won&rsquo;t have to worry about the title being empty elsewhere in the code:
+as long as they have a TicketTitle, they know it&rsquo;s valid by construction."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/15_outro/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Wrapping up When it comes to domain modelling, the devil is in the details.\nRust offers a wide range of tools to help you represent the constraints of your domain directly in the type system, but it takes some practice to get it right and write code that looks idiomatic.\nLet\u0026rsquo;s close the chapter with one final refinement of our Ticket model.\nWe\u0026rsquo;ll introduce a new type for each of the fields in Ticket to encapsulate the respective constraints.\nEvery time someone accesses a Ticket field, they\u0026rsquo;ll get back a value that\u0026rsquo;s guaranteed to be valid—i.e. a TicketTitle instead of a String. They won\u0026rsquo;t have to worry about the title being empty elsewhere in the code: as long as they have a TicketTitle, they know it\u0026rsquo;s valid by construction.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Wrapping up When it comes to domain modelling, the devil is in the details.\nRust offers a wide range of tools to help you represent the constraints of your domain directly in the type system, but it takes some practice to get it right and write code that looks idiomatic.\nLet’s close the chapter with one final refinement of our Ticket model.\nWe’ll introduce a new type for each of the fields in Ticket to encapsulate the respective constraints.\nEvery time someone accesses a Ticket field, they’ll get back a value that’s guaranteed to be valid—i.e. a TicketTitle instead of a String. They won’t have to worry about the title being empty elsewhere in the code: as long as they have a TicketTitle, they know it’s valid by construction.\nThis is just an example of how you can use Rust’s type system to make your code safer and more expressive.\nFurther reading Parse, don’t validate Using types to guarantee domain invariants ",
+  "wordCount" : "161",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/15_outro/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="wrapping-up">Wrapping up</h1>
+<p>When it comes to domain modelling, the devil is in the details.<br>
+Rust offers a wide range of tools to help you represent the constraints of your domain directly in the type system,
+but it takes some practice to get it right and write code that looks idiomatic.</p>
+<p>Let&rsquo;s close the chapter with one final refinement of our <code>Ticket</code> model.<br>
+We&rsquo;ll introduce a new type for each of the fields in <code>Ticket</code> to encapsulate the respective constraints.<br>
+Every time someone accesses a <code>Ticket</code> field, they&rsquo;ll get back a value that&rsquo;s guaranteed to be valid—i.e. a
+<code>TicketTitle</code> instead of a <code>String</code>. They won&rsquo;t have to worry about the title being empty elsewhere in the code:
+as long as they have a <code>TicketTitle</code>, they know it&rsquo;s valid <strong>by construction</strong>.</p>
+<p>This is just an example of how you can use Rust&rsquo;s type system to make your code safer and more expressive.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/" target="_blank">Parse, don&rsquo;t validate</a>
+</li>
+<li><a href="https://www.lpalmieri.com/posts/2020-12-11-zero-to-production-6-domain-modelling/" target="_blank">Using types to guarantee domain invariants</a>
+</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

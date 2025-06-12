@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Visibility
+When you start breaking down your code into multiple modules, you need to start thinking about visibility.
+Visibility determines which regions of your code (or other people&rsquo;s code) can access a given entity,
+be it a struct, a function, a field, etc.
+Private by default
+By default, everything in Rust is private.
+A private entity can only be accessed:
+
+within the same module where it&rsquo;s defined, or
+by one of its submodules
+
+We&rsquo;ve used this extensively in the previous exercises:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/04_visibility/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/04_visibility/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Visibility
+When you start breaking down your code into multiple modules, you need to start thinking about visibility.
+Visibility determines which regions of your code (or other people&rsquo;s code) can access a given entity,
+be it a struct, a function, a field, etc.
+Private by default
+By default, everything in Rust is private.
+A private entity can only be accessed:
+
+within the same module where it&rsquo;s defined, or
+by one of its submodules
+
+We&rsquo;ve used this extensively in the previous exercises:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/04_visibility/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Visibility
+When you start breaking down your code into multiple modules, you need to start thinking about visibility.
+Visibility determines which regions of your code (or other people&rsquo;s code) can access a given entity,
+be it a struct, a function, a field, etc.
+Private by default
+By default, everything in Rust is private.
+A private entity can only be accessed:
+
+within the same module where it&rsquo;s defined, or
+by one of its submodules
+
+We&rsquo;ve used this extensively in the previous exercises:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/04_visibility/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Visibility When you start breaking down your code into multiple modules, you need to start thinking about visibility. Visibility determines which regions of your code (or other people\u0026rsquo;s code) can access a given entity, be it a struct, a function, a field, etc.\nPrivate by default By default, everything in Rust is private.\nA private entity can only be accessed:\nwithin the same module where it\u0026rsquo;s defined, or by one of its submodules We\u0026rsquo;ve used this extensively in the previous exercises:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Visibility When you start breaking down your code into multiple modules, you need to start thinking about visibility. Visibility determines which regions of your code (or other people’s code) can access a given entity, be it a struct, a function, a field, etc.\nPrivate by default By default, everything in Rust is private.\nA private entity can only be accessed:\nwithin the same module where it’s defined, or by one of its submodules We’ve used this extensively in the previous exercises:\ncreate_todo_ticket worked (once you added a use statement) because helpers is a submodule of the crate root, where Ticket is defined. Therefore, create_todo_ticket can access Ticket without any issues even though Ticket is private. All our unit tests are defined in a submodule of the code they’re testing, so they can access everything without restrictions. Visibility modifiers You can modify the default visibility of an entity using a visibility modifier.\nSome common visibility modifiers are:\npub: makes the entity public, i.e. accessible from outside the module where it’s defined, potentially from other crates. pub(crate): makes the entity public within the same crate, but not outside of it. pub(super): makes the entity public within the parent module. pub(in path::to::module): makes the entity public within the specified module. You can use these modifiers on modules, structs, functions, fields, etc. For example:\npub struct Configuration { pub(crate) version: u32, active: bool, } Configuration is public, but you can only access the version field from within the same crate. The active field, instead, is private and can only be accessed from within the same module or one of its submodules.\n",
+  "wordCount" : "267",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/04_visibility/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="visibility">Visibility</h1>
+<p>When you start breaking down your code into multiple modules, you need to start thinking about <strong>visibility</strong>.
+Visibility determines which regions of your code (or other people&rsquo;s code) can access a given entity,
+be it a struct, a function, a field, etc.</p>
+<h2 id="private-by-default">Private by default</h2>
+<p>By default, everything in Rust is <strong>private</strong>.<br>
+A private entity can only be accessed:</p>
+<ol>
+<li>within the same module where it&rsquo;s defined, or</li>
+<li>by one of its submodules</li>
+</ol>
+<p>We&rsquo;ve used this extensively in the previous exercises:</p>
+<ul>
+<li><code>create_todo_ticket</code> worked (once you added a <code>use</code> statement) because <code>helpers</code> is a submodule of the crate root,
+where <code>Ticket</code> is defined. Therefore, <code>create_todo_ticket</code> can access <code>Ticket</code> without any issues even
+though <code>Ticket</code> is private.</li>
+<li>All our unit tests are defined in a submodule of the code they&rsquo;re testing, so they can access everything without
+restrictions.</li>
+</ul>
+<h2 id="visibility-modifiers">Visibility modifiers</h2>
+<p>You can modify the default visibility of an entity using a <strong>visibility modifier</strong>.<br>
+Some common visibility modifiers are:</p>
+<ul>
+<li><code>pub</code>: makes the entity <strong>public</strong>, i.e. accessible from outside the module where it&rsquo;s defined, potentially from
+other crates.</li>
+<li><code>pub(crate)</code>: makes the entity public within the same <strong>crate</strong>, but not outside of it.</li>
+<li><code>pub(super)</code>: makes the entity public within the parent module.</li>
+<li><code>pub(in path::to::module)</code>: makes the entity public within the specified module.</li>
+</ul>
+<p>You can use these modifiers on modules, structs, functions, fields, etc.
+For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">Configuration</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span>(<span style="color:#00a">crate</span>)<span style="color:#bbb"> </span>version: <span style="color:#0aa">u32</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>active: <span style="color:#0aa">bool</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>Configuration</code> is public, but you can only access the <code>version</code> field from within the same crate.
+The <code>active</code> field, instead, is private and can only be accessed from within the same module or one of its submodules.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

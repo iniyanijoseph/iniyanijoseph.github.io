@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="match
+You may be wondering—what can you actually do with an enum?
+The most common operation is to match on it.
+enum Status {
+    ToDo,
+    InProgress,
+    Done
+}
+
+impl Status {
+    fn is_done(&amp;self) -&gt; bool {
+        match self {
+            Status::Done =&gt; true,
+            // The `|` operator lets you match multiple patterns.
+            // It reads as &#34;either `Status::ToDo` or `Status::InProgress`&#34;.
+            Status::InProgress | Status::ToDo =&gt; false
+        }
+    }
+}
+A match statement that lets you compare a Rust value against a series of patterns.
+You can think of it as a type-level if. If status is a Done variant, execute the first block;
+if it&rsquo;s a InProgress or ToDo variant, execute the second block.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/02_match/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/02_match/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="match
+You may be wondering—what can you actually do with an enum?
+The most common operation is to match on it.
+enum Status {
+    ToDo,
+    InProgress,
+    Done
+}
+
+impl Status {
+    fn is_done(&amp;self) -&gt; bool {
+        match self {
+            Status::Done =&gt; true,
+            // The `|` operator lets you match multiple patterns.
+            // It reads as &#34;either `Status::ToDo` or `Status::InProgress`&#34;.
+            Status::InProgress | Status::ToDo =&gt; false
+        }
+    }
+}
+A match statement that lets you compare a Rust value against a series of patterns.
+You can think of it as a type-level if. If status is a Done variant, execute the first block;
+if it&rsquo;s a InProgress or ToDo variant, execute the second block." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/02_match/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="match
+You may be wondering—what can you actually do with an enum?
+The most common operation is to match on it.
+enum Status {
+    ToDo,
+    InProgress,
+    Done
+}
+
+impl Status {
+    fn is_done(&amp;self) -&gt; bool {
+        match self {
+            Status::Done =&gt; true,
+            // The `|` operator lets you match multiple patterns.
+            // It reads as &#34;either `Status::ToDo` or `Status::InProgress`&#34;.
+            Status::InProgress | Status::ToDo =&gt; false
+        }
+    }
+}
+A match statement that lets you compare a Rust value against a series of patterns.
+You can think of it as a type-level if. If status is a Done variant, execute the first block;
+if it&rsquo;s a InProgress or ToDo variant, execute the second block."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/02_match/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "match You may be wondering—what can you actually do with an enum?\nThe most common operation is to match on it.\nenum Status { ToDo, InProgress, Done } impl Status { fn is_done(\u0026amp;self) -\u0026gt; bool { match self { Status::Done =\u0026gt; true, // The `|` operator lets you match multiple patterns. // It reads as \u0026#34;either `Status::ToDo` or `Status::InProgress`\u0026#34;. Status::InProgress | Status::ToDo =\u0026gt; false } } } A match statement that lets you compare a Rust value against a series of patterns.\nYou can think of it as a type-level if. If status is a Done variant, execute the first block; if it\u0026rsquo;s a InProgress or ToDo variant, execute the second block.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "match You may be wondering—what can you actually do with an enum?\nThe most common operation is to match on it.\nenum Status { ToDo, InProgress, Done } impl Status { fn is_done(\u0026self) -\u003e bool { match self { Status::Done =\u003e true, // The `|` operator lets you match multiple patterns. // It reads as \"either `Status::ToDo` or `Status::InProgress`\". Status::InProgress | Status::ToDo =\u003e false } } } A match statement that lets you compare a Rust value against a series of patterns.\nYou can think of it as a type-level if. If status is a Done variant, execute the first block; if it’s a InProgress or ToDo variant, execute the second block.\nExhaustiveness There’s one key detail here: match is exhaustive. You must handle all enum variants.\nIf you forget to handle a variant, Rust will stop you at compile-time with an error.\nE.g. if we forget to handle the ToDo variant:\nmatch self { Status::Done =\u003e true, Status::InProgress =\u003e false, } the compiler will complain:\nerror[E0004]: non-exhaustive patterns: `ToDo` not covered --\u003e src/main.rs:5:9 | 5 | match status { | ^^^^^^^^^^^^ pattern `ToDo` not covered This is a big deal!\nCodebases evolve over time—you might add a new status down the line, e.g. Blocked. The Rust compiler will emit an error for every single match statement that’s missing logic for the new variant. That’s why Rust developers often sing the praises of “compiler-driven refactoring”—the compiler tells you what to do next, you just have to fix what it reports.\nCatch-all If you don’t care about one or more variants, you can use the _ pattern as a catch-all:\nmatch status { Status::Done =\u003e true, _ =\u003e false } The _ pattern matches anything that wasn’t matched by the previous patterns.\nBy using this catch-all pattern, you _won't_ get the benefits of compiler-driven refactoring.\\ If you add a new enum variant, the compiler _won't_ tell you that you're not handling it. If you’re keen on correctness, avoid using catch-alls. Leverage the compiler to re-examine all matching sites and determine how new enum variants should be handled.\n",
+  "wordCount" : "346",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/02_match/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="match"><code>match</code></h1>
+<p>You may be wondering—what can you actually <strong>do</strong> with an enum?<br>
+The most common operation is to <strong>match</strong> on it.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">enum</span> <span style="color:#0a0;text-decoration:underline">Status</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>ToDo,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>InProgress,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>Done<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Status<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">is_done</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">bool</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">match</span><span style="color:#bbb"> </span><span style="color:#0aa">self</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>Status::Done<span style="color:#bbb"> </span>=&gt;<span style="color:#bbb"> </span><span style="color:#00a">true</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#aaa;font-style:italic">// The `|` operator lets you match multiple patterns.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">            </span><span style="color:#aaa;font-style:italic">// It reads as &#34;either `Status::ToDo` or `Status::InProgress`&#34;.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">            </span>Status::InProgress<span style="color:#bbb"> </span>|<span style="color:#bbb"> </span>Status::ToDo<span style="color:#bbb"> </span>=&gt;<span style="color:#bbb"> </span><span style="color:#00a">false</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>A <code>match</code> statement that lets you compare a Rust value against a series of <strong>patterns</strong>.<br>
+You can think of it as a type-level <code>if</code>. If <code>status</code> is a <code>Done</code> variant, execute the first block;
+if it&rsquo;s a <code>InProgress</code> or <code>ToDo</code> variant, execute the second block.</p>
+<h2 id="exhaustiveness">Exhaustiveness</h2>
+<p>There&rsquo;s one key detail here: <code>match</code> is <strong>exhaustive</strong>. You must handle all enum variants.<br>
+If you forget to handle a variant, Rust will stop you <strong>at compile-time</strong> with an error.</p>
+<p>E.g. if we forget to handle the <code>ToDo</code> variant:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">match</span><span style="color:#bbb"> </span><span style="color:#0aa">self</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>Status::Done<span style="color:#bbb"> </span>=&gt;<span style="color:#bbb"> </span><span style="color:#00a">true</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>Status::InProgress<span style="color:#bbb"> </span>=&gt;<span style="color:#bbb"> </span><span style="color:#00a">false</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>the compiler will complain:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>error[E0004]: non-exhaustive patterns: `ToDo` not covered
+</span></span><span style="display:flex;"><span> --&gt; src/main.rs:5:9
+</span></span><span style="display:flex;"><span>  |
+</span></span><span style="display:flex;"><span>5 |     match status {
+</span></span><span style="display:flex;"><span>  |     ^^^^^^^^^^^^ pattern `ToDo` not covered
+</span></span></code></pre></div><p>This is a big deal!<br>
+Codebases evolve over time—you might add a new status down the line, e.g. <code>Blocked</code>. The Rust compiler
+will emit an error for every single <code>match</code> statement that&rsquo;s missing logic for the new variant.
+That&rsquo;s why Rust developers often sing the praises of &ldquo;compiler-driven refactoring&rdquo;—the compiler tells you
+what to do next, you just have to fix what it reports.</p>
+<h2 id="catch-all">Catch-all</h2>
+<p>If you don&rsquo;t care about one or more variants, you can use the <code>_</code> pattern as a catch-all:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">match</span><span style="color:#bbb"> </span>status<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>Status::Done<span style="color:#bbb"> </span>=&gt;<span style="color:#bbb"> </span><span style="color:#00a">true</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>_<span style="color:#bbb"> </span>=&gt;<span style="color:#bbb"> </span><span style="color:#00a">false</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The <code>_</code> pattern matches anything that wasn&rsquo;t matched by the previous patterns.</p>
+<div class="warning">
+By using this catch-all pattern, you _won't_ get the benefits of compiler-driven refactoring.\
+If you add a new enum variant, the compiler _won't_ tell you that you're not handling it.
+<p>If you&rsquo;re keen on correctness, avoid using catch-alls. Leverage the compiler to re-examine all matching sites and determine how new enum variants should be handled.</p>
+</div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

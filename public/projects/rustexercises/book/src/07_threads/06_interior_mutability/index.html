@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Interior mutability
+Let&rsquo;s take a moment to reason about the signature of Sender&rsquo;s send:
+impl&lt;T&gt; Sender&lt;T&gt; {
+    pub fn send(&amp;self, t: T) -&gt; Result&lt;(), SendError&lt;T&gt;&gt; {
+        // [...]
+    }
+}
+send takes &amp;self as its argument.
+But it&rsquo;s clearly causing a mutation: it&rsquo;s adding a new message to the channel.
+What&rsquo;s even more interesting is that Sender is cloneable: we can have multiple instances of Sender
+trying to modify the channel state at the same time, from different threads.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/06_interior_mutability/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/06_interior_mutability/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Interior mutability
+Let&rsquo;s take a moment to reason about the signature of Sender&rsquo;s send:
+impl&lt;T&gt; Sender&lt;T&gt; {
+    pub fn send(&amp;self, t: T) -&gt; Result&lt;(), SendError&lt;T&gt;&gt; {
+        // [...]
+    }
+}
+send takes &amp;self as its argument.
+But it&rsquo;s clearly causing a mutation: it&rsquo;s adding a new message to the channel.
+What&rsquo;s even more interesting is that Sender is cloneable: we can have multiple instances of Sender
+trying to modify the channel state at the same time, from different threads." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/07_threads/06_interior_mutability/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Interior mutability
+Let&rsquo;s take a moment to reason about the signature of Sender&rsquo;s send:
+impl&lt;T&gt; Sender&lt;T&gt; {
+    pub fn send(&amp;self, t: T) -&gt; Result&lt;(), SendError&lt;T&gt;&gt; {
+        // [...]
+    }
+}
+send takes &amp;self as its argument.
+But it&rsquo;s clearly causing a mutation: it&rsquo;s adding a new message to the channel.
+What&rsquo;s even more interesting is that Sender is cloneable: we can have multiple instances of Sender
+trying to modify the channel state at the same time, from different threads."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/07_threads/06_interior_mutability/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Interior mutability Let\u0026rsquo;s take a moment to reason about the signature of Sender\u0026rsquo;s send:\nimpl\u0026lt;T\u0026gt; Sender\u0026lt;T\u0026gt; { pub fn send(\u0026amp;self, t: T) -\u0026gt; Result\u0026lt;(), SendError\u0026lt;T\u0026gt;\u0026gt; { // [...] } } send takes \u0026amp;self as its argument.\nBut it\u0026rsquo;s clearly causing a mutation: it\u0026rsquo;s adding a new message to the channel. What\u0026rsquo;s even more interesting is that Sender is cloneable: we can have multiple instances of Sender trying to modify the channel state at the same time, from different threads.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Interior mutability Let’s take a moment to reason about the signature of Sender’s send:\nimpl Sender { pub fn send(\u0026self, t: T) -\u003e Result\u003c(), SendError\u003e { // [...] } } send takes \u0026self as its argument.\nBut it’s clearly causing a mutation: it’s adding a new message to the channel. What’s even more interesting is that Sender is cloneable: we can have multiple instances of Sender trying to modify the channel state at the same time, from different threads.\nThat’s the key property we are using to build this client-server architecture. But why does it work? Doesn’t it violate Rust’s rules about borrowing? How are we performing mutations via an immutable reference?\nShared rather than immutable references When we introduced the borrow-checker, we named the two types of references we can have in Rust:\nimmutable references (\u0026T) mutable references (\u0026mut T) It would have been more accurate to name them:\nshared references (\u0026T) exclusive references (\u0026mut T) Immutable/mutable is a mental model that works for the vast majority of cases, and it’s a great one to get started with Rust. But it’s not the whole story, as you’ve just seen: \u0026T doesn’t actually guarantee that the data it points to is immutable.\nDon’t worry, though: Rust is still keeping its promises. It’s just that the terms are a bit more nuanced than they might seem at first.\nUnsafeCell Whenever a type allows you to mutate data through a shared reference, you’re dealing with interior mutability.\nBy default, the Rust compiler assumes that shared references are immutable. It optimises your code based on that assumption.\nThe compiler can reorder operations, cache values, and do all sorts of magic to make your code faster.\nYou can tell the compiler “No, this shared reference is actually mutable” by wrapping the data in an UnsafeCell.\nEvery time you see a type that allows interior mutability, you can be certain that UnsafeCell is involved, either directly or indirectly.\nUsing UnsafeCell, raw pointers and unsafe code, you can mutate data through shared references.\nLet’s be clear, though: UnsafeCell isn’t a magic wand that allows you to ignore the borrow-checker!\nunsafe code is still subject to Rust’s rules about borrowing and aliasing. It’s an (advanced) tool that you can leverage to build safe abstractions whose safety can’t be directly expressed in Rust’s type system. Whenever you use the unsafe keyword you’re telling the compiler: “I know what I’m doing, I won’t violate your invariants, trust me.”\nEvery time you call an unsafe function, there will be documentation explaining its safety preconditions: under what circumstances it’s safe to execute its unsafe block. You can find the ones for UnsafeCell in std’s documentation .\nWe won’t be using UnsafeCell directly in this course, nor will we be writing unsafe code. But it’s important to know that it’s there, why it exists and how it relates to the types you use every day in Rust.\nKey examples Let’s go through a couple of important std types that leverage interior mutability.\nThese are types that you’ll encounter somewhat often in Rust code, especially if you peek under the hood of some the libraries you use.\nReference counting Rc is a reference-counted pointer.\nIt wraps around a value and keeps track of how many references to the value exist. When the last reference is dropped, the value is deallocated.\nThe value wrapped in an Rc is immutable: you can only get shared references to it.\nuse std::rc::Rc; let a: Rc\u003cString\u003e = Rc::new(\"My string\".to_string()); // Only one reference to the string data exists. assert_eq!(Rc::strong_count(\u0026a), 1); // When we call `clone`, the string data is not copied! // Instead, the reference count for `Rc` is incremented. let b = Rc::clone(\u0026a); assert_eq!(Rc::strong_count(\u0026a), 2); assert_eq!(Rc::strong_count(\u0026b), 2); // ^ Both `a` and `b` point to the same string data // and share the same reference counter. Rc uses UnsafeCell internally to allow shared references to increment and decrement the reference count.\nRefCell RefCell is one of the most common examples of interior mutability in Rust. It allows you to mutate the value wrapped in a RefCell even if you only have an immutable reference to the RefCell itself.\nThis is done via runtime borrow checking. The RefCell keeps track of the number (and type) of references to the value it contains at runtime. If you try to borrow the value mutably while it’s already borrowed immutably, the program will panic, ensuring that Rust’s borrowing rules are always enforced.\nuse std::cell::RefCell; let x = RefCell::new(42); let y = x.borrow(); // Immutable borrow let z = x.borrow_mut(); // Panics! There is an active immutable borrow. ",
+  "wordCount" : "766",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/07_threads/06_interior_mutability/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="interior-mutability">Interior mutability</h1>
+<p>Let&rsquo;s take a moment to reason about the signature of <code>Sender</code>&rsquo;s <code>send</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span>&lt;T&gt;<span style="color:#bbb"> </span>Sender&lt;T&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">send</span>(&amp;<span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>t: <span style="color:#0a0;text-decoration:underline">T</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">Result</span>&lt;(),<span style="color:#bbb"> </span>SendError&lt;T&gt;&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>send</code> takes <code>&amp;self</code> as its argument.<br>
+But it&rsquo;s clearly causing a mutation: it&rsquo;s adding a new message to the channel.
+What&rsquo;s even more interesting is that <code>Sender</code> is cloneable: we can have multiple instances of <code>Sender</code>
+trying to modify the channel state <strong>at the same time</strong>, from different threads.</p>
+<p>That&rsquo;s the key property we are using to build this client-server architecture. But why does it work?
+Doesn&rsquo;t it violate Rust&rsquo;s rules about borrowing? How are we performing mutations via an <em>immutable</em> reference?</p>
+<h2 id="shared-rather-than-immutable-references">Shared rather than immutable references</h2>
+<p>When we introduced the borrow-checker, we named the two types of references we can have in Rust:</p>
+<ul>
+<li>immutable references (<code>&amp;T</code>)</li>
+<li>mutable references (<code>&amp;mut T</code>)</li>
+</ul>
+<p>It would have been more accurate to name them:</p>
+<ul>
+<li>shared references (<code>&amp;T</code>)</li>
+<li>exclusive references (<code>&amp;mut T</code>)</li>
+</ul>
+<p>Immutable/mutable is a mental model that works for the vast majority of cases, and it&rsquo;s a great one to get started
+with Rust. But it&rsquo;s not the whole story, as you&rsquo;ve just seen: <code>&amp;T</code> doesn&rsquo;t actually guarantee that the data it
+points to is immutable.<br>
+Don&rsquo;t worry, though: Rust is still keeping its promises.
+It&rsquo;s just that the terms are a bit more nuanced than they might seem at first.</p>
+<h2 id="unsafecell"><code>UnsafeCell</code></h2>
+<p>Whenever a type allows you to mutate data through a shared reference, you&rsquo;re dealing with <strong>interior mutability</strong>.</p>
+<p>By default, the Rust compiler assumes that shared references are immutable. It <strong>optimises your code</strong> based on that assumption.<br>
+The compiler can reorder operations, cache values, and do all sorts of magic to make your code faster.</p>
+<p>You can tell the compiler &ldquo;No, this shared reference is actually mutable&rdquo; by wrapping the data in an <code>UnsafeCell</code>.<br>
+Every time you see a type that allows interior mutability, you can be certain that <code>UnsafeCell</code> is involved,
+either directly or indirectly.<br>
+Using <code>UnsafeCell</code>, raw pointers and <code>unsafe</code> code, you can mutate data through shared references.</p>
+<p>Let&rsquo;s be clear, though: <code>UnsafeCell</code> isn&rsquo;t a magic wand that allows you to ignore the borrow-checker!<br>
+<code>unsafe</code> code is still subject to Rust&rsquo;s rules about borrowing and aliasing.
+It&rsquo;s an (advanced) tool that you can leverage to build <strong>safe abstractions</strong> whose safety can&rsquo;t be directly expressed
+in Rust&rsquo;s type system. Whenever you use the <code>unsafe</code> keyword you&rsquo;re telling the compiler:
+&ldquo;I know what I&rsquo;m doing, I won&rsquo;t violate your invariants, trust me.&rdquo;</p>
+<p>Every time you call an <code>unsafe</code> function, there will be documentation explaining its <strong>safety preconditions</strong>:
+under what circumstances it&rsquo;s safe to execute its <code>unsafe</code> block. You can find the ones for <code>UnsafeCell</code>
+<a href="https://doc.rust-lang.org/std/cell/struct.UnsafeCell.html" target="_blank">in <code>std</code>&rsquo;s documentation</a>
+.</p>
+<p>We won&rsquo;t be using <code>UnsafeCell</code> directly in this course, nor will we be writing <code>unsafe</code> code.
+But it&rsquo;s important to know that it&rsquo;s there, why it exists and how it relates to the types you use
+every day in Rust.</p>
+<h2 id="key-examples">Key examples</h2>
+<p>Let&rsquo;s go through a couple of important <code>std</code> types that leverage interior mutability.<br>
+These are types that you&rsquo;ll encounter somewhat often in Rust code, especially if you peek under the hood of
+some the libraries you use.</p>
+<h3 id="reference-counting">Reference counting</h3>
+<p><code>Rc</code> is a reference-counted pointer.<br>
+It wraps around a value and keeps track of how many references to the value exist.
+When the last reference is dropped, the value is deallocated.<br>
+The value wrapped in an <code>Rc</code> is immutable: you can only get shared references to it.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::rc::Rc;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>a: <span style="color:#0a0;text-decoration:underline">Rc</span>&lt;<span style="color:#0aa">String</span>&gt;<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Rc::new(<span style="color:#a50">&#34;My string&#34;</span>.to_string());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// Only one reference to the string data exists.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#0a0">assert_eq!</span>(Rc::strong_count(&amp;a),<span style="color:#bbb"> </span><span style="color:#099">1</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// When we call `clone`, the string data is not copied!
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// Instead, the reference count for `Rc` is incremented.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>b<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Rc::clone(&amp;a);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0a0">assert_eq!</span>(Rc::strong_count(&amp;a),<span style="color:#bbb"> </span><span style="color:#099">2</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0a0">assert_eq!</span>(Rc::strong_count(&amp;b),<span style="color:#bbb"> </span><span style="color:#099">2</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// ^ Both `a` and `b` point to the same string data
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">//   and share the same reference counter.
+</span></span></span></code></pre></div><p><code>Rc</code> uses <code>UnsafeCell</code> internally to allow shared references to increment and decrement the reference count.</p>
+<h3 id="refcell"><code>RefCell</code></h3>
+<p><code>RefCell</code> is one of the most common examples of interior mutability in Rust.
+It allows you to mutate the value wrapped in a <code>RefCell</code> even if you only have an
+immutable reference to the <code>RefCell</code> itself.</p>
+<p>This is done via <strong>runtime borrow checking</strong>.
+The <code>RefCell</code> keeps track of the number (and type) of references to the value it contains at runtime.
+If you try to borrow the value mutably while it&rsquo;s already borrowed immutably,
+the program will panic, ensuring that Rust&rsquo;s borrowing rules are always enforced.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::cell::RefCell;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>RefCell::new(<span style="color:#099">42</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>y<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>x.borrow();<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">// Immutable borrow
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>z<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>x.borrow_mut();<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">// Panics! There is an active immutable borrow.
+</span></span></span></code></pre></div>
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

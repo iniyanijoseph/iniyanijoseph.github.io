@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Ordering
+By moving from a Vec to a HashMap we have improved the performance of our ticket management system,
+and simplified our code in the process.
+It&rsquo;s not all roses, though. When iterating over a Vec-backed store, we could be sure that the tickets
+would be returned in the order they were added.
+That&rsquo;s not the case with a HashMap: you can iterate over the tickets, but the order is random.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/16_btreemap/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/16_btreemap/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Ordering
+By moving from a Vec to a HashMap we have improved the performance of our ticket management system,
+and simplified our code in the process.
+It&rsquo;s not all roses, though. When iterating over a Vec-backed store, we could be sure that the tickets
+would be returned in the order they were added.
+That&rsquo;s not the case with a HashMap: you can iterate over the tickets, but the order is random." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/16_btreemap/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Ordering
+By moving from a Vec to a HashMap we have improved the performance of our ticket management system,
+and simplified our code in the process.
+It&rsquo;s not all roses, though. When iterating over a Vec-backed store, we could be sure that the tickets
+would be returned in the order they were added.
+That&rsquo;s not the case with a HashMap: you can iterate over the tickets, but the order is random."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/16_btreemap/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Ordering By moving from a Vec to a HashMap we have improved the performance of our ticket management system, and simplified our code in the process.\nIt\u0026rsquo;s not all roses, though. When iterating over a Vec-backed store, we could be sure that the tickets would be returned in the order they were added.\nThat\u0026rsquo;s not the case with a HashMap: you can iterate over the tickets, but the order is random.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Ordering By moving from a Vec to a HashMap we have improved the performance of our ticket management system, and simplified our code in the process.\nIt’s not all roses, though. When iterating over a Vec-backed store, we could be sure that the tickets would be returned in the order they were added.\nThat’s not the case with a HashMap: you can iterate over the tickets, but the order is random.\nWe can recover a consistent ordering by switching from a HashMap to a BTreeMap.\nBTreeMap A BTreeMap guarantees that entries are sorted by their keys.\nThis is useful when you need to iterate over the entries in a specific order, or if you need to perform range queries (e.g. “give me all tickets with an id between 10 and 20”).\nJust like HashMap, you won’t find trait bounds on the definition of BTreeMap. But you’ll find trait bounds on its methods. Let’s look at insert:\n// `K` and `V` stand for the key and value types, respectively, // just like in `HashMap`. impl",
+  "wordCount" : "414",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/16_btreemap/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="ordering">Ordering</h1>
+<p>By moving from a <code>Vec</code> to a <code>HashMap</code> we have improved the performance of our ticket management system,
+and simplified our code in the process.<br>
+It&rsquo;s not all roses, though. When iterating over a <code>Vec</code>-backed store, we could be sure that the tickets
+would be returned in the order they were added.<br>
+That&rsquo;s not the case with a <code>HashMap</code>: you can iterate over the tickets, but the order is random.</p>
+<p>We can recover a consistent ordering by switching from a <code>HashMap</code> to a <code>BTreeMap</code>.</p>
+<h2 id="btreemap"><code>BTreeMap</code></h2>
+<p>A <code>BTreeMap</code> guarantees that entries are sorted by their keys.<br>
+This is useful when you need to iterate over the entries in a specific order, or if you need to
+perform range queries (e.g. &ldquo;give me all tickets with an id between 10 and 20&rdquo;).</p>
+<p>Just like <code>HashMap</code>, you won&rsquo;t find trait bounds on the definition of <code>BTreeMap</code>.
+But you&rsquo;ll find trait bounds on its methods. Let&rsquo;s look at <code>insert</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// `K` and `V` stand for the key and value types, respectively,
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// just like in `HashMap`.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">impl</span>&lt;K,<span style="color:#bbb"> </span>V&gt;<span style="color:#bbb"> </span>BTreeMap&lt;K,<span style="color:#bbb"> </span>V&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">insert</span>(&amp;<span style="color:#00a">mut</span><span style="color:#bbb"> </span><span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>key: <span style="color:#0a0;text-decoration:underline">K</span>,<span style="color:#bbb"> </span>value: <span style="color:#0a0;text-decoration:underline">V</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">Option</span>&lt;V&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">where</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>K: <span style="color:#0aa">Ord</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// implementation
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>Hash</code> is no longer required. Instead, the key type must implement the <code>Ord</code> trait.</p>
+<h2 id="ord"><code>Ord</code></h2>
+<p>The <code>Ord</code> trait is used to compare values.<br>
+While <code>PartialEq</code> is used to compare for equality, <code>Ord</code> is used to compare for ordering.</p>
+<p>It&rsquo;s defined in <code>std::cmp</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span><span style="color:#0aa">Ord</span>: <span style="color:#0aa">Eq</span> +<span style="color:#bbb"> </span><span style="color:#0aa">PartialOrd</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">cmp</span>(&amp;<span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>other: <span style="color:#00a">&amp;</span><span style="color:#0a0;text-decoration:underline">Self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Ordering</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The <code>cmp</code> method returns an <code>Ordering</code> enum, which can be one
+of <code>Less</code>, <code>Equal</code>, or <code>Greater</code>.<br>
+<code>Ord</code> requires that two other traits are implemented: <code>Eq</code> and <code>PartialOrd</code>.</p>
+<h2 id="partialord"><code>PartialOrd</code></h2>
+<p><code>PartialOrd</code> is a weaker version of <code>Ord</code>, just like <code>PartialEq</code> is a weaker version of <code>Eq</code>.
+You can see why by looking at its definition:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span><span style="color:#0aa">PartialOrd</span>: <span style="color:#0aa">PartialEq</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">partial_cmp</span>(&amp;<span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>other: <span style="color:#00a">&amp;</span><span style="color:#0a0;text-decoration:underline">Self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">Option</span>&lt;Ordering&gt;;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>PartialOrd::partial_cmp</code> returns an <code>Option</code>—it is not guaranteed that two values can
+be compared.<br>
+For example, <code>f32</code> doesn&rsquo;t implement <code>Ord</code> because <code>NaN</code> values are not comparable,
+the same reason why <code>f32</code> doesn&rsquo;t implement <code>Eq</code>.</p>
+<h2 id="implementing-ord-and-partialord">Implementing <code>Ord</code> and <code>PartialOrd</code></h2>
+<p>Both <code>Ord</code> and <code>PartialOrd</code> can be derived for your types:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// You need to add `Eq` and `PartialEq` too,
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// since `Ord` requires them.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#4c8317">#[derive(Eq, PartialEq, Ord, PartialOrd)]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">TicketId</span>(<span style="color:#0aa">u64</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><p>If you choose (or need) to implement them manually, be careful:</p>
+<ul>
+<li><code>Ord</code> and <code>PartialOrd</code> must be consistent with <code>Eq</code> and <code>PartialEq</code>.</li>
+<li><code>Ord</code> and <code>PartialOrd</code> must be consistent with each other.</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

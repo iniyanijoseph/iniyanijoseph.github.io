@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Libraries and binaries
+It took a bit of code to implement the Error trait for TicketNewError, didn&rsquo;t it?
+A manual Display implementation, plus an Error impl block.
+We can remove some of the boilerplate by using thiserror
+,
+a Rust crate that provides a procedural macro to simplify the creation of custom error types.
+But we&rsquo;re getting ahead of ourselves: thiserror is a third-party crate, it&rsquo;d be our first dependency!
+Let&rsquo;s take a step back to talk about Rust&rsquo;s packaging system before we dive into dependencies.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/10_packages/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/10_packages/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Libraries and binaries
+It took a bit of code to implement the Error trait for TicketNewError, didn&rsquo;t it?
+A manual Display implementation, plus an Error impl block.
+We can remove some of the boilerplate by using thiserror
+,
+a Rust crate that provides a procedural macro to simplify the creation of custom error types.
+But we&rsquo;re getting ahead of ourselves: thiserror is a third-party crate, it&rsquo;d be our first dependency!
+Let&rsquo;s take a step back to talk about Rust&rsquo;s packaging system before we dive into dependencies." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/10_packages/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Libraries and binaries
+It took a bit of code to implement the Error trait for TicketNewError, didn&rsquo;t it?
+A manual Display implementation, plus an Error impl block.
+We can remove some of the boilerplate by using thiserror
+,
+a Rust crate that provides a procedural macro to simplify the creation of custom error types.
+But we&rsquo;re getting ahead of ourselves: thiserror is a third-party crate, it&rsquo;d be our first dependency!
+Let&rsquo;s take a step back to talk about Rust&rsquo;s packaging system before we dive into dependencies."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/10_packages/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Libraries and binaries It took a bit of code to implement the Error trait for TicketNewError, didn\u0026rsquo;t it?\nA manual Display implementation, plus an Error impl block.\nWe can remove some of the boilerplate by using thiserror , a Rust crate that provides a procedural macro to simplify the creation of custom error types.\nBut we\u0026rsquo;re getting ahead of ourselves: thiserror is a third-party crate, it\u0026rsquo;d be our first dependency!\nLet\u0026rsquo;s take a step back to talk about Rust\u0026rsquo;s packaging system before we dive into dependencies.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Libraries and binaries It took a bit of code to implement the Error trait for TicketNewError, didn’t it?\nA manual Display implementation, plus an Error impl block.\nWe can remove some of the boilerplate by using thiserror , a Rust crate that provides a procedural macro to simplify the creation of custom error types.\nBut we’re getting ahead of ourselves: thiserror is a third-party crate, it’d be our first dependency!\nLet’s take a step back to talk about Rust’s packaging system before we dive into dependencies.\nWhat is a package? A Rust package is defined by the [package] section in a Cargo.toml file, also known as its manifest. Within [package] you can set the package’s metadata, such as its name and version.\nGo check the Cargo.toml file in the directory of this section’s exercise!\nWhat is a crate? Inside a package, you can have one or more crates, also known as targets.\nThe two most common crate types are binary crates and library crates.\nBinaries A binary is a program that can be compiled to an executable file.\nIt must include a function named main—the program’s entry point. main is invoked when the program is executed.\nLibraries Libraries, on the other hand, are not executable on their own. You can’t run a library, but you can import its code from another package that depends on it.\nA library groups together code (i.e. functions, types, etc.) that can be leveraged by other packages as a dependency.\nAll the exercises you’ve solved so far have been structured as libraries, with a test suite attached to them.\nConventions There are some conventions around Rust packages that you need to keep in mind:\nThe package’s source code is usually located in the src directory. If there’s a src/lib.rs file, cargo will infer that the package contains a library crate. If there’s a src/main.rs file, cargo will infer that the package contains a binary crate. You can override these defaults by explicitly declaring your targets in the Cargo.toml file—see cargo’s documentation for more details.\nKeep in mind that while a package can contain multiple crates, it can only contain one library crate.\n",
+  "wordCount" : "357",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/10_packages/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="libraries-and-binaries">Libraries and binaries</h1>
+<p>It took a bit of code to implement the <code>Error</code> trait for <code>TicketNewError</code>, didn&rsquo;t it?<br>
+A manual <code>Display</code> implementation, plus an <code>Error</code> impl block.</p>
+<p>We can remove some of the boilerplate by using <a href="https://docs.rs/thiserror/latest/thiserror/" target="_blank"><code>thiserror</code></a>
+,
+a Rust crate that provides a <strong>procedural macro</strong> to simplify the creation of custom error types.<br>
+But we&rsquo;re getting ahead of ourselves: <code>thiserror</code> is a third-party crate, it&rsquo;d be our first dependency!</p>
+<p>Let&rsquo;s take a step back to talk about Rust&rsquo;s packaging system before we dive into dependencies.</p>
+<h2 id="what-is-a-package">What is a package?</h2>
+<p>A Rust package is defined by the <code>[package]</code> section in a <code>Cargo.toml</code> file, also known as its <strong>manifest</strong>.
+Within <code>[package]</code> you can set the package&rsquo;s metadata, such as its name and version.</p>
+<p>Go check the <code>Cargo.toml</code> file in the directory of this section&rsquo;s exercise!</p>
+<h2 id="what-is-a-crate">What is a crate?</h2>
+<p>Inside a package, you can have one or more <strong>crates</strong>, also known as <strong>targets</strong>.<br>
+The two most common crate types are <strong>binary crates</strong> and <strong>library crates</strong>.</p>
+<h3 id="binaries">Binaries</h3>
+<p>A binary is a program that can be compiled to an <strong>executable file</strong>.<br>
+It must include a function named <code>main</code>—the program&rsquo;s entry point. <code>main</code> is invoked when the program is executed.</p>
+<h3 id="libraries">Libraries</h3>
+<p>Libraries, on the other hand, are not executable on their own. You can&rsquo;t <em>run</em> a library,
+but you can <em>import its code</em> from another package that depends on it.<br>
+A library groups together code (i.e. functions, types, etc.) that can be leveraged by other packages as a <strong>dependency</strong>.</p>
+<p>All the exercises you&rsquo;ve solved so far have been structured as libraries, with a test suite attached to them.</p>
+<h3 id="conventions">Conventions</h3>
+<p>There are some conventions around Rust packages that you need to keep in mind:</p>
+<ul>
+<li>The package&rsquo;s source code is usually located in the <code>src</code> directory.</li>
+<li>If there&rsquo;s a <code>src/lib.rs</code> file, <code>cargo</code> will infer that the package contains a library crate.</li>
+<li>If there&rsquo;s a <code>src/main.rs</code> file, <code>cargo</code> will infer that the package contains a binary crate.</li>
+</ul>
+<p>You can override these defaults by explicitly declaring your targets in the <code>Cargo.toml</code> file—see
+<a href="https://doc.rust-lang.org/cargo/reference/cargo-targets.html#cargo-targets" target="_blank"><code>cargo</code>&rsquo;s documentation</a>
+ for more details.</p>
+<p>Keep in mind that while a package can contain multiple crates, it can only contain one library crate.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

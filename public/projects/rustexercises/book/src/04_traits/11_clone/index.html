@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Copying values, pt. 1
+In the previous chapter we introduced ownership and borrowing.
+We stated, in particular, that:
+
+Every value in Rust has a single owner at any given time.
+When a function takes ownership of a value (&ldquo;it consumes it&rdquo;), the caller can&rsquo;t use that value anymore.
+
+These restrictions can be somewhat limiting.
+Sometimes we might have to call a function that takes ownership of a value, but we still need to use
+that value afterward.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/11_clone/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/11_clone/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Copying values, pt. 1
+In the previous chapter we introduced ownership and borrowing.
+We stated, in particular, that:
+
+Every value in Rust has a single owner at any given time.
+When a function takes ownership of a value (&ldquo;it consumes it&rdquo;), the caller can&rsquo;t use that value anymore.
+
+These restrictions can be somewhat limiting.
+Sometimes we might have to call a function that takes ownership of a value, but we still need to use
+that value afterward." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/04_traits/11_clone/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Copying values, pt. 1
+In the previous chapter we introduced ownership and borrowing.
+We stated, in particular, that:
+
+Every value in Rust has a single owner at any given time.
+When a function takes ownership of a value (&ldquo;it consumes it&rdquo;), the caller can&rsquo;t use that value anymore.
+
+These restrictions can be somewhat limiting.
+Sometimes we might have to call a function that takes ownership of a value, but we still need to use
+that value afterward."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/04_traits/11_clone/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Copying values, pt. 1 In the previous chapter we introduced ownership and borrowing.\nWe stated, in particular, that:\nEvery value in Rust has a single owner at any given time. When a function takes ownership of a value (\u0026ldquo;it consumes it\u0026rdquo;), the caller can\u0026rsquo;t use that value anymore. These restrictions can be somewhat limiting.\nSometimes we might have to call a function that takes ownership of a value, but we still need to use that value afterward.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Copying values, pt. 1 In the previous chapter we introduced ownership and borrowing.\nWe stated, in particular, that:\nEvery value in Rust has a single owner at any given time. When a function takes ownership of a value (“it consumes it”), the caller can’t use that value anymore. These restrictions can be somewhat limiting.\nSometimes we might have to call a function that takes ownership of a value, but we still need to use that value afterward.\nfn consumer(s: String) { /* */ } fn example() { let mut s = String::from(\"hello\"); consumer(s); s.push_str(\", world!\"); // error: value borrowed here after move } That’s where Clone comes in.\nClone Clone is a trait defined in Rust’s standard library:\npub trait Clone { fn clone(\u0026self) -\u003e Self; } Its method, clone, takes a reference to self and returns a new owned instance of the same type.\nIn action Going back to the example above, we can use clone to create a new String instance before calling consumer:\nfn consumer(s: String) { /* */ } fn example() { let mut s = String::from(\"hello\"); let t = s.clone(); consumer(t); s.push_str(\", world!\"); // no error } Instead of giving ownership of s to consumer, we create a new String (by cloning s) and give that to consumer instead.\ns remains valid and usable after the call to consumer.\nIn memory Let’s look at what happened in memory in the example above. When let mut s = String::from(\"hello\"); is executed, the memory looks like this:\ns +---------+--------+----------+ Stack | pointer | length | capacity | | | | 5 | 5 | +--|------+--------+----------+ | | v +---+---+---+---+---+ Heap: | H | e | l | l | o | +---+---+---+---+---+ When let t = s.clone() is executed, a whole new region is allocated on the heap to store a copy of the data:\ns t +---------+--------+----------+ +---------+--------+----------+ Stack | pointer | length | capacity | | pointer | length | capacity | | | | 5 | 5 | | | | 5 | 5 | +--|------+--------+----------+ +--|------+--------+----------+ | | | | v v +---+---+---+---+---+ +---+---+---+---+---+ Heap: | H | e | l | l | o | | H | e | l | l | o | +---+---+---+---+---+ +---+---+---+---+---+ If you’re coming from a language like Java, you can think of clone as a way to create a deep copy of an object.\nImplementing Clone To make a type Clone-able, we have to implement the Clone trait for it.\nYou almost always implement Clone by deriving it:\n#[derive(Clone)] struct MyType { // fields } The compiler implements Clone for MyType as you would expect: it clones each field of MyType individually and then constructs a new MyType instance using the cloned fields.\nRemember that you can use cargo expand (or your IDE) to explore the code generated by derive macros.\n",
+  "wordCount" : "477",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/04_traits/11_clone/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="copying-values-pt-1">Copying values, pt. 1</h1>
+<p>In the previous chapter we introduced ownership and borrowing.<br>
+We stated, in particular, that:</p>
+<ul>
+<li>Every value in Rust has a single owner at any given time.</li>
+<li>When a function takes ownership of a value (&ldquo;it consumes it&rdquo;), the caller can&rsquo;t use that value anymore.</li>
+</ul>
+<p>These restrictions can be somewhat limiting.<br>
+Sometimes we might have to call a function that takes ownership of a value, but we still need to use
+that value afterward.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">fn</span> <span style="color:#0a0">consumer</span>(s: <span style="color:#0aa">String</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">/* */</span><span style="color:#bbb"> </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">fn</span> <span style="color:#0a0">example</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">     </span><span style="color:#00a">let</span><span style="color:#bbb"> </span><span style="color:#00a">mut</span><span style="color:#bbb"> </span>s<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">String</span>::from(<span style="color:#a50">&#34;hello&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">     </span>consumer(s);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">     </span>s.push_str(<span style="color:#a50">&#34;, world!&#34;</span>);<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">// error: value borrowed here after move
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>That&rsquo;s where <code>Clone</code> comes in.</p>
+<h2 id="clone"><code>Clone</code></h2>
+<p><code>Clone</code> is a trait defined in Rust&rsquo;s standard library:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span><span style="color:#0aa">Clone</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">clone</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Self</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Its method, <code>clone</code>, takes a reference to <code>self</code> and returns a new <strong>owned</strong> instance of the same type.</p>
+<h2 id="in-action">In action</h2>
+<p>Going back to the example above, we can use <code>clone</code> to create a new <code>String</code> instance before calling <code>consumer</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">fn</span> <span style="color:#0a0">consumer</span>(s: <span style="color:#0aa">String</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">/* */</span><span style="color:#bbb"> </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">fn</span> <span style="color:#0a0">example</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">     </span><span style="color:#00a">let</span><span style="color:#bbb"> </span><span style="color:#00a">mut</span><span style="color:#bbb"> </span>s<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">String</span>::from(<span style="color:#a50">&#34;hello&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">     </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>t<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>s.clone();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">     </span>consumer(t);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">     </span>s.push_str(<span style="color:#a50">&#34;, world!&#34;</span>);<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">// no error
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Instead of giving ownership of <code>s</code> to <code>consumer</code>, we create a new <code>String</code> (by cloning <code>s</code>) and give
+that to <code>consumer</code> instead.<br>
+<code>s</code> remains valid and usable after the call to <code>consumer</code>.</p>
+<h2 id="in-memory">In memory</h2>
+<p>Let&rsquo;s look at what happened in memory in the example above.
+When <code>let mut s = String::from(&quot;hello&quot;);</code> is executed, the memory looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>                    s
+</span></span><span style="display:flex;"><span>      +---------+--------+----------+
+</span></span><span style="display:flex;"><span>Stack | pointer | length | capacity | 
+</span></span><span style="display:flex;"><span>      |  |      |   5    |    5     |
+</span></span><span style="display:flex;"><span>      +--|------+--------+----------+
+</span></span><span style="display:flex;"><span>         |
+</span></span><span style="display:flex;"><span>         |
+</span></span><span style="display:flex;"><span>         v
+</span></span><span style="display:flex;"><span>       +---+---+---+---+---+
+</span></span><span style="display:flex;"><span>Heap:  | H | e | l | l | o |
+</span></span><span style="display:flex;"><span>       +---+---+---+---+---+
+</span></span></code></pre></div><p>When <code>let t = s.clone()</code> is executed, a whole new region is allocated on the heap to store a copy of the data:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>                    s                                    t
+</span></span><span style="display:flex;"><span>      +---------+--------+----------+      +---------+--------+----------+
+</span></span><span style="display:flex;"><span>Stack | pointer | length | capacity |      | pointer | length | capacity |
+</span></span><span style="display:flex;"><span>      |  |      |   5    |    5     |      |  |      |   5    |    5     |
+</span></span><span style="display:flex;"><span>      +--|------+--------+----------+      +--|------+--------+----------+
+</span></span><span style="display:flex;"><span>         |                                    |
+</span></span><span style="display:flex;"><span>         |                                    |
+</span></span><span style="display:flex;"><span>         v                                    v
+</span></span><span style="display:flex;"><span>       +---+---+---+---+---+                +---+---+---+---+---+
+</span></span><span style="display:flex;"><span>Heap:  | H | e | l | l | o |                | H | e | l | l | o |
+</span></span><span style="display:flex;"><span>       +---+---+---+---+---+                +---+---+---+---+---+
+</span></span></code></pre></div><p>If you&rsquo;re coming from a language like Java, you can think of <code>clone</code> as a way to create a deep copy of an object.</p>
+<h2 id="implementing-clone">Implementing <code>Clone</code></h2>
+<p>To make a type <code>Clone</code>-able, we have to implement the <code>Clone</code> trait for it.<br>
+You almost always implement <code>Clone</code> by deriving it:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#4c8317">#[derive(Clone)]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">MyType</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// fields
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The compiler implements <code>Clone</code> for <code>MyType</code> as you would expect: it clones each field of <code>MyType</code> individually and
+then constructs a new <code>MyType</code> instance using the cloned fields.<br>
+Remember that you can use <code>cargo expand</code> (or your IDE) to explore the code generated by <code>derive</code> macros.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

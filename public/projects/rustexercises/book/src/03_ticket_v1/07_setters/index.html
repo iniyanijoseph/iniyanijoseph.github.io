@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Mutable references
+Your accessor methods should look like this now:
+impl Ticket {
+    pub fn title(&amp;self) -&gt; &amp;String {
+        &amp;self.title
+    }
+
+    pub fn description(&amp;self) -&gt; &amp;String {
+        &amp;self.description
+    }
+
+    pub fn status(&amp;self) -&gt; &amp;String {
+        &amp;self.status
+    }
+}
+A sprinkle of &amp; here and there did the trick!
+We now have a way to access the fields of a Ticket instance without consuming it in the process.
+Let&rsquo;s see how we can enhance our Ticket struct with setter methods next.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/07_setters/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/07_setters/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Mutable references
+Your accessor methods should look like this now:
+impl Ticket {
+    pub fn title(&amp;self) -&gt; &amp;String {
+        &amp;self.title
+    }
+
+    pub fn description(&amp;self) -&gt; &amp;String {
+        &amp;self.description
+    }
+
+    pub fn status(&amp;self) -&gt; &amp;String {
+        &amp;self.status
+    }
+}
+A sprinkle of &amp; here and there did the trick!
+We now have a way to access the fields of a Ticket instance without consuming it in the process.
+Let&rsquo;s see how we can enhance our Ticket struct with setter methods next." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/07_setters/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Mutable references
+Your accessor methods should look like this now:
+impl Ticket {
+    pub fn title(&amp;self) -&gt; &amp;String {
+        &amp;self.title
+    }
+
+    pub fn description(&amp;self) -&gt; &amp;String {
+        &amp;self.description
+    }
+
+    pub fn status(&amp;self) -&gt; &amp;String {
+        &amp;self.status
+    }
+}
+A sprinkle of &amp; here and there did the trick!
+We now have a way to access the fields of a Ticket instance without consuming it in the process.
+Let&rsquo;s see how we can enhance our Ticket struct with setter methods next."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/07_setters/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Mutable references Your accessor methods should look like this now:\nimpl Ticket { pub fn title(\u0026amp;self) -\u0026gt; \u0026amp;String { \u0026amp;self.title } pub fn description(\u0026amp;self) -\u0026gt; \u0026amp;String { \u0026amp;self.description } pub fn status(\u0026amp;self) -\u0026gt; \u0026amp;String { \u0026amp;self.status } } A sprinkle of \u0026amp; here and there did the trick!\nWe now have a way to access the fields of a Ticket instance without consuming it in the process. Let\u0026rsquo;s see how we can enhance our Ticket struct with setter methods next.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Mutable references Your accessor methods should look like this now:\nimpl Ticket { pub fn title(\u0026self) -\u003e \u0026String { \u0026self.title } pub fn description(\u0026self) -\u003e \u0026String { \u0026self.description } pub fn status(\u0026self) -\u003e \u0026String { \u0026self.status } } A sprinkle of \u0026 here and there did the trick!\nWe now have a way to access the fields of a Ticket instance without consuming it in the process. Let’s see how we can enhance our Ticket struct with setter methods next.\nSetters Setter methods allow users to change the values of Ticket’s private fields while making sure that its invariants are respected (i.e. you can’t set a Ticket’s title to an empty string).\nThere are two common ways to implement setters in Rust:\nTaking self as input. Taking \u0026mut self as input. Taking self as input The first approach looks like this:\nimpl Ticket { pub fn set_title(mut self, new_title: String) -\u003e Self { // Validate the new title [...] self.title = new_title; self } } It takes ownership of self, changes the title, and returns the modified Ticket instance.\nThis is how you’d use it:\nlet ticket = Ticket::new( \"Title\".into(), \"Description\".into(), \"To-Do\".into() ); let ticket = ticket.set_title(\"New title\".into()); Since set_title takes ownership of self (i.e. it consumes it), we need to reassign the result to a variable. In the example above we take advantage of variable shadowing to reuse the same variable name: when you declare a new variable with the same name as an existing one, the new variable shadows the old one. This is a common pattern in Rust code.\nself-setters work quite nicely when you need to change multiple fields at once: you can chain multiple calls together!\nlet ticket = ticket .set_title(\"New title\".into()) .set_description(\"New description\".into()) .set_status(\"In Progress\".into()); Taking \u0026mut self as input The second approach to setters, using \u0026mut self, looks like this instead:\nimpl Ticket { pub fn set_title(\u0026mut self, new_title: String) { // Validate the new title [...] self.title = new_title; } } This time the method takes a mutable reference to self as input, changes the title, and that’s it. Nothing is returned.\nYou’d use it like this:\nlet mut ticket = Ticket::new( \"Title\".into(), \"Description\".into(), \"To-Do\".into() ); ticket.set_title(\"New title\".into()); // Use the modified ticket Ownership stays with the caller, so the original ticket variable is still valid. We don’t need to reassign the result. We need to mark ticket as mutable though, because we’re taking a mutable reference to it.\n\u0026mut-setters have a downside: you can’t chain multiple calls together. Since they don’t return the modified Ticket instance, you can’t call another setter on the result of the first one. You have to call each setter separately:\nticket.set_title(\"New title\".into()); ticket.set_description(\"New description\".into()); ticket.set_status(\"In Progress\".into()); ",
+  "wordCount" : "450",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/07_setters/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="mutable-references">Mutable references</h1>
+<p>Your accessor methods should look like this now:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">title</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#00a">&amp;</span><span style="color:#0aa">String</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>&amp;<span style="color:#0aa">self</span>.title<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">description</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#00a">&amp;</span><span style="color:#0aa">String</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>&amp;<span style="color:#0aa">self</span>.description<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">status</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#00a">&amp;</span><span style="color:#0aa">String</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>&amp;<span style="color:#0aa">self</span>.status<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>A sprinkle of <code>&amp;</code> here and there did the trick!<br>
+We now have a way to access the fields of a <code>Ticket</code> instance without consuming it in the process.
+Let&rsquo;s see how we can enhance our <code>Ticket</code> struct with <strong>setter methods</strong> next.</p>
+<h2 id="setters">Setters</h2>
+<p>Setter methods allow users to change the values of <code>Ticket</code>&rsquo;s private fields while making sure that its invariants
+are respected (i.e. you can&rsquo;t set a <code>Ticket</code>&rsquo;s title to an empty string).</p>
+<p>There are two common ways to implement setters in Rust:</p>
+<ul>
+<li>Taking <code>self</code> as input.</li>
+<li>Taking <code>&amp;mut self</code> as input.</li>
+</ul>
+<h3 id="taking-self-as-input">Taking <code>self</code> as input</h3>
+<p>The first approach looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">set_title</span>(<span style="color:#00a">mut</span><span style="color:#bbb"> </span><span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>new_title: <span style="color:#0aa">String</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Self</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// Validate the new title [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">        </span><span style="color:#0aa">self</span>.title<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>new_title;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0aa">self</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>It takes ownership of <code>self</code>, changes the title, and returns the modified <code>Ticket</code> instance.<br>
+This is how you&rsquo;d use it:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>ticket<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Ticket::new(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a50">&#34;Title&#34;</span>.into(),<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a50">&#34;Description&#34;</span>.into(),<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a50">&#34;To-Do&#34;</span>.into()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>ticket<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>ticket.set_title(<span style="color:#a50">&#34;New title&#34;</span>.into());<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Since <code>set_title</code> takes ownership of <code>self</code> (i.e. it <strong>consumes it</strong>), we need to reassign the result to a variable.
+In the example above we take advantage of <strong>variable shadowing</strong> to reuse the same variable name: when
+you declare a new variable with the same name as an existing one, the new variable <strong>shadows</strong> the old one. This
+is a common pattern in Rust code.</p>
+<p><code>self</code>-setters work quite nicely when you need to change multiple fields at once: you can chain multiple calls together!</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>ticket<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>ticket<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.set_title(<span style="color:#a50">&#34;New title&#34;</span>.into())<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.set_description(<span style="color:#a50">&#34;New description&#34;</span>.into())<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.set_status(<span style="color:#a50">&#34;In Progress&#34;</span>.into());<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="taking-mut-self-as-input">Taking <code>&amp;mut self</code> as input</h3>
+<p>The second approach to setters, using <code>&amp;mut self</code>, looks like this instead:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">set_title</span>(&amp;<span style="color:#00a">mut</span><span style="color:#bbb"> </span><span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>new_title: <span style="color:#0aa">String</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// Validate the new title [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">        
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0aa">self</span>.title<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>new_title;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>This time the method takes a mutable reference to <code>self</code> as input, changes the title, and that&rsquo;s it.
+Nothing is returned.</p>
+<p>You&rsquo;d use it like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span><span style="color:#00a">mut</span><span style="color:#bbb"> </span>ticket<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Ticket::new(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a50">&#34;Title&#34;</span>.into(),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a50">&#34;Description&#34;</span>.into(),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a50">&#34;To-Do&#34;</span>.into()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>ticket.set_title(<span style="color:#a50">&#34;New title&#34;</span>.into());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// Use the modified ticket
+</span></span></span></code></pre></div><p>Ownership stays with the caller, so the original <code>ticket</code> variable is still valid. We don&rsquo;t need to reassign the result.
+We need to mark <code>ticket</code> as mutable though, because we&rsquo;re taking a mutable reference to it.</p>
+<p><code>&amp;mut</code>-setters have a downside: you can&rsquo;t chain multiple calls together.
+Since they don&rsquo;t return the modified <code>Ticket</code> instance, you can&rsquo;t call another setter on the result of the first one.
+You have to call each setter separately:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>ticket.set_title(<span style="color:#a50">&#34;New title&#34;</span>.into());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>ticket.set_description(<span style="color:#a50">&#34;New description&#34;</span>.into());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>ticket.set_status(<span style="color:#a50">&#34;In Progress&#34;</span>.into());<span style="color:#bbb">
+</span></span></span></code></pre></div>
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

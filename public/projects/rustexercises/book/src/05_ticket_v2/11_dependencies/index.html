@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Dependencies
+A package can depend on other packages by listing them in the [dependencies] section of its Cargo.toml file.
+The most common way to specify a dependency is by providing its name and version:
+[dependencies]
+thiserror = &#34;1&#34;
+This will add thiserror as a dependency to your package, with a minimum version of 1.0.0.
+thiserror will be pulled from crates.io
+, Rust&rsquo;s official package registry.
+When you run cargo build, cargo will go through a few stages:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/11_dependencies/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/11_dependencies/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Dependencies
+A package can depend on other packages by listing them in the [dependencies] section of its Cargo.toml file.
+The most common way to specify a dependency is by providing its name and version:
+[dependencies]
+thiserror = &#34;1&#34;
+This will add thiserror as a dependency to your package, with a minimum version of 1.0.0.
+thiserror will be pulled from crates.io
+, Rust&rsquo;s official package registry.
+When you run cargo build, cargo will go through a few stages:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/11_dependencies/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Dependencies
+A package can depend on other packages by listing them in the [dependencies] section of its Cargo.toml file.
+The most common way to specify a dependency is by providing its name and version:
+[dependencies]
+thiserror = &#34;1&#34;
+This will add thiserror as a dependency to your package, with a minimum version of 1.0.0.
+thiserror will be pulled from crates.io
+, Rust&rsquo;s official package registry.
+When you run cargo build, cargo will go through a few stages:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/11_dependencies/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Dependencies A package can depend on other packages by listing them in the [dependencies] section of its Cargo.toml file.\nThe most common way to specify a dependency is by providing its name and version:\n[dependencies] thiserror = \u0026#34;1\u0026#34; This will add thiserror as a dependency to your package, with a minimum version of 1.0.0. thiserror will be pulled from crates.io , Rust\u0026rsquo;s official package registry. When you run cargo build, cargo will go through a few stages:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Dependencies A package can depend on other packages by listing them in the [dependencies] section of its Cargo.toml file.\nThe most common way to specify a dependency is by providing its name and version:\n[dependencies] thiserror = \"1\" This will add thiserror as a dependency to your package, with a minimum version of 1.0.0. thiserror will be pulled from crates.io , Rust’s official package registry. When you run cargo build, cargo will go through a few stages:\nDependency resolution Downloading the dependencies Compiling your project (your own code and the dependencies) Dependency resolution is skipped if your project has a Cargo.lock file and your manifest files are unchanged. A lockfile is automatically generated by cargo after a successful round of dependency resolution: it contains the exact versions of all dependencies used in your project, and is used to ensure that the same versions are consistently used across different builds (e.g. in CI). If you’re working on a project with multiple developers, you should commit the Cargo.lock file to your version control system.\nYou can use cargo update to update the Cargo.lock file with the latest (compatible) versions of all your dependencies.\nPath dependencies You can also specify a dependency using a path. This is useful when you’re working on multiple local packages.\n[dependencies] my-library = { path = \"../my-library\" } The path is relative to the Cargo.toml file of the package that’s declaring the dependency.\nOther sources Check out the Cargo documentation for more details on where you can get dependencies from and how to specify them in your Cargo.toml file.\nDev dependencies You can also specify dependencies that are only needed for development—i.e. they only get pulled in when you’re running cargo test.\nThey go in the [dev-dependencies] section of your Cargo.toml file:\n[dev-dependencies] static_assertions = \"1.1.0\" We’ve been using a few of these throughout the book to shorten our tests.\n",
+  "wordCount" : "312",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/11_dependencies/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="dependencies">Dependencies</h1>
+<p>A package can depend on other packages by listing them in the <code>[dependencies]</code> section of its <code>Cargo.toml</code> file.<br>
+The most common way to specify a dependency is by providing its name and version:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[dependencies]
+</span></span><span style="display:flex;"><span>thiserror = <span style="color:#a50">&#34;1&#34;</span>
+</span></span></code></pre></div><p>This will add <code>thiserror</code> as a dependency to your package, with a <strong>minimum</strong> version of <code>1.0.0</code>.
+<code>thiserror</code> will be pulled from <a href="https://crates.io" target="_blank">crates.io</a>
+, Rust&rsquo;s official package registry.
+When you run <code>cargo build</code>, <code>cargo</code> will go through a few stages:</p>
+<ul>
+<li>Dependency resolution</li>
+<li>Downloading the dependencies</li>
+<li>Compiling your project (your own code and the dependencies)</li>
+</ul>
+<p>Dependency resolution is skipped if your project has a <code>Cargo.lock</code> file and your manifest files are unchanged.
+A lockfile is automatically generated by <code>cargo</code> after a successful round of dependency resolution: it contains
+the exact versions of all dependencies used in your project, and is used to ensure that the same versions are
+consistently used across different builds (e.g. in CI). If you&rsquo;re working on a project with multiple developers,
+you should commit the <code>Cargo.lock</code> file to your version control system.</p>
+<p>You can use <code>cargo update</code> to update the <code>Cargo.lock</code> file with the latest (compatible) versions of all your dependencies.</p>
+<h3 id="path-dependencies">Path dependencies</h3>
+<p>You can also specify a dependency using a <strong>path</strong>. This is useful when you&rsquo;re working on multiple local packages.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[dependencies]
+</span></span><span style="display:flex;"><span>my-library = { path = <span style="color:#a50">&#34;../my-library&#34;</span> }
+</span></span></code></pre></div><p>The path is relative to the <code>Cargo.toml</code> file of the package that&rsquo;s declaring the dependency.</p>
+<h3 id="other-sources">Other sources</h3>
+<p>Check out the <a href="https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html" target="_blank">Cargo documentation</a>
+ for more
+details on where you can get dependencies from and how to specify them in your <code>Cargo.toml</code> file.</p>
+<h2 id="dev-dependencies">Dev dependencies</h2>
+<p>You can also specify dependencies that are only needed for development—i.e. they only get pulled in when you&rsquo;re
+running <code>cargo test</code>.<br>
+They go in the <code>[dev-dependencies]</code> section of your <code>Cargo.toml</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[dev-dependencies]
+</span></span><span style="display:flex;"><span>static_assertions = <span style="color:#a50">&#34;1.1.0&#34;</span>
+</span></span></code></pre></div><p>We&rsquo;ve been using a few of these throughout the book to shorten our tests.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

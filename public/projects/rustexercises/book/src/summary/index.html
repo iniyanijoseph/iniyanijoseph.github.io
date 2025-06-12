@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Summary
+
+
+Welcome
+
+
+Syntax
+
+
+
+
+A Basic Calculator
+
+
+Integers
+
+Variables
+
+Branching: if/else
+
+Panics
+
+Factorial
+
+Loops: while
+
+Loops: for
+
+Overflow and underflow
+
+Saturating arithmetic
+
+Conversions: as casting
+
+
+
+
+Ticket v1
+
+
+Structs
+
+Validation
+
+Modules
+
+Visibility
+
+Encapsulation
+
+Ownership
+
+Setters
+
+Stack
+
+Heap
+
+References in memory
+
+Destructors
+
+Outro
+
+
+
+
+Traits
+
+
+Trait
+
+Orphan rule
+
+Operator overloading
+
+Derive macros
+
+Trait bounds
+
+String slices
+
+Deref trait
+
+Sized trait
+
+From trait
+
+Associated vs generic types
+
+Clone trait
+
+Copy trait
+
+Drop trait
+
+Outro
+
+
+
+
+Ticket v2
+">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/summary/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/summary/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Summary
+
+
+Welcome
+
+
+Syntax
+
+
+
+
+A Basic Calculator
+
+
+Integers
+
+Variables
+
+Branching: if/else
+
+Panics
+
+Factorial
+
+Loops: while
+
+Loops: for
+
+Overflow and underflow
+
+Saturating arithmetic
+
+Conversions: as casting
+
+
+
+
+Ticket v1
+
+
+Structs
+
+Validation
+
+Modules
+
+Visibility
+
+Encapsulation
+
+Ownership
+
+Setters
+
+Stack
+
+Heap
+
+References in memory
+
+Destructors
+
+Outro
+
+
+
+
+Traits
+
+
+Trait
+
+Orphan rule
+
+Operator overloading
+
+Derive macros
+
+Trait bounds
+
+String slices
+
+Deref trait
+
+Sized trait
+
+From trait
+
+Associated vs generic types
+
+Clone trait
+
+Copy trait
+
+Drop trait
+
+Outro
+
+
+
+
+Ticket v2
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/summary/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Summary
+
+
+Welcome
+
+
+Syntax
+
+
+
+
+A Basic Calculator
+
+
+Integers
+
+Variables
+
+Branching: if/else
+
+Panics
+
+Factorial
+
+Loops: while
+
+Loops: for
+
+Overflow and underflow
+
+Saturating arithmetic
+
+Conversions: as casting
+
+
+
+
+Ticket v1
+
+
+Structs
+
+Validation
+
+Modules
+
+Visibility
+
+Encapsulation
+
+Ownership
+
+Setters
+
+Stack
+
+Heap
+
+References in memory
+
+Destructors
+
+Outro
+
+
+
+
+Traits
+
+
+Trait
+
+Orphan rule
+
+Operator overloading
+
+Derive macros
+
+Trait bounds
+
+String slices
+
+Deref trait
+
+Sized trait
+
+From trait
+
+Associated vs generic types
+
+Clone trait
+
+Copy trait
+
+Drop trait
+
+Outro
+
+
+
+
+Ticket v2
+"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/summary/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Summary Welcome Syntax A Basic Calculator Integers Variables Branching: if/else Panics Factorial Loops: while Loops: for Overflow and underflow Saturating arithmetic Conversions: as casting Ticket v1 Structs Validation Modules Visibility Encapsulation Ownership Setters Stack Heap References in memory Destructors Outro Traits Trait Orphan rule Operator overloading Derive macros Trait bounds String slices Deref trait Sized trait From trait Associated vs generic types Clone trait Copy trait Drop trait Outro Ticket v2 ",
+  "keywords": [
+    
+  ],
+  "articleBody": "Summary Welcome Syntax A Basic Calculator Integers Variables Branching: if/else Panics Factorial Loops: while Loops: for Overflow and underflow Saturating arithmetic Conversions: as casting Ticket v1 Structs Validation Modules Visibility Encapsulation Ownership Setters Stack Heap References in memory Destructors Outro Traits Trait Orphan rule Operator overloading Derive macros Trait bounds String slices Deref trait Sized trait From trait Associated vs generic types Clone trait Copy trait Drop trait Outro Ticket v2 Enums Branching: match Variants with data Branching: if let and let/else Nullability Fallibility Unwrap Error enums Error trait Packages Dependencies thiserror TryFrom trait Error::source Outro Ticket Management Arrays Vectors Resizing Iterators Iter Lifetimes Combinators impl Trait impl Trait, pt.2 Slices Mutable slices Two states Index trait IndexMut trait HashMap BTreeMap Threads Threads 'static lifetime Leaking memory Scoped threads Channels Interior mutability Ack pattern Client Bounded channels Patching Mutex, Send and Arc RwLock Without channels Sync trait Futures Asynchronous functions Spawning tasks Runtime Future trait Blocking the runtime Async-aware primitives Cancellation Outro Going further ",
+  "wordCount" : "164",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/summary/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="summary">Summary</h1>
+<ul>
+<li>
+<p><a href="01_intro/00_welcome.md">Welcome</a>
+</p>
+<ul>
+<li><a href="01_intro/01_syntax.md">Syntax</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="02_basic_calculator/00_intro.md">A Basic Calculator</a>
+</p>
+<ul>
+<li><a href="02_basic_calculator/01_integers.md">Integers</a>
+</li>
+<li><a href="02_basic_calculator/02_variables.md">Variables</a>
+</li>
+<li><a href="02_basic_calculator/03_if_else.md">Branching: <code>if</code>/<code>else</code></a>
+</li>
+<li><a href="02_basic_calculator/04_panics.md">Panics</a>
+</li>
+<li><a href="02_basic_calculator/05_factorial.md">Factorial</a>
+</li>
+<li><a href="02_basic_calculator/06_while.md">Loops: <code>while</code></a>
+</li>
+<li><a href="02_basic_calculator/07_for.md">Loops: <code>for</code></a>
+</li>
+<li><a href="02_basic_calculator/08_overflow.md">Overflow and underflow</a>
+</li>
+<li><a href="02_basic_calculator/09_saturating.md">Saturating arithmetic</a>
+</li>
+<li><a href="02_basic_calculator/10_as_casting.md">Conversions: <code>as</code> casting</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="03_ticket_v1/00_intro.md">Ticket v1</a>
+</p>
+<ul>
+<li><a href="03_ticket_v1/01_struct.md">Structs</a>
+</li>
+<li><a href="03_ticket_v1/02_validation.md">Validation</a>
+</li>
+<li><a href="03_ticket_v1/03_modules.md">Modules</a>
+</li>
+<li><a href="03_ticket_v1/04_visibility.md">Visibility</a>
+</li>
+<li><a href="03_ticket_v1/05_encapsulation.md">Encapsulation</a>
+</li>
+<li><a href="03_ticket_v1/06_ownership.md">Ownership</a>
+</li>
+<li><a href="03_ticket_v1/07_setters.md">Setters</a>
+</li>
+<li><a href="03_ticket_v1/08_stack.md">Stack</a>
+</li>
+<li><a href="03_ticket_v1/09_heap.md">Heap</a>
+</li>
+<li><a href="03_ticket_v1/10_references_in_memory.md">References in memory</a>
+</li>
+<li><a href="03_ticket_v1/11_destructor.md">Destructors</a>
+</li>
+<li><a href="03_ticket_v1/12_outro.md">Outro</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="04_traits/00_intro.md">Traits</a>
+</p>
+<ul>
+<li><a href="04_traits/01_trait.md">Trait</a>
+</li>
+<li><a href="04_traits/02_orphan_rule.md">Orphan rule</a>
+</li>
+<li><a href="04_traits/03_operator_overloading.md">Operator overloading</a>
+</li>
+<li><a href="04_traits/04_derive.md">Derive macros</a>
+</li>
+<li><a href="04_traits/05_trait_bounds.md">Trait bounds</a>
+</li>
+<li><a href="04_traits/06_str_slice.md">String slices</a>
+</li>
+<li><a href="04_traits/07_deref.md"><code>Deref</code> trait</a>
+</li>
+<li><a href="04_traits/08_sized.md"><code>Sized</code> trait</a>
+</li>
+<li><a href="04_traits/09_from.md"><code>From</code> trait</a>
+</li>
+<li><a href="04_traits/10_assoc_vs_generic.md">Associated vs generic types</a>
+</li>
+<li><a href="04_traits/11_clone.md"><code>Clone</code> trait</a>
+</li>
+<li><a href="04_traits/12_copy.md"><code>Copy</code> trait</a>
+</li>
+<li><a href="04_traits/13_drop.md"><code>Drop</code> trait</a>
+</li>
+<li><a href="04_traits/14_outro.md">Outro</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="05_ticket_v2/00_intro.md">Ticket v2</a>
+</p>
+<ul>
+<li><a href="05_ticket_v2/01_enum.md">Enums</a>
+</li>
+<li><a href="05_ticket_v2/02_match.md">Branching: <code>match</code></a>
+</li>
+<li><a href="05_ticket_v2/03_variants_with_data.md">Variants with data</a>
+</li>
+<li><a href="05_ticket_v2/04_if_let.md">Branching: <code>if let</code> and <code>let/else</code></a>
+</li>
+<li><a href="05_ticket_v2/05_nullability.md">Nullability</a>
+</li>
+<li><a href="05_ticket_v2/06_fallibility.md">Fallibility</a>
+</li>
+<li><a href="05_ticket_v2/07_unwrap.md">Unwrap</a>
+</li>
+<li><a href="05_ticket_v2/08_error_enums.md">Error enums</a>
+</li>
+<li><a href="05_ticket_v2/09_error_trait.md"><code>Error</code> trait</a>
+</li>
+<li><a href="05_ticket_v2/10_packages.md">Packages</a>
+</li>
+<li><a href="05_ticket_v2/11_dependencies.md">Dependencies</a>
+</li>
+<li><a href="05_ticket_v2/12_thiserror.md"><code>thiserror</code></a>
+</li>
+<li><a href="05_ticket_v2/13_try_from.md"><code>TryFrom</code> trait</a>
+</li>
+<li><a href="05_ticket_v2/14_source.md"><code>Error::source</code></a>
+</li>
+<li><a href="05_ticket_v2/15_outro.md">Outro</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="06_ticket_management/00_intro.md">Ticket Management</a>
+</p>
+<ul>
+<li><a href="06_ticket_management/01_arrays.md">Arrays</a>
+</li>
+<li><a href="06_ticket_management/02_vec.md">Vectors</a>
+</li>
+<li><a href="06_ticket_management/03_resizing.md">Resizing</a>
+</li>
+<li><a href="06_ticket_management/04_iterators.md">Iterators</a>
+</li>
+<li><a href="06_ticket_management/05_iter.md">Iter</a>
+</li>
+<li><a href="06_ticket_management/06_lifetimes.md">Lifetimes</a>
+</li>
+<li><a href="06_ticket_management/07_combinators.md">Combinators</a>
+</li>
+<li><a href="06_ticket_management/08_impl_trait.md"><code>impl Trait</code></a>
+</li>
+<li><a href="06_ticket_management/09_impl_trait_2.md"><code>impl Trait</code>, pt.2</a>
+</li>
+<li><a href="06_ticket_management/10_slices.md">Slices</a>
+</li>
+<li><a href="06_ticket_management/11_mutable_slices.md">Mutable slices</a>
+</li>
+<li><a href="06_ticket_management/12_two_states.md">Two states</a>
+</li>
+<li><a href="06_ticket_management/13_index.md"><code>Index</code> trait</a>
+</li>
+<li><a href="06_ticket_management/14_index_mut.md"><code>IndexMut</code> trait</a>
+</li>
+<li><a href="06_ticket_management/15_hashmap.md"><code>HashMap</code></a>
+</li>
+<li><a href="06_ticket_management/16_btreemap.md"><code>BTreeMap</code></a>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="07_threads/00_intro.md">Threads</a>
+</p>
+<ul>
+<li><a href="07_threads/01_threads.md">Threads</a>
+</li>
+<li><a href="07_threads/02_static.md"><code>'static</code> lifetime</a>
+</li>
+<li><a href="07_threads/03_leak.md">Leaking memory</a>
+</li>
+<li><a href="07_threads/04_scoped_threads.md">Scoped threads</a>
+</li>
+<li><a href="07_threads/05_channels.md">Channels</a>
+</li>
+<li><a href="07_threads/06_interior_mutability.md">Interior mutability</a>
+</li>
+<li><a href="07_threads/07_ack.md">Ack pattern</a>
+</li>
+<li><a href="07_threads/08_client.md">Client</a>
+</li>
+<li><a href="07_threads/09_bounded.md">Bounded channels</a>
+</li>
+<li><a href="07_threads/10_patch.md">Patching</a>
+</li>
+<li><a href="07_threads/11_locks.md"><code>Mutex</code>, <code>Send</code> and <code>Arc</code></a>
+</li>
+<li><a href="07_threads/12_rw_lock.md"><code>RwLock</code></a>
+</li>
+<li><a href="07_threads/13_without_channels.md">Without channels</a>
+</li>
+<li><a href="07_threads/14_sync.md"><code>Sync</code> trait</a>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="08_futures/00_intro.md">Futures</a>
+</p>
+<ul>
+<li><a href="08_futures/01_async_fn.md">Asynchronous functions</a>
+</li>
+<li><a href="08_futures/02_spawn.md">Spawning tasks</a>
+</li>
+<li><a href="08_futures/03_runtime.md">Runtime</a>
+</li>
+<li><a href="08_futures/04_future.md">Future trait</a>
+</li>
+<li><a href="08_futures/05_blocking.md">Blocking the runtime</a>
+</li>
+<li><a href="08_futures/06_async_aware_primitives.md">Async-aware primitives</a>
+</li>
+<li><a href="08_futures/07_cancellation.md">Cancellation</a>
+</li>
+<li><a href="08_futures/08_outro.md">Outro</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="going_further.md">Going further</a>
+</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

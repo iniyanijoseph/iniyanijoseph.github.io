@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content=".iter()
+IntoIterator consumes self to create an iterator.
+This has its benefits: you get owned values from the iterator.
+For example: if you call .into_iter() on a Vec&lt;Ticket&gt; you&rsquo;ll get an iterator that returns Ticket values.
+That&rsquo;s also its downside: you can no longer use the original collection after calling .into_iter() on it.
+Quite often you want to iterate over a collection without consuming it, looking at references to the values instead.
+In the case of Vec&lt;Ticket&gt;, you&rsquo;d want to iterate over &amp;Ticket values.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/05_iter/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/05_iter/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content=".iter()
+IntoIterator consumes self to create an iterator.
+This has its benefits: you get owned values from the iterator.
+For example: if you call .into_iter() on a Vec&lt;Ticket&gt; you&rsquo;ll get an iterator that returns Ticket values.
+That&rsquo;s also its downside: you can no longer use the original collection after calling .into_iter() on it.
+Quite often you want to iterate over a collection without consuming it, looking at references to the values instead.
+In the case of Vec&lt;Ticket&gt;, you&rsquo;d want to iterate over &amp;Ticket values." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/05_iter/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content=".iter()
+IntoIterator consumes self to create an iterator.
+This has its benefits: you get owned values from the iterator.
+For example: if you call .into_iter() on a Vec&lt;Ticket&gt; you&rsquo;ll get an iterator that returns Ticket values.
+That&rsquo;s also its downside: you can no longer use the original collection after calling .into_iter() on it.
+Quite often you want to iterate over a collection without consuming it, looking at references to the values instead.
+In the case of Vec&lt;Ticket&gt;, you&rsquo;d want to iterate over &amp;Ticket values."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/05_iter/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": ".iter() IntoIterator consumes self to create an iterator.\nThis has its benefits: you get owned values from the iterator. For example: if you call .into_iter() on a Vec\u0026lt;Ticket\u0026gt; you\u0026rsquo;ll get an iterator that returns Ticket values.\nThat\u0026rsquo;s also its downside: you can no longer use the original collection after calling .into_iter() on it. Quite often you want to iterate over a collection without consuming it, looking at references to the values instead. In the case of Vec\u0026lt;Ticket\u0026gt;, you\u0026rsquo;d want to iterate over \u0026amp;Ticket values.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": ".iter() IntoIterator consumes self to create an iterator.\nThis has its benefits: you get owned values from the iterator. For example: if you call .into_iter() on a Vec you’ll get an iterator that returns Ticket values.\nThat’s also its downside: you can no longer use the original collection after calling .into_iter() on it. Quite often you want to iterate over a collection without consuming it, looking at references to the values instead. In the case of Vec, you’d want to iterate over \u0026Ticket values.\nMost collections expose a method called .iter() that returns an iterator over references to the collection’s elements. For example:\nlet numbers: Vec\u003cu32\u003e = vec![1, 2]; // `n` has type `\u0026u32` here for n in numbers.iter() { // [...] } This pattern can be simplified by implementing IntoIterator for a reference to the collection. In our example above, that would be \u0026Vec.\nThe standard library does this, that’s why the following code works:\nlet numbers: Vec\u003cu32\u003e = vec![1, 2]; // `n` has type `\u0026u32` here // We didn't have to call `.iter()` explicitly // It was enough to use `\u0026numbers` in the `for` loop for n in \u0026numbers { // [...] } It’s idiomatic to provide both options:\nAn implementation of IntoIterator for a reference to the collection. An .iter() method that returns an iterator over references to the collection’s elements. The former is convenient in for loops, the latter is more explicit and can be used in other contexts.\n",
+  "wordCount" : "243",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/05_iter/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="iter"><code>.iter()</code></h1>
+<p><code>IntoIterator</code> <strong>consumes</strong> <code>self</code> to create an iterator.</p>
+<p>This has its benefits: you get <strong>owned</strong> values from the iterator.
+For example: if you call <code>.into_iter()</code> on a <code>Vec&lt;Ticket&gt;</code> you&rsquo;ll get an iterator that returns <code>Ticket</code> values.</p>
+<p>That&rsquo;s also its downside: you can no longer use the original collection after calling <code>.into_iter()</code> on it.
+Quite often you want to iterate over a collection without consuming it, looking at <strong>references</strong> to the values instead.
+In the case of <code>Vec&lt;Ticket&gt;</code>, you&rsquo;d want to iterate over <code>&amp;Ticket</code> values.</p>
+<p>Most collections expose a method called <code>.iter()</code> that returns an iterator over references to the collection&rsquo;s elements.
+For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>numbers: <span style="color:#0aa">Vec</span>&lt;<span style="color:#0aa">u32</span>&gt;<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0a0">vec!</span>[<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// `n` has type `&amp;u32` here
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">for</span><span style="color:#bbb"> </span>n<span style="color:#bbb"> </span><span style="color:#00a">in</span><span style="color:#bbb"> </span>numbers.iter()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>This pattern can be simplified by implementing <code>IntoIterator</code> for a <strong>reference to the collection</strong>.
+In our example above, that would be <code>&amp;Vec&lt;Ticket&gt;</code>.<br>
+The standard library does this, that&rsquo;s why the following code works:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>numbers: <span style="color:#0aa">Vec</span>&lt;<span style="color:#0aa">u32</span>&gt;<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0a0">vec!</span>[<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// `n` has type `&amp;u32` here
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// We didn&#39;t have to call `.iter()` explicitly
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// It was enough to use `&amp;numbers` in the `for` loop
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">for</span><span style="color:#bbb"> </span>n<span style="color:#bbb"> </span><span style="color:#00a">in</span><span style="color:#bbb"> </span>&amp;numbers<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>It&rsquo;s idiomatic to provide both options:</p>
+<ul>
+<li>An implementation of <code>IntoIterator</code> for a reference to the collection.</li>
+<li>An <code>.iter()</code> method that returns an iterator over references to the collection&rsquo;s elements.</li>
+</ul>
+<p>The former is convenient in <code>for</code> loops, the latter is more explicit and can be used in other contexts.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

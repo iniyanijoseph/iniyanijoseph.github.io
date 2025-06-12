@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Arrays
+As soon as we start talking about &ldquo;ticket management&rdquo; we need to think about a way to store multiple tickets.
+In turn, this means we need to think about collections. In particular, homogeneous collections:
+we want to store multiple instances of the same type.
+What does Rust have to offer in this regard?
+Arrays
+A first attempt could be to use an array.
+Arrays in Rust are fixed-size collections of elements of the same type.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/01_arrays/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/01_arrays/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Arrays
+As soon as we start talking about &ldquo;ticket management&rdquo; we need to think about a way to store multiple tickets.
+In turn, this means we need to think about collections. In particular, homogeneous collections:
+we want to store multiple instances of the same type.
+What does Rust have to offer in this regard?
+Arrays
+A first attempt could be to use an array.
+Arrays in Rust are fixed-size collections of elements of the same type." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/01_arrays/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Arrays
+As soon as we start talking about &ldquo;ticket management&rdquo; we need to think about a way to store multiple tickets.
+In turn, this means we need to think about collections. In particular, homogeneous collections:
+we want to store multiple instances of the same type.
+What does Rust have to offer in this regard?
+Arrays
+A first attempt could be to use an array.
+Arrays in Rust are fixed-size collections of elements of the same type."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/01_arrays/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Arrays As soon as we start talking about \u0026ldquo;ticket management\u0026rdquo; we need to think about a way to store multiple tickets. In turn, this means we need to think about collections. In particular, homogeneous collections: we want to store multiple instances of the same type.\nWhat does Rust have to offer in this regard?\nArrays A first attempt could be to use an array.\nArrays in Rust are fixed-size collections of elements of the same type.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Arrays As soon as we start talking about “ticket management” we need to think about a way to store multiple tickets. In turn, this means we need to think about collections. In particular, homogeneous collections: we want to store multiple instances of the same type.\nWhat does Rust have to offer in this regard?\nArrays A first attempt could be to use an array.\nArrays in Rust are fixed-size collections of elements of the same type.\nHere’s how you can define an array:\n// Array type syntax: [ ; ] let numbers: [u32; 3] = [1, 2, 3]; This creates an array of 3 integers, initialized with the values 1, 2, and 3.\nThe type of the array is [u32; 3], which reads as “an array of u32s with a length of 3”.\nIf all array elements are the same, you can use a shorter syntax to initialize it:\n// [ ; ] let numbers: [u32; 3] = [1; 3]; [1; 3] creates an array of three elements, all equal to 1.\nAccessing elements You can access elements of an array using square brackets:\nlet first = numbers[0]; let second = numbers[1]; let third = numbers[2]; The index must be of type usize.\nArrays are zero-indexed, like everything in Rust. You’ve seen this before with string slices and field indexing in tuples/tuple-like variants.\nOut-of-bounds access If you try to access an element that’s out of bounds, Rust will panic:\nlet numbers: [u32; 3] = [1, 2, 3]; let fourth = numbers[3]; // This will panic This is enforced at runtime using bounds checking. It comes with a small performance overhead, but it’s how Rust prevents buffer overflows.\nIn some scenarios the Rust compiler can optimize away bounds checks, especially if iterators are involved—we’ll speak more about this later on.\nIf you don’t want to panic, you can use the get method, which returns an Option\u003c\u0026T\u003e:\nlet numbers: [u32; 3] = [1, 2, 3]; assert_eq!(numbers.get(0), Some(\u00261)); // You get a `None` if you try to access an out-of-bounds index // rather than a panic. assert_eq!(numbers.get(3), None); Performance Since the size of an array is known at compile-time, the compiler can allocate the array on the stack. If you run the following code:\nlet numbers: [u32; 3] = [1, 2, 3]; You’ll get the following memory layout:\n+---+---+---+ Stack: | 1 | 2 | 3 | +---+---+---+ In other words, the size of an array is std::mem::size_of::() * N, where T is the type of the elements and N is the number of elements.\nYou can access and replace each element in O(1) time.\n",
+  "wordCount" : "440",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/01_arrays/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="arrays">Arrays</h1>
+<p>As soon as we start talking about &ldquo;ticket management&rdquo; we need to think about a way to store <em>multiple</em> tickets.
+In turn, this means we need to think about collections. In particular, homogeneous collections:
+we want to store multiple instances of the same type.</p>
+<p>What does Rust have to offer in this regard?</p>
+<h2 id="arrays-1">Arrays</h2>
+<p>A first attempt could be to use an <strong>array</strong>.<br>
+Arrays in Rust are fixed-size collections of elements of the same type.</p>
+<p>Here&rsquo;s how you can define an array:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// Array type syntax: [ &lt;type&gt; ; &lt;number of elements&gt; ]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>numbers: [<span style="color:#0aa">u32</span>;<span style="color:#bbb"> </span><span style="color:#099">3</span>]<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>[<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>,<span style="color:#bbb"> </span><span style="color:#099">3</span>];<span style="color:#bbb">
+</span></span></span></code></pre></div><p>This creates an array of 3 integers, initialized with the values <code>1</code>, <code>2</code>, and <code>3</code>.<br>
+The type of the array is <code>[u32; 3]</code>, which reads as &ldquo;an array of <code>u32</code>s with a length of 3&rdquo;.</p>
+<p>If all array elements are the same, you can use a shorter syntax to initialize it:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// [ &lt;value&gt; ; &lt;number of elements&gt; ]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>numbers: [<span style="color:#0aa">u32</span>;<span style="color:#bbb"> </span><span style="color:#099">3</span>]<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>[<span style="color:#099">1</span>;<span style="color:#bbb"> </span><span style="color:#099">3</span>];<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>[1; 3]</code> creates an array of three elements, all equal to <code>1</code>.</p>
+<h3 id="accessing-elements">Accessing elements</h3>
+<p>You can access elements of an array using square brackets:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>first<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>numbers[<span style="color:#099">0</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>second<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>numbers[<span style="color:#099">1</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>third<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>numbers[<span style="color:#099">2</span>];<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The index must be of type <code>usize</code>.<br>
+Arrays are <strong>zero-indexed</strong>, like everything in Rust. You&rsquo;ve seen this before with string slices and field indexing in
+tuples/tuple-like variants.</p>
+<h3 id="out-of-bounds-access">Out-of-bounds access</h3>
+<p>If you try to access an element that&rsquo;s out of bounds, Rust will panic:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>numbers: [<span style="color:#0aa">u32</span>;<span style="color:#bbb"> </span><span style="color:#099">3</span>]<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>[<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>,<span style="color:#bbb"> </span><span style="color:#099">3</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>fourth<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>numbers[<span style="color:#099">3</span>];<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">// This will panic
+</span></span></span></code></pre></div><p>This is enforced at runtime using <strong>bounds checking</strong>. It comes with a small performance overhead, but it&rsquo;s how
+Rust prevents buffer overflows.<br>
+In some scenarios the Rust compiler can optimize away bounds checks, especially if iterators are involved—we&rsquo;ll speak
+more about this later on.</p>
+<p>If you don&rsquo;t want to panic, you can use the <code>get</code> method, which returns an <code>Option&lt;&amp;T&gt;</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>numbers: [<span style="color:#0aa">u32</span>;<span style="color:#bbb"> </span><span style="color:#099">3</span>]<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>[<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>,<span style="color:#bbb"> </span><span style="color:#099">3</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0a0">assert_eq!</span>(numbers.get(<span style="color:#099">0</span>),<span style="color:#bbb"> </span><span style="color:#0aa">Some</span>(&amp;<span style="color:#099">1</span>));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// You get a `None` if you try to access an out-of-bounds index
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// rather than a panic.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#0a0">assert_eq!</span>(numbers.get(<span style="color:#099">3</span>),<span style="color:#bbb"> </span><span style="color:#0aa">None</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="performance">Performance</h3>
+<p>Since the size of an array is known at compile-time, the compiler can allocate the array on the stack.
+If you run the following code:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>numbers: [<span style="color:#0aa">u32</span>;<span style="color:#bbb"> </span><span style="color:#099">3</span>]<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>[<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>,<span style="color:#bbb"> </span><span style="color:#099">3</span>];<span style="color:#bbb">
+</span></span></span></code></pre></div><p>You&rsquo;ll get the following memory layout:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>        +---+---+---+
+</span></span><span style="display:flex;"><span>Stack:  | 1 | 2 | 3 |
+</span></span><span style="display:flex;"><span>        +---+---+---+
+</span></span></code></pre></div><p>In other words, the size of an array is <code>std::mem::size_of::&lt;T&gt;() * N</code>, where <code>T</code> is the type of the elements and <code>N</code> is
+the number of elements.<br>
+You can access and replace each element in <code>O(1)</code> time.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

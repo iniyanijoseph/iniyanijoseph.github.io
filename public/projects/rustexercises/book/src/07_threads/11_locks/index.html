@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Locks, Send and Arc
+The patching strategy you just implemented has a major drawback: it&rsquo;s racy.
+If two clients send patches for the same ticket roughly at same time, the server will apply them in an arbitrary order.
+Whoever enqueues their patch last will overwrite the changes made by the other client.
+Version numbers
+We could try to fix this by using a version number.
+Each ticket gets assigned a version number upon creation, set to 0.
+Whenever a client sends a patch, they must include the current version number of the ticket alongside the
+desired changes. The server will only apply the patch if the version number matches the one it has stored.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/11_locks/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/11_locks/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Locks, Send and Arc
+The patching strategy you just implemented has a major drawback: it&rsquo;s racy.
+If two clients send patches for the same ticket roughly at same time, the server will apply them in an arbitrary order.
+Whoever enqueues their patch last will overwrite the changes made by the other client.
+Version numbers
+We could try to fix this by using a version number.
+Each ticket gets assigned a version number upon creation, set to 0.
+Whenever a client sends a patch, they must include the current version number of the ticket alongside the
+desired changes. The server will only apply the patch if the version number matches the one it has stored." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/07_threads/11_locks/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Locks, Send and Arc
+The patching strategy you just implemented has a major drawback: it&rsquo;s racy.
+If two clients send patches for the same ticket roughly at same time, the server will apply them in an arbitrary order.
+Whoever enqueues their patch last will overwrite the changes made by the other client.
+Version numbers
+We could try to fix this by using a version number.
+Each ticket gets assigned a version number upon creation, set to 0.
+Whenever a client sends a patch, they must include the current version number of the ticket alongside the
+desired changes. The server will only apply the patch if the version number matches the one it has stored."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/07_threads/11_locks/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Locks, Send and Arc The patching strategy you just implemented has a major drawback: it\u0026rsquo;s racy.\nIf two clients send patches for the same ticket roughly at same time, the server will apply them in an arbitrary order. Whoever enqueues their patch last will overwrite the changes made by the other client.\nVersion numbers We could try to fix this by using a version number.\nEach ticket gets assigned a version number upon creation, set to 0.\nWhenever a client sends a patch, they must include the current version number of the ticket alongside the desired changes. The server will only apply the patch if the version number matches the one it has stored.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Locks, Send and Arc The patching strategy you just implemented has a major drawback: it’s racy.\nIf two clients send patches for the same ticket roughly at same time, the server will apply them in an arbitrary order. Whoever enqueues their patch last will overwrite the changes made by the other client.\nVersion numbers We could try to fix this by using a version number.\nEach ticket gets assigned a version number upon creation, set to 0.\nWhenever a client sends a patch, they must include the current version number of the ticket alongside the desired changes. The server will only apply the patch if the version number matches the one it has stored.\nIn the scenario described above, the server would reject the second patch, because the version number would have been incremented by the first patch and thus wouldn’t match the one sent by the second client.\nThis approach is fairly common in distributed systems (e.g. when client and servers don’t share memory), and it is known as optimistic concurrency control.\nThe idea is that most of the time, conflicts won’t happen, so we can optimize for the common case. You know enough about Rust by now to implement this strategy on your own as a bonus exercise, if you want to.\nLocking We can also fix the race condition by introducing a lock.\nWhenever a client wants to update a ticket, they must first acquire a lock on it. While the lock is active, no other client can modify the ticket.\nRust’s standard library provides two different locking primitives: Mutex and RwLock.\nLet’s start with Mutex. It stands for mutual exclusion, and it’s the simplest kind of lock: it allows only one thread to access the data, no matter if it’s for reading or writing.\nMutex wraps the data it protects, and it’s therefore generic over the type of the data.\nYou can’t access the data directly: the type system forces you to acquire a lock first using either Mutex::lock or Mutex::try_lock. The former blocks until the lock is acquired, the latter returns immediately with an error if the lock can’t be acquired.\nBoth methods return a guard object that dereferences to the data, allowing you to modify it. The lock is released when the guard is dropped.\nuse std::sync::Mutex; // An integer protected by a mutex lock let lock = Mutex::new(0); // Acquire a lock on the mutex let mut guard = lock.lock().unwrap(); // Modify the data through the guard, // leveraging its `Deref` implementation *guard += 1; // The lock is released when `data` goes out of scope // This can be done explicitly by dropping the guard // or happen implicitly when the guard goes out of scope drop(guard) Locking granularity What should our Mutex wrap?\nThe simplest option would be to wrap the entire TicketStore in a single Mutex.\nThis would work, but it would severely limit the system’s performance: you wouldn’t be able to read tickets in parallel, because every read would have to wait for the lock to be released.\nThis is known as coarse-grained locking.\nIt would be better to use fine-grained locking, where each ticket is protected by its own lock. This way, clients can keep working with tickets in parallel, as long as they aren’t trying to access the same ticket.\n// The new structure, with a lock for each ticket struct TicketStore { tickets: BTreeMap",
+  "wordCount" : "1497",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/07_threads/11_locks/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="locks-send-and-arc">Locks, <code>Send</code> and <code>Arc</code></h1>
+<p>The patching strategy you just implemented has a major drawback: it&rsquo;s racy.<br>
+If two clients send patches for the same ticket roughly at same time, the server will apply them in an arbitrary order.
+Whoever enqueues their patch last will overwrite the changes made by the other client.</p>
+<h2 id="version-numbers">Version numbers</h2>
+<p>We could try to fix this by using a <strong>version number</strong>.<br>
+Each ticket gets assigned a version number upon creation, set to <code>0</code>.<br>
+Whenever a client sends a patch, they must include the current version number of the ticket alongside the
+desired changes. The server will only apply the patch if the version number matches the one it has stored.</p>
+<p>In the scenario described above, the server would reject the second patch, because the version number would
+have been incremented by the first patch and thus wouldn&rsquo;t match the one sent by the second client.</p>
+<p>This approach is fairly common in distributed systems (e.g. when client and servers don&rsquo;t share memory),
+and it is known as <strong>optimistic concurrency control</strong>.<br>
+The idea is that most of the time, conflicts won&rsquo;t happen, so we can optimize for the common case.
+You know enough about Rust by now to implement this strategy on your own as a bonus exercise, if you want to.</p>
+<h2 id="locking">Locking</h2>
+<p>We can also fix the race condition by introducing a <strong>lock</strong>.<br>
+Whenever a client wants to update a ticket, they must first acquire a lock on it. While the lock is active,
+no other client can modify the ticket.</p>
+<p>Rust&rsquo;s standard library provides two different locking primitives: <code>Mutex&lt;T&gt;</code> and <code>RwLock&lt;T&gt;</code>.<br>
+Let&rsquo;s start with <code>Mutex&lt;T&gt;</code>. It stands for <strong>mut</strong>ual <strong>ex</strong>clusion, and it&rsquo;s the simplest kind of lock:
+it allows only one thread to access the data, no matter if it&rsquo;s for reading or writing.</p>
+<p><code>Mutex&lt;T&gt;</code> wraps the data it protects, and it&rsquo;s therefore generic over the type of the data.<br>
+You can&rsquo;t access the data directly: the type system forces you to acquire a lock first using either <code>Mutex::lock</code> or
+<code>Mutex::try_lock</code>. The former blocks until the lock is acquired, the latter returns immediately with an error if the lock
+can&rsquo;t be acquired.<br>
+Both methods return a guard object that dereferences to the data, allowing you to modify it. The lock is released when
+the guard is dropped.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::sync::Mutex;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// An integer protected by a mutex lock
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>lock<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Mutex::new(<span style="color:#099">0</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// Acquire a lock on the mutex
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span><span style="color:#00a">mut</span><span style="color:#bbb"> </span>guard<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>lock.lock().unwrap();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// Modify the data through the guard,
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// leveraging its `Deref` implementation
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>*guard<span style="color:#bbb"> </span>+=<span style="color:#bbb"> </span><span style="color:#099">1</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// The lock is released when `data` goes out of scope
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// This can be done explicitly by dropping the guard
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// or happen implicitly when the guard goes out of scope
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#0aa">drop</span>(guard)<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="locking-granularity">Locking granularity</h2>
+<p>What should our <code>Mutex</code> wrap?<br>
+The simplest option would be to wrap the entire <code>TicketStore</code> in a single <code>Mutex</code>.<br>
+This would work, but it would severely limit the system&rsquo;s performance: you wouldn&rsquo;t be able to read tickets in parallel,
+because every read would have to wait for the lock to be released.<br>
+This is known as <strong>coarse-grained locking</strong>.</p>
+<p>It would be better to use <strong>fine-grained locking</strong>, where each ticket is protected by its own lock.
+This way, clients can keep working with tickets in parallel, as long as they aren&rsquo;t trying to access the same ticket.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// The new structure, with a lock for each ticket
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">TicketStore</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>tickets: <span style="color:#0a0;text-decoration:underline">BTreeMap</span>&lt;TicketId,<span style="color:#bbb"> </span>Mutex&lt;Ticket&gt;&gt;,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>This approach is more efficient, but it has a downside: <code>TicketStore</code> has to become <strong>aware</strong> of the multithreaded
+nature of the system; up until now, <code>TicketStore</code> has been blissfully ignoring the existence of threads.<br>
+Let&rsquo;s go for it anyway.</p>
+<h2 id="who-holds-the-lock">Who holds the lock?</h2>
+<p>For the whole scheme to work, the lock must be passed to the client that wants to modify the ticket.<br>
+The client can then directly modify the ticket (as if they had a <code>&amp;mut Ticket</code>) and release the lock when they&rsquo;re done.</p>
+<p>This is a bit tricky.<br>
+We can&rsquo;t send a <code>Mutex&lt;Ticket&gt;</code> over a channel, because <code>Mutex</code> is not <code>Clone</code> and
+we can&rsquo;t move it out of the <code>TicketStore</code>. Could we send the <code>MutexGuard</code> instead?</p>
+<p>Let&rsquo;s test the idea with a small example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::thread::spawn;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::sync::Mutex;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::sync::mpsc::sync_channel;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">fn</span> <span style="color:#0a0">main</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>lock<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Mutex::new(<span style="color:#099">0</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>(sender,<span style="color:#bbb"> </span>receiver)<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>sync_channel(<span style="color:#099">1</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>guard<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>lock.lock().unwrap();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>spawn(<span style="color:#00a">move</span><span style="color:#bbb"> </span>||<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>receiver.recv().unwrap();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>});<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// Try to send the guard over the channel
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// to another thread
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>sender.send(guard);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The compiler is not happy with this code:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>error[E0277]: `MutexGuard&lt;&#39;_, i32&gt;` cannot be sent between 
+</span></span><span style="display:flex;"><span>              threads safely
+</span></span><span style="display:flex;"><span>   --&gt; src/main.rs:10:7
+</span></span><span style="display:flex;"><span>    |
+</span></span><span style="display:flex;"><span>10  |   spawn(move || {
+</span></span><span style="display:flex;"><span>    |  _-----_^
+</span></span><span style="display:flex;"><span>    | | |
+</span></span><span style="display:flex;"><span>    | | required by a bound introduced by this call
+</span></span><span style="display:flex;"><span>11  | |     receiver.recv().unwrap();
+</span></span><span style="display:flex;"><span>12  | | });
+</span></span><span style="display:flex;"><span>    | |_^ `MutexGuard&lt;&#39;_, i32&gt;` cannot be sent between threads safely
+</span></span><span style="display:flex;"><span>    |
+</span></span><span style="display:flex;"><span>    = help: the trait `Send` is not implemented for 
+</span></span><span style="display:flex;"><span>            `MutexGuard&lt;&#39;_, i32&gt;`, which is required by 
+</span></span><span style="display:flex;"><span>            `{closure@src/main.rs:10:7: 10:14}: Send`
+</span></span><span style="display:flex;"><span>    = note: required for `Receiver&lt;MutexGuard&lt;&#39;_, i32&gt;&gt;` 
+</span></span><span style="display:flex;"><span>            to implement `Send`
+</span></span><span style="display:flex;"><span>note: required because it&#39;s used within this closure
+</span></span></code></pre></div><p><code>MutexGuard&lt;'_, i32&gt;</code> is not <code>Send</code>: what does it mean?</p>
+<h2 id="send"><code>Send</code></h2>
+<p><code>Send</code> is a marker trait that indicates that a type can be safely transferred from one thread to another.<br>
+<code>Send</code> is also an auto-trait, just like <code>Sized</code>; it&rsquo;s automatically implemented (or not implemented) for your type
+by the compiler, based on its definition.<br>
+You can also implement <code>Send</code> manually for your types, but it requires <code>unsafe</code> since you have to guarantee that the
+type is indeed safe to send between threads for reasons that the compiler can&rsquo;t automatically verify.</p>
+<h3 id="channel-requirements">Channel requirements</h3>
+<p><code>Sender&lt;T&gt;</code>, <code>SyncSender&lt;T&gt;</code> and <code>Receiver&lt;T&gt;</code> are <code>Send</code> if and only if <code>T</code> is <code>Send</code>.<br>
+That&rsquo;s because they are used to send values between threads, and if the value itself is not <code>Send</code>, it would be
+unsafe to send it between threads.</p>
+<h3 id="mutexguard"><code>MutexGuard</code></h3>
+<p><code>MutexGuard</code> is not <code>Send</code> because the underlying operating system primitives that <code>Mutex</code> uses to implement
+the lock require (on some platforms) that the lock must be released by the same thread that acquired it.<br>
+If we were to send a <code>MutexGuard</code> to another thread, the lock would be released by a different thread, which would
+lead to undefined behavior.</p>
+<h2 id="our-challenges">Our challenges</h2>
+<p>Summing it up:</p>
+<ul>
+<li>We can&rsquo;t send a <code>MutexGuard</code> over a channel. So we can&rsquo;t lock on the server-side and then modify the ticket on the
+client-side.</li>
+<li>We can send a <code>Mutex</code> over a channel because it&rsquo;s <code>Send</code> as long as the data it protects is <code>Send</code>, which is the
+case for <code>Ticket</code>.
+At the same time, we can&rsquo;t move the <code>Mutex</code> out of the <code>TicketStore</code> nor clone it.</li>
+</ul>
+<p>How can we solve this conundrum?<br>
+We need to look at the problem from a different angle.
+To lock a <code>Mutex</code>, we don&rsquo;t need an owned value. A shared reference is enough, since <code>Mutex</code> uses internal mutability:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span>&lt;T&gt;<span style="color:#bbb"> </span>Mutex&lt;T&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// `&amp;self`, not `self`!
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">lock</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">LockResult</span>&lt;MutexGuard&lt;<span style="color:#0aa">&#39;_</span>,<span style="color:#bbb"> </span>T&gt;&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// Implementation details
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>It is therefore enough to send a shared reference to the client.<br>
+We can&rsquo;t do that directly, though, because the reference would have to be <code>'static</code> and that&rsquo;s not the case.<br>
+In a way, we need an &ldquo;owned shared reference&rdquo;. It turns out that Rust has a type that fits the bill: <code>Arc</code>.</p>
+<h2 id="arc-to-the-rescue"><code>Arc</code> to the rescue</h2>
+<p><code>Arc</code> stands for <strong>atomic reference counting</strong>.<br>
+<code>Arc</code> wraps around a value and keeps track of how many references to the value exist.
+When the last reference is dropped, the value is deallocated.<br>
+The value wrapped in an <code>Arc</code> is immutable: you can only get shared references to it.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::sync::Arc;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>data: <span style="color:#0a0;text-decoration:underline">Arc</span>&lt;<span style="color:#0aa">u32</span>&gt;<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Arc::new(<span style="color:#099">0</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>data_clone<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Arc::clone(&amp;data);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// `Arc&lt;T&gt;` implements `Deref&lt;T&gt;`, so can convert 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// a `&amp;Arc&lt;T&gt;` to a `&amp;T` using deref coercion
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>data_ref: <span style="color:#00a">&amp;</span><span style="color:#0aa">u32</span> =<span style="color:#bbb"> </span>&amp;data;<span style="color:#bbb">
+</span></span></span></code></pre></div><p>If you&rsquo;re having a déjà vu moment, you&rsquo;re right: <code>Arc</code> sounds very similar to <code>Rc</code>, the reference-counted pointer we
+introduced when talking about interior mutability. The difference is thread-safety: <code>Rc</code> is not <code>Send</code>, while <code>Arc</code> is.
+It boils down to the way the reference count is implemented: <code>Rc</code> uses a &ldquo;normal&rdquo; integer, while <code>Arc</code> uses an
+<strong>atomic</strong> integer, which can be safely shared and modified across threads.</p>
+<h2 id="arcmutext"><code>Arc&lt;Mutex&lt;T&gt;&gt;</code></h2>
+<p>If we pair <code>Arc</code> with <code>Mutex</code>, we finally get a type that:</p>
+<ul>
+<li>Can be sent between threads, because:
+<ul>
+<li><code>Arc</code> is <code>Send</code> if <code>T</code> is <code>Send</code>, and</li>
+<li><code>Mutex</code> is <code>Send</code> if <code>T</code> is <code>Send</code>.</li>
+<li><code>T</code> is <code>Ticket</code>, which is <code>Send</code>.</li>
+</ul>
+</li>
+<li>Can be cloned, because <code>Arc</code> is <code>Clone</code> no matter what <code>T</code> is.
+Cloning an <code>Arc</code> increments the reference count, the data is not copied.</li>
+<li>Can be used to modify the data it wraps, because <code>Arc</code> lets you get a shared
+reference to <code>Mutex&lt;T&gt;</code> which can in turn be used to acquire a lock.</li>
+</ul>
+<p>We have all the pieces we need to implement the locking strategy for our ticket store.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li>We won&rsquo;t be covering the details of atomic operations in this course, but you can find more information
+<a href="https://doc.rust-lang.org/std/sync/atomic/index.html" target="_blank">in the <code>std</code> documentation</a>
+ as well as in the
+<a href="https://marabos.nl/atomics/" target="_blank">&ldquo;Rust atomics and locks&rdquo; book</a>
+.</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

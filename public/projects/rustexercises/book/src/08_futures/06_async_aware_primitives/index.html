@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Async-aware primitives
+If you browse tokio&rsquo;s documentation, you&rsquo;ll notice that it provides a lot of types
+that &ldquo;mirror&rdquo; the ones in the standard library, but with an asynchronous twist:
+locks, channels, timers, and more.
+When working in an asynchronous context, you should prefer these asynchronous alternatives
+to their synchronous counterparts.
+To understand why, let&rsquo;s take a look at Mutex, the mutually exclusive lock we explored
+in the previous chapter.
+Case study: Mutex
+Let&rsquo;s look at a simple example:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/08_futures/06_async_aware_primitives/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/08_futures/06_async_aware_primitives/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Async-aware primitives
+If you browse tokio&rsquo;s documentation, you&rsquo;ll notice that it provides a lot of types
+that &ldquo;mirror&rdquo; the ones in the standard library, but with an asynchronous twist:
+locks, channels, timers, and more.
+When working in an asynchronous context, you should prefer these asynchronous alternatives
+to their synchronous counterparts.
+To understand why, let&rsquo;s take a look at Mutex, the mutually exclusive lock we explored
+in the previous chapter.
+Case study: Mutex
+Let&rsquo;s look at a simple example:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/08_futures/06_async_aware_primitives/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Async-aware primitives
+If you browse tokio&rsquo;s documentation, you&rsquo;ll notice that it provides a lot of types
+that &ldquo;mirror&rdquo; the ones in the standard library, but with an asynchronous twist:
+locks, channels, timers, and more.
+When working in an asynchronous context, you should prefer these asynchronous alternatives
+to their synchronous counterparts.
+To understand why, let&rsquo;s take a look at Mutex, the mutually exclusive lock we explored
+in the previous chapter.
+Case study: Mutex
+Let&rsquo;s look at a simple example:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/08_futures/06_async_aware_primitives/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Async-aware primitives If you browse tokio\u0026rsquo;s documentation, you\u0026rsquo;ll notice that it provides a lot of types that \u0026ldquo;mirror\u0026rdquo; the ones in the standard library, but with an asynchronous twist: locks, channels, timers, and more.\nWhen working in an asynchronous context, you should prefer these asynchronous alternatives to their synchronous counterparts.\nTo understand why, let\u0026rsquo;s take a look at Mutex, the mutually exclusive lock we explored in the previous chapter.\nCase study: Mutex Let\u0026rsquo;s look at a simple example:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Async-aware primitives If you browse tokio’s documentation, you’ll notice that it provides a lot of types that “mirror” the ones in the standard library, but with an asynchronous twist: locks, channels, timers, and more.\nWhen working in an asynchronous context, you should prefer these asynchronous alternatives to their synchronous counterparts.\nTo understand why, let’s take a look at Mutex, the mutually exclusive lock we explored in the previous chapter.\nCase study: Mutex Let’s look at a simple example:\nuse std::sync::{Arc, Mutex}; async fn run(m: Arc",
+  "wordCount" : "509",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/08_futures/06_async_aware_primitives/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="async-aware-primitives">Async-aware primitives</h1>
+<p>If you browse <code>tokio</code>&rsquo;s documentation, you&rsquo;ll notice that it provides a lot of types
+that &ldquo;mirror&rdquo; the ones in the standard library, but with an asynchronous twist:
+locks, channels, timers, and more.</p>
+<p>When working in an asynchronous context, you should prefer these asynchronous alternatives
+to their synchronous counterparts.</p>
+<p>To understand why, let&rsquo;s take a look at <code>Mutex</code>, the mutually exclusive lock we explored
+in the previous chapter.</p>
+<h2 id="case-study-mutex">Case study: <code>Mutex</code></h2>
+<p>Let&rsquo;s look at a simple example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::sync::{Arc,<span style="color:#bbb"> </span>Mutex};<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">run</span>(m: <span style="color:#0a0;text-decoration:underline">Arc</span>&lt;Mutex&lt;<span style="color:#0aa">Vec</span>&lt;<span style="color:#0aa">u64</span>&gt;&gt;&gt;)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>guard<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>m.lock().unwrap();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>http_call(&amp;guard).<span style="color:#00a">await</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;Sent </span><span style="color:#a50">{:?}</span><span style="color:#a50"> to the server&#34;</span>,<span style="color:#bbb"> </span>&amp;guard);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// `guard` is dropped here
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a50">/// Use `v` as the body of an HTTP call.
+</span></span></span><span style="display:flex;"><span><span style="color:#a50"></span><span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">http_call</span>(v: <span style="color:#00a">&amp;</span>[<span style="color:#0aa">u64</span>])<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="stdsyncmutexguard-and-yield-points"><code>std::sync::MutexGuard</code> and yield points</h3>
+<p>This code will compile, but it&rsquo;s dangerous.</p>
+<p>We try to acquire a lock over a <code>Mutex</code> from <code>std</code> in an asynchronous context.
+We then hold on to the resulting <code>MutexGuard</code> across a yield point (the <code>.await</code> on
+<code>http_call</code>).</p>
+<p>Let&rsquo;s imagine that there are two tasks executing <code>run</code>, concurrently, on a single-threaded
+runtime. We observe the following sequence of scheduling events:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>     Task A          Task B
+</span></span><span style="display:flex;"><span>        | 
+</span></span><span style="display:flex;"><span>  Acquire lock
+</span></span><span style="display:flex;"><span>Yields to runtime
+</span></span><span style="display:flex;"><span>        | 
+</span></span><span style="display:flex;"><span>        +--------------+
+</span></span><span style="display:flex;"><span>                       |
+</span></span><span style="display:flex;"><span>             Tries to acquire lock
+</span></span></code></pre></div><p>We have a deadlock. Task B will never manage to acquire the lock, because the lock
+is currently held by task A, which has yielded to the runtime before releasing the
+lock and won&rsquo;t be scheduled again because the runtime cannot preempt task B.</p>
+<h3 id="tokiosyncmutex"><code>tokio::sync::Mutex</code></h3>
+<p>You can solve the issue by switching to <code>tokio::sync::Mutex</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::sync::Arc;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">use</span><span style="color:#bbb"> </span>tokio::sync::Mutex;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">run</span>(m: <span style="color:#0a0;text-decoration:underline">Arc</span>&lt;Mutex&lt;<span style="color:#0aa">Vec</span>&lt;<span style="color:#0aa">u64</span>&gt;&gt;&gt;)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>guard<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>m.lock().<span style="color:#00a">await</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>http_call(&amp;guard).<span style="color:#00a">await</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;Sent </span><span style="color:#a50">{:?}</span><span style="color:#a50"> to the server&#34;</span>,<span style="color:#bbb"> </span>&amp;guard);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// `guard` is dropped here
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Acquiring the lock is now an asynchronous operation, which yields back to the runtime
+if it can&rsquo;t make progress.<br>
+Going back to the previous scenario, the following would happen:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>       Task A          Task B
+</span></span><span style="display:flex;"><span>          | 
+</span></span><span style="display:flex;"><span>  Acquires the lock
+</span></span><span style="display:flex;"><span>  Starts `http_call`
+</span></span><span style="display:flex;"><span>  Yields to runtime
+</span></span><span style="display:flex;"><span>          | 
+</span></span><span style="display:flex;"><span>          +--------------+
+</span></span><span style="display:flex;"><span>                         |
+</span></span><span style="display:flex;"><span>             Tries to acquire the lock
+</span></span><span style="display:flex;"><span>              Cannot acquire the lock
+</span></span><span style="display:flex;"><span>                 Yields to runtime
+</span></span><span style="display:flex;"><span>                         |
+</span></span><span style="display:flex;"><span>          +--------------+
+</span></span><span style="display:flex;"><span>          |
+</span></span><span style="display:flex;"><span>`http_call` completes      
+</span></span><span style="display:flex;"><span>  Releases the lock
+</span></span><span style="display:flex;"><span>   Yield to runtime
+</span></span><span style="display:flex;"><span>          |
+</span></span><span style="display:flex;"><span>          +--------------+
+</span></span><span style="display:flex;"><span>                         |
+</span></span><span style="display:flex;"><span>                 Acquires the lock
+</span></span><span style="display:flex;"><span>                       [...]
+</span></span></code></pre></div><p>All good!</p>
+<h3 id="multithreaded-wont-save-you">Multithreaded won&rsquo;t save you</h3>
+<p>We&rsquo;ve used a single-threaded runtime as the execution context in our
+previous example, but the same risk persists even when using a multithreaded
+runtime.<br>
+The only difference is in the number of concurrent tasks required to create the deadlock:
+in a single-threaded runtime, 2 are enough; in a multithreaded runtime, we
+would need <code>N+1</code> tasks, where <code>N</code> is the number of runtime threads.</p>
+<h3 id="downsides">Downsides</h3>
+<p>Having an async-aware <code>Mutex</code> comes with a performance penalty.<br>
+If you&rsquo;re confident that the lock isn&rsquo;t under significant contention
+<em>and</em> you&rsquo;re careful to never hold it across a yield point, you can
+still use <code>std::sync::Mutex</code> in an asynchronous context.</p>
+<p>But weigh the performance benefit against the liveness risk you
+will incur.</p>
+<h2 id="other-primitives">Other primitives</h2>
+<p>We used <code>Mutex</code> as an example, but the same applies to <code>RwLock</code>, semaphores, etc.<br>
+Prefer async-aware versions when working in an asynchronous context to minimise
+the risk of issues.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

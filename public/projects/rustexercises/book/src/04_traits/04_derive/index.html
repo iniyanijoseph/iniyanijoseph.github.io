@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Derive macros
+Implementing PartialEq for Ticket was a bit tedious, wasn&rsquo;t it?
+You had to manually compare each field of the struct.
+Destructuring syntax
+Furthermore, the implementation is brittle: if the struct definition changes
+(e.g. a new field is added), you have to remember to update the PartialEq implementation.
+You can mitigate the risk by destructuring the struct into its fields:
+impl PartialEq for Ticket {
+    fn eq(&amp;self, other: &amp;Self) -&gt; bool {
+        let Ticket {
+            title,
+            description,
+            status,
+        } = self;
+        // [...]
+    }
+}
+If the definition of Ticket changes, the compiler will error out, complaining that your
+destructuring is no longer exhaustive.
+You can also rename struct fields, to avoid variable shadowing:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/04_derive/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/04_derive/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Derive macros
+Implementing PartialEq for Ticket was a bit tedious, wasn&rsquo;t it?
+You had to manually compare each field of the struct.
+Destructuring syntax
+Furthermore, the implementation is brittle: if the struct definition changes
+(e.g. a new field is added), you have to remember to update the PartialEq implementation.
+You can mitigate the risk by destructuring the struct into its fields:
+impl PartialEq for Ticket {
+    fn eq(&amp;self, other: &amp;Self) -&gt; bool {
+        let Ticket {
+            title,
+            description,
+            status,
+        } = self;
+        // [...]
+    }
+}
+If the definition of Ticket changes, the compiler will error out, complaining that your
+destructuring is no longer exhaustive.
+You can also rename struct fields, to avoid variable shadowing:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/04_traits/04_derive/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Derive macros
+Implementing PartialEq for Ticket was a bit tedious, wasn&rsquo;t it?
+You had to manually compare each field of the struct.
+Destructuring syntax
+Furthermore, the implementation is brittle: if the struct definition changes
+(e.g. a new field is added), you have to remember to update the PartialEq implementation.
+You can mitigate the risk by destructuring the struct into its fields:
+impl PartialEq for Ticket {
+    fn eq(&amp;self, other: &amp;Self) -&gt; bool {
+        let Ticket {
+            title,
+            description,
+            status,
+        } = self;
+        // [...]
+    }
+}
+If the definition of Ticket changes, the compiler will error out, complaining that your
+destructuring is no longer exhaustive.
+You can also rename struct fields, to avoid variable shadowing:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/04_traits/04_derive/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Derive macros Implementing PartialEq for Ticket was a bit tedious, wasn\u0026rsquo;t it? You had to manually compare each field of the struct.\nDestructuring syntax Furthermore, the implementation is brittle: if the struct definition changes (e.g. a new field is added), you have to remember to update the PartialEq implementation.\nYou can mitigate the risk by destructuring the struct into its fields:\nimpl PartialEq for Ticket { fn eq(\u0026amp;self, other: \u0026amp;Self) -\u0026gt; bool { let Ticket { title, description, status, } = self; // [...] } } If the definition of Ticket changes, the compiler will error out, complaining that your destructuring is no longer exhaustive.\nYou can also rename struct fields, to avoid variable shadowing:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Derive macros Implementing PartialEq for Ticket was a bit tedious, wasn’t it? You had to manually compare each field of the struct.\nDestructuring syntax Furthermore, the implementation is brittle: if the struct definition changes (e.g. a new field is added), you have to remember to update the PartialEq implementation.\nYou can mitigate the risk by destructuring the struct into its fields:\nimpl PartialEq for Ticket { fn eq(\u0026self, other: \u0026Self) -\u003e bool { let Ticket { title, description, status, } = self; // [...] } } If the definition of Ticket changes, the compiler will error out, complaining that your destructuring is no longer exhaustive.\nYou can also rename struct fields, to avoid variable shadowing:\nimpl PartialEq for Ticket { fn eq(\u0026self, other: \u0026Self) -\u003e bool { let Ticket { title, description, status, } = self; let Ticket { title: other_title, description: other_description, status: other_status, } = other; // [...] } } Destructuring is a useful pattern to have in your toolkit, but there’s an even more convenient way to do this: derive macros.\nMacros You’ve already encountered a few macros in past exercises:\nassert_eq! and assert!, in the test cases println!, to print to the console Rust macros are code generators.\nThey generate new Rust code based on the input you provide, and that generated code is then compiled alongside the rest of your program. Some macros are built into Rust’s standard library, but you can also write your own. We won’t be creating our own macro in this course, but you can find some useful pointers in the “Further reading” section .\nInspection Some IDEs let you expand a macro to inspect the generated code. If that’s not possible, you can use cargo-expand .\nDerive macros A derive macro is a particular flavour of Rust macro. It is specified as an attribute on top of a struct.\n#[derive(PartialEq)] struct Ticket { title: String, description: String, status: String } Derive macros are used to automate the implementation of common (and “obvious”) traits for custom types. In the example above, the PartialEq trait is automatically implemented for Ticket. If you expand the macro, you’ll see that the generated code is functionally equivalent to the one you wrote manually, although a bit more cumbersome to read:\n#[automatically_derived] impl ::core::cmp::PartialEq for Ticket { #[inline] fn eq(\u0026self, other: \u0026Ticket) -\u003e bool { self.title == other.title \u0026\u0026 self.description == other.description \u0026\u0026 self.status == other.status } } The compiler will nudge you to derive traits when possible.\nFurther reading The little book of Rust macros Proc macro workshop ",
+  "wordCount" : "423",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/04_traits/04_derive/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="derive-macros">Derive macros</h1>
+<p>Implementing <code>PartialEq</code> for <code>Ticket</code> was a bit tedious, wasn&rsquo;t it?
+You had to manually compare each field of the struct.</p>
+<h2 id="destructuring-syntax">Destructuring syntax</h2>
+<p>Furthermore, the implementation is brittle: if the struct definition changes
+(e.g. a new field is added), you have to remember to update the <code>PartialEq</code> implementation.</p>
+<p>You can mitigate the risk by <strong>destructuring</strong> the struct into its fields:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span><span style="color:#0aa">PartialEq</span><span style="color:#bbb"> </span><span style="color:#00a">for</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">eq</span>(&amp;<span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>other: <span style="color:#00a">&amp;</span><span style="color:#0a0;text-decoration:underline">Self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">bool</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>title,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>description,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>status,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">self</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>If the definition of <code>Ticket</code> changes, the compiler will error out, complaining that your
+destructuring is no longer exhaustive.<br>
+You can also rename struct fields, to avoid variable shadowing:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span><span style="color:#0aa">PartialEq</span><span style="color:#bbb"> </span><span style="color:#00a">for</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">eq</span>(&amp;<span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>other: <span style="color:#00a">&amp;</span><span style="color:#0a0;text-decoration:underline">Self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">bool</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>title,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>description,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>status,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">self</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>title: <span style="color:#0a0;text-decoration:underline">other_title</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>description: <span style="color:#0a0;text-decoration:underline">other_description</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>status: <span style="color:#0a0;text-decoration:underline">other_status</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>other;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Destructuring is a useful pattern to have in your toolkit, but
+there&rsquo;s an even more convenient way to do this: <strong>derive macros</strong>.</p>
+<h2 id="macros">Macros</h2>
+<p>You&rsquo;ve already encountered a few macros in past exercises:</p>
+<ul>
+<li><code>assert_eq!</code> and <code>assert!</code>, in the test cases</li>
+<li><code>println!</code>, to print to the console</li>
+</ul>
+<p>Rust macros are <strong>code generators</strong>.<br>
+They generate new Rust code based on the input you provide, and that generated code is then compiled alongside
+the rest of your program. Some macros are built into Rust&rsquo;s standard library, but you can also
+write your own. We won&rsquo;t be creating our own macro in this course, but you can find some useful
+pointers in the <a href="#further-reading">&ldquo;Further reading&rdquo; section</a>
+.</p>
+<h3 id="inspection">Inspection</h3>
+<p>Some IDEs let you expand a macro to inspect the generated code. If that&rsquo;s not possible, you can use
+<a href="https://github.com/dtolnay/cargo-expand" target="_blank"><code>cargo-expand</code></a>
+.</p>
+<h3 id="derive-macros-1">Derive macros</h3>
+<p>A <strong>derive macro</strong> is a particular flavour of Rust macro. It is specified as an <strong>attribute</strong> on top of a struct.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#4c8317">#[derive(PartialEq)]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">Ticket</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>title: <span style="color:#0aa">String</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>description: <span style="color:#0aa">String</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>status: <span style="color:#0aa">String</span>
+</span></span><span style="display:flex;"><span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Derive macros are used to automate the implementation of common (and &ldquo;obvious&rdquo;) traits for custom types.
+In the example above, the <code>PartialEq</code> trait is automatically implemented for <code>Ticket</code>.
+If you expand the macro, you&rsquo;ll see that the generated code is functionally equivalent to the one you wrote manually,
+although a bit more cumbersome to read:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#4c8317">#[automatically_derived]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>::core::cmp::<span style="color:#0aa">PartialEq</span><span style="color:#bbb"> </span><span style="color:#00a">for</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#4c8317">#[inline]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">eq</span>(&amp;<span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>other: <span style="color:#00a">&amp;</span><span style="color:#0a0;text-decoration:underline">Ticket</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">bool</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0aa">self</span>.title<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>other.title<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>&amp;&amp;<span style="color:#bbb"> </span><span style="color:#0aa">self</span>.description<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>other.description<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>&amp;&amp;<span style="color:#bbb"> </span><span style="color:#0aa">self</span>.status<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>other.status<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The compiler will nudge you to derive traits when possible.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://veykril.github.io/tlborm/" target="_blank">The little book of Rust macros</a>
+</li>
+<li><a href="https://github.com/dtolnay/proc-macro-workshop" target="_blank">Proc macro workshop</a>
+</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

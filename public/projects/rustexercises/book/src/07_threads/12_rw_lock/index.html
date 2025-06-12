@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Readers and writers
+Our new TicketStore works, but its read performance is not great: there can only be one client at a time
+reading a specific ticket, because Mutex&lt;T&gt; doesn&rsquo;t distinguish between readers and writers.
+We can solve the issue by using a different locking primitive: RwLock&lt;T&gt;.
+RwLock&lt;T&gt; stands for read-write lock. It allows multiple readers to access the data simultaneously,
+but only one writer at a time.
+RwLock&lt;T&gt; has two methods to acquire a lock: read and write.
+read returns a guard that allows you to read the data, while write returns a guard that allows you to modify it.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/12_rw_lock/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/12_rw_lock/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Readers and writers
+Our new TicketStore works, but its read performance is not great: there can only be one client at a time
+reading a specific ticket, because Mutex&lt;T&gt; doesn&rsquo;t distinguish between readers and writers.
+We can solve the issue by using a different locking primitive: RwLock&lt;T&gt;.
+RwLock&lt;T&gt; stands for read-write lock. It allows multiple readers to access the data simultaneously,
+but only one writer at a time.
+RwLock&lt;T&gt; has two methods to acquire a lock: read and write.
+read returns a guard that allows you to read the data, while write returns a guard that allows you to modify it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/07_threads/12_rw_lock/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Readers and writers
+Our new TicketStore works, but its read performance is not great: there can only be one client at a time
+reading a specific ticket, because Mutex&lt;T&gt; doesn&rsquo;t distinguish between readers and writers.
+We can solve the issue by using a different locking primitive: RwLock&lt;T&gt;.
+RwLock&lt;T&gt; stands for read-write lock. It allows multiple readers to access the data simultaneously,
+but only one writer at a time.
+RwLock&lt;T&gt; has two methods to acquire a lock: read and write.
+read returns a guard that allows you to read the data, while write returns a guard that allows you to modify it."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/07_threads/12_rw_lock/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Readers and writers Our new TicketStore works, but its read performance is not great: there can only be one client at a time reading a specific ticket, because Mutex\u0026lt;T\u0026gt; doesn\u0026rsquo;t distinguish between readers and writers.\nWe can solve the issue by using a different locking primitive: RwLock\u0026lt;T\u0026gt;.\nRwLock\u0026lt;T\u0026gt; stands for read-write lock. It allows multiple readers to access the data simultaneously, but only one writer at a time.\nRwLock\u0026lt;T\u0026gt; has two methods to acquire a lock: read and write.\nread returns a guard that allows you to read the data, while write returns a guard that allows you to modify it.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Readers and writers Our new TicketStore works, but its read performance is not great: there can only be one client at a time reading a specific ticket, because Mutex doesn’t distinguish between readers and writers.\nWe can solve the issue by using a different locking primitive: RwLock.\nRwLock stands for read-write lock. It allows multiple readers to access the data simultaneously, but only one writer at a time.\nRwLock has two methods to acquire a lock: read and write.\nread returns a guard that allows you to read the data, while write returns a guard that allows you to modify it.\nuse std::sync::RwLock; // An integer protected by a read-write lock let lock = RwLock::new(0); // Acquire a read lock on the RwLock let guard1 = lock.read().unwrap(); // Acquire a **second** read lock // while the first one is still active let guard2 = lock.read().unwrap(); Trade-offs On the surface, RwLock seems like a no-brainer: it provides a superset of the functionality of Mutex. Why would you ever use Mutex if you can use RwLock instead?\nThere are two key reasons:\nLocking a RwLock is more expensive than locking a Mutex.\nThis is because RwLock has to keep track of the number of active readers and writers, while Mutex only has to keep track of whether the lock is held or not. This performance overhead is not an issue if there are more readers than writers, but if the workload is write-heavy Mutex might be a better choice. RwLock can cause writer starvation.\nIf there are always readers waiting to acquire the lock, writers might never get a chance to run.\nRwLock doesn’t provide any guarantees about the order in which readers and writers are granted access to the lock. It depends on the policy implemented by the underlying OS, which might not be fair to writers. In our case, we can expect the workload to be read-heavy (since most clients will be reading tickets, not modifying them), so RwLock is a good choice.\n",
+  "wordCount" : "333",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/07_threads/12_rw_lock/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="readers-and-writers">Readers and writers</h1>
+<p>Our new <code>TicketStore</code> works, but its read performance is not great: there can only be one client at a time
+reading a specific ticket, because <code>Mutex&lt;T&gt;</code> doesn&rsquo;t distinguish between readers and writers.</p>
+<p>We can solve the issue by using a different locking primitive: <code>RwLock&lt;T&gt;</code>.<br>
+<code>RwLock&lt;T&gt;</code> stands for <strong>read-write lock</strong>. It allows <strong>multiple readers</strong> to access the data simultaneously,
+but only one writer at a time.</p>
+<p><code>RwLock&lt;T&gt;</code> has two methods to acquire a lock: <code>read</code> and <code>write</code>.<br>
+<code>read</code> returns a guard that allows you to read the data, while <code>write</code> returns a guard that allows you to modify it.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::sync::RwLock;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// An integer protected by a read-write lock
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>lock<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>RwLock::new(<span style="color:#099">0</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// Acquire a read lock on the RwLock
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>guard1<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>lock.read().unwrap();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// Acquire a **second** read lock
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// while the first one is still active
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>guard2<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>lock.read().unwrap();<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="trade-offs">Trade-offs</h2>
+<p>On the surface, <code>RwLock&lt;T&gt;</code> seems like a no-brainer: it provides a superset of the functionality of <code>Mutex&lt;T&gt;</code>.
+Why would you ever use <code>Mutex&lt;T&gt;</code> if you can use <code>RwLock&lt;T&gt;</code> instead?</p>
+<p>There are two key reasons:</p>
+<ul>
+<li>Locking a <code>RwLock&lt;T&gt;</code> is more expensive than locking a <code>Mutex&lt;T&gt;</code>.<br>
+This is because <code>RwLock&lt;T&gt;</code> has to keep track of the number of active readers and writers, while <code>Mutex&lt;T&gt;</code>
+only has to keep track of whether the lock is held or not.
+This performance overhead is not an issue if there are more readers than writers, but if the workload
+is write-heavy <code>Mutex&lt;T&gt;</code> might be a better choice.</li>
+<li><code>RwLock&lt;T&gt;</code> can cause <strong>writer starvation</strong>.<br>
+If there are always readers waiting to acquire the lock, writers might never get a chance to run.<br>
+<code>RwLock&lt;T&gt;</code> doesn&rsquo;t provide any guarantees about the order in which readers and writers are granted access to the lock.
+It depends on the policy implemented by the underlying OS, which might not be fair to writers.</li>
+</ul>
+<p>In our case, we can expect the workload to be read-heavy (since most clients will be reading tickets, not modifying them),
+so <code>RwLock&lt;T&gt;</code> is a good choice.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

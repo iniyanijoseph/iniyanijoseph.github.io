@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Iteration
+During the very first exercises, you learned that Rust lets you iterate over collections using for loops.
+We were looking at ranges at that point (e.g. 0..5), but the same holds true for collections like arrays and vectors.
+// It works for `Vec`s
+let v = vec![1, 2, 3];
+for n in v {
+    println!(&#34;{}&#34;, n);
+}
+
+// It also works for arrays
+let a: [u32; 3] = [1, 2, 3];
+for n in a {
+    println!(&#34;{}&#34;, n);
+}
+It&rsquo;s time to understand how this works under the hood.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/04_iterators/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/04_iterators/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Iteration
+During the very first exercises, you learned that Rust lets you iterate over collections using for loops.
+We were looking at ranges at that point (e.g. 0..5), but the same holds true for collections like arrays and vectors.
+// It works for `Vec`s
+let v = vec![1, 2, 3];
+for n in v {
+    println!(&#34;{}&#34;, n);
+}
+
+// It also works for arrays
+let a: [u32; 3] = [1, 2, 3];
+for n in a {
+    println!(&#34;{}&#34;, n);
+}
+It&rsquo;s time to understand how this works under the hood." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/04_iterators/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Iteration
+During the very first exercises, you learned that Rust lets you iterate over collections using for loops.
+We were looking at ranges at that point (e.g. 0..5), but the same holds true for collections like arrays and vectors.
+// It works for `Vec`s
+let v = vec![1, 2, 3];
+for n in v {
+    println!(&#34;{}&#34;, n);
+}
+
+// It also works for arrays
+let a: [u32; 3] = [1, 2, 3];
+for n in a {
+    println!(&#34;{}&#34;, n);
+}
+It&rsquo;s time to understand how this works under the hood."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/04_iterators/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Iteration During the very first exercises, you learned that Rust lets you iterate over collections using for loops. We were looking at ranges at that point (e.g. 0..5), but the same holds true for collections like arrays and vectors.\n// It works for `Vec`s let v = vec![1, 2, 3]; for n in v { println!(\u0026#34;{}\u0026#34;, n); } // It also works for arrays let a: [u32; 3] = [1, 2, 3]; for n in a { println!(\u0026#34;{}\u0026#34;, n); } It\u0026rsquo;s time to understand how this works under the hood.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Iteration During the very first exercises, you learned that Rust lets you iterate over collections using for loops. We were looking at ranges at that point (e.g. 0..5), but the same holds true for collections like arrays and vectors.\n// It works for `Vec`s let v = vec![1, 2, 3]; for n in v { println!(\"{}\", n); } // It also works for arrays let a: [u32; 3] = [1, 2, 3]; for n in a { println!(\"{}\", n); } It’s time to understand how this works under the hood.\nfor desugaring Every time you write a for loop in Rust, the compiler desugars it into the following code:\nlet mut iter = IntoIterator::into_iter(v); loop { match iter.next() { Some(n) =\u003e { println!(\"{}\", n); } None =\u003e break, } } loop is another looping construct, on top of for and while.\nA loop block will run forever, unless you explicitly break out of it.\nIterator trait The next method in the previous code snippet comes from the Iterator trait. The Iterator trait is defined in Rust’s standard library and provides a shared interface for types that can produce a sequence of values:\ntrait Iterator { type Item; fn next(\u0026mut self) -\u003e Option\u003cSelf::Item\u003e; } The Item associated type specifies the type of the values produced by the iterator.\nnext returns the next value in the sequence.\nIt returns Some(value) if there’s a value to return, and None when there isn’t.\nBe careful: there is no guarantee that an iterator is exhausted when it returns None. That’s only guaranteed if the iterator implements the (more restrictive) FusedIterator trait.\nIntoIterator trait Not all types implement Iterator, but many can be converted into a type that does.\nThat’s where the IntoIterator trait comes in:\ntrait IntoIterator { type Item; type IntoIter: Iterator",
+  "wordCount" : "463",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/04_iterators/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="iteration">Iteration</h1>
+<p>During the very first exercises, you learned that Rust lets you iterate over collections using <code>for</code> loops.
+We were looking at ranges at that point (e.g. <code>0..5</code>), but the same holds true for collections like arrays and vectors.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// It works for `Vec`s
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>v<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0a0">vec!</span>[<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>,<span style="color:#bbb"> </span><span style="color:#099">3</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">for</span><span style="color:#bbb"> </span>n<span style="color:#bbb"> </span><span style="color:#00a">in</span><span style="color:#bbb"> </span>v<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;</span><span style="color:#a50">{}</span><span style="color:#a50">&#34;</span>,<span style="color:#bbb"> </span>n);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// It also works for arrays
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>a: [<span style="color:#0aa">u32</span>;<span style="color:#bbb"> </span><span style="color:#099">3</span>]<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>[<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>,<span style="color:#bbb"> </span><span style="color:#099">3</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">for</span><span style="color:#bbb"> </span>n<span style="color:#bbb"> </span><span style="color:#00a">in</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;</span><span style="color:#a50">{}</span><span style="color:#a50">&#34;</span>,<span style="color:#bbb"> </span>n);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>It&rsquo;s time to understand how this works under the hood.</p>
+<h2 id="for-desugaring"><code>for</code> desugaring</h2>
+<p>Every time you write a <code>for</code> loop in Rust, the compiler <em>desugars</em> it into the following code:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span><span style="color:#00a">mut</span><span style="color:#bbb"> </span>iter<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">IntoIterator</span>::into_iter(v);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">loop</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">match</span><span style="color:#bbb"> </span>iter.next()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0aa">Some</span>(n)<span style="color:#bbb"> </span>=&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;</span><span style="color:#a50">{}</span><span style="color:#a50">&#34;</span>,<span style="color:#bbb"> </span>n);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0aa">None</span><span style="color:#bbb"> </span>=&gt;<span style="color:#bbb"> </span><span style="color:#00a">break</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>loop</code> is another looping construct, on top of <code>for</code> and <code>while</code>.<br>
+A <code>loop</code> block will run forever, unless you explicitly <code>break</code> out of it.</p>
+<h2 id="iterator-trait"><code>Iterator</code> trait</h2>
+<p>The <code>next</code> method in the previous code snippet comes from the <code>Iterator</code> trait.
+The <code>Iterator</code> trait is defined in Rust&rsquo;s standard library and provides a shared interface for
+types that can produce a sequence of values:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">trait</span><span style="color:#bbb"> </span><span style="color:#0aa">Iterator</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">Item</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">next</span>(&amp;<span style="color:#00a">mut</span><span style="color:#bbb"> </span><span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">Option</span>&lt;<span style="color:#0aa">Self</span>::Item&gt;;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The <code>Item</code> associated type specifies the type of the values produced by the iterator.</p>
+<p><code>next</code> returns the next value in the sequence.<br>
+It returns <code>Some(value)</code> if there&rsquo;s a value to return, and <code>None</code> when there isn&rsquo;t.</p>
+<p>Be careful: there is no guarantee that an iterator is exhausted when it returns <code>None</code>. That&rsquo;s only
+guaranteed if the iterator implements the (more restrictive)
+<a href="https://doc.rust-lang.org/std/iter/trait.FusedIterator.html" target="_blank"><code>FusedIterator</code></a>
+ trait.</p>
+<h2 id="intoiterator-trait"><code>IntoIterator</code> trait</h2>
+<p>Not all types implement <code>Iterator</code>, but many can be converted into a type that does.<br>
+That&rsquo;s where the <code>IntoIterator</code> trait comes in:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">trait</span><span style="color:#bbb"> </span><span style="color:#0aa">IntoIterator</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">Item</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">IntoIter</span>: <span style="color:#0aa">Iterator</span>&lt;Item<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">Self</span>::Item&gt;;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">into_iter</span>(<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Self</span>::IntoIter;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The <code>into_iter</code> method consumes the original value and returns an iterator over its elements.<br>
+A type can only have one implementation of <code>IntoIterator</code>: there can be no ambiguity as to what <code>for</code> should desugar to.</p>
+<p>One detail: every type that implements <code>Iterator</code> automatically implements <code>IntoIterator</code> as well.
+They just return themselves from <code>into_iter</code>!</p>
+<h2 id="bounds-checks">Bounds checks</h2>
+<p>Iterating over iterators has a nice side effect: you can&rsquo;t go out of bounds, by design.<br>
+This allows Rust to remove bounds checks from the generated machine code, making iteration faster.</p>
+<p>In other words,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>v<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0a0">vec!</span>[<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>,<span style="color:#bbb"> </span><span style="color:#099">3</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">for</span><span style="color:#bbb"> </span>n<span style="color:#bbb"> </span><span style="color:#00a">in</span><span style="color:#bbb"> </span>v<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;</span><span style="color:#a50">{}</span><span style="color:#a50">&#34;</span>,<span style="color:#bbb"> </span>n);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>is usually faster than</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>v<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0a0">vec!</span>[<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>,<span style="color:#bbb"> </span><span style="color:#099">3</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">for</span><span style="color:#bbb"> </span>i<span style="color:#bbb"> </span><span style="color:#00a">in</span><span style="color:#bbb"> </span><span style="color:#099">0</span>..v.len()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;</span><span style="color:#a50">{}</span><span style="color:#a50">&#34;</span>,<span style="color:#bbb"> </span>v[i]);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>There are exceptions to this rule: the compiler can sometimes prove that you&rsquo;re not going out of bounds even
+with manual indexing, thus removing the bounds checks anyway. But in general, prefer iteration to indexing
+where possible.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

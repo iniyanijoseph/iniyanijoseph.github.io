@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="impl Trait
+TicketStore::to_dos returns a Vec&lt;&amp;Ticket&gt;.
+That signature introduces a new heap allocation every time to_dos is called, which may be unnecessary depending
+on what the caller needs to do with the result.
+It&rsquo;d be better if to_dos returned an iterator instead of a Vec, thus empowering the caller to decide whether to
+collect the results into a Vec or just iterate over them.
+That&rsquo;s tricky though!
+What&rsquo;s the return type of to_dos, as implemented below?">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/08_impl_trait/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/08_impl_trait/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="impl Trait
+TicketStore::to_dos returns a Vec&lt;&amp;Ticket&gt;.
+That signature introduces a new heap allocation every time to_dos is called, which may be unnecessary depending
+on what the caller needs to do with the result.
+It&rsquo;d be better if to_dos returned an iterator instead of a Vec, thus empowering the caller to decide whether to
+collect the results into a Vec or just iterate over them.
+That&rsquo;s tricky though!
+What&rsquo;s the return type of to_dos, as implemented below?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/08_impl_trait/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="impl Trait
+TicketStore::to_dos returns a Vec&lt;&amp;Ticket&gt;.
+That signature introduces a new heap allocation every time to_dos is called, which may be unnecessary depending
+on what the caller needs to do with the result.
+It&rsquo;d be better if to_dos returned an iterator instead of a Vec, thus empowering the caller to decide whether to
+collect the results into a Vec or just iterate over them.
+That&rsquo;s tricky though!
+What&rsquo;s the return type of to_dos, as implemented below?"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/08_impl_trait/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "impl Trait TicketStore::to_dos returns a Vec\u0026lt;\u0026amp;Ticket\u0026gt;.\nThat signature introduces a new heap allocation every time to_dos is called, which may be unnecessary depending on what the caller needs to do with the result. It\u0026rsquo;d be better if to_dos returned an iterator instead of a Vec, thus empowering the caller to decide whether to collect the results into a Vec or just iterate over them.\nThat\u0026rsquo;s tricky though! What\u0026rsquo;s the return type of to_dos, as implemented below?\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "impl Trait TicketStore::to_dos returns a Vec\u003c\u0026Ticket\u003e.\nThat signature introduces a new heap allocation every time to_dos is called, which may be unnecessary depending on what the caller needs to do with the result. It’d be better if to_dos returned an iterator instead of a Vec, thus empowering the caller to decide whether to collect the results into a Vec or just iterate over them.\nThat’s tricky though! What’s the return type of to_dos, as implemented below?\nimpl TicketStore { pub fn to_dos(\u0026self) -\u003e ??? { self.tickets.iter().filter(|t| t.status == Status::ToDo) } } Unnameable types The filter method returns an instance of std::iter::Filter, which has the following definition:\npub struct Filter",
+  "wordCount" : "407",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/08_impl_trait/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="impl-trait"><code>impl Trait</code></h1>
+<p><code>TicketStore::to_dos</code> returns a <code>Vec&lt;&amp;Ticket&gt;</code>.<br>
+That signature introduces a new heap allocation every time <code>to_dos</code> is called, which may be unnecessary depending
+on what the caller needs to do with the result.
+It&rsquo;d be better if <code>to_dos</code> returned an iterator instead of a <code>Vec</code>, thus empowering the caller to decide whether to
+collect the results into a <code>Vec</code> or just iterate over them.</p>
+<p>That&rsquo;s tricky though!
+What&rsquo;s the return type of <code>to_dos</code>, as implemented below?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>TicketStore<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">to_dos</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; ???<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0aa">self</span>.tickets.iter().filter(|t|<span style="color:#bbb"> </span>t.status<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>Status::ToDo)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="unnameable-types">Unnameable types</h2>
+<p>The <code>filter</code> method returns an instance of <code>std::iter::Filter</code>, which has the following definition:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">Filter</span>&lt;I,<span style="color:#bbb"> </span>P&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">/* fields omitted */</span><span style="color:#bbb"> </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>where <code>I</code> is the type of the iterator being filtered on and <code>P</code> is the predicate used to filter the elements.<br>
+We know that <code>I</code> is <code>std::slice::Iter&lt;'_, Ticket&gt;</code> in this case, but what about <code>P</code>?<br>
+<code>P</code> is a closure, an <strong>anonymous function</strong>. As the name suggests, closures don&rsquo;t have a name,
+so we can&rsquo;t write them down in our code.</p>
+<p>Rust has a solution for this: <strong>impl Trait</strong>.</p>
+<h2 id="impl-trait-1"><code>impl Trait</code></h2>
+<p><code>impl Trait</code> is a feature that allows you to return a type without specifying its name.
+You just declare what trait(s) the type implements, and Rust figures out the rest.</p>
+<p>In this case, we want to return an iterator of references to <code>Ticket</code>s:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>TicketStore<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">to_dos</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">impl</span><span style="color:#bbb"> </span><span style="color:#0aa">Iterator</span>&lt;Item<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>&amp;Ticket&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0aa">self</span>.tickets.iter().filter(|t|<span style="color:#bbb"> </span>t.status<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>Status::ToDo)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>That&rsquo;s it!</p>
+<h2 id="generic">Generic?</h2>
+<p><code>impl Trait</code> in return position is <strong>not</strong> a generic parameter.</p>
+<p>Generics are placeholders for types that are filled in by the caller of the function.
+A function with a generic parameter is <strong>polymorphic</strong>: it can be called with different types, and the compiler will generate
+a different implementation for each type.</p>
+<p>That&rsquo;s not the case with <code>impl Trait</code>.
+The return type of a function with <code>impl Trait</code> is <strong>fixed</strong> at compile time, and the compiler will generate
+a single implementation for it.
+This is why <code>impl Trait</code> is also called <strong>opaque return type</strong>: the caller doesn&rsquo;t know the exact type of the return value,
+only that it implements the specified trait(s). But the compiler knows the exact type, there is no polymorphism involved.</p>
+<h2 id="rpit">RPIT</h2>
+<p>If you read RFCs or deep-dives about Rust, you might come across the acronym <strong>RPIT</strong>.<br>
+It stands for <strong>&ldquo;Return Position Impl Trait&rdquo;</strong> and refers to the use of <code>impl Trait</code> in return position.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

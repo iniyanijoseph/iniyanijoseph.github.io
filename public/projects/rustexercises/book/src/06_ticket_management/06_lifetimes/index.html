@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Lifetimes
+Let&rsquo;s try to complete the previous exercise by adding an implementation of IntoIterator for &amp;TicketStore, for
+maximum convenience in for loops.
+Let&rsquo;s start by filling in the most &ldquo;obvious&rdquo; parts of the implementation:
+impl IntoIterator for &amp;TicketStore {
+    type Item = &amp;Ticket;
+    type IntoIter = // What goes here?
+
+    fn into_iter(self) -&gt; Self::IntoIter {
+        self.tickets.iter()
+    }
+}
+What should type IntoIter be set to?
+Intuitively, it should be the type returned by self.tickets.iter(), i.e. the type returned by Vec::iter().
+If you check the standard library documentation, you&rsquo;ll find that Vec::iter() returns an std::slice::Iter.
+The definition of Iter is:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/06_lifetimes/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/06_lifetimes/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Lifetimes
+Let&rsquo;s try to complete the previous exercise by adding an implementation of IntoIterator for &amp;TicketStore, for
+maximum convenience in for loops.
+Let&rsquo;s start by filling in the most &ldquo;obvious&rdquo; parts of the implementation:
+impl IntoIterator for &amp;TicketStore {
+    type Item = &amp;Ticket;
+    type IntoIter = // What goes here?
+
+    fn into_iter(self) -&gt; Self::IntoIter {
+        self.tickets.iter()
+    }
+}
+What should type IntoIter be set to?
+Intuitively, it should be the type returned by self.tickets.iter(), i.e. the type returned by Vec::iter().
+If you check the standard library documentation, you&rsquo;ll find that Vec::iter() returns an std::slice::Iter.
+The definition of Iter is:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/06_lifetimes/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Lifetimes
+Let&rsquo;s try to complete the previous exercise by adding an implementation of IntoIterator for &amp;TicketStore, for
+maximum convenience in for loops.
+Let&rsquo;s start by filling in the most &ldquo;obvious&rdquo; parts of the implementation:
+impl IntoIterator for &amp;TicketStore {
+    type Item = &amp;Ticket;
+    type IntoIter = // What goes here?
+
+    fn into_iter(self) -&gt; Self::IntoIter {
+        self.tickets.iter()
+    }
+}
+What should type IntoIter be set to?
+Intuitively, it should be the type returned by self.tickets.iter(), i.e. the type returned by Vec::iter().
+If you check the standard library documentation, you&rsquo;ll find that Vec::iter() returns an std::slice::Iter.
+The definition of Iter is:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/06_lifetimes/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Lifetimes Let\u0026rsquo;s try to complete the previous exercise by adding an implementation of IntoIterator for \u0026amp;TicketStore, for maximum convenience in for loops.\nLet\u0026rsquo;s start by filling in the most \u0026ldquo;obvious\u0026rdquo; parts of the implementation:\nimpl IntoIterator for \u0026amp;TicketStore { type Item = \u0026amp;Ticket; type IntoIter = // What goes here? fn into_iter(self) -\u0026gt; Self::IntoIter { self.tickets.iter() } } What should type IntoIter be set to?\nIntuitively, it should be the type returned by self.tickets.iter(), i.e. the type returned by Vec::iter().\nIf you check the standard library documentation, you\u0026rsquo;ll find that Vec::iter() returns an std::slice::Iter. The definition of Iter is:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Lifetimes Let’s try to complete the previous exercise by adding an implementation of IntoIterator for \u0026TicketStore, for maximum convenience in for loops.\nLet’s start by filling in the most “obvious” parts of the implementation:\nimpl IntoIterator for \u0026TicketStore { type Item = \u0026Ticket; type IntoIter = // What goes here? fn into_iter(self) -\u003e Self::IntoIter { self.tickets.iter() } } What should type IntoIter be set to?\nIntuitively, it should be the type returned by self.tickets.iter(), i.e. the type returned by Vec::iter().\nIf you check the standard library documentation, you’ll find that Vec::iter() returns an std::slice::Iter. The definition of Iter is:\npub struct Iter\u003c'a, T\u003e { /* fields omitted */ } 'a is a lifetime parameter.\nLifetime parameters Lifetimes are labels used by the Rust compiler to keep track of how long a reference (either mutable or immutable) is valid.\nThe lifetime of a reference is constrained by the scope of the value it refers to. Rust always makes sure, at compile-time, that references are not used after the value they refer to has been dropped, to avoid dangling pointers and use-after-free bugs.\nThis should sound familiar: we’ve already seen these concepts in action when we discussed ownership and borrowing. Lifetimes are just a way to name how long a specific reference is valid.\nNaming becomes important when you have multiple references and you need to clarify how they relate to each other. Let’s look at the signature of Vec::iter():\nimpl Vec { // Slightly simplified pub fn iter\u003c'a\u003e(\u0026'a self) -\u003e Iter\u003c'a, T\u003e { // [...] } } Vec::iter() is generic over a lifetime parameter, named 'a.\n'a is used to tie together the lifetime of the Vec and the lifetime of the Iter returned by iter(). In plain English: the Iter returned by iter() cannot outlive the Vec reference (\u0026self) it was created from.\nThis is important because Vec::iter, as we discussed, returns an iterator over references to the Vec’s elements. If the Vec is dropped, the references returned by the iterator would be invalid. Rust must make sure this doesn’t happen, and lifetimes are the tool it uses to enforce this rule.\nLifetime elision Rust has a set of rules, called lifetime elision rules, that allow you to omit explicit lifetime annotations in many cases. For example, Vec::iter’s definition looks like this in std’s source code:\nimpl Vec { pub fn iter(\u0026self) -\u003e Iter\u003c'_, T\u003e { // [...] } } No explicit lifetime parameter is present in the signature of Vec::iter(). Elision rules imply that the lifetime of the Iter returned by iter() is tied to the lifetime of the \u0026self reference. You can think of '_ as a placeholder for the lifetime of the \u0026self reference.\nSee the References section for a link to the official documentation on lifetime elision.\nIn most cases, you can rely on the compiler telling you when you need to add explicit lifetime annotations.\nReferences std::vec::Vec::iter std::slice::Iter Lifetime elision rules ",
+  "wordCount" : "488",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/06_lifetimes/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="lifetimes">Lifetimes</h1>
+<p>Let&rsquo;s try to complete the previous exercise by adding an implementation of <code>IntoIterator</code> for <code>&amp;TicketStore</code>, for
+maximum convenience in <code>for</code> loops.</p>
+<p>Let&rsquo;s start by filling in the most &ldquo;obvious&rdquo; parts of the implementation:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span><span style="color:#0aa">IntoIterator</span><span style="color:#bbb"> </span><span style="color:#00a">for</span><span style="color:#bbb"> </span>&amp;TicketStore<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">Item</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>&amp;Ticket;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">IntoIter</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">// What goes here?
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">into_iter</span>(<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Self</span>::IntoIter<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0aa">self</span>.tickets.iter()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>What should <code>type IntoIter</code> be set to?<br>
+Intuitively, it should be the type returned by <code>self.tickets.iter()</code>, i.e. the type returned by <code>Vec::iter()</code>.<br>
+If you check the standard library documentation, you&rsquo;ll find that <code>Vec::iter()</code> returns an <code>std::slice::Iter</code>.
+The definition of <code>Iter</code> is:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">Iter</span>&lt;<span style="color:#1e90ff">&#39;a</span>,<span style="color:#bbb"> </span>T&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">/* fields omitted */</span><span style="color:#bbb"> </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>'a</code> is a <strong>lifetime parameter</strong>.</p>
+<h2 id="lifetime-parameters">Lifetime parameters</h2>
+<p>Lifetimes are <strong>labels</strong> used by the Rust compiler to keep track of how long a reference (either mutable or
+immutable) is valid.<br>
+The lifetime of a reference is constrained by the scope of the value it refers to. Rust always makes sure, at compile-time,
+that references are not used after the value they refer to has been dropped, to avoid dangling pointers and use-after-free bugs.</p>
+<p>This should sound familiar: we&rsquo;ve already seen these concepts in action when we discussed ownership and borrowing.
+Lifetimes are just a way to <strong>name</strong> how long a specific reference is valid.</p>
+<p>Naming becomes important when you have multiple references and you need to clarify how they <strong>relate to each other</strong>.
+Let&rsquo;s look at the signature of <code>Vec::iter()</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>&lt;T&gt;<span style="color:#bbb"> </span><span style="color:#0aa">Vec</span>&lt;T&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// Slightly simplified
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">iter</span>&lt;<span style="color:#1e90ff">&#39;a</span>&gt;(&amp;<span style="color:#1e90ff">&#39;a</span><span style="color:#bbb"> </span><span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Iter</span>&lt;<span style="color:#1e90ff">&#39;a</span>,<span style="color:#bbb"> </span>T&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>Vec::iter()</code> is generic over a lifetime parameter, named <code>'a</code>.<br>
+<code>'a</code> is used to <strong>tie together</strong> the lifetime of the <code>Vec</code> and the lifetime of the <code>Iter</code> returned by <code>iter()</code>.
+In plain English: the <code>Iter</code> returned by <code>iter()</code> cannot outlive the <code>Vec</code> reference (<code>&amp;self</code>) it was created from.</p>
+<p>This is important because <code>Vec::iter</code>, as we discussed, returns an iterator over <strong>references</strong> to the <code>Vec</code>&rsquo;s elements.
+If the <code>Vec</code> is dropped, the references returned by the iterator would be invalid. Rust must make sure this doesn&rsquo;t happen,
+and lifetimes are the tool it uses to enforce this rule.</p>
+<h2 id="lifetime-elision">Lifetime elision</h2>
+<p>Rust has a set of rules, called <strong>lifetime elision rules</strong>, that allow you to omit explicit lifetime annotations in many cases.
+For example, <code>Vec::iter</code>&rsquo;s definition looks like this in <code>std</code>&rsquo;s source code:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>&lt;T&gt;<span style="color:#bbb"> </span><span style="color:#0aa">Vec</span>&lt;T&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">iter</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Iter</span>&lt;<span style="color:#0aa">&#39;_</span>,<span style="color:#bbb"> </span>T&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>No explicit lifetime parameter is present in the signature of <code>Vec::iter()</code>.
+Elision rules imply that the lifetime of the <code>Iter</code> returned by <code>iter()</code> is tied to the lifetime of the <code>&amp;self</code> reference.
+You can think of <code>'_</code> as a <strong>placeholder</strong> for the lifetime of the <code>&amp;self</code> reference.</p>
+<p>See the <a href="#references">References</a>
+ section for a link to the official documentation on lifetime elision.<br>
+In most cases, you can rely on the compiler telling you when you need to add explicit lifetime annotations.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://doc.rust-lang.org/std/vec/struct.Vec.html#method.iter" target="_blank">std::vec::Vec::iter</a>
+</li>
+<li><a href="https://doc.rust-lang.org/std/slice/struct.Iter.html" target="_blank">std::slice::Iter</a>
+</li>
+<li><a href="https://doc.rust-lang.org/reference/lifetime-elision.html" target="_blank">Lifetime elision rules</a>
+</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

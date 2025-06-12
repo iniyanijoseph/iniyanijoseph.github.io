@@ -1,0 +1,1 @@
+/home/wug/Desktop/iniyanijoseph.github.io/content/projects/rustexercises/target/debug/libintegers.rlib: /home/wug/Desktop/iniyanijoseph.github.io/content/projects/rustexercises/exercises/02_basic_calculator/01_integers/src/lib.rs

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Runtime architecture
+So far we&rsquo;ve been talking about async runtimes as an abstract concept.
+Let&rsquo;s dig a bit deeper into the way they are implemented—as you&rsquo;ll see soon enough,
+it has an impact on our code.
+Flavors
+tokio ships two different runtime flavors.
+You can configure your runtime via tokio::runtime::Builder:
+
+Builder::new_multi_thread gives you a multithreaded tokio runtime
+Builder::new_current_thread will instead rely on the current thread for execution.
+
+#[tokio::main] returns a multithreaded runtime by default, while
+#[tokio::test] uses a current thread runtime out of the box.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/08_futures/03_runtime/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/08_futures/03_runtime/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Runtime architecture
+So far we&rsquo;ve been talking about async runtimes as an abstract concept.
+Let&rsquo;s dig a bit deeper into the way they are implemented—as you&rsquo;ll see soon enough,
+it has an impact on our code.
+Flavors
+tokio ships two different runtime flavors.
+You can configure your runtime via tokio::runtime::Builder:
+
+Builder::new_multi_thread gives you a multithreaded tokio runtime
+Builder::new_current_thread will instead rely on the current thread for execution.
+
+#[tokio::main] returns a multithreaded runtime by default, while
+#[tokio::test] uses a current thread runtime out of the box." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/08_futures/03_runtime/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Runtime architecture
+So far we&rsquo;ve been talking about async runtimes as an abstract concept.
+Let&rsquo;s dig a bit deeper into the way they are implemented—as you&rsquo;ll see soon enough,
+it has an impact on our code.
+Flavors
+tokio ships two different runtime flavors.
+You can configure your runtime via tokio::runtime::Builder:
+
+Builder::new_multi_thread gives you a multithreaded tokio runtime
+Builder::new_current_thread will instead rely on the current thread for execution.
+
+#[tokio::main] returns a multithreaded runtime by default, while
+#[tokio::test] uses a current thread runtime out of the box."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/08_futures/03_runtime/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Runtime architecture So far we\u0026rsquo;ve been talking about async runtimes as an abstract concept. Let\u0026rsquo;s dig a bit deeper into the way they are implemented—as you\u0026rsquo;ll see soon enough, it has an impact on our code.\nFlavors tokio ships two different runtime flavors.\nYou can configure your runtime via tokio::runtime::Builder:\nBuilder::new_multi_thread gives you a multithreaded tokio runtime Builder::new_current_thread will instead rely on the current thread for execution. #[tokio::main] returns a multithreaded runtime by default, while #[tokio::test] uses a current thread runtime out of the box.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Runtime architecture So far we’ve been talking about async runtimes as an abstract concept. Let’s dig a bit deeper into the way they are implemented—as you’ll see soon enough, it has an impact on our code.\nFlavors tokio ships two different runtime flavors.\nYou can configure your runtime via tokio::runtime::Builder:\nBuilder::new_multi_thread gives you a multithreaded tokio runtime Builder::new_current_thread will instead rely on the current thread for execution. #[tokio::main] returns a multithreaded runtime by default, while #[tokio::test] uses a current thread runtime out of the box.\nCurrent thread runtime The current-thread runtime, as the name implies, relies exclusively on the OS thread it was launched on to schedule and execute tasks.\nWhen using the current-thread runtime, you have concurrency but no parallelism: asynchronous tasks will be interleaved, but there will always be at most one task running at any given time.\nMultithreaded runtime When using the multithreaded runtime, instead, there can be up to N tasks running in parallel at any given time, where N is the number of threads used by the runtime. By default, N matches the number of available CPU cores.\nThere’s more: tokio performs work-stealing.\nIf a thread is idle, it won’t wait around: it’ll try to find a new task that’s ready for execution, either from a global queue or by stealing it from the local queue of another thread.\nWork-stealing can have significant performance benefits, especially on tail latencies, whenever your application is dealing with workloads that are not perfectly balanced across threads.\nImplications tokio::spawn is flavor-agnostic: it’ll work no matter if you’re running on the multithreaded or current-thread runtime. The downside is that the signature assumes the worst case (i.e. multithreaded) and is constrained accordingly:\npub fn spawn(future: F) -\u003e JoinHandle where F: Future + Send + 'static, F::Output: Send + 'static, { /* */ } Let’s ignore the Future trait for now to focus on the rest.\nspawn is asking all its inputs to be Send and have a 'static lifetime.\nThe 'static constraint follows the same rationale of the 'static constraint on std::thread::spawn: the spawned task may outlive the context it was spawned from, therefore it shouldn’t depend on any local data that may be de-allocated after the spawning context is destroyed.\nfn spawner() { let v = vec![1, 2, 3]; // This won't work, since `\u0026v` doesn't // live long enough. tokio::spawn(async { for x in \u0026v { println!(\"{x}\") } }) } Send, on the other hand, is a direct consequence of tokio’s work-stealing strategy: a task that was spawned on thread A may end up being moved to thread B if that’s idle, thus requiring a Send bound since we’re crossing thread boundaries.\nfn spawner(input: Rc\u003cu64\u003e) { // This won't work either, because // `Rc` isn't `Send`. tokio::spawn(async move { println!(\"{}\", input); }) } ",
+  "wordCount" : "464",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/08_futures/03_runtime/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="runtime-architecture">Runtime architecture</h1>
+<p>So far we&rsquo;ve been talking about async runtimes as an abstract concept.
+Let&rsquo;s dig a bit deeper into the way they are implemented—as you&rsquo;ll see soon enough,
+it has an impact on our code.</p>
+<h2 id="flavors">Flavors</h2>
+<p><code>tokio</code> ships two different runtime <em>flavors</em>.</p>
+<p>You can configure your runtime via <code>tokio::runtime::Builder</code>:</p>
+<ul>
+<li><code>Builder::new_multi_thread</code> gives you a <strong>multithreaded <code>tokio</code> runtime</strong></li>
+<li><code>Builder::new_current_thread</code> will instead rely on the <strong>current thread</strong> for execution.</li>
+</ul>
+<p><code>#[tokio::main]</code> returns a multithreaded runtime by default, while
+<code>#[tokio::test]</code> uses a current thread runtime out of the box.</p>
+<h3 id="current-thread-runtime">Current thread runtime</h3>
+<p>The current-thread runtime, as the name implies, relies exclusively on the OS thread
+it was launched on to schedule and execute tasks.<br>
+When using the current-thread runtime, you have <strong>concurrency</strong> but no <strong>parallelism</strong>:
+asynchronous tasks will be interleaved, but there will always be at most one task running
+at any given time.</p>
+<h3 id="multithreaded-runtime">Multithreaded runtime</h3>
+<p>When using the multithreaded runtime, instead, there can be up to <code>N</code> tasks running
+<em>in parallel</em> at any given time, where <code>N</code> is the number of threads used by the
+runtime. By default, <code>N</code> matches the number of available CPU cores.</p>
+<p>There&rsquo;s more: <code>tokio</code> performs <strong>work-stealing</strong>.<br>
+If a thread is idle, it won&rsquo;t wait around: it&rsquo;ll try to find a new task that&rsquo;s ready for
+execution, either from a global queue or by stealing it from the local queue of another
+thread.<br>
+Work-stealing can have significant performance benefits, especially on tail latencies,
+whenever your application is dealing with workloads that are not perfectly balanced
+across threads.</p>
+<h2 id="implications">Implications</h2>
+<p><code>tokio::spawn</code> is flavor-agnostic: it&rsquo;ll work no matter if you&rsquo;re running on the multithreaded
+or current-thread runtime. The downside is that the signature assumes the worst case
+(i.e. multithreaded) and is constrained accordingly:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">spawn</span>&lt;F&gt;(future: <span style="color:#0a0;text-decoration:underline">F</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">JoinHandle</span>&lt;F::Output&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">where</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>F: <span style="color:#0a0;text-decoration:underline">Future</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#0aa">Send</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#0aa">&#39;static</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>F::Output: <span style="color:#0aa">Send</span> +<span style="color:#bbb"> </span><span style="color:#0aa">&#39;static</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>{<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">/* */</span><span style="color:#bbb"> </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Let&rsquo;s ignore the <code>Future</code> trait for now to focus on the rest.<br>
+<code>spawn</code> is asking all its inputs to be <code>Send</code> and have a <code>'static</code> lifetime.</p>
+<p>The <code>'static</code> constraint follows the same rationale of the <code>'static</code> constraint
+on <code>std::thread::spawn</code>: the spawned task may outlive the context it was spawned
+from, therefore it shouldn&rsquo;t depend on any local data that may be de-allocated
+after the spawning context is destroyed.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">fn</span> <span style="color:#0a0">spawner</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>v<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0a0">vec!</span>[<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>,<span style="color:#bbb"> </span><span style="color:#099">3</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// This won&#39;t work, since `&amp;v` doesn&#39;t
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// live long enough.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>tokio::spawn(<span style="color:#00a">async</span><span style="color:#bbb"> </span>{<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">for</span><span style="color:#bbb"> </span>x<span style="color:#bbb"> </span><span style="color:#00a">in</span><span style="color:#bbb"> </span>&amp;v<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;</span><span style="color:#a50">{x}</span><span style="color:#a50">&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>})<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>Send</code>, on the other hand, is a direct consequence of <code>tokio</code>&rsquo;s work-stealing strategy:
+a task that was spawned on thread <code>A</code> may end up being moved to thread <code>B</code> if that&rsquo;s idle,
+thus requiring a <code>Send</code> bound since we&rsquo;re crossing thread boundaries.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">fn</span> <span style="color:#0a0">spawner</span>(input: <span style="color:#0a0;text-decoration:underline">Rc</span>&lt;<span style="color:#0aa">u64</span>&gt;)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// This won&#39;t work either, because
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// `Rc` isn&#39;t `Send`.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>tokio::spawn(<span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">move</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;</span><span style="color:#a50">{}</span><span style="color:#a50">&#34;</span>,<span style="color:#bbb"> </span>input);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>})<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div>
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

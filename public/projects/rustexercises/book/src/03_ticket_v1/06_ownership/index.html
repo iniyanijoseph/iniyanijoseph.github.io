@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Ownership
+If you solved the previous exercise using what this course has taught you so far,
+your accessor methods probably look like this:
+impl Ticket {
+    pub fn title(self) -&gt; String {
+        self.title
+    }
+
+    pub fn description(self) -&gt; String {
+        self.description
+    }
+
+    pub fn status(self) -&gt; String {
+        self.status
+    }
+}
+Those methods compile and are enough to get tests to pass, but in a real-world scenario they won&rsquo;t get you very far.
+Consider this snippet:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/06_ownership/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/06_ownership/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Ownership
+If you solved the previous exercise using what this course has taught you so far,
+your accessor methods probably look like this:
+impl Ticket {
+    pub fn title(self) -&gt; String {
+        self.title
+    }
+
+    pub fn description(self) -&gt; String {
+        self.description
+    }
+
+    pub fn status(self) -&gt; String {
+        self.status
+    }
+}
+Those methods compile and are enough to get tests to pass, but in a real-world scenario they won&rsquo;t get you very far.
+Consider this snippet:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/06_ownership/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Ownership
+If you solved the previous exercise using what this course has taught you so far,
+your accessor methods probably look like this:
+impl Ticket {
+    pub fn title(self) -&gt; String {
+        self.title
+    }
+
+    pub fn description(self) -&gt; String {
+        self.description
+    }
+
+    pub fn status(self) -&gt; String {
+        self.status
+    }
+}
+Those methods compile and are enough to get tests to pass, but in a real-world scenario they won&rsquo;t get you very far.
+Consider this snippet:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/06_ownership/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Ownership If you solved the previous exercise using what this course has taught you so far, your accessor methods probably look like this:\nimpl Ticket { pub fn title(self) -\u0026gt; String { self.title } pub fn description(self) -\u0026gt; String { self.description } pub fn status(self) -\u0026gt; String { self.status } } Those methods compile and are enough to get tests to pass, but in a real-world scenario they won\u0026rsquo;t get you very far. Consider this snippet:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Ownership If you solved the previous exercise using what this course has taught you so far, your accessor methods probably look like this:\nimpl Ticket { pub fn title(self) -\u003e String { self.title } pub fn description(self) -\u003e String { self.description } pub fn status(self) -\u003e String { self.status } } Those methods compile and are enough to get tests to pass, but in a real-world scenario they won’t get you very far. Consider this snippet:\nif ticket.status() == \"To-Do\" { // We haven't covered the `println!` macro yet, // but for now it's enough to know that it prints // a (templated) message to the console println!(\"Your next task is: {}\", ticket.title()); } If you try to compile it, you’ll get an error:\nerror[E0382]: use of moved value: `ticket` --\u003e src/main.rs:30:43 | 25 | let ticket = Ticket::new(/* */); | ------ move occurs because `ticket` has type `Ticket`, | which does not implement the `Copy` trait 26 | if ticket.status() == \"To-Do\" { | -------- `ticket` moved due to this method call ... 30 | println!(\"Your next task is: {}\", ticket.title()); | ^^^^^^ | value used here after move | note: `Ticket::status` takes ownership of the receiver `self`, which moves `ticket` --\u003e src/main.rs:12:23 | 12 | pub fn status(self) -\u003e String { | ^^^^ Congrats, this is your first borrow-checker error!\nThe perks of Rust’s ownership system Rust’s ownership system is designed to ensure that:\nData is never mutated while it’s being read Data is never read while it’s being mutated Data is never accessed after it has been destroyed These constraints are enforced by the borrow checker, a subsystem of the Rust compiler, often the subject of jokes and memes in the Rust community.\nOwnership is a key concept in Rust, and it’s what makes the language unique. Ownership enables Rust to provide memory safety without compromising performance. All these things are true at the same time for Rust:\nThere is no runtime garbage collector As a developer, you rarely have to manage memory directly You can’t cause dangling pointers, double frees, and other memory-related bugs Languages like Python, JavaScript, and Java give you 2. and 3., but not 1.\nLanguage like C or C++ give you 1., but neither 2. nor 3.\nDepending on your background, 3. might sound a bit arcane: what is a “dangling pointer”? What is a “double free”? Why are they dangerous?\nDon’t worry: we’ll cover these concepts in more details during the rest of the course.\nFor now, though, let’s focus on learning how to work within Rust’s ownership system.\nThe owner In Rust, each value has an owner, statically determined at compile-time. There is only one owner for each value at any given time.\nMove semantics Ownership can be transferred.\nIf you own a value, for example, you can transfer ownership to another variable:\nlet a = \"hello, world\".to_string(); // \u003c- `a` is the owner of the String let b = a; // \u003c- `b` is now the owner of the String Rust’s ownership system is baked into the type system: each function has to declare in its signature how it wants to interact with its arguments.\nSo far, all our methods and functions have consumed their arguments: they’ve taken ownership of them. For example:\nimpl Ticket { pub fn description(self) -\u003e String { self.description } } Ticket::description takes ownership of the Ticket instance it’s called on.\nThis is known as move semantics: ownership of the value (self) is moved from the caller to the callee, and the caller can’t use it anymore.\nThat’s exactly the language used by the compiler in the error message we saw earlier:\nerror[E0382]: use of moved value: `ticket` --\u003e src/main.rs:30:43 | 25 | let ticket = Ticket::new(/* */); | ------ move occurs because `ticket` has type `Ticket`, | which does not implement the `Copy` trait 26 | if ticket.status() == \"To-Do\" { | -------- `ticket` moved due to this method call ... 30 | println!(\"Your next task is: {}\", ticket.title()); | ^^^^^^ | value used here after move | note: `Ticket::status` takes ownership of the receiver `self`, which moves `ticket` --\u003e src/main.rs:12:23 | 12 | pub fn status(self) -\u003e String { | ^^^^ In particular, this is the sequence of events that unfold when we call ticket.status():\nTicket::status takes ownership of the Ticket instance Ticket::status extracts status from self and transfers ownership of status back to the caller The rest of the Ticket instance is discarded (title and description) When we try to use ticket again via ticket.title(), the compiler complains: the ticket value is gone now, we no longer own it, therefore we can’t use it anymore.\nTo build useful accessor methods we need to start working with references.\nBorrowing It is desirable to have methods that can read the value of a variable without taking ownership of it.\nProgramming would be quite limited otherwise. In Rust, that’s done via borrowing.\nWhenever you borrow a value, you get a reference to it.\nReferences are tagged with their privileges1:\nImmutable references (\u0026) allow you to read the value, but not to mutate it Mutable references (\u0026mut) allow you to read and mutate the value Going back to the goals of Rust’s ownership system:\nData is never mutated while it’s being read Data is never read while it’s being mutated To ensure these two properties, Rust has to introduce some restrictions on references:\nYou can’t have a mutable reference and an immutable reference to the same value at the same time You can’t have more than one mutable reference to the same value at the same time The owner can’t mutate the value while it’s being borrowed You can have as many immutable references as you want, as long as there are no mutable references In a way, you can think of an immutable reference as a “read-only” lock on the value, while a mutable reference is like a “read-write” lock.\nAll these restrictions are enforced at compile-time by the borrow checker.\nSyntax How do you borrow a value, in practice?\nBy adding \u0026 or \u0026mut in front a variable, you’re borrowing its value. Careful though! The same symbols (\u0026 and \u0026mut) in front of a type have a different meaning: they denote a different type, a reference to the original type.\nFor example:\nstruct Configuration { version: u32, active: bool, } fn main() { let config = Configuration { version: 1, active: true, }; // `b` is a reference to the `version` field of `config`. // The type of `b` is `\u0026u32`, since it contains a reference to // a `u32` value. // We create a reference by borrowing `config.version`, using // the `\u0026` operator. // Same symbol (`\u0026`), different meaning depending on the context! let b: \u0026u32 = \u0026config.version; // ^ The type annotation is not necessary, // it's just there to clarify what's going on } The same concept applies to function arguments and return types:\n// `f` takes a mutable reference to a `u32` as an argument, // bound to the name `number` fn f(number: \u0026mut u32) -\u003e \u0026u32 { // [...] } Breathe in, breathe out Rust’s ownership system can be a bit overwhelming at first.\nBut don’t worry: it’ll become second nature with practice.\nAnd you’re going to get a lot of practice over the rest of this chapter, as well as the rest of the course! We’ll revisit each concept multiple times to make sure you get familiar with them and truly understand how they work.\nTowards the end of this chapter we’ll explain why Rust’s ownership system is designed the way it is. For the time being, focus on understanding the how. Take each compiler error as a learning opportunity!\nThis is a great mental model to start out, but it doesn’t capture the full picture. We’ll refine our understanding of references later in the course . ↩︎\n",
+  "wordCount" : "1309",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/06_ownership/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="ownership">Ownership</h1>
+<p>If you solved the previous exercise using what this course has taught you so far,
+your accessor methods probably look like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">title</span>(<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">String</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0aa">self</span>.title<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">description</span>(<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">String</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0aa">self</span>.description<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">status</span>(<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">String</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0aa">self</span>.status<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Those methods compile and are enough to get tests to pass, but in a real-world scenario they won&rsquo;t get you very far.
+Consider this snippet:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">if</span><span style="color:#bbb"> </span>ticket.status()<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span><span style="color:#a50">&#34;To-Do&#34;</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// We haven&#39;t covered the `println!` macro yet,
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// but for now it&#39;s enough to know that it prints 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// a (templated) message to the console
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;Your next task is: </span><span style="color:#a50">{}</span><span style="color:#a50">&#34;</span>,<span style="color:#bbb"> </span>ticket.title());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>If you try to compile it, you&rsquo;ll get an error:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>error[E0382]: use of moved value: `ticket`
+</span></span><span style="display:flex;"><span>  --&gt; src/main.rs:30:43
+</span></span><span style="display:flex;"><span>   |
+</span></span><span style="display:flex;"><span>25 |     let ticket = Ticket::new(/* */);
+</span></span><span style="display:flex;"><span>   |         ------ move occurs because `ticket` has type `Ticket`, 
+</span></span><span style="display:flex;"><span>   |                which does not implement the `Copy` trait
+</span></span><span style="display:flex;"><span>26 |     if ticket.status() == &#34;To-Do&#34; {
+</span></span><span style="display:flex;"><span>   |               -------- `ticket` moved due to this method call
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>30 |         println!(&#34;Your next task is: {}&#34;, ticket.title());
+</span></span><span style="display:flex;"><span>   |                                           ^^^^^^ 
+</span></span><span style="display:flex;"><span>   |                                value used here after move
+</span></span><span style="display:flex;"><span>   |
+</span></span><span style="display:flex;"><span>note: `Ticket::status` takes ownership of the receiver `self`, 
+</span></span><span style="display:flex;"><span>      which moves `ticket`
+</span></span><span style="display:flex;"><span>  --&gt; src/main.rs:12:23
+</span></span><span style="display:flex;"><span>   |
+</span></span><span style="display:flex;"><span>12 |         pub fn status(self) -&gt; String {
+</span></span><span style="display:flex;"><span>   |                       ^^^^
+</span></span></code></pre></div><p>Congrats, this is your first borrow-checker error!</p>
+<h2 id="the-perks-of-rusts-ownership-system">The perks of Rust&rsquo;s ownership system</h2>
+<p>Rust&rsquo;s ownership system is designed to ensure that:</p>
+<ul>
+<li>Data is never mutated while it&rsquo;s being read</li>
+<li>Data is never read while it&rsquo;s being mutated</li>
+<li>Data is never accessed after it has been destroyed</li>
+</ul>
+<p>These constraints are enforced by the <strong>borrow checker</strong>, a subsystem of the Rust compiler,
+often the subject of jokes and memes in the Rust community.</p>
+<p>Ownership is a key concept in Rust, and it&rsquo;s what makes the language unique.
+Ownership enables Rust to provide <strong>memory safety without compromising performance</strong>.
+All these things are true at the same time for Rust:</p>
+<ol>
+<li>There is no runtime garbage collector</li>
+<li>As a developer, you rarely have to manage memory directly</li>
+<li>You can&rsquo;t cause dangling pointers, double frees, and other memory-related bugs</li>
+</ol>
+<p>Languages like Python, JavaScript, and Java give you 2. and 3., but not 1.<br>
+Language like C or C++ give you 1., but neither 2. nor 3.</p>
+<p>Depending on your background, 3. might sound a bit arcane: what is a &ldquo;dangling pointer&rdquo;?
+What is a &ldquo;double free&rdquo;? Why are they dangerous?<br>
+Don&rsquo;t worry: we&rsquo;ll cover these concepts in more details during the rest of the course.</p>
+<p>For now, though, let&rsquo;s focus on learning how to work within Rust&rsquo;s ownership system.</p>
+<h2 id="the-owner">The owner</h2>
+<p>In Rust, each value has an <strong>owner</strong>, statically determined at compile-time.
+There is only one owner for each value at any given time.</p>
+<h2 id="move-semantics">Move semantics</h2>
+<p>Ownership can be transferred.</p>
+<p>If you own a value, for example, you can transfer ownership to another variable:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#a50">&#34;hello, world&#34;</span>.to_string();<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">// &lt;- `a` is the owner of the String
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>b<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>a;<span style="color:#bbb">  </span><span style="color:#aaa;font-style:italic">// &lt;- `b` is now the owner of the String
+</span></span></span></code></pre></div><p>Rust&rsquo;s ownership system is baked into the type system: each function has to declare in its signature
+<em>how</em> it wants to interact with its arguments.</p>
+<p>So far, all our methods and functions have <strong>consumed</strong> their arguments: they&rsquo;ve taken ownership of them.
+For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">description</span>(<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">String</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0aa">self</span>.description<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>Ticket::description</code> takes ownership of the <code>Ticket</code> instance it&rsquo;s called on.<br>
+This is known as <strong>move semantics</strong>: ownership of the value (<code>self</code>) is <strong>moved</strong> from the caller to
+the callee, and the caller can&rsquo;t use it anymore.</p>
+<p>That&rsquo;s exactly the language used by the compiler in the error message we saw earlier:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>error[E0382]: use of moved value: `ticket`
+</span></span><span style="display:flex;"><span>  --&gt; src/main.rs:30:43
+</span></span><span style="display:flex;"><span>   |
+</span></span><span style="display:flex;"><span>25 |     let ticket = Ticket::new(/* */);
+</span></span><span style="display:flex;"><span>   |         ------ move occurs because `ticket` has type `Ticket`, 
+</span></span><span style="display:flex;"><span>   |                which does not implement the `Copy` trait
+</span></span><span style="display:flex;"><span>26 |     if ticket.status() == &#34;To-Do&#34; {
+</span></span><span style="display:flex;"><span>   |               -------- `ticket` moved due to this method call
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>30 |         println!(&#34;Your next task is: {}&#34;, ticket.title());
+</span></span><span style="display:flex;"><span>   |                                           ^^^^^^ 
+</span></span><span style="display:flex;"><span>   |                                 value used here after move
+</span></span><span style="display:flex;"><span>   |
+</span></span><span style="display:flex;"><span>note: `Ticket::status` takes ownership of the receiver `self`, 
+</span></span><span style="display:flex;"><span>      which moves `ticket`
+</span></span><span style="display:flex;"><span>  --&gt; src/main.rs:12:23
+</span></span><span style="display:flex;"><span>   |
+</span></span><span style="display:flex;"><span>12 |         pub fn status(self) -&gt; String {
+</span></span><span style="display:flex;"><span>   |                       ^^^^
+</span></span></code></pre></div><p>In particular, this is the sequence of events that unfold when we call <code>ticket.status()</code>:</p>
+<ul>
+<li><code>Ticket::status</code> takes ownership of the <code>Ticket</code> instance</li>
+<li><code>Ticket::status</code> extracts <code>status</code> from <code>self</code> and transfers ownership of <code>status</code> back to the caller</li>
+<li>The rest of the <code>Ticket</code> instance is discarded (<code>title</code> and <code>description</code>)</li>
+</ul>
+<p>When we try to use <code>ticket</code> again via <code>ticket.title()</code>, the compiler complains: the <code>ticket</code> value is gone now,
+we no longer own it, therefore we can&rsquo;t use it anymore.</p>
+<p>To build <em>useful</em> accessor methods we need to start working with <strong>references</strong>.</p>
+<h2 id="borrowing">Borrowing</h2>
+<p>It is desirable to have methods that can read the value of a variable without taking ownership of it.<br>
+Programming would be quite limited otherwise. In Rust, that&rsquo;s done via <strong>borrowing</strong>.</p>
+<p>Whenever you borrow a value, you get a <strong>reference</strong> to it.<br>
+References are tagged with their privileges<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
+<ul>
+<li>Immutable references (<code>&amp;</code>) allow you to read the value, but not to mutate it</li>
+<li>Mutable references (<code>&amp;mut</code>) allow you to read and mutate the value</li>
+</ul>
+<p>Going back to the goals of Rust&rsquo;s ownership system:</p>
+<ul>
+<li>Data is never mutated while it&rsquo;s being read</li>
+<li>Data is never read while it&rsquo;s being mutated</li>
+</ul>
+<p>To ensure these two properties, Rust has to introduce some restrictions on references:</p>
+<ul>
+<li>You can&rsquo;t have a mutable reference and an immutable reference to the same value at the same time</li>
+<li>You can&rsquo;t have more than one mutable reference to the same value at the same time</li>
+<li>The owner can&rsquo;t mutate the value while it&rsquo;s being borrowed</li>
+<li>You can have as many immutable references as you want, as long as there are no mutable references</li>
+</ul>
+<p>In a way, you can think of an immutable reference as a &ldquo;read-only&rdquo; lock on the value,
+while a mutable reference is like a &ldquo;read-write&rdquo; lock.</p>
+<p>All these restrictions are enforced at compile-time by the borrow checker.</p>
+<h3 id="syntax">Syntax</h3>
+<p>How do you borrow a value, in practice?<br>
+By adding <code>&amp;</code> or <code>&amp;mut</code> <strong>in front a variable</strong>, you&rsquo;re borrowing its value.
+Careful though! The same symbols (<code>&amp;</code> and <code>&amp;mut</code>) in <strong>front of a type</strong> have a different meaning:
+they denote a different type, a reference to the original type.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">Configuration</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>version: <span style="color:#0aa">u32</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>active: <span style="color:#0aa">bool</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">fn</span> <span style="color:#0a0">main</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>config<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Configuration<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>version: <span style="color:#099">1</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>active: <span style="color:#0a0;text-decoration:underline">true</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>};<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// `b` is a reference to the `version` field of `config`.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// The type of `b` is `&amp;u32`, since it contains a reference to 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// a `u32` value.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// We create a reference by borrowing `config.version`, using 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// the `&amp;` operator.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// Same symbol (`&amp;`), different meaning depending on the context!
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>b: <span style="color:#00a">&amp;</span><span style="color:#0aa">u32</span> =<span style="color:#bbb"> </span>&amp;config.version;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">//     ^ The type annotation is not necessary, 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">//       it&#39;s just there to clarify what&#39;s going on
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The same concept applies to function arguments and return types:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// `f` takes a mutable reference to a `u32` as an argument, 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// bound to the name `number`
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">fn</span> <span style="color:#0a0">f</span>(number: <span style="color:#00a">&amp;</span><span style="color:#0a0;text-decoration:underline">mut</span><span style="color:#bbb"> </span><span style="color:#0aa">u32</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#00a">&amp;</span><span style="color:#0aa">u32</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="breathe-in-breathe-out">Breathe in, breathe out</h2>
+<p>Rust&rsquo;s ownership system can be a bit overwhelming at first.<br>
+But don&rsquo;t worry: it&rsquo;ll become second nature with practice.<br>
+And you&rsquo;re going to get a lot of practice over the rest of this chapter, as well as the rest of the course!
+We&rsquo;ll revisit each concept multiple times to make sure you get familiar with them
+and truly understand how they work.</p>
+<p>Towards the end of this chapter we&rsquo;ll explain <em>why</em> Rust&rsquo;s ownership system is designed the way it is.
+For the time being, focus on understanding the <em>how</em>. Take each compiler error as a learning opportunity!</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>This is a great mental model to start out, but it doesn&rsquo;t capture the <em>full</em> picture.
+We&rsquo;ll refine our understanding of references <a href="../07_threads/06_interior_mutability.md">later in the course</a>
+.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

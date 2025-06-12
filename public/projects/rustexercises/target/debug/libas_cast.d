@@ -1,0 +1,1 @@
+/home/wug/Desktop/iniyanijoseph.github.io/content/projects/rustexercises/target/debug/libas_cast.rlib: /home/wug/Desktop/iniyanijoseph.github.io/content/projects/rustexercises/exercises/02_basic_calculator/10_as_casting/src/lib.rs

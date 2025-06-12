@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="From and Into
+Let&rsquo;s go back to where our string journey started:
+let ticket = Ticket::new(
+    &#34;A title&#34;.into(), 
+    &#34;A description&#34;.into(), 
+    &#34;To-Do&#34;.into()
+);
+We now know enough to start unpacking what .into() is doing here.
+The problem
+This is the signature of the new method:
+impl Ticket {
+    pub fn new(
+        title: String, 
+        description: String, 
+        status: String
+    ) -&gt; Self {
+        // [...]
+    }
+}
+We&rsquo;ve also seen that string literals (such as &quot;A title&quot;) are of type &amp;str.
+We have a type mismatch here: a String is expected, but we have a &amp;str.
+No magical coercion will come to save us this time; we need to perform a conversion.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/09_from/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/09_from/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="From and Into
+Let&rsquo;s go back to where our string journey started:
+let ticket = Ticket::new(
+    &#34;A title&#34;.into(), 
+    &#34;A description&#34;.into(), 
+    &#34;To-Do&#34;.into()
+);
+We now know enough to start unpacking what .into() is doing here.
+The problem
+This is the signature of the new method:
+impl Ticket {
+    pub fn new(
+        title: String, 
+        description: String, 
+        status: String
+    ) -&gt; Self {
+        // [...]
+    }
+}
+We&rsquo;ve also seen that string literals (such as &quot;A title&quot;) are of type &amp;str.
+We have a type mismatch here: a String is expected, but we have a &amp;str.
+No magical coercion will come to save us this time; we need to perform a conversion." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/04_traits/09_from/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="From and Into
+Let&rsquo;s go back to where our string journey started:
+let ticket = Ticket::new(
+    &#34;A title&#34;.into(), 
+    &#34;A description&#34;.into(), 
+    &#34;To-Do&#34;.into()
+);
+We now know enough to start unpacking what .into() is doing here.
+The problem
+This is the signature of the new method:
+impl Ticket {
+    pub fn new(
+        title: String, 
+        description: String, 
+        status: String
+    ) -&gt; Self {
+        // [...]
+    }
+}
+We&rsquo;ve also seen that string literals (such as &quot;A title&quot;) are of type &amp;str.
+We have a type mismatch here: a String is expected, but we have a &amp;str.
+No magical coercion will come to save us this time; we need to perform a conversion."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/04_traits/09_from/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "From and Into Let\u0026rsquo;s go back to where our string journey started:\nlet ticket = Ticket::new( \u0026#34;A title\u0026#34;.into(), \u0026#34;A description\u0026#34;.into(), \u0026#34;To-Do\u0026#34;.into() ); We now know enough to start unpacking what .into() is doing here.\nThe problem This is the signature of the new method:\nimpl Ticket { pub fn new( title: String, description: String, status: String ) -\u0026gt; Self { // [...] } } We\u0026rsquo;ve also seen that string literals (such as \u0026quot;A title\u0026quot;) are of type \u0026amp;str.\nWe have a type mismatch here: a String is expected, but we have a \u0026amp;str. No magical coercion will come to save us this time; we need to perform a conversion.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "From and Into Let’s go back to where our string journey started:\nlet ticket = Ticket::new( \"A title\".into(), \"A description\".into(), \"To-Do\".into() ); We now know enough to start unpacking what .into() is doing here.\nThe problem This is the signature of the new method:\nimpl Ticket { pub fn new( title: String, description: String, status: String ) -\u003e Self { // [...] } } We’ve also seen that string literals (such as \"A title\") are of type \u0026str.\nWe have a type mismatch here: a String is expected, but we have a \u0026str. No magical coercion will come to save us this time; we need to perform a conversion.\nFrom and Into The Rust standard library defines two traits for infallible conversions: From and Into, in the std::convert module.\npub trait From: Sized { fn from(value: T) -\u003e Self; } pub trait Into: Sized { fn into(self) -\u003e T; } These trait definitions showcase a few concepts that we haven’t seen before: supertraits and implicit trait bounds. Let’s unpack those first.\nSupertrait / Subtrait The From: Sized syntax implies that From is a subtrait of Sized: any type that implements From must also implement Sized. Alternatively, you could say that Sized is a supertrait of From.\nImplicit trait bounds Every time you have a generic type parameter, the compiler implicitly assumes that it’s Sized.\nFor example:\npub struct Foo { inner: T, } is actually equivalent to:\npub struct Foo",
+  "wordCount" : "558",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/04_traits/09_from/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="from-and-into"><code>From</code> and <code>Into</code></h1>
+<p>Let&rsquo;s go back to where our string journey started:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>ticket<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Ticket::new(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a50">&#34;A title&#34;</span>.into(),<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a50">&#34;A description&#34;</span>.into(),<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a50">&#34;To-Do&#34;</span>.into()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><p>We now know enough to start unpacking what <code>.into()</code> is doing here.</p>
+<h2 id="the-problem">The problem</h2>
+<p>This is the signature of the <code>new</code> method:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">new</span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>title: <span style="color:#0aa">String</span>,<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>description: <span style="color:#0aa">String</span>,<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>status: <span style="color:#0aa">String</span>
+</span></span><span style="display:flex;"><span>    )<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Self</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>We&rsquo;ve also seen that string literals (such as <code>&quot;A title&quot;</code>) are of type <code>&amp;str</code>.<br>
+We have a type mismatch here: a <code>String</code> is expected, but we have a <code>&amp;str</code>.
+No magical coercion will come to save us this time; we need <strong>to perform a conversion</strong>.</p>
+<h2 id="from-and-into-1"><code>From</code> and <code>Into</code></h2>
+<p>The Rust standard library defines two traits for <strong>infallible conversions</strong>: <code>From</code> and <code>Into</code>,
+in the <code>std::convert</code> module.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span><span style="color:#0aa">From</span>&lt;T&gt;: <span style="color:#0aa">Sized</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">from</span>(value: <span style="color:#0a0;text-decoration:underline">T</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Self</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span><span style="color:#0aa">Into</span>&lt;T&gt;: <span style="color:#0aa">Sized</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">into</span>(<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">T</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>These trait definitions showcase a few concepts that we haven&rsquo;t seen before: <strong>supertraits</strong> and <strong>implicit trait bounds</strong>.
+Let&rsquo;s unpack those first.</p>
+<h3 id="supertrait--subtrait">Supertrait / Subtrait</h3>
+<p>The <code>From: Sized</code> syntax implies that <code>From</code> is a <strong>subtrait</strong> of <code>Sized</code>: any type that
+implements <code>From</code> must also implement <code>Sized</code>.
+Alternatively, you could say that <code>Sized</code> is a <strong>supertrait</strong> of <code>From</code>.</p>
+<h3 id="implicit-trait-bounds">Implicit trait bounds</h3>
+<p>Every time you have a generic type parameter, the compiler implicitly assumes that it&rsquo;s <code>Sized</code>.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">Foo</span>&lt;T&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>inner: <span style="color:#0a0;text-decoration:underline">T</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>is actually equivalent to:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">Foo</span>&lt;T: <span style="color:#0aa">Sized</span>&gt;<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>inner: <span style="color:#0a0;text-decoration:underline">T</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>In the case of <code>From&lt;T&gt;</code>, the trait definition is equivalent to:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span><span style="color:#0aa">From</span>&lt;T: <span style="color:#0aa">Sized</span>&gt;: <span style="color:#0aa">Sized</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">from</span>(value: <span style="color:#0a0;text-decoration:underline">T</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Self</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>In other words, <em>both</em> <code>T</code> and the type implementing <code>From&lt;T&gt;</code> must be <code>Sized</code>, even
+though the former bound is implicit.</p>
+<h3 id="negative-trait-bounds">Negative trait bounds</h3>
+<p>You can opt out of the implicit <code>Sized</code> bound with a <strong>negative trait bound</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">Foo</span>&lt;T: ?<span style="color:#0aa">Sized</span>&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">//            ^^^^^^^
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">//            This is a negative trait bound
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>inner: <span style="color:#0a0;text-decoration:underline">T</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>This syntax reads as &ldquo;<code>T</code> may or may not be <code>Sized</code>&rdquo;, and it allows you to
+bind <code>T</code> to a DST (e.g. <code>Foo&lt;str&gt;</code>). It is a special case, though: negative trait bounds are exclusive to <code>Sized</code>,
+you can&rsquo;t use them with other traits.</p>
+<h2 id="str-to-string"><code>&amp;str</code> to <code>String</code></h2>
+<p>In <a href="https://doc.rust-lang.org/std/convert/trait.From.html#implementors" target="_blank"><code>std</code>&rsquo;s documentation</a>
+
+you can see which <code>std</code> types implement the <code>From</code> trait.<br>
+You&rsquo;ll find that <code>String</code> implements <code>From&lt;&amp;str&gt; for String</code>. Thus, we can write:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>title<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">String</span>::from(<span style="color:#a50">&#34;A title&#34;</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><p>We&rsquo;ve been primarily using <code>.into()</code>, though.<br>
+If you check out the <a href="https://doc.rust-lang.org/std/convert/trait.Into.html#implementors" target="_blank">implementors of <code>Into</code></a>
+
+you won&rsquo;t find <code>Into&lt;String&gt; for &amp;str</code>. What&rsquo;s going on?</p>
+<p><code>From</code> and <code>Into</code> are <strong>dual traits</strong>.<br>
+In particular, <code>Into</code> is implemented for any type that implements <code>From</code> using a <strong>blanket implementation</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span>&lt;T,<span style="color:#bbb"> </span>U&gt;<span style="color:#bbb"> </span><span style="color:#0aa">Into</span>&lt;U&gt;<span style="color:#bbb"> </span><span style="color:#00a">for</span><span style="color:#bbb"> </span>T<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">where</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>U: <span style="color:#0aa">From</span>&lt;T&gt;,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">into</span>(<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">U</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>U::from(<span style="color:#0aa">self</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>If a type <code>U</code> implements <code>From&lt;T&gt;</code>, then <code>Into&lt;U&gt; for T</code> is automatically implemented. That&rsquo;s why
+we can write <code>let title = &quot;A title&quot;.into();</code>.</p>
+<h2 id="into"><code>.into()</code></h2>
+<p>Every time you see <code>.into()</code>, you&rsquo;re witnessing a conversion between types.<br>
+What&rsquo;s the target type, though?</p>
+<p>In most cases, the target type is either:</p>
+<ul>
+<li>Specified by the signature of a function/method (e.g. <code>Ticket::new</code> in our example above)</li>
+<li>Specified in the variable declaration with a type annotation (e.g. <code>let title: String = &quot;A title&quot;.into();</code>)</li>
+</ul>
+<p><code>.into()</code> will work out of the box as long as the compiler can infer the target type from the context without ambiguity.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

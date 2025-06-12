@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Fallibility
+Let&rsquo;s revisit the Ticket::new function from the previous exercise:
+impl Ticket {
+    pub fn new(
+        title: String, 
+        description: String, 
+        status: Status
+    ) -&gt; Ticket {
+        if title.is_empty() {
+            panic!(&#34;Title cannot be empty&#34;);
+        }
+        if title.len() &gt; 50 {
+            panic!(&#34;Title cannot be longer than 50 bytes&#34;);
+        }
+        if description.is_empty() {
+            panic!(&#34;Description cannot be empty&#34;);
+        }
+        if description.len() &gt; 500 {
+            panic!(&#34;Description cannot be longer than 500 bytes&#34;);
+        }
+
+        Ticket {
+            title,
+            description,
+            status,
+        }
+    }
+}
+As soon as one of the checks fails, the function panics.
+This is not ideal, as it doesn&rsquo;t give the caller a chance to handle the error.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/06_fallibility/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/06_fallibility/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Fallibility
+Let&rsquo;s revisit the Ticket::new function from the previous exercise:
+impl Ticket {
+    pub fn new(
+        title: String, 
+        description: String, 
+        status: Status
+    ) -&gt; Ticket {
+        if title.is_empty() {
+            panic!(&#34;Title cannot be empty&#34;);
+        }
+        if title.len() &gt; 50 {
+            panic!(&#34;Title cannot be longer than 50 bytes&#34;);
+        }
+        if description.is_empty() {
+            panic!(&#34;Description cannot be empty&#34;);
+        }
+        if description.len() &gt; 500 {
+            panic!(&#34;Description cannot be longer than 500 bytes&#34;);
+        }
+
+        Ticket {
+            title,
+            description,
+            status,
+        }
+    }
+}
+As soon as one of the checks fails, the function panics.
+This is not ideal, as it doesn&rsquo;t give the caller a chance to handle the error." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/06_fallibility/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Fallibility
+Let&rsquo;s revisit the Ticket::new function from the previous exercise:
+impl Ticket {
+    pub fn new(
+        title: String, 
+        description: String, 
+        status: Status
+    ) -&gt; Ticket {
+        if title.is_empty() {
+            panic!(&#34;Title cannot be empty&#34;);
+        }
+        if title.len() &gt; 50 {
+            panic!(&#34;Title cannot be longer than 50 bytes&#34;);
+        }
+        if description.is_empty() {
+            panic!(&#34;Description cannot be empty&#34;);
+        }
+        if description.len() &gt; 500 {
+            panic!(&#34;Description cannot be longer than 500 bytes&#34;);
+        }
+
+        Ticket {
+            title,
+            description,
+            status,
+        }
+    }
+}
+As soon as one of the checks fails, the function panics.
+This is not ideal, as it doesn&rsquo;t give the caller a chance to handle the error."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/06_fallibility/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Fallibility Let\u0026rsquo;s revisit the Ticket::new function from the previous exercise:\nimpl Ticket { pub fn new( title: String, description: String, status: Status ) -\u0026gt; Ticket { if title.is_empty() { panic!(\u0026#34;Title cannot be empty\u0026#34;); } if title.len() \u0026gt; 50 { panic!(\u0026#34;Title cannot be longer than 50 bytes\u0026#34;); } if description.is_empty() { panic!(\u0026#34;Description cannot be empty\u0026#34;); } if description.len() \u0026gt; 500 { panic!(\u0026#34;Description cannot be longer than 500 bytes\u0026#34;); } Ticket { title, description, status, } } } As soon as one of the checks fails, the function panics. This is not ideal, as it doesn\u0026rsquo;t give the caller a chance to handle the error.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Fallibility Let’s revisit the Ticket::new function from the previous exercise:\nimpl Ticket { pub fn new( title: String, description: String, status: Status ) -\u003e Ticket { if title.is_empty() { panic!(\"Title cannot be empty\"); } if title.len() \u003e 50 { panic!(\"Title cannot be longer than 50 bytes\"); } if description.is_empty() { panic!(\"Description cannot be empty\"); } if description.len() \u003e 500 { panic!(\"Description cannot be longer than 500 bytes\"); } Ticket { title, description, status, } } } As soon as one of the checks fails, the function panics. This is not ideal, as it doesn’t give the caller a chance to handle the error.\nIt’s time to introduce the Result type, Rust’s primary mechanism for error handling.\nThe Result type The Result type is an enum defined in the standard library:\nenum Result",
+  "wordCount" : "446",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/06_fallibility/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="fallibility">Fallibility</h1>
+<p>Let&rsquo;s revisit the <code>Ticket::new</code> function from the previous exercise:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">new</span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>title: <span style="color:#0aa">String</span>,<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>description: <span style="color:#0aa">String</span>,<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>status: <span style="color:#0a0;text-decoration:underline">Status</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Ticket</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">if</span><span style="color:#bbb"> </span>title.is_empty()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#0a0">panic!</span>(<span style="color:#a50">&#34;Title cannot be empty&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">if</span><span style="color:#bbb"> </span>title.len()<span style="color:#bbb"> </span>&gt;<span style="color:#bbb"> </span><span style="color:#099">50</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#0a0">panic!</span>(<span style="color:#a50">&#34;Title cannot be longer than 50 bytes&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">if</span><span style="color:#bbb"> </span>description.is_empty()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#0a0">panic!</span>(<span style="color:#a50">&#34;Description cannot be empty&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">if</span><span style="color:#bbb"> </span>description.len()<span style="color:#bbb"> </span>&gt;<span style="color:#bbb"> </span><span style="color:#099">500</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#0a0">panic!</span>(<span style="color:#a50">&#34;Description cannot be longer than 500 bytes&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>title,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>description,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>status,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>As soon as one of the checks fails, the function panics.
+This is not ideal, as it doesn&rsquo;t give the caller a chance to <strong>handle the error</strong>.</p>
+<p>It&rsquo;s time to introduce the <code>Result</code> type, Rust&rsquo;s primary mechanism for error handling.</p>
+<h2 id="the-result-type">The <code>Result</code> type</h2>
+<p>The <code>Result</code> type is an enum defined in the standard library:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">enum</span> <span style="color:#0aa">Result</span>&lt;T,<span style="color:#bbb"> </span>E&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0aa">Ok</span>(T),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0aa">Err</span>(E),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>It has two variants:</p>
+<ul>
+<li><code>Ok(T)</code>: represents a successful operation. It holds <code>T</code>, the output of the operation.</li>
+<li><code>Err(E)</code>: represents a failed operation. It holds <code>E</code>, the error that occurred.</li>
+</ul>
+<p>Both <code>Ok</code> and <code>Err</code> are generic, allowing you to specify your own types for the success and error cases.</p>
+<h2 id="no-exceptions">No exceptions</h2>
+<p>Recoverable errors in Rust are <strong>represented as values</strong>.<br>
+They&rsquo;re just an instance of a type, being passed around and manipulated like any other value.
+This is a significant difference from other languages, such as Python or C#, where <strong>exceptions</strong> are used to signal errors.</p>
+<p>Exceptions create a separate control flow path that can be hard to reason about.<br>
+You don&rsquo;t know, just by looking at a function&rsquo;s signature, if it can throw an exception or not.
+You don&rsquo;t know, just by looking at a function&rsquo;s signature, <strong>which</strong> exception types it can throw.<br>
+You must either read the function&rsquo;s documentation or look at its implementation to find out.</p>
+<p>Exception handling logic has very poor locality: the code that throws the exception is far removed from the code
+that catches it, and there&rsquo;s no direct link between the two.</p>
+<h2 id="fallibility-is-encoded-in-the-type-system">Fallibility is encoded in the type system</h2>
+<p>Rust, with <code>Result</code>, forces you to <strong>encode fallibility in the function&rsquo;s signature</strong>.<br>
+If a function can fail (and you want the caller to have a shot at handling the error), it must return a <code>Result</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// Just by looking at the signature, you know that this function 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// can fail. You can also inspect `ParseIntError` to see what 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// kind of failures to expect.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">fn</span> <span style="color:#0a0">parse_int</span>(s: <span style="color:#00a">&amp;</span><span style="color:#0aa">str</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">Result</span>&lt;<span style="color:#0aa">i32</span>,<span style="color:#bbb"> </span>ParseIntError&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>That&rsquo;s the big advantage of <code>Result</code>: it makes fallibility explicit.</p>
+<p>Keep in mind, though, that panics exist. They aren&rsquo;t tracked by the type system, just like exceptions in other languages.
+But they&rsquo;re meant for <strong>unrecoverable errors</strong> and should be used sparingly.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

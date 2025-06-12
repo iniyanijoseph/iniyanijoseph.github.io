@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Sized
+There&rsquo;s more to &amp;str than meets the eye, even after having
+investigated deref coercion.
+From our previous discussion on memory layouts
+,
+it would have been reasonable to expect &amp;str to be represented as a single usize on
+the stack, a pointer. That&rsquo;s not the case though. &amp;str stores some metadata next
+to the pointer: the length of the slice it points to. Going back to the example from
+a previous section
+:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/08_sized/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/08_sized/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Sized
+There&rsquo;s more to &amp;str than meets the eye, even after having
+investigated deref coercion.
+From our previous discussion on memory layouts
+,
+it would have been reasonable to expect &amp;str to be represented as a single usize on
+the stack, a pointer. That&rsquo;s not the case though. &amp;str stores some metadata next
+to the pointer: the length of the slice it points to. Going back to the example from
+a previous section
+:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/04_traits/08_sized/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Sized
+There&rsquo;s more to &amp;str than meets the eye, even after having
+investigated deref coercion.
+From our previous discussion on memory layouts
+,
+it would have been reasonable to expect &amp;str to be represented as a single usize on
+the stack, a pointer. That&rsquo;s not the case though. &amp;str stores some metadata next
+to the pointer: the length of the slice it points to. Going back to the example from
+a previous section
+:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/04_traits/08_sized/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Sized There\u0026rsquo;s more to \u0026amp;str than meets the eye, even after having investigated deref coercion.\nFrom our previous discussion on memory layouts , it would have been reasonable to expect \u0026amp;str to be represented as a single usize on the stack, a pointer. That\u0026rsquo;s not the case though. \u0026amp;str stores some metadata next to the pointer: the length of the slice it points to. Going back to the example from a previous section :\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Sized There’s more to \u0026str than meets the eye, even after having investigated deref coercion.\nFrom our previous discussion on memory layouts , it would have been reasonable to expect \u0026str to be represented as a single usize on the stack, a pointer. That’s not the case though. \u0026str stores some metadata next to the pointer: the length of the slice it points to. Going back to the example from a previous section :\nlet mut s = String::with_capacity(5); s.push_str(\"Hello\"); // Create a string slice reference from the `String`, // skipping the first byte. let slice: \u0026str = \u0026s[1..]; In memory, we get:\ns slice +---------+--------+----------+ +---------+--------+ Stack | pointer | length | capacity | | pointer | length | | | | 5 | 5 | | | | 4 | +----|----+--------+----------+ +----|----+--------+ | s | | | v | +---+---+---+---+---+ | Heap: | H | e | l | l | o | | +---+---+---+---+---+ | ^ | | | +--------------------------------+ What’s going on?\nDynamically sized types str is a dynamically sized type (DST).\nA DST is a type whose size is not known at compile time. Whenever you have a reference to a DST, like \u0026str, it has to include additional information about the data it points to. It is a fat pointer.\nIn the case of \u0026str, it stores the length of the slice it points to. We’ll see more examples of DSTs in the rest of the course.\nThe Sized trait Rust’s std library defines a trait called Sized.\npub trait Sized { // This is an empty trait, no methods to implement. } A type is Sized if its size is known at compile time. In other words, it’s not a DST.\nMarker traits Sized is your first example of a marker trait.\nA marker trait is a trait that doesn’t require any methods to be implemented. It doesn’t define any behavior. It only serves to mark a type as having certain properties. The mark is then leveraged by the compiler to enable certain behaviors or optimizations.\nAuto traits In particular, Sized is also an auto trait.\nYou don’t need to implement it explicitly; the compiler implements it automatically for you based on the type’s definition.\nExamples All the types we’ve seen so far are Sized: u32, String, bool, etc.\nstr, as we just saw, is not Sized.\n\u0026str is Sized though! We know its size at compile time: two usizes, one for the pointer and one for the length.\n",
+  "wordCount" : "416",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/04_traits/08_sized/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="sized"><code>Sized</code></h1>
+<p>There&rsquo;s more to <code>&amp;str</code> than meets the eye, even after having
+investigated deref coercion.<br>
+From our previous <a href="../03_ticket_v1/10_references_in_memory.md">discussion on memory layouts</a>
+,
+it would have been reasonable to expect <code>&amp;str</code> to be represented as a single <code>usize</code> on
+the stack, a pointer. That&rsquo;s not the case though. <code>&amp;str</code> stores some <strong>metadata</strong> next
+to the pointer: the length of the slice it points to. Going back to the example from
+<a href="06_str_slice.md">a previous section</a>
+:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span><span style="color:#00a">mut</span><span style="color:#bbb"> </span>s<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">String</span>::with_capacity(<span style="color:#099">5</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>s.push_str(<span style="color:#a50">&#34;Hello&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// Create a string slice reference from the `String`, 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// skipping the first byte.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>slice: <span style="color:#00a">&amp;</span><span style="color:#0aa">str</span> =<span style="color:#bbb"> </span>&amp;s[<span style="color:#099">1</span>..];<span style="color:#bbb">
+</span></span></span></code></pre></div><p>In memory, we get:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>                    s                              slice
+</span></span><span style="display:flex;"><span>      +---------+--------+----------+      +---------+--------+
+</span></span><span style="display:flex;"><span>Stack | pointer | length | capacity |      | pointer | length |
+</span></span><span style="display:flex;"><span>      |    |    |   5    |    5     |      |    |    |   4    |
+</span></span><span style="display:flex;"><span>      +----|----+--------+----------+      +----|----+--------+
+</span></span><span style="display:flex;"><span>           |        s                           |  
+</span></span><span style="display:flex;"><span>           |                                    |
+</span></span><span style="display:flex;"><span>           v                                    | 
+</span></span><span style="display:flex;"><span>         +---+---+---+---+---+                  |
+</span></span><span style="display:flex;"><span>Heap:    | H | e | l | l | o |                  |
+</span></span><span style="display:flex;"><span>         +---+---+---+---+---+                  |
+</span></span><span style="display:flex;"><span>               ^                                |
+</span></span><span style="display:flex;"><span>               |                                |
+</span></span><span style="display:flex;"><span>               +--------------------------------+
+</span></span></code></pre></div><p>What&rsquo;s going on?</p>
+<h2 id="dynamically-sized-types">Dynamically sized types</h2>
+<p><code>str</code> is a <strong>dynamically sized type</strong> (DST).<br>
+A DST is a type whose size is not known at compile time. Whenever you have a
+reference to a DST, like <code>&amp;str</code>, it has to include additional
+information about the data it points to. It is a <strong>fat pointer</strong>.<br>
+In the case of <code>&amp;str</code>, it stores the length of the slice it points to.
+We&rsquo;ll see more examples of DSTs in the rest of the course.</p>
+<h2 id="the-sized-trait">The <code>Sized</code> trait</h2>
+<p>Rust&rsquo;s <code>std</code> library defines a trait called <code>Sized</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span><span style="color:#0aa">Sized</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// This is an empty trait, no methods to implement.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>A type is <code>Sized</code> if its size is known at compile time. In other words, it&rsquo;s not a DST.</p>
+<h3 id="marker-traits">Marker traits</h3>
+<p><code>Sized</code> is your first example of a <strong>marker trait</strong>.<br>
+A marker trait is a trait that doesn&rsquo;t require any methods to be implemented. It doesn&rsquo;t define any behavior.
+It only serves to <strong>mark</strong> a type as having certain properties.
+The mark is then leveraged by the compiler to enable certain behaviors or optimizations.</p>
+<h3 id="auto-traits">Auto traits</h3>
+<p>In particular, <code>Sized</code> is also an <strong>auto trait</strong>.<br>
+You don&rsquo;t need to implement it explicitly; the compiler implements it automatically for you
+based on the type&rsquo;s definition.</p>
+<h3 id="examples">Examples</h3>
+<p>All the types we&rsquo;ve seen so far are <code>Sized</code>: <code>u32</code>, <code>String</code>, <code>bool</code>, etc.</p>
+<p><code>str</code>, as we just saw, is not <code>Sized</code>.<br>
+<code>&amp;str</code> is <code>Sized</code> though! We know its size at compile time: two <code>usize</code>s, one for the pointer
+and one for the length.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

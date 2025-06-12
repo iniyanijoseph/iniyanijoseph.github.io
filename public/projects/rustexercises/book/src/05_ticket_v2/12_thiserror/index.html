@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="thiserror
+That was a bit of detour, wasn&rsquo;t it? But a necessary one!
+Let&rsquo;s get back on track now: custom error types and thiserror.
+Custom error types
+We&rsquo;ve seen how to implement the Error trait &ldquo;manually&rdquo; for a custom error type.
+Imagine that you have to do this for most error types in your codebase. That&rsquo;s a lot of boilerplate, isn&rsquo;t it?
+We can remove some of the boilerplate by using thiserror
+,
+a Rust crate that provides a procedural macro to simplify the creation of custom error types.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/12_thiserror/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/12_thiserror/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="thiserror
+That was a bit of detour, wasn&rsquo;t it? But a necessary one!
+Let&rsquo;s get back on track now: custom error types and thiserror.
+Custom error types
+We&rsquo;ve seen how to implement the Error trait &ldquo;manually&rdquo; for a custom error type.
+Imagine that you have to do this for most error types in your codebase. That&rsquo;s a lot of boilerplate, isn&rsquo;t it?
+We can remove some of the boilerplate by using thiserror
+,
+a Rust crate that provides a procedural macro to simplify the creation of custom error types." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/12_thiserror/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="thiserror
+That was a bit of detour, wasn&rsquo;t it? But a necessary one!
+Let&rsquo;s get back on track now: custom error types and thiserror.
+Custom error types
+We&rsquo;ve seen how to implement the Error trait &ldquo;manually&rdquo; for a custom error type.
+Imagine that you have to do this for most error types in your codebase. That&rsquo;s a lot of boilerplate, isn&rsquo;t it?
+We can remove some of the boilerplate by using thiserror
+,
+a Rust crate that provides a procedural macro to simplify the creation of custom error types."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/12_thiserror/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "thiserror That was a bit of detour, wasn\u0026rsquo;t it? But a necessary one!\nLet\u0026rsquo;s get back on track now: custom error types and thiserror.\nCustom error types We\u0026rsquo;ve seen how to implement the Error trait \u0026ldquo;manually\u0026rdquo; for a custom error type.\nImagine that you have to do this for most error types in your codebase. That\u0026rsquo;s a lot of boilerplate, isn\u0026rsquo;t it?\nWe can remove some of the boilerplate by using thiserror , a Rust crate that provides a procedural macro to simplify the creation of custom error types.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "thiserror That was a bit of detour, wasn’t it? But a necessary one!\nLet’s get back on track now: custom error types and thiserror.\nCustom error types We’ve seen how to implement the Error trait “manually” for a custom error type.\nImagine that you have to do this for most error types in your codebase. That’s a lot of boilerplate, isn’t it?\nWe can remove some of the boilerplate by using thiserror , a Rust crate that provides a procedural macro to simplify the creation of custom error types.\n#[derive(thiserror::Error, Debug)] enum TicketNewError { #[error(\"{0}\")] TitleError(String), #[error(\"{0}\")] DescriptionError(String), } You can write your own macros All the derive macros we’ve seen so far were provided by the Rust standard library.\nthiserror::Error is the first example of a third-party derive macro.\nderive macros are a subset of procedural macros, a way to generate Rust code at compile time. We won’t get into the details of how to write a procedural macro in this course, but it’s important to know that you can write your own!\nA topic to approach in a more advanced Rust course.\nCustom syntax Each procedural macro can define its own syntax, which is usually explained in the crate’s documentation. In the case of thiserror, we have:\n#[derive(thiserror::Error)]: this is the syntax to derive the Error trait for a custom error type, helped by thiserror. #[error(\"{0}\")]: this is the syntax to define a Display implementation for each variant of the custom error type. {0} is replaced by the zero-th field of the variant (String, in this case) when the error is displayed. ",
+  "wordCount" : "264",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/12_thiserror/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="thiserror"><code>thiserror</code></h1>
+<p>That was a bit of detour, wasn&rsquo;t it? But a necessary one!<br>
+Let&rsquo;s get back on track now: custom error types and <code>thiserror</code>.</p>
+<h2 id="custom-error-types">Custom error types</h2>
+<p>We&rsquo;ve seen how to implement the <code>Error</code> trait &ldquo;manually&rdquo; for a custom error type.<br>
+Imagine that you have to do this for most error types in your codebase. That&rsquo;s a lot of boilerplate, isn&rsquo;t it?</p>
+<p>We can remove some of the boilerplate by using <a href="https://docs.rs/thiserror/latest/thiserror/" target="_blank"><code>thiserror</code></a>
+,
+a Rust crate that provides a <strong>procedural macro</strong> to simplify the creation of custom error types.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#4c8317">#[derive(thiserror::Error, Debug)]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">enum</span> <span style="color:#0a0;text-decoration:underline">TicketNewError</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#4c8317">#[error(</span><span style="color:#a50">&#34;{0}&#34;</span><span style="color:#4c8317">)]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>TitleError(<span style="color:#0aa">String</span>),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#4c8317">#[error(</span><span style="color:#a50">&#34;{0}&#34;</span><span style="color:#4c8317">)]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>DescriptionError(<span style="color:#0aa">String</span>),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="you-can-write-your-own-macros">You can write your own macros</h2>
+<p>All the <code>derive</code> macros we&rsquo;ve seen so far were provided by the Rust standard library.<br>
+<code>thiserror::Error</code> is the first example of a <strong>third-party</strong> <code>derive</code> macro.</p>
+<p><code>derive</code> macros are a subset of <strong>procedural macros</strong>, a way to generate Rust code at compile time.
+We won&rsquo;t get into the details of how to write a procedural macro in this course, but it&rsquo;s important
+to know that you can write your own!<br>
+A topic to approach in a more advanced Rust course.</p>
+<h2 id="custom-syntax">Custom syntax</h2>
+<p>Each procedural macro can define its own syntax, which is usually explained in the crate&rsquo;s documentation.
+In the case of <code>thiserror</code>, we have:</p>
+<ul>
+<li><code>#[derive(thiserror::Error)]</code>: this is the syntax to derive the <code>Error</code> trait for a custom error type, helped by <code>thiserror</code>.</li>
+<li><code>#[error(&quot;{0}&quot;)]</code>: this is the syntax to define a <code>Display</code> implementation for each variant of the custom error type.
+<code>{0}</code> is replaced by the zero-th field of the variant (<code>String</code>, in this case) when the error is displayed.</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

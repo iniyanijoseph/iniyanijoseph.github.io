@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Traits
+In the previous chapter we covered the basics of Rust&rsquo;s type and ownership system.
+It&rsquo;s time to dig deeper: we&rsquo;ll explore traits, Rust&rsquo;s take on interfaces.
+Once you learn about traits, you&rsquo;ll start seeing their fingerprints all over the place.
+In fact, you&rsquo;ve already seen traits in action throughout the previous chapter, e.g. .into() invocations as well
+as operators like == and &#43;.
+On top of traits as a concept, we&rsquo;ll also cover some of the key traits that are defined in Rust&rsquo;s standard library:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/00_intro/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/00_intro/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Traits
+In the previous chapter we covered the basics of Rust&rsquo;s type and ownership system.
+It&rsquo;s time to dig deeper: we&rsquo;ll explore traits, Rust&rsquo;s take on interfaces.
+Once you learn about traits, you&rsquo;ll start seeing their fingerprints all over the place.
+In fact, you&rsquo;ve already seen traits in action throughout the previous chapter, e.g. .into() invocations as well
+as operators like == and &#43;.
+On top of traits as a concept, we&rsquo;ll also cover some of the key traits that are defined in Rust&rsquo;s standard library:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/04_traits/00_intro/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Traits
+In the previous chapter we covered the basics of Rust&rsquo;s type and ownership system.
+It&rsquo;s time to dig deeper: we&rsquo;ll explore traits, Rust&rsquo;s take on interfaces.
+Once you learn about traits, you&rsquo;ll start seeing their fingerprints all over the place.
+In fact, you&rsquo;ve already seen traits in action throughout the previous chapter, e.g. .into() invocations as well
+as operators like == and &#43;.
+On top of traits as a concept, we&rsquo;ll also cover some of the key traits that are defined in Rust&rsquo;s standard library:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/04_traits/00_intro/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Traits In the previous chapter we covered the basics of Rust\u0026rsquo;s type and ownership system.\nIt\u0026rsquo;s time to dig deeper: we\u0026rsquo;ll explore traits, Rust\u0026rsquo;s take on interfaces.\nOnce you learn about traits, you\u0026rsquo;ll start seeing their fingerprints all over the place.\nIn fact, you\u0026rsquo;ve already seen traits in action throughout the previous chapter, e.g. .into() invocations as well as operators like == and +.\nOn top of traits as a concept, we\u0026rsquo;ll also cover some of the key traits that are defined in Rust\u0026rsquo;s standard library:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Traits In the previous chapter we covered the basics of Rust’s type and ownership system.\nIt’s time to dig deeper: we’ll explore traits, Rust’s take on interfaces.\nOnce you learn about traits, you’ll start seeing their fingerprints all over the place.\nIn fact, you’ve already seen traits in action throughout the previous chapter, e.g. .into() invocations as well as operators like == and +.\nOn top of traits as a concept, we’ll also cover some of the key traits that are defined in Rust’s standard library:\nOperator traits (e.g. Add, Sub, PartialEq, etc.) From and Into, for infallible conversions Clone and Copy, for copying values Deref and deref coercion Sized, to mark types with a known size Drop, for custom cleanup logic Since we’ll be talking about conversions, we’ll seize the opportunity to plug some of the “knowledge gaps” from the previous chapter—e.g. what is \"A title\", exactly? Time to learn more about slices too!\n",
+  "wordCount" : "155",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/04_traits/00_intro/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="traits">Traits</h1>
+<p>In the previous chapter we covered the basics of Rust&rsquo;s type and ownership system.<br>
+It&rsquo;s time to dig deeper: we&rsquo;ll explore <strong>traits</strong>, Rust&rsquo;s take on interfaces.</p>
+<p>Once you learn about traits, you&rsquo;ll start seeing their fingerprints all over the place.<br>
+In fact, you&rsquo;ve already seen traits in action throughout the previous chapter, e.g. <code>.into()</code> invocations as well
+as operators like <code>==</code> and <code>+</code>.</p>
+<p>On top of traits as a concept, we&rsquo;ll also cover some of the key traits that are defined in Rust&rsquo;s standard library:</p>
+<ul>
+<li>Operator traits (e.g. <code>Add</code>, <code>Sub</code>, <code>PartialEq</code>, etc.)</li>
+<li><code>From</code> and <code>Into</code>, for infallible conversions</li>
+<li><code>Clone</code> and <code>Copy</code>, for copying values</li>
+<li><code>Deref</code> and deref coercion</li>
+<li><code>Sized</code>, to mark types with a known size</li>
+<li><code>Drop</code>, for custom cleanup logic</li>
+</ul>
+<p>Since we&rsquo;ll be talking about conversions, we&rsquo;ll seize the opportunity to plug some of the &ldquo;knowledge gaps&rdquo;
+from the previous chapter—e.g. what is <code>&quot;A title&quot;</code>, exactly? Time to learn more about slices too!</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

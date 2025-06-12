@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Spawning tasks
+Your solution to the previous exercise should look something like this:
+pub async fn echo(listener: TcpListener) -&gt; Result&lt;(), anyhow::Error&gt; {
+    loop {
+        let (mut socket, _) = listener.accept().await?;
+        let (mut reader, mut writer) = socket.split();
+        tokio::io::copy(&amp;mut reader, &amp;mut writer).await?;
+    }
+}
+This is not bad!
+If a long time passes between two incoming connections, the echo function will be idle
+(since TcpListener::accept is an asynchronous function), thus allowing the executor
+to run other tasks in the meantime.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/08_futures/02_spawn/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/08_futures/02_spawn/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Spawning tasks
+Your solution to the previous exercise should look something like this:
+pub async fn echo(listener: TcpListener) -&gt; Result&lt;(), anyhow::Error&gt; {
+    loop {
+        let (mut socket, _) = listener.accept().await?;
+        let (mut reader, mut writer) = socket.split();
+        tokio::io::copy(&amp;mut reader, &amp;mut writer).await?;
+    }
+}
+This is not bad!
+If a long time passes between two incoming connections, the echo function will be idle
+(since TcpListener::accept is an asynchronous function), thus allowing the executor
+to run other tasks in the meantime." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/08_futures/02_spawn/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Spawning tasks
+Your solution to the previous exercise should look something like this:
+pub async fn echo(listener: TcpListener) -&gt; Result&lt;(), anyhow::Error&gt; {
+    loop {
+        let (mut socket, _) = listener.accept().await?;
+        let (mut reader, mut writer) = socket.split();
+        tokio::io::copy(&amp;mut reader, &amp;mut writer).await?;
+    }
+}
+This is not bad!
+If a long time passes between two incoming connections, the echo function will be idle
+(since TcpListener::accept is an asynchronous function), thus allowing the executor
+to run other tasks in the meantime."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/08_futures/02_spawn/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Spawning tasks Your solution to the previous exercise should look something like this:\npub async fn echo(listener: TcpListener) -\u0026gt; Result\u0026lt;(), anyhow::Error\u0026gt; { loop { let (mut socket, _) = listener.accept().await?; let (mut reader, mut writer) = socket.split(); tokio::io::copy(\u0026amp;mut reader, \u0026amp;mut writer).await?; } } This is not bad!\nIf a long time passes between two incoming connections, the echo function will be idle (since TcpListener::accept is an asynchronous function), thus allowing the executor to run other tasks in the meantime.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Spawning tasks Your solution to the previous exercise should look something like this:\npub async fn echo(listener: TcpListener) -\u003e Result\u003c(), anyhow::Error\u003e { loop { let (mut socket, _) = listener.accept().await?; let (mut reader, mut writer) = socket.split(); tokio::io::copy(\u0026mut reader, \u0026mut writer).await?; } } This is not bad!\nIf a long time passes between two incoming connections, the echo function will be idle (since TcpListener::accept is an asynchronous function), thus allowing the executor to run other tasks in the meantime.\nBut how can we actually have multiple tasks running concurrently?\nIf we always run our asynchronous functions until completion (by using .await), we’ll never have more than one task running at a time.\nThis is where the tokio::spawn function comes in.\ntokio::spawn tokio::spawn allows you to hand off a task to the executor, without waiting for it to complete.\nWhenever you invoke tokio::spawn, you’re telling tokio to continue running the spawned task, in the background, concurrently with the task that spawned it.\nHere’s how you can use it to process multiple connections concurrently:\nuse tokio::net::TcpListener; pub async fn echo(listener: TcpListener) -\u003e Result\u003c(), anyhow::Error\u003e { loop { let (mut socket, _) = listener.accept().await?; // Spawn a background task to handle the connection // thus allowing the main task to immediately start // accepting new connections tokio::spawn(async move { let (mut reader, mut writer) = socket.split(); tokio::io::copy(\u0026mut reader, \u0026mut writer).await?; }); } } Asynchronous blocks In this example, we’ve passed an asynchronous block to tokio::spawn: async move { /* */ } Asynchronous blocks are a quick way to mark a region of code as asynchronous without having to define a separate async function.\nJoinHandle tokio::spawn returns a JoinHandle.\nYou can use JoinHandle to .await the background task, in the same way we used join for spawned threads.\npub async fn run() { // Spawn a background task to ship telemetry data // to a remote server let handle = tokio::spawn(emit_telemetry()); // In the meantime, do some other useful work do_work().await; // But don't return to the caller until // the telemetry data has been successfully delivered handle.await; } pub async fn emit_telemetry() { // [...] } pub async fn do_work() { // [...] } Panic boundary If a task spawned with tokio::spawn panics, the panic will be caught by the executor.\nIf you don’t .await the corresponding JoinHandle, the panic won’t be propagated to the spawner. Even if you do .await the JoinHandle, the panic won’t be propagated automatically. Awaiting a JoinHandle returns a Result, with JoinError as its error type. You can then check if the task panicked by calling JoinError::is_panic and choose what to do with the panic—either log it, ignore it, or propagate it.\nuse tokio::task::JoinError; pub async fn run() { let handle = tokio::spawn(work()); if let Err(e) = handle.await { if let Ok(reason) = e.try_into_panic() { // The task has panicked // We resume unwinding the panic, // thus propagating it to the current task panic::resume_unwind(reason); } } } pub async fn work() { // [...] } std::thread::spawn vs tokio::spawn You can think of tokio::spawn as the asynchronous sibling of std::thread::spawn.\nNotice a key difference: with std::thread::spawn, you’re delegating control to the OS scheduler. You’re not in control of how threads are scheduled.\nWith tokio::spawn, you’re delegating to an async executor that runs entirely in user space. The underlying OS scheduler is not involved in the decision of which task to run next. We’re in charge of that decision now, via the executor we chose to use.\n",
+  "wordCount" : "578",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/08_futures/02_spawn/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="spawning-tasks">Spawning tasks</h1>
+<p>Your solution to the previous exercise should look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">echo</span>(listener: <span style="color:#0a0;text-decoration:underline">TcpListener</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">Result</span>&lt;(),<span style="color:#bbb"> </span>anyhow::Error&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">loop</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>(<span style="color:#00a">mut</span><span style="color:#bbb"> </span>socket,<span style="color:#bbb"> </span>_)<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>listener.accept().<span style="color:#00a">await</span>?;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>(<span style="color:#00a">mut</span><span style="color:#bbb"> </span>reader,<span style="color:#bbb"> </span><span style="color:#00a">mut</span><span style="color:#bbb"> </span>writer)<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>socket.split();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>tokio::io::copy(&amp;<span style="color:#00a">mut</span><span style="color:#bbb"> </span>reader,<span style="color:#bbb"> </span>&amp;<span style="color:#00a">mut</span><span style="color:#bbb"> </span>writer).<span style="color:#00a">await</span>?;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>This is not bad!<br>
+If a long time passes between two incoming connections, the <code>echo</code> function will be idle
+(since <code>TcpListener::accept</code> is an asynchronous function), thus allowing the executor
+to run other tasks in the meantime.</p>
+<p>But how can we actually have multiple tasks running concurrently?<br>
+If we always run our asynchronous functions until completion (by using <code>.await</code>), we&rsquo;ll never
+have more than one task running at a time.</p>
+<p>This is where the <code>tokio::spawn</code> function comes in.</p>
+<h2 id="tokiospawn"><code>tokio::spawn</code></h2>
+<p><code>tokio::spawn</code> allows you to hand off a task to the executor, <strong>without waiting for it to complete</strong>.<br>
+Whenever you invoke <code>tokio::spawn</code>, you&rsquo;re telling <code>tokio</code> to continue running
+the spawned task, in the background, <strong>concurrently</strong> with the task that spawned it.</p>
+<p>Here&rsquo;s how you can use it to process multiple connections concurrently:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>tokio::net::TcpListener;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">echo</span>(listener: <span style="color:#0a0;text-decoration:underline">TcpListener</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">Result</span>&lt;(),<span style="color:#bbb"> </span>anyhow::Error&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">loop</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>(<span style="color:#00a">mut</span><span style="color:#bbb"> </span>socket,<span style="color:#bbb"> </span>_)<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>listener.accept().<span style="color:#00a">await</span>?;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// Spawn a background task to handle the connection
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// thus allowing the main task to immediately start 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// accepting new connections
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">        </span>tokio::spawn(<span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">move</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>(<span style="color:#00a">mut</span><span style="color:#bbb"> </span>reader,<span style="color:#bbb"> </span><span style="color:#00a">mut</span><span style="color:#bbb"> </span>writer)<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>socket.split();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>tokio::io::copy(&amp;<span style="color:#00a">mut</span><span style="color:#bbb"> </span>reader,<span style="color:#bbb"> </span>&amp;<span style="color:#00a">mut</span><span style="color:#bbb"> </span>writer).<span style="color:#00a">await</span>?;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>});<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="asynchronous-blocks">Asynchronous blocks</h3>
+<p>In this example, we&rsquo;ve passed an <strong>asynchronous block</strong> to <code>tokio::spawn</code>: <code>async move { /* */ }</code>
+Asynchronous blocks are a quick way to mark a region of code as asynchronous without having
+to define a separate async function.</p>
+<h3 id="joinhandle"><code>JoinHandle</code></h3>
+<p><code>tokio::spawn</code> returns a <code>JoinHandle</code>.<br>
+You can use <code>JoinHandle</code> to <code>.await</code> the background task, in the same way
+we used <code>join</code> for spawned threads.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">run</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// Spawn a background task to ship telemetry data
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// to a remote server
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>handle<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>tokio::spawn(emit_telemetry());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// In the meantime, do some other useful work
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>do_work().<span style="color:#00a">await</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// But don&#39;t return to the caller until 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// the telemetry data has been successfully delivered
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>handle.<span style="color:#00a">await</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">emit_telemetry</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">do_work</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="panic-boundary">Panic boundary</h3>
+<p>If a task spawned with <code>tokio::spawn</code> panics, the panic will be caught by the executor.<br>
+If you don&rsquo;t <code>.await</code> the corresponding <code>JoinHandle</code>, the panic won&rsquo;t be propagated to the spawner.
+Even if you do <code>.await</code> the <code>JoinHandle</code>, the panic won&rsquo;t be propagated automatically.
+Awaiting a <code>JoinHandle</code> returns a <code>Result</code>, with <a href="https://docs.rs/tokio/latest/tokio/task/struct.JoinError.html" target="_blank"><code>JoinError</code></a>
+
+as its error type. You can then check if the task panicked by calling <code>JoinError::is_panic</code> and
+choose what to do with the panic—either log it, ignore it, or propagate it.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>tokio::task::JoinError;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">run</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>handle<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>tokio::spawn(work());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">if</span><span style="color:#bbb"> </span><span style="color:#00a">let</span><span style="color:#bbb"> </span><span style="color:#0aa">Err</span>(e)<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>handle.<span style="color:#00a">await</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">if</span><span style="color:#bbb"> </span><span style="color:#00a">let</span><span style="color:#bbb"> </span><span style="color:#0aa">Ok</span>(reason)<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>e.try_into_panic()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#aaa;font-style:italic">// The task has panicked
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">            </span><span style="color:#aaa;font-style:italic">// We resume unwinding the panic,
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">            </span><span style="color:#aaa;font-style:italic">// thus propagating it to the current task
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">            </span>panic::resume_unwind(reason);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">work</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="stdthreadspawn-vs-tokiospawn"><code>std::thread::spawn</code> vs <code>tokio::spawn</code></h3>
+<p>You can think of <code>tokio::spawn</code> as the asynchronous sibling of <code>std::thread::spawn</code>.</p>
+<p>Notice a key difference: with <code>std::thread::spawn</code>, you&rsquo;re delegating control to the OS scheduler.
+You&rsquo;re not in control of how threads are scheduled.</p>
+<p>With <code>tokio::spawn</code>, you&rsquo;re delegating to an async executor that runs entirely in
+user space. The underlying OS scheduler is not involved in the decision of which task
+to run next. We&rsquo;re in charge of that decision now, via the executor we chose to use.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

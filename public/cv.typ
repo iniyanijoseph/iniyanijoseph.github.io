@@ -1,3 +1,6 @@
+// Write down transferrable skills and write outcomes
+// Multiple Resume Versions
+
 #import "@preview/basic-resume:0.2.8": *
 
 // Put your personal information here, replacing mine
@@ -23,16 +26,15 @@
 )
 #set text(size : 8.7pt)
 == Education
-
 #edu(
   institution: "The University of Texas at Dallas",
   location: "Richardson, TX",
   dates: dates-helper(start-date: "Aug 2023", end-date: "Aug 2025"),
-  degree: "Bachelor's of Science, Computer Science",
+  degree: "Bachelor of Science, Computer Science",
 )
 - Cumulative GPA: 3.99\/4 | Dean's List, Academic Excellence Scholarship
 
-== Experience
+== Work Experience
 
 #work(
   title: "Grader",
@@ -40,7 +42,7 @@
   company: "The University of Texas at Dallas",
   dates: dates-helper(start-date: "Jan 2025", end-date: "May 2025"),
 )
-- Grade homework for Discrete Mathematics for Computing (CS 2305)
+- Grade homework for Discrete Mathematics for Computing (CS 2305).
 
 #work(
   title: "Pianist",

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Threads
+Before we start writing multithreaded code, let&rsquo;s take a step back and talk about what threads are
+and why we might want to use them.
+What is a thread?
+A thread is an execution context managed by the underlying operating system.
+Each thread has its own stack and instruction pointer.
+A single process can manage multiple threads.
+These threads share the same memory space, which means they can access the same data.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/01_threads/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/01_threads/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Threads
+Before we start writing multithreaded code, let&rsquo;s take a step back and talk about what threads are
+and why we might want to use them.
+What is a thread?
+A thread is an execution context managed by the underlying operating system.
+Each thread has its own stack and instruction pointer.
+A single process can manage multiple threads.
+These threads share the same memory space, which means they can access the same data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/07_threads/01_threads/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Threads
+Before we start writing multithreaded code, let&rsquo;s take a step back and talk about what threads are
+and why we might want to use them.
+What is a thread?
+A thread is an execution context managed by the underlying operating system.
+Each thread has its own stack and instruction pointer.
+A single process can manage multiple threads.
+These threads share the same memory space, which means they can access the same data."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/07_threads/01_threads/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Threads Before we start writing multithreaded code, let\u0026rsquo;s take a step back and talk about what threads are and why we might want to use them.\nWhat is a thread? A thread is an execution context managed by the underlying operating system.\nEach thread has its own stack and instruction pointer.\nA single process can manage multiple threads. These threads share the same memory space, which means they can access the same data.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Threads Before we start writing multithreaded code, let’s take a step back and talk about what threads are and why we might want to use them.\nWhat is a thread? A thread is an execution context managed by the underlying operating system.\nEach thread has its own stack and instruction pointer.\nA single process can manage multiple threads. These threads share the same memory space, which means they can access the same data.\nThreads are a logical construct. In the end, you can only run one set of instructions at a time on a CPU core, the physical execution unit.\nSince there can be many more threads than there are CPU cores, the operating system’s scheduler is in charge of deciding which thread to run at any given time, partitioning CPU time among them to maximize throughput and responsiveness.\nmain When a Rust program starts, it runs on a single thread, the main thread.\nThis thread is created by the operating system and is responsible for running the main function.\nuse std::thread; use std::time::Duration; fn main() { loop { thread::sleep(Duration::from_secs(2)); println!(\"Hello from the main thread!\"); } } std::thread Rust’s standard library provides a module, std::thread, that allows you to create and manage threads.\nspawn You can use std::thread::spawn to create new threads and execute code on them.\nFor example:\nuse std::thread; use std::time::Duration; fn main() { let handle = thread::spawn(|| { loop { thread::sleep(Duration::from_secs(1)); println!(\"Hello from a thread!\"); } }); loop { thread::sleep(Duration::from_secs(2)); println!(\"Hello from the main thread!\"); } } If you execute this program on the Rust playground you’ll see that the main thread and the spawned thread run concurrently.\nEach thread makes progress independently of the other.\nProcess termination When the main thread finishes, the overall process will exit.\nA spawned thread will continue running until it finishes or the main thread finishes.\nuse std::thread; use std::time::Duration; fn main() { let handle = thread::spawn(|| { loop { thread::sleep(Duration::from_secs(1)); println!(\"Hello from a thread!\"); } }); thread::sleep(Duration::from_secs(5)); } In the example above, you can expect to see the message “Hello from a thread!” printed roughly five times.\nThen the main thread will finish (when the sleep call returns), and the spawned thread will be terminated since the overall process exits.\njoin You can also wait for a spawned thread to finish by calling the join method on the JoinHandle that spawn returns.\nuse std::thread; fn main() { let handle = thread::spawn(|| { println!(\"Hello from a thread!\"); }); handle.join().unwrap(); } In this example, the main thread will wait for the spawned thread to finish before exiting.\nThis introduces a form of synchronization between the two threads: you’re guaranteed to see the message “Hello from a thread!” printed before the program exits, because the main thread won’t exit until the spawned thread has finished.\n",
+  "wordCount" : "462",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/07_threads/01_threads/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="threads">Threads</h1>
+<p>Before we start writing multithreaded code, let&rsquo;s take a step back and talk about what threads are
+and why we might want to use them.</p>
+<h2 id="what-is-a-thread">What is a thread?</h2>
+<p>A <strong>thread</strong> is an execution context managed by the underlying operating system.<br>
+Each thread has its own stack and instruction pointer.</p>
+<p>A single <strong>process</strong> can manage multiple threads.
+These threads share the same memory space, which means they can access the same data.</p>
+<p>Threads are a <strong>logical</strong> construct. In the end, you can only run one set of instructions
+at a time on a CPU core, the <strong>physical</strong> execution unit.<br>
+Since there can be many more threads than there are CPU cores, the operating system&rsquo;s
+<strong>scheduler</strong> is in charge of deciding which thread to run at any given time,
+partitioning CPU time among them to maximize throughput and responsiveness.</p>
+<h2 id="main"><code>main</code></h2>
+<p>When a Rust program starts, it runs on a single thread, the <strong>main thread</strong>.<br>
+This thread is created by the operating system and is responsible for running the <code>main</code>
+function.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::thread;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::time::Duration;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">fn</span> <span style="color:#0a0">main</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">loop</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>thread::sleep(Duration::from_secs(<span style="color:#099">2</span>));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;Hello from the main thread!&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="stdthread"><code>std::thread</code></h2>
+<p>Rust&rsquo;s standard library provides a module, <code>std::thread</code>, that allows you to create
+and manage threads.</p>
+<h3 id="spawn"><code>spawn</code></h3>
+<p>You can use <code>std::thread::spawn</code> to create new threads and execute code on them.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::thread;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::time::Duration;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">fn</span> <span style="color:#0a0">main</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>handle<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>thread::spawn(||<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">loop</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>thread::sleep(Duration::from_secs(<span style="color:#099">1</span>));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;Hello from a thread!&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>});<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">loop</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>thread::sleep(Duration::from_secs(<span style="color:#099">2</span>));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;Hello from the main thread!&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>If you execute this program on the <a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2021&amp;gist=afedf7062298ca8f5a248bc551062eaa" target="_blank">Rust playground</a>
+
+you&rsquo;ll see that the main thread and the spawned thread run concurrently.<br>
+Each thread makes progress independently of the other.</p>
+<h3 id="process-termination">Process termination</h3>
+<p>When the main thread finishes, the overall process will exit.<br>
+A spawned thread will continue running until it finishes or the main thread finishes.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::thread;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::time::Duration;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">fn</span> <span style="color:#0a0">main</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>handle<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>thread::spawn(||<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">loop</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>thread::sleep(Duration::from_secs(<span style="color:#099">1</span>));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;Hello from a thread!&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>});<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>thread::sleep(Duration::from_secs(<span style="color:#099">5</span>));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>In the example above, you can expect to see the message &ldquo;Hello from a thread!&rdquo; printed roughly five times.<br>
+Then the main thread will finish (when the <code>sleep</code> call returns), and the spawned thread will be terminated
+since the overall process exits.</p>
+<h3 id="join"><code>join</code></h3>
+<p>You can also wait for a spawned thread to finish by calling the <code>join</code> method on the <code>JoinHandle</code> that <code>spawn</code> returns.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::thread;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">fn</span> <span style="color:#0a0">main</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>handle<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>thread::spawn(||<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;Hello from a thread!&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>});<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>handle.join().unwrap();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>In this example, the main thread will wait for the spawned thread to finish before exiting.<br>
+This introduces a form of <strong>synchronization</strong> between the two threads: you&rsquo;re guaranteed to see the message
+&ldquo;Hello from a thread!&rdquo; printed before the program exits, because the main thread won&rsquo;t exit
+until the spawned thread has finished.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Control flow, part 1
+All our programs so far have been pretty straightforward.
+A sequence of instructions is executed from top to bottom, and that&rsquo;s it.
+It&rsquo;s time to introduce some branching.
+if clauses
+The if keyword is used to execute a block of code only if a condition is true.
+Here&rsquo;s a simple example:
+let number = 3;
+if number &lt; 5 {
+    println!(&#34;`number` is smaller than 5&#34;);
+}
+This program will print number is smaller than 5 because the condition number &lt; 5 is true.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/03_if_else/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/03_if_else/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Control flow, part 1
+All our programs so far have been pretty straightforward.
+A sequence of instructions is executed from top to bottom, and that&rsquo;s it.
+It&rsquo;s time to introduce some branching.
+if clauses
+The if keyword is used to execute a block of code only if a condition is true.
+Here&rsquo;s a simple example:
+let number = 3;
+if number &lt; 5 {
+    println!(&#34;`number` is smaller than 5&#34;);
+}
+This program will print number is smaller than 5 because the condition number &lt; 5 is true." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/03_if_else/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Control flow, part 1
+All our programs so far have been pretty straightforward.
+A sequence of instructions is executed from top to bottom, and that&rsquo;s it.
+It&rsquo;s time to introduce some branching.
+if clauses
+The if keyword is used to execute a block of code only if a condition is true.
+Here&rsquo;s a simple example:
+let number = 3;
+if number &lt; 5 {
+    println!(&#34;`number` is smaller than 5&#34;);
+}
+This program will print number is smaller than 5 because the condition number &lt; 5 is true."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/03_if_else/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Control flow, part 1 All our programs so far have been pretty straightforward.\nA sequence of instructions is executed from top to bottom, and that\u0026rsquo;s it.\nIt\u0026rsquo;s time to introduce some branching.\nif clauses The if keyword is used to execute a block of code only if a condition is true.\nHere\u0026rsquo;s a simple example:\nlet number = 3; if number \u0026lt; 5 { println!(\u0026#34;`number` is smaller than 5\u0026#34;); } This program will print number is smaller than 5 because the condition number \u0026lt; 5 is true.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Control flow, part 1 All our programs so far have been pretty straightforward.\nA sequence of instructions is executed from top to bottom, and that’s it.\nIt’s time to introduce some branching.\nif clauses The if keyword is used to execute a block of code only if a condition is true.\nHere’s a simple example:\nlet number = 3; if number \u003c 5 { println!(\"`number` is smaller than 5\"); } This program will print number is smaller than 5 because the condition number \u003c 5 is true.\nelse clauses Like most programming languages, Rust supports an optional else branch to execute a block of code when the condition in an if expression is false.\nFor example:\nlet number = 3; if number \u003c 5 { println!(\"`number` is smaller than 5\"); } else { println!(\"`number` is greater than or equal to 5\"); } else if clauses Your code drifts more and more to the right when you have multiple if expressions, one nested inside the other.\nlet number = 3; if number \u003c 5 { println!(\"`number` is smaller than 5\"); } else { if number \u003e= 3 { println!(\"`number` is greater than or equal to 3, but smaller than 5\"); } else { println!(\"`number` is smaller than 3\"); } } You can use the else if keyword to combine multiple if expressions into a single one:\nlet number = 3; if number \u003c 5 { println!(\"`number` is smaller than 5\"); } else if number \u003e= 3 { println!(\"`number` is greater than or equal to 3, but smaller than 5\"); } else { println!(\"`number` is smaller than 3\"); } Booleans The condition in an if expression must be of type bool, a boolean.\nBooleans, just like integers, are a primitive type in Rust.\nA boolean can have one of two values: true or false.\nNo truthy or falsy values If the condition in an if expression is not a boolean, you’ll get a compilation error.\nFor example, the following code will not compile:\nlet number = 3; if number { println!(\"`number` is not zero\"); } You’ll get the following compilation error:\nerror[E0308]: mismatched types --\u003e src/main.rs:3:8 | 3 | if number { | ^^^^^^ expected `bool`, found integer This follows from Rust’s philosophy around type coercion: there’s no automatic conversion from non-boolean types to booleans. Rust doesn’t have the concept of truthy or falsy values, like JavaScript or Python.\nYou have to be explicit about the condition you want to check.\nComparison operators It’s quite common to use comparison operators to build conditions for if expressions.\nHere are the comparison operators available in Rust when working with integers:\n==: equal to !=: not equal to \u003c: less than \u003e: greater than \u003c=: less than or equal to \u003e=: greater than or equal to if/else is an expression In Rust, if expressions are expressions, not statements: they return a value.\nThat value can be assigned to a variable or used in other expressions. For example:\nlet number = 3; let message = if number \u003c 5 { \"smaller than 5\" } else { \"greater than or equal to 5\" }; In the example above, each branch of the if evaluates to a string literal, which is then assigned to the message variable.\nThe only requirement is that both if branches return the same type.\n",
+  "wordCount" : "551",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/03_if_else/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="control-flow-part-1">Control flow, part 1</h1>
+<p>All our programs so far have been pretty straightforward.<br>
+A sequence of instructions is executed from top to bottom, and that&rsquo;s it.</p>
+<p>It&rsquo;s time to introduce some <strong>branching</strong>.</p>
+<h2 id="if-clauses"><code>if</code> clauses</h2>
+<p>The <code>if</code> keyword is used to execute a block of code only if a condition is true.</p>
+<p>Here&rsquo;s a simple example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#099">3</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">if</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>&lt;<span style="color:#bbb"> </span><span style="color:#099">5</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;`number` is smaller than 5&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>This program will print <code>number is smaller than 5</code> because the condition <code>number &lt; 5</code> is true.</p>
+<h3 id="else-clauses"><code>else</code> clauses</h3>
+<p>Like most programming languages, Rust supports an optional <code>else</code> branch to execute a block of code when the condition in an
+<code>if</code> expression is false.<br>
+For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#099">3</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">if</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>&lt;<span style="color:#bbb"> </span><span style="color:#099">5</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;`number` is smaller than 5&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb"> </span><span style="color:#00a">else</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;`number` is greater than or equal to 5&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="else-if-clauses"><code>else if</code> clauses</h3>
+<p>Your code drifts more and more to the right when you have multiple <code>if</code> expressions, one nested inside the other.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#099">3</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">if</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>&lt;<span style="color:#bbb"> </span><span style="color:#099">5</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;`number` is smaller than 5&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb"> </span><span style="color:#00a">else</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">if</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>&gt;=<span style="color:#bbb"> </span><span style="color:#099">3</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;`number` is greater than or equal to 3, but smaller than 5&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb"> </span><span style="color:#00a">else</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;`number` is smaller than 3&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>You can use the <code>else if</code> keyword to combine multiple <code>if</code> expressions into a single one:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#099">3</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">if</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>&lt;<span style="color:#bbb"> </span><span style="color:#099">5</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;`number` is smaller than 5&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb"> </span><span style="color:#00a">else</span><span style="color:#bbb"> </span><span style="color:#00a">if</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>&gt;=<span style="color:#bbb"> </span><span style="color:#099">3</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;`number` is greater than or equal to 3, but smaller than 5&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb"> </span><span style="color:#00a">else</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;`number` is smaller than 3&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="booleans">Booleans</h2>
+<p>The condition in an <code>if</code> expression must be of type <code>bool</code>, a <strong>boolean</strong>.<br>
+Booleans, just like integers, are a primitive type in Rust.</p>
+<p>A boolean can have one of two values: <code>true</code> or <code>false</code>.</p>
+<h3 id="no-truthy-or-falsy-values">No truthy or falsy values</h3>
+<p>If the condition in an <code>if</code> expression is not a boolean, you&rsquo;ll get a compilation error.</p>
+<p>For example, the following code will not compile:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#099">3</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">if</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;`number` is not zero&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>You&rsquo;ll get the following compilation error:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>error[E0308]: mismatched types
+</span></span><span style="display:flex;"><span> --&gt; src/main.rs:3:8
+</span></span><span style="display:flex;"><span>  |
+</span></span><span style="display:flex;"><span>3 |     if number {
+</span></span><span style="display:flex;"><span>  |        ^^^^^^ expected `bool`, found integer
+</span></span></code></pre></div><p>This follows from Rust&rsquo;s philosophy around type coercion: there&rsquo;s no automatic conversion from non-boolean types to booleans.
+Rust doesn&rsquo;t have the concept of <strong>truthy</strong> or <strong>falsy</strong> values, like JavaScript or Python.<br>
+You have to be explicit about the condition you want to check.</p>
+<h3 id="comparison-operators">Comparison operators</h3>
+<p>It&rsquo;s quite common to use comparison operators to build conditions for <code>if</code> expressions.<br>
+Here are the comparison operators available in Rust when working with integers:</p>
+<ul>
+<li><code>==</code>: equal to</li>
+<li><code>!=</code>: not equal to</li>
+<li><code>&lt;</code>: less than</li>
+<li><code>&gt;</code>: greater than</li>
+<li><code>&lt;=</code>: less than or equal to</li>
+<li><code>&gt;=</code>: greater than or equal to</li>
+</ul>
+<h2 id="ifelse-is-an-expression"><code>if/else</code> is an expression</h2>
+<p>In Rust, <code>if</code> expressions are <strong>expressions</strong>, not statements: they return a value.<br>
+That value can be assigned to a variable or used in other expressions. For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#099">3</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>message<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#00a">if</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>&lt;<span style="color:#bbb"> </span><span style="color:#099">5</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a50">&#34;smaller than 5&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb"> </span><span style="color:#00a">else</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a50">&#34;greater than or equal to 5&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>};<span style="color:#bbb">
+</span></span></span></code></pre></div><p>In the example above, each branch of the <code>if</code> evaluates to a string literal,
+which is then assigned to the <code>message</code> variable.<br>
+The only requirement is that both <code>if</code> branches return the same type.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

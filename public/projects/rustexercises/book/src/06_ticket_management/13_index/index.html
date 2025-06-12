@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Indexing
+TicketStore::get returns an Option&lt;&amp;Ticket&gt; for a given TicketId.
+We&rsquo;ve seen before how to access elements of arrays and vectors using Rust&rsquo;s
+indexing syntax:
+let v = vec![0, 1, 2];
+assert_eq!(v[0], 0);
+How can we provide the same experience for TicketStore?
+You guessed right: we need to implement a trait, Index!
+Index
+The Index trait is defined in Rust&rsquo;s standard library:
+// Slightly simplified
+pub trait Index&lt;Idx&gt;
+{
+    type Output;
+
+    // Required method
+    fn index(&amp;self, index: Idx) -&gt; &amp;Self::Output;
+}
+It has:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/13_index/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/13_index/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Indexing
+TicketStore::get returns an Option&lt;&amp;Ticket&gt; for a given TicketId.
+We&rsquo;ve seen before how to access elements of arrays and vectors using Rust&rsquo;s
+indexing syntax:
+let v = vec![0, 1, 2];
+assert_eq!(v[0], 0);
+How can we provide the same experience for TicketStore?
+You guessed right: we need to implement a trait, Index!
+Index
+The Index trait is defined in Rust&rsquo;s standard library:
+// Slightly simplified
+pub trait Index&lt;Idx&gt;
+{
+    type Output;
+
+    // Required method
+    fn index(&amp;self, index: Idx) -&gt; &amp;Self::Output;
+}
+It has:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/13_index/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Indexing
+TicketStore::get returns an Option&lt;&amp;Ticket&gt; for a given TicketId.
+We&rsquo;ve seen before how to access elements of arrays and vectors using Rust&rsquo;s
+indexing syntax:
+let v = vec![0, 1, 2];
+assert_eq!(v[0], 0);
+How can we provide the same experience for TicketStore?
+You guessed right: we need to implement a trait, Index!
+Index
+The Index trait is defined in Rust&rsquo;s standard library:
+// Slightly simplified
+pub trait Index&lt;Idx&gt;
+{
+    type Output;
+
+    // Required method
+    fn index(&amp;self, index: Idx) -&gt; &amp;Self::Output;
+}
+It has:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/13_index/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Indexing TicketStore::get returns an Option\u0026lt;\u0026amp;Ticket\u0026gt; for a given TicketId.\nWe\u0026rsquo;ve seen before how to access elements of arrays and vectors using Rust\u0026rsquo;s indexing syntax:\nlet v = vec![0, 1, 2]; assert_eq!(v[0], 0); How can we provide the same experience for TicketStore?\nYou guessed right: we need to implement a trait, Index!\nIndex The Index trait is defined in Rust\u0026rsquo;s standard library:\n// Slightly simplified pub trait Index\u0026lt;Idx\u0026gt; { type Output; // Required method fn index(\u0026amp;self, index: Idx) -\u0026gt; \u0026amp;Self::Output; } It has:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Indexing TicketStore::get returns an Option\u003c\u0026Ticket\u003e for a given TicketId.\nWe’ve seen before how to access elements of arrays and vectors using Rust’s indexing syntax:\nlet v = vec![0, 1, 2]; assert_eq!(v[0], 0); How can we provide the same experience for TicketStore?\nYou guessed right: we need to implement a trait, Index!\nIndex The Index trait is defined in Rust’s standard library:\n// Slightly simplified pub trait Index { type Output; // Required method fn index(\u0026self, index: Idx) -\u003e \u0026Self::Output; } It has:\nOne generic parameter, Idx, to represent the index type One associated type, Output, to represent the type we retrieved using the index Notice how the index method doesn’t return an Option. The assumption is that index will panic if you try to access an element that’s not there, as it happens for array and vec indexing.\n",
+  "wordCount" : "138",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/13_index/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="indexing">Indexing</h1>
+<p><code>TicketStore::get</code> returns an <code>Option&lt;&amp;Ticket&gt;</code> for a given <code>TicketId</code>.<br>
+We&rsquo;ve seen before how to access elements of arrays and vectors using Rust&rsquo;s
+indexing syntax:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>v<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0a0">vec!</span>[<span style="color:#099">0</span>,<span style="color:#bbb"> </span><span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#0a0">assert_eq!</span>(v[<span style="color:#099">0</span>],<span style="color:#bbb"> </span><span style="color:#099">0</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><p>How can we provide the same experience for <code>TicketStore</code>?<br>
+You guessed right: we need to implement a trait, <code>Index</code>!</p>
+<h2 id="index"><code>Index</code></h2>
+<p>The <code>Index</code> trait is defined in Rust&rsquo;s standard library:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// Slightly simplified
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span>Index&lt;Idx&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">Output</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// Required method
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">index</span>(&amp;<span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>index: <span style="color:#0a0;text-decoration:underline">Idx</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#00a">&amp;</span><span style="color:#0a0;text-decoration:underline">Self</span>::Output;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>It has:</p>
+<ul>
+<li>One generic parameter, <code>Idx</code>, to represent the index type</li>
+<li>One associated type, <code>Output</code>, to represent the type we retrieved using the index</li>
+</ul>
+<p>Notice how the <code>index</code> method doesn&rsquo;t return an <code>Option</code>. The assumption is that
+<code>index</code> will panic if you try to access an element that&rsquo;s not there, as it happens
+for array and vec indexing.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

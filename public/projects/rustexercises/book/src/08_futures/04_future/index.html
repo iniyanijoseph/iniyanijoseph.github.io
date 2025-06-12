@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="The Future trait
+The local Rc problem
+Let&rsquo;s go back to tokio::spawn&rsquo;s signature:
+pub fn spawn&lt;F&gt;(future: F) -&gt; JoinHandle&lt;F::Output&gt;
+    where
+        F: Future &#43; Send &#43; &#39;static,
+        F::Output: Send &#43; &#39;static,
+{ /* */ }
+What does it actually mean for F to be Send?
+It implies, as we saw in the previous section, that whatever value it captures from the
+spawning environment has to be Send. But it goes further than that.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/08_futures/04_future/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/08_futures/04_future/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="The Future trait
+The local Rc problem
+Let&rsquo;s go back to tokio::spawn&rsquo;s signature:
+pub fn spawn&lt;F&gt;(future: F) -&gt; JoinHandle&lt;F::Output&gt;
+    where
+        F: Future &#43; Send &#43; &#39;static,
+        F::Output: Send &#43; &#39;static,
+{ /* */ }
+What does it actually mean for F to be Send?
+It implies, as we saw in the previous section, that whatever value it captures from the
+spawning environment has to be Send. But it goes further than that." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/08_futures/04_future/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="The Future trait
+The local Rc problem
+Let&rsquo;s go back to tokio::spawn&rsquo;s signature:
+pub fn spawn&lt;F&gt;(future: F) -&gt; JoinHandle&lt;F::Output&gt;
+    where
+        F: Future &#43; Send &#43; &#39;static,
+        F::Output: Send &#43; &#39;static,
+{ /* */ }
+What does it actually mean for F to be Send?
+It implies, as we saw in the previous section, that whatever value it captures from the
+spawning environment has to be Send. But it goes further than that."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/08_futures/04_future/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "The Future trait The local Rc problem Let\u0026rsquo;s go back to tokio::spawn\u0026rsquo;s signature:\npub fn spawn\u0026lt;F\u0026gt;(future: F) -\u0026gt; JoinHandle\u0026lt;F::Output\u0026gt; where F: Future + Send + \u0026#39;static, F::Output: Send + \u0026#39;static, { /* */ } What does it actually mean for F to be Send?\nIt implies, as we saw in the previous section, that whatever value it captures from the spawning environment has to be Send. But it goes further than that.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "The Future trait The local Rc problem Let’s go back to tokio::spawn’s signature:\npub fn spawn(future: F) -\u003e JoinHandle where F: Future + Send + 'static, F::Output: Send + 'static, { /* */ } What does it actually mean for F to be Send?\nIt implies, as we saw in the previous section, that whatever value it captures from the spawning environment has to be Send. But it goes further than that.\nAny value that’s held across a .await point has to be Send.\nLet’s look at an example:\nuse std::rc::Rc; use tokio::task::yield_now; fn spawner() { tokio::spawn(example()); } async fn example() { // A value that's not `Send`, // created _inside_ the async function let non_send = Rc::new(1); // A `.await` point that does nothing yield_now().await; // The local non-`Send` value is still needed // after the `.await` println!(\"{}\", non_send); } The compiler will reject this code:\nerror: future cannot be sent between threads safely | 5 | tokio::spawn(example()); | ^^^^^^^^^ | future returned by `example` is not `Send` | note: future is not `Send` as this value is used across an await | 11 | let non_send = Rc::new(1); | -------- has type `Rc` which is not `Send` 12 | // A `.await` point 13 | yield_now().await; | ^^^^^ | await occurs here, with `non_send` maybe used later note: required by a bound in `tokio::spawn` | 164 | pub fn spawn(future: F) -\u003e JoinHandle | ----- required by a bound in this function 165 | where 166 | F: Future + Send + 'static, | ^^^^ required by this bound in `spawn` To understand why that’s the case, we need to refine our understanding of Rust’s asynchronous model.\nThe Future trait We stated early on that async functions return futures, types that implement the Future trait. You can think of a future as a state machine. It’s in one of two states:\npending: the computation has not finished yet. ready: the computation has finished, here’s the output. This is encoded in the trait definition:\ntrait Future { type Output; // Ignore `Pin` and `Context` for now fn poll( self: Pin\u003c\u0026mut Self\u003e, cx: \u0026mut Context\u003c'_\u003e ) -\u003e Poll\u003cSelf::Output\u003e; } poll The poll method is the heart of the Future trait.\nA future on its own doesn’t do anything. It needs to be polled to make progress.\nWhen you call poll, you’re asking the future to do some work. poll tries to make progress, and then returns one of the following:\nPoll::Pending: the future is not ready yet. You need to call poll again later. Poll::Ready(value): the future has finished. value is the result of the computation, of type Self::Output. Once Future::poll returns Poll::Ready, it should not be polled again: the future has completed, there’s nothing left to do.\nThe role of the runtime You’ll rarely, if ever, be calling poll directly.\nThat’s the job of your async runtime: it has all the required information (the Context in poll’s signature) to ensure that your futures are making progress whenever they can.\nasync fn and futures We’ve worked with the high-level interface, asynchronous functions.\nWe’ve now looked at the low-level primitive, the Future trait.\nHow are they related?\nEvery time you mark a function as asynchronous, that function will return a future. The compiler will transform the body of your asynchronous function into a state machine: one state for each .await point.\nGoing back to our Rc example:\nuse std::rc::Rc; use tokio::task::yield_now; async fn example() { let non_send = Rc::new(1); yield_now().await; println!(\"{}\", non_send); } The compiler would transform it into an enum that looks somewhat like this:\npub enum ExampleFuture { NotStarted, YieldNow(Rc\u003ci32\u003e), Terminated, } When example is called, it returns ExampleFuture::NotStarted. The future has never been polled yet, so nothing has happened.\nWhen the runtime polls it the first time, ExampleFuture will advance until the next .await point: it’ll stop at the ExampleFuture::YieldNow(Rc) stage of the state machine, returning Poll::Pending.\nWhen it’s polled again, it’ll execute the remaining code (println!) and return Poll::Ready(()).\nWhen you look at its state machine representation, ExampleFuture, it is now clear why example is not Send: it holds an Rc, therefore it cannot be Send.\nYield points As you’ve just seen with example, every .await point creates a new intermediate state in the lifecycle of a future.\nThat’s why .await points are also known as yield points: your future yields control back to the runtime that was polling it, allowing the runtime to pause it and (if necessary) schedule another task for execution, thus making progress on multiple fronts concurrently.\nWe’ll come back to the importance of yielding in a later section.\n",
+  "wordCount" : "766",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/08_futures/04_future/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="the-future-trait">The <code>Future</code> trait</h1>
+<h2 id="the-local-rc-problem">The local <code>Rc</code> problem</h2>
+<p>Let&rsquo;s go back to <code>tokio::spawn</code>&rsquo;s signature:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">spawn</span>&lt;F&gt;(future: <span style="color:#0a0;text-decoration:underline">F</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">JoinHandle</span>&lt;F::Output&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">where</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>F: <span style="color:#0a0;text-decoration:underline">Future</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#0aa">Send</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#0aa">&#39;static</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>F::Output: <span style="color:#0aa">Send</span> +<span style="color:#bbb"> </span><span style="color:#0aa">&#39;static</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>{<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">/* */</span><span style="color:#bbb"> </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>What does it <em>actually</em> mean for <code>F</code> to be <code>Send</code>?<br>
+It implies, as we saw in the previous section, that whatever value it captures from the
+spawning environment has to be <code>Send</code>. But it goes further than that.</p>
+<p>Any value that&rsquo;s <em>held across a .await point</em> has to be <code>Send</code>.<br>
+Let&rsquo;s look at an example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::rc::Rc;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">use</span><span style="color:#bbb"> </span>tokio::task::yield_now;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">fn</span> <span style="color:#0a0">spawner</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>tokio::spawn(example());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">example</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// A value that&#39;s not `Send`,
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// created _inside_ the async function
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>non_send<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Rc::new(<span style="color:#099">1</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// A `.await` point that does nothing
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>yield_now().<span style="color:#00a">await</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// The local non-`Send` value is still needed
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// after the `.await`
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;</span><span style="color:#a50">{}</span><span style="color:#a50">&#34;</span>,<span style="color:#bbb"> </span>non_send);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The compiler will reject this code:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>error: future cannot be sent between threads safely
+</span></span><span style="display:flex;"><span>    |
+</span></span><span style="display:flex;"><span>5   |     tokio::spawn(example());
+</span></span><span style="display:flex;"><span>    |                  ^^^^^^^^^ 
+</span></span><span style="display:flex;"><span>    | future returned by `example` is not `Send`
+</span></span><span style="display:flex;"><span>    |
+</span></span><span style="display:flex;"><span>note: future is not `Send` as this value is used across an await
+</span></span><span style="display:flex;"><span>    |
+</span></span><span style="display:flex;"><span>11  |     let non_send = Rc::new(1);
+</span></span><span style="display:flex;"><span>    |         -------- has type `Rc&lt;i32&gt;` which is not `Send`
+</span></span><span style="display:flex;"><span>12  |     // A `.await` point
+</span></span><span style="display:flex;"><span>13  |     yield_now().await;
+</span></span><span style="display:flex;"><span>    |                 ^^^^^ 
+</span></span><span style="display:flex;"><span>    |   await occurs here, with `non_send` maybe used later
+</span></span><span style="display:flex;"><span>note: required by a bound in `tokio::spawn`
+</span></span><span style="display:flex;"><span>    |
+</span></span><span style="display:flex;"><span>164 |     pub fn spawn&lt;F&gt;(future: F) -&gt; JoinHandle&lt;F::Output&gt;
+</span></span><span style="display:flex;"><span>    |            ----- required by a bound in this function
+</span></span><span style="display:flex;"><span>165 |     where
+</span></span><span style="display:flex;"><span>166 |         F: Future + Send + &#39;static,
+</span></span><span style="display:flex;"><span>    |                     ^^^^ required by this bound in `spawn`
+</span></span></code></pre></div><p>To understand why that&rsquo;s the case, we need to refine our understanding of
+Rust&rsquo;s asynchronous model.</p>
+<h2 id="the-future-trait-1">The <code>Future</code> trait</h2>
+<p>We stated early on that <code>async</code> functions return <strong>futures</strong>, types that implement
+the <code>Future</code> trait. You can think of a future as a <strong>state machine</strong>.
+It&rsquo;s in one of two states:</p>
+<ul>
+<li><strong>pending</strong>: the computation has not finished yet.</li>
+<li><strong>ready</strong>: the computation has finished, here&rsquo;s the output.</li>
+</ul>
+<p>This is encoded in the trait definition:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">trait</span><span style="color:#bbb"> </span>Future<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">Output</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// Ignore `Pin` and `Context` for now
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">poll</span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#0aa">self</span>: <span style="color:#0a0;text-decoration:underline">Pin</span>&lt;&amp;<span style="color:#00a">mut</span><span style="color:#bbb"> </span><span style="color:#0aa">Self</span>&gt;,<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>cx: <span style="color:#00a">&amp;</span><span style="color:#0a0;text-decoration:underline">mut</span><span style="color:#bbb"> </span>Context&lt;<span style="color:#0aa">&#39;_</span>&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Poll</span>&lt;<span style="color:#0aa">Self</span>::Output&gt;;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="poll"><code>poll</code></h3>
+<p>The <code>poll</code> method is the heart of the <code>Future</code> trait.<br>
+A future on its own doesn&rsquo;t do anything. It needs to be <strong>polled</strong> to make progress.<br>
+When you call <code>poll</code>, you&rsquo;re asking the future to do some work.
+<code>poll</code> tries to make progress, and then returns one of the following:</p>
+<ul>
+<li><code>Poll::Pending</code>: the future is not ready yet. You need to call <code>poll</code> again later.</li>
+<li><code>Poll::Ready(value)</code>: the future has finished. <code>value</code> is the result of the computation,
+of type <code>Self::Output</code>.</li>
+</ul>
+<p>Once <code>Future::poll</code> returns <code>Poll::Ready</code>, it should not be polled again: the future has
+completed, there&rsquo;s nothing left to do.</p>
+<h3 id="the-role-of-the-runtime">The role of the runtime</h3>
+<p>You&rsquo;ll rarely, if ever, be calling poll directly.<br>
+That&rsquo;s the job of your async runtime: it has all the required information (the <code>Context</code>
+in <code>poll</code>&rsquo;s signature) to ensure that your futures are making progress whenever they can.</p>
+<h2 id="async-fn-and-futures"><code>async fn</code> and futures</h2>
+<p>We&rsquo;ve worked with the high-level interface, asynchronous functions.<br>
+We&rsquo;ve now looked at the low-level primitive, the <code>Future trait</code>.</p>
+<p>How are they related?</p>
+<p>Every time you mark a function as asynchronous, that function will return a future.
+The compiler will transform the body of your asynchronous function into a <strong>state machine</strong>:
+one state for each <code>.await</code> point.</p>
+<p>Going back to our <code>Rc</code> example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::rc::Rc;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">use</span><span style="color:#bbb"> </span>tokio::task::yield_now;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">async</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">example</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>non_send<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Rc::new(<span style="color:#099">1</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>yield_now().<span style="color:#00a">await</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;</span><span style="color:#a50">{}</span><span style="color:#a50">&#34;</span>,<span style="color:#bbb"> </span>non_send);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The compiler would transform it into an enum that looks somewhat like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">enum</span> <span style="color:#0a0;text-decoration:underline">ExampleFuture</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>NotStarted,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>YieldNow(Rc&lt;<span style="color:#0aa">i32</span>&gt;),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>Terminated,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>When <code>example</code> is called, it returns <code>ExampleFuture::NotStarted</code>. The future has never
+been polled yet, so nothing has happened.<br>
+When the runtime polls it the first time, <code>ExampleFuture</code> will advance until the next
+<code>.await</code> point: it&rsquo;ll stop at the <code>ExampleFuture::YieldNow(Rc&lt;i32&gt;)</code> stage of the state
+machine, returning <code>Poll::Pending</code>.<br>
+When it&rsquo;s polled again, it&rsquo;ll execute the remaining code (<code>println!</code>) and
+return <code>Poll::Ready(())</code>.</p>
+<p>When you look at its state machine representation, <code>ExampleFuture</code>,
+it is now clear why <code>example</code> is not <code>Send</code>: it holds an <code>Rc</code>, therefore
+it cannot be <code>Send</code>.</p>
+<h2 id="yield-points">Yield points</h2>
+<p>As you&rsquo;ve just seen with <code>example</code>, every <code>.await</code> point creates a new intermediate
+state in the lifecycle of a future.<br>
+That&rsquo;s why <code>.await</code> points are also known as <strong>yield points</strong>: your future <em>yields control</em>
+back to the runtime that was polling it, allowing the runtime to pause it and (if necessary)
+schedule another task for execution, thus making progress on multiple fronts concurrently.</p>
+<p>We&rsquo;ll come back to the importance of yielding in a later section.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

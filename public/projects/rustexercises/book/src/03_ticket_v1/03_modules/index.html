@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Modules
+The new method you&rsquo;ve just defined is trying to enforce some constraints on the field values for Ticket.
+But are those invariants really enforced? What prevents a developer from creating a Ticket
+without going through Ticket::new?
+To get proper encapsulation you need to become familiar with two new concepts: visibility and modules.
+Let&rsquo;s start with modules.
+What is a module?
+In Rust a module is a way to group related code together, under a common namespace (i.e. the module&rsquo;s name).
+You&rsquo;ve already seen modules in action: the unit tests that verify the correctness of your code are defined in a
+different module, named tests.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/03_modules/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/03_modules/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Modules
+The new method you&rsquo;ve just defined is trying to enforce some constraints on the field values for Ticket.
+But are those invariants really enforced? What prevents a developer from creating a Ticket
+without going through Ticket::new?
+To get proper encapsulation you need to become familiar with two new concepts: visibility and modules.
+Let&rsquo;s start with modules.
+What is a module?
+In Rust a module is a way to group related code together, under a common namespace (i.e. the module&rsquo;s name).
+You&rsquo;ve already seen modules in action: the unit tests that verify the correctness of your code are defined in a
+different module, named tests." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/03_modules/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Modules
+The new method you&rsquo;ve just defined is trying to enforce some constraints on the field values for Ticket.
+But are those invariants really enforced? What prevents a developer from creating a Ticket
+without going through Ticket::new?
+To get proper encapsulation you need to become familiar with two new concepts: visibility and modules.
+Let&rsquo;s start with modules.
+What is a module?
+In Rust a module is a way to group related code together, under a common namespace (i.e. the module&rsquo;s name).
+You&rsquo;ve already seen modules in action: the unit tests that verify the correctness of your code are defined in a
+different module, named tests."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/03_modules/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Modules The new method you\u0026rsquo;ve just defined is trying to enforce some constraints on the field values for Ticket. But are those invariants really enforced? What prevents a developer from creating a Ticket without going through Ticket::new?\nTo get proper encapsulation you need to become familiar with two new concepts: visibility and modules. Let\u0026rsquo;s start with modules.\nWhat is a module? In Rust a module is a way to group related code together, under a common namespace (i.e. the module\u0026rsquo;s name).\nYou\u0026rsquo;ve already seen modules in action: the unit tests that verify the correctness of your code are defined in a different module, named tests.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Modules The new method you’ve just defined is trying to enforce some constraints on the field values for Ticket. But are those invariants really enforced? What prevents a developer from creating a Ticket without going through Ticket::new?\nTo get proper encapsulation you need to become familiar with two new concepts: visibility and modules. Let’s start with modules.\nWhat is a module? In Rust a module is a way to group related code together, under a common namespace (i.e. the module’s name).\nYou’ve already seen modules in action: the unit tests that verify the correctness of your code are defined in a different module, named tests.\n#[cfg(test)] mod tests { // [...] } Inline modules The tests module above is an example of an inline module: the module declaration (mod tests) and the module contents (the stuff inside { ... }) are next to each other.\nModule tree Modules can be nested, forming a tree structure.\nThe root of the tree is the crate itself, which is the top-level module that contains all the other modules. For a library crate, the root module is usually src/lib.rs (unless its location has been customized). The root module is also known as the crate root.\nThe crate root can have submodules, which in turn can have their own submodules, and so on.\nExternal modules and the filesystem Inline modules are useful for small pieces of code, but as your project grows you’ll want to split your code into multiple files. In the parent module, you declare the existence of a submodule using the mod keyword.\nmod dog; cargo, Rust’s build tool, is then in charge of finding the file that contains the module implementation.\nIf your module is declared in the root of your crate (e.g. src/lib.rs or src/main.rs), cargo expects the file to be named either:\nsrc/.rs src//mod.rs If your module is a submodule of another module, the file should be named:\n[..]//.rs [..]///mod.rs E.g. src/animals/dog.rs or src/animals/dog/mod.rs if dog is a submodule of animals.\nYour IDE might help you create these files automatically when you declare a new module using the mod keyword.\nItem paths and use statements You can access items defined in the same module without any special syntax. You just use their name.\nstruct Ticket { // [...] } // No need to qualify `Ticket` in any way here // because we're in the same module fn mark_ticket_as_done(ticket: Ticket) { // [...] } That’s not the case if you want to access an entity from a different module.\nYou have to use a path pointing to the entity you want to access.\nYou can compose the path in various ways:\nstarting from the root of the current crate, e.g. crate::module_1::MyStruct starting from the parent module, e.g. super::my_function starting from the current module, e.g. sub_module_1::MyStruct Both crate and super are keywords.\ncrate refers to the root of the current crate, while super refers to the parent of the current module.\nHaving to write the full path every time you want to refer to a type can be cumbersome. To make your life easier, you can introduce a use statement to bring the entity into scope.\n// Bring `MyStruct` into scope use crate::module_1::module_2::MyStruct; // Now you can refer to `MyStruct` directly fn a_function(s: MyStruct) { // [...] } Star imports You can also import all the items from a module with a single use statement.\nuse crate::module_1::module_2::*; This is known as a star import.\nIt is generally discouraged because it can pollute the current namespace, making it hard to understand where each name comes from and potentially introducing name conflicts.\nNonetheless, it can be useful in some cases, like when writing unit tests. You might have noticed that most of our test modules start with a use super::*; statement to bring all the items from the parent module (the one being tested) into scope.\nVisualizing the module tree If you’re struggling to picture the module tree of your project, you can try using cargo-modules to visualize it!\nRefer to their documentation for installation instructions and usage examples.\n",
+  "wordCount" : "676",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/03_ticket_v1/03_modules/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="modules">Modules</h1>
+<p>The <code>new</code> method you&rsquo;ve just defined is trying to enforce some <strong>constraints</strong> on the field values for <code>Ticket</code>.
+But are those invariants really enforced? What prevents a developer from creating a <code>Ticket</code>
+without going through <code>Ticket::new</code>?</p>
+<p>To get proper <strong>encapsulation</strong> you need to become familiar with two new concepts: <strong>visibility</strong> and <strong>modules</strong>.
+Let&rsquo;s start with modules.</p>
+<h2 id="what-is-a-module">What is a module?</h2>
+<p>In Rust a <strong>module</strong> is a way to group related code together, under a common namespace (i.e. the module&rsquo;s name).<br>
+You&rsquo;ve already seen modules in action: the unit tests that verify the correctness of your code are defined in a
+different module, named <code>tests</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#4c8317">#[cfg(test)]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">mod</span> <span style="color:#0aa;text-decoration:underline">tests</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="inline-modules">Inline modules</h2>
+<p>The <code>tests</code> module above is an example of an <strong>inline module</strong>: the module declaration (<code>mod tests</code>) and the module
+contents (the stuff inside <code>{ ... }</code>) are next to each other.</p>
+<h2 id="module-tree">Module tree</h2>
+<p>Modules can be nested, forming a <strong>tree</strong> structure.<br>
+The root of the tree is the <strong>crate</strong> itself, which is the top-level module that contains all the other modules.
+For a library crate, the root module is usually <code>src/lib.rs</code> (unless its location has been customized).
+The root module is also known as the <strong>crate root</strong>.</p>
+<p>The crate root can have submodules, which in turn can have their own submodules, and so on.</p>
+<h2 id="external-modules-and-the-filesystem">External modules and the filesystem</h2>
+<p>Inline modules are useful for small pieces of code, but as your project grows you&rsquo;ll want to split your code into
+multiple files. In the parent module, you declare the existence of a submodule using the <code>mod</code> keyword.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">mod</span> <span style="color:#0aa;text-decoration:underline">dog</span>;<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>cargo</code>, Rust&rsquo;s build tool, is then in charge of finding the file that contains
+the module implementation.<br>
+If your module is declared in the root of your crate (e.g. <code>src/lib.rs</code> or <code>src/main.rs</code>),
+<code>cargo</code> expects the file to be named either:</p>
+<ul>
+<li><code>src/&lt;module_name&gt;.rs</code></li>
+<li><code>src/&lt;module_name&gt;/mod.rs</code></li>
+</ul>
+<p>If your module is a submodule of another module, the file should be named:</p>
+<ul>
+<li><code>[..]/&lt;parent_module&gt;/&lt;module_name&gt;.rs</code></li>
+<li><code>[..]/&lt;parent_module&gt;/&lt;module_name&gt;/mod.rs</code></li>
+</ul>
+<p>E.g. <code>src/animals/dog.rs</code> or <code>src/animals/dog/mod.rs</code> if <code>dog</code> is a submodule of <code>animals</code>.</p>
+<p>Your IDE might help you create these files automatically when you declare a new module using the <code>mod</code> keyword.</p>
+<h2 id="item-paths-and-use-statements">Item paths and <code>use</code> statements</h2>
+<p>You can access items defined in the same module without any special syntax. You just use their name.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">Ticket</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// No need to qualify `Ticket` in any way here
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// because we&#39;re in the same module
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">fn</span> <span style="color:#0a0">mark_ticket_as_done</span>(ticket: <span style="color:#0a0;text-decoration:underline">Ticket</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>That&rsquo;s not the case if you want to access an entity from a different module.<br>
+You have to use a <strong>path</strong> pointing to the entity you want to access.</p>
+<p>You can compose the path in various ways:</p>
+<ul>
+<li>starting from the root of the current crate, e.g. <code>crate::module_1::MyStruct</code></li>
+<li>starting from the parent module, e.g. <code>super::my_function</code></li>
+<li>starting from the current module, e.g. <code>sub_module_1::MyStruct</code></li>
+</ul>
+<p>Both <code>crate</code> and <code>super</code> are <strong>keywords</strong>.<br>
+<code>crate</code> refers to the root of the current crate, while <code>super</code> refers to the parent of the current module.</p>
+<p>Having to write the full path every time you want to refer to a type can be cumbersome.
+To make your life easier, you can introduce a <code>use</code> statement to bring the entity into scope.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// Bring `MyStruct` into scope
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">use</span><span style="color:#bbb"> </span><span style="color:#00a">crate</span>::module_1::module_2::MyStruct;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// Now you can refer to `MyStruct` directly
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">fn</span> <span style="color:#0a0">a_function</span>(s: <span style="color:#0a0;text-decoration:underline">MyStruct</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">     </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="star-imports">Star imports</h3>
+<p>You can also import all the items from a module with a single <code>use</code> statement.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span><span style="color:#00a">crate</span>::module_1::module_2::*;<span style="color:#bbb">
+</span></span></span></code></pre></div><p>This is known as a <strong>star import</strong>.<br>
+It is generally discouraged because it can pollute the current namespace, making it hard to understand
+where each name comes from and potentially introducing name conflicts.<br>
+Nonetheless, it can be useful in some cases, like when writing unit tests. You might have noticed
+that most of our test modules start with a <code>use super::*;</code> statement to bring all the items from the parent module
+(the one being tested) into scope.</p>
+<h2 id="visualizing-the-module-tree">Visualizing the module tree</h2>
+<p>If you&rsquo;re struggling to picture the module tree of your project, you can try using
+<a href="https://crates.io/crates/cargo-modules" target="_blank"><code>cargo-modules</code></a>
+ to visualize it!</p>
+<p>Refer to their documentation for installation instructions and usage examples.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

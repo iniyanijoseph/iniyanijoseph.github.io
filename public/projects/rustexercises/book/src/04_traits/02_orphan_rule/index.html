@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Implementing traits
+When a type is defined in another crate (e.g. u32, from Rust&rsquo;s standard library), you
+can&rsquo;t directly define new methods for it. If you try:
+impl u32 {
+    fn is_even(&amp;self) -&gt; bool {
+        self % 2 == 0
+    }
+}
+the compiler will complain:
+error[E0390]: cannot define inherent `impl` for primitive types
+  |
+1 | impl u32 {
+  | ^^^^^^^^
+  |
+  = help: consider using an extension trait instead
+Extension trait
+An extension trait is a trait whose primary purpose is to attach new methods
+to foreign types, such as u32.
+That&rsquo;s exactly the pattern you deployed in the previous exercise, by defining
+the IsEven trait and then implementing it for i32 and u32. You are then
+free to call is_even on those types as long as IsEven is in scope.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/02_orphan_rule/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/02_orphan_rule/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Implementing traits
+When a type is defined in another crate (e.g. u32, from Rust&rsquo;s standard library), you
+can&rsquo;t directly define new methods for it. If you try:
+impl u32 {
+    fn is_even(&amp;self) -&gt; bool {
+        self % 2 == 0
+    }
+}
+the compiler will complain:
+error[E0390]: cannot define inherent `impl` for primitive types
+  |
+1 | impl u32 {
+  | ^^^^^^^^
+  |
+  = help: consider using an extension trait instead
+Extension trait
+An extension trait is a trait whose primary purpose is to attach new methods
+to foreign types, such as u32.
+That&rsquo;s exactly the pattern you deployed in the previous exercise, by defining
+the IsEven trait and then implementing it for i32 and u32. You are then
+free to call is_even on those types as long as IsEven is in scope." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/04_traits/02_orphan_rule/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Implementing traits
+When a type is defined in another crate (e.g. u32, from Rust&rsquo;s standard library), you
+can&rsquo;t directly define new methods for it. If you try:
+impl u32 {
+    fn is_even(&amp;self) -&gt; bool {
+        self % 2 == 0
+    }
+}
+the compiler will complain:
+error[E0390]: cannot define inherent `impl` for primitive types
+  |
+1 | impl u32 {
+  | ^^^^^^^^
+  |
+  = help: consider using an extension trait instead
+Extension trait
+An extension trait is a trait whose primary purpose is to attach new methods
+to foreign types, such as u32.
+That&rsquo;s exactly the pattern you deployed in the previous exercise, by defining
+the IsEven trait and then implementing it for i32 and u32. You are then
+free to call is_even on those types as long as IsEven is in scope."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/04_traits/02_orphan_rule/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Implementing traits When a type is defined in another crate (e.g. u32, from Rust\u0026rsquo;s standard library), you can\u0026rsquo;t directly define new methods for it. If you try:\nimpl u32 { fn is_even(\u0026amp;self) -\u0026gt; bool { self % 2 == 0 } } the compiler will complain:\nerror[E0390]: cannot define inherent `impl` for primitive types | 1 | impl u32 { | ^^^^^^^^ | = help: consider using an extension trait instead Extension trait An extension trait is a trait whose primary purpose is to attach new methods to foreign types, such as u32. That\u0026rsquo;s exactly the pattern you deployed in the previous exercise, by defining the IsEven trait and then implementing it for i32 and u32. You are then free to call is_even on those types as long as IsEven is in scope.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Implementing traits When a type is defined in another crate (e.g. u32, from Rust’s standard library), you can’t directly define new methods for it. If you try:\nimpl u32 { fn is_even(\u0026self) -\u003e bool { self % 2 == 0 } } the compiler will complain:\nerror[E0390]: cannot define inherent `impl` for primitive types | 1 | impl u32 { | ^^^^^^^^ | = help: consider using an extension trait instead Extension trait An extension trait is a trait whose primary purpose is to attach new methods to foreign types, such as u32. That’s exactly the pattern you deployed in the previous exercise, by defining the IsEven trait and then implementing it for i32 and u32. You are then free to call is_even on those types as long as IsEven is in scope.\n// Bring the trait in scope use my_library::IsEven; fn main() { // Invoke its method on a type that implements it if 4.is_even() { // [...] } } One implementation There are limitations to the trait implementations you can write.\nThe simplest and most straight-forward one: you can’t implement the same trait twice, in a crate, for the same type.\nFor example:\ntrait IsEven { fn is_even(\u0026self) -\u003e bool; } impl IsEven for u32 { fn is_even(\u0026self) -\u003e bool { true } } impl IsEven for u32 { fn is_even(\u0026self) -\u003e bool { false } } The compiler will reject it:\nerror[E0119]: conflicting implementations of trait `IsEven` for type `u32` | 5 | impl IsEven for u32 { | ------------------- first implementation here ... 11 | impl IsEven for u32 { | ^^^^^^^^^^^^^^^^^^^ conflicting implementation for `u32` There can be no ambiguity as to what trait implementation should be used when IsEven::is_even is invoked on a u32 value, therefore there can only be one.\nOrphan rule Things get more nuanced when multiple crates are involved. In particular, at least one of the following must be true:\nThe trait is defined in the current crate The implementor type is defined in the current crate This is known as Rust’s orphan rule. Its goal is to make the method resolution process unambiguous.\nImagine the following situation:\nCrate A defines the IsEven trait Crate B implements IsEven for u32 Crate C provides a (different) implementation of the IsEven trait for u32 Crate D depends on both B and C and calls 1.is_even() Which implementation should be used? The one defined in B? Or the one defined in C?\nThere’s no good answer, therefore the orphan rule was defined to prevent this scenario. Thanks to the orphan rule, neither crate B nor crate C would compile.\nFurther reading There are some caveats and exceptions to the orphan rule as stated above. Check out the reference if you want to get familiar with its nuances. ",
+  "wordCount" : "463",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/04_traits/02_orphan_rule/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="implementing-traits">Implementing traits</h1>
+<p>When a type is defined in another crate (e.g. <code>u32</code>, from Rust&rsquo;s standard library), you
+can&rsquo;t directly define new methods for it. If you try:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span><span style="color:#0aa">u32</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">is_even</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">bool</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#0aa">self</span><span style="color:#bbb"> </span>%<span style="color:#bbb"> </span><span style="color:#099">2</span><span style="color:#bbb"> </span>==<span style="color:#bbb"> </span><span style="color:#099">0</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>the compiler will complain:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>error[E0390]: cannot define inherent `impl` for primitive types
+</span></span><span style="display:flex;"><span>  |
+</span></span><span style="display:flex;"><span>1 | impl u32 {
+</span></span><span style="display:flex;"><span>  | ^^^^^^^^
+</span></span><span style="display:flex;"><span>  |
+</span></span><span style="display:flex;"><span>  = help: consider using an extension trait instead
+</span></span></code></pre></div><h2 id="extension-trait">Extension trait</h2>
+<p>An <strong>extension trait</strong> is a trait whose primary purpose is to attach new methods
+to foreign types, such as <code>u32</code>.
+That&rsquo;s exactly the pattern you deployed in the previous exercise, by defining
+the <code>IsEven</code> trait and then implementing it for <code>i32</code> and <code>u32</code>. You are then
+free to call <code>is_even</code> on those types as long as <code>IsEven</code> is in scope.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// Bring the trait in scope
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">use</span><span style="color:#bbb"> </span>my_library::IsEven;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">fn</span> <span style="color:#0a0">main</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// Invoke its method on a type that implements it
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#00a">if</span><span style="color:#bbb"> </span><span style="color:#099">4.</span>is_even()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="one-implementation">One implementation</h2>
+<p>There are limitations to the trait implementations you can write.<br>
+The simplest and most straight-forward one: you can&rsquo;t implement the same trait twice,
+in a crate, for the same type.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">trait</span><span style="color:#bbb"> </span>IsEven<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">is_even</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">bool</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>IsEven<span style="color:#bbb"> </span><span style="color:#00a">for</span><span style="color:#bbb"> </span><span style="color:#0aa">u32</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">is_even</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">bool</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">true</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>IsEven<span style="color:#bbb"> </span><span style="color:#00a">for</span><span style="color:#bbb"> </span><span style="color:#0aa">u32</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">is_even</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">bool</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">false</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The compiler will reject it:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>error[E0119]: conflicting implementations of trait `IsEven` for type `u32`
+</span></span><span style="display:flex;"><span>   |
+</span></span><span style="display:flex;"><span>5  | impl IsEven for u32 {
+</span></span><span style="display:flex;"><span>   | ------------------- first implementation here
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>11 | impl IsEven for u32 {
+</span></span><span style="display:flex;"><span>   | ^^^^^^^^^^^^^^^^^^^ conflicting implementation for `u32`
+</span></span></code></pre></div><p>There can be no ambiguity as to what trait implementation should be used when <code>IsEven::is_even</code>
+is invoked on a <code>u32</code> value, therefore there can only be one.</p>
+<h2 id="orphan-rule">Orphan rule</h2>
+<p>Things get more nuanced when multiple crates are involved.
+In particular, at least one of the following must be true:</p>
+<ul>
+<li>The trait is defined in the current crate</li>
+<li>The implementor type is defined in the current crate</li>
+</ul>
+<p>This is known as Rust&rsquo;s <strong>orphan rule</strong>. Its goal is to make the method resolution
+process unambiguous.</p>
+<p>Imagine the following situation:</p>
+<ul>
+<li>Crate <code>A</code> defines the <code>IsEven</code> trait</li>
+<li>Crate <code>B</code> implements <code>IsEven</code> for <code>u32</code></li>
+<li>Crate <code>C</code> provides a (different) implementation of the <code>IsEven</code> trait for <code>u32</code></li>
+<li>Crate <code>D</code> depends on both <code>B</code> and <code>C</code> and calls <code>1.is_even()</code></li>
+</ul>
+<p>Which implementation should be used? The one defined in <code>B</code>? Or the one defined in <code>C</code>?<br>
+There&rsquo;s no good answer, therefore the orphan rule was defined to prevent this scenario.
+Thanks to the orphan rule, neither crate <code>B</code> nor crate <code>C</code> would compile.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li>There are some caveats and exceptions to the orphan rule as stated above.
+Check out <a href="https://doc.rust-lang.org/reference/items/implementations.html#trait-implementation-coherence" target="_blank">the reference</a>
+
+if you want to get familiar with its nuances.</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

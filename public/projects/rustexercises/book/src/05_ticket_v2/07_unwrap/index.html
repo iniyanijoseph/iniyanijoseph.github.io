@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Unwrapping
+Ticket::new now returns a Result instead of panicking on invalid inputs.
+What does this mean for the caller?
+Failures can&rsquo;t be (implicitly) ignored
+Unlike exceptions, Rust&rsquo;s Result forces you to handle errors at the call site.
+If you call a function that returns a Result, Rust won&rsquo;t allow you to implicitly ignore the error case.
+fn parse_int(s: &amp;str) -&gt; Result&lt;i32, ParseIntError&gt; {
+    // ...
+}
+
+// This won&#39;t compile: we&#39;re not handling the error case.
+// We must either use `match` or one of the combinators provided by 
+// `Result` to &#34;unwrap&#34; the success value or handle the error.
+let number = parse_int(&#34;42&#34;) &#43; 2;
+You got a Result. Now what?
+When you call a function that returns a Result, you have two key options:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/07_unwrap/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/07_unwrap/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Unwrapping
+Ticket::new now returns a Result instead of panicking on invalid inputs.
+What does this mean for the caller?
+Failures can&rsquo;t be (implicitly) ignored
+Unlike exceptions, Rust&rsquo;s Result forces you to handle errors at the call site.
+If you call a function that returns a Result, Rust won&rsquo;t allow you to implicitly ignore the error case.
+fn parse_int(s: &amp;str) -&gt; Result&lt;i32, ParseIntError&gt; {
+    // ...
+}
+
+// This won&#39;t compile: we&#39;re not handling the error case.
+// We must either use `match` or one of the combinators provided by 
+// `Result` to &#34;unwrap&#34; the success value or handle the error.
+let number = parse_int(&#34;42&#34;) &#43; 2;
+You got a Result. Now what?
+When you call a function that returns a Result, you have two key options:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/07_unwrap/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Unwrapping
+Ticket::new now returns a Result instead of panicking on invalid inputs.
+What does this mean for the caller?
+Failures can&rsquo;t be (implicitly) ignored
+Unlike exceptions, Rust&rsquo;s Result forces you to handle errors at the call site.
+If you call a function that returns a Result, Rust won&rsquo;t allow you to implicitly ignore the error case.
+fn parse_int(s: &amp;str) -&gt; Result&lt;i32, ParseIntError&gt; {
+    // ...
+}
+
+// This won&#39;t compile: we&#39;re not handling the error case.
+// We must either use `match` or one of the combinators provided by 
+// `Result` to &#34;unwrap&#34; the success value or handle the error.
+let number = parse_int(&#34;42&#34;) &#43; 2;
+You got a Result. Now what?
+When you call a function that returns a Result, you have two key options:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/07_unwrap/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Unwrapping Ticket::new now returns a Result instead of panicking on invalid inputs.\nWhat does this mean for the caller?\nFailures can\u0026rsquo;t be (implicitly) ignored Unlike exceptions, Rust\u0026rsquo;s Result forces you to handle errors at the call site.\nIf you call a function that returns a Result, Rust won\u0026rsquo;t allow you to implicitly ignore the error case.\nfn parse_int(s: \u0026amp;str) -\u0026gt; Result\u0026lt;i32, ParseIntError\u0026gt; { // ... } // This won\u0026#39;t compile: we\u0026#39;re not handling the error case. // We must either use `match` or one of the combinators provided by // `Result` to \u0026#34;unwrap\u0026#34; the success value or handle the error. let number = parse_int(\u0026#34;42\u0026#34;) + 2; You got a Result. Now what? When you call a function that returns a Result, you have two key options:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Unwrapping Ticket::new now returns a Result instead of panicking on invalid inputs.\nWhat does this mean for the caller?\nFailures can’t be (implicitly) ignored Unlike exceptions, Rust’s Result forces you to handle errors at the call site.\nIf you call a function that returns a Result, Rust won’t allow you to implicitly ignore the error case.\nfn parse_int(s: \u0026str) -\u003e Result\u003ci32, ParseIntError\u003e { // ... } // This won't compile: we're not handling the error case. // We must either use `match` or one of the combinators provided by // `Result` to \"unwrap\" the success value or handle the error. let number = parse_int(\"42\") + 2; You got a Result. Now what? When you call a function that returns a Result, you have two key options:\nPanic if the operation failed. This is done using either the unwrap or expect methods. // Panics if `parse_int` returns an `Err`. let number = parse_int(\"42\").unwrap(); // `expect` lets you specify a custom panic message. let number = parse_int(\"42\").expect(\"Failed to parse integer\"); Destructure the Result using a match expression to deal with the error case explicitly. match parse_int(\"42\") { Ok(number) =\u003e println!(\"Parsed number: {}\", number), Err(err) =\u003e eprintln!(\"Error: {}\", err), } ",
+  "wordCount" : "197",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/05_ticket_v2/07_unwrap/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="unwrapping">Unwrapping</h1>
+<p><code>Ticket::new</code> now returns a <code>Result</code> instead of panicking on invalid inputs.<br>
+What does this mean for the caller?</p>
+<h2 id="failures-cant-be-implicitly-ignored">Failures can&rsquo;t be (implicitly) ignored</h2>
+<p>Unlike exceptions, Rust&rsquo;s <code>Result</code> forces you to <strong>handle errors at the call site</strong>.<br>
+If you call a function that returns a <code>Result</code>, Rust won&rsquo;t allow you to implicitly ignore the error case.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">fn</span> <span style="color:#0a0">parse_int</span>(s: <span style="color:#00a">&amp;</span><span style="color:#0aa">str</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">Result</span>&lt;<span style="color:#0aa">i32</span>,<span style="color:#bbb"> </span>ParseIntError&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// This won&#39;t compile: we&#39;re not handling the error case.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// We must either use `match` or one of the combinators provided by 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// `Result` to &#34;unwrap&#34; the success value or handle the error.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>parse_int(<span style="color:#a50">&#34;42&#34;</span>)<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#099">2</span>;<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="you-got-a-result-now-what">You got a <code>Result</code>. Now what?</h2>
+<p>When you call a function that returns a <code>Result</code>, you have two key options:</p>
+<ul>
+<li>Panic if the operation failed.
+This is done using either the <code>unwrap</code> or <code>expect</code> methods.
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// Panics if `parse_int` returns an `Err`.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>parse_int(<span style="color:#a50">&#34;42&#34;</span>).unwrap();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// `expect` lets you specify a custom panic message.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>parse_int(<span style="color:#a50">&#34;42&#34;</span>).expect(<span style="color:#a50">&#34;Failed to parse integer&#34;</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div></li>
+<li>Destructure the <code>Result</code> using a <code>match</code> expression to deal with the error case explicitly.
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">match</span><span style="color:#bbb"> </span>parse_int(<span style="color:#a50">&#34;42&#34;</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0aa">Ok</span>(number)<span style="color:#bbb"> </span>=&gt;<span style="color:#bbb"> </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;Parsed number: </span><span style="color:#a50">{}</span><span style="color:#a50">&#34;</span>,<span style="color:#bbb"> </span>number),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0aa">Err</span>(err)<span style="color:#bbb"> </span>=&gt;<span style="color:#bbb"> </span><span style="color:#0a0">eprintln!</span>(<span style="color:#a50">&#34;Error: </span><span style="color:#a50">{}</span><span style="color:#a50">&#34;</span>,<span style="color:#bbb"> </span>err),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div></li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

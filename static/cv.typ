@@ -1,3 +1,5 @@
+// Make multiple versions?
+
 #import "@preview/basic-resume:0.2.8": *
 
 // Put your personal information here, replacing mine
@@ -28,11 +30,11 @@
   institution: "The University of Texas at Dallas",
   location: "Richardson, TX",
   dates: dates-helper(start-date: "Aug 2023", end-date: "Aug 2025"),
-  degree: "Bachelor's of Science, Computer Science",
+  degree: "Bachelor of Science, Computer Science",
 )
 - Cumulative GPA: 3.99\/4 | Dean's List, Academic Excellence Scholarship
 
-== Experience
+== Work Experience
 
 #work(
   title: "Grader",

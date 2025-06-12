@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Types, part 1
+In the &ldquo;Syntax&rdquo; section
+ compute&rsquo;s input parameters were of type u32.
+Let&rsquo;s unpack what that means.
+Primitive types
+u32 is one of Rust&rsquo;s primitive types. Primitive types are the most basic building blocks of a language.
+They&rsquo;re built into the language itself—i.e. they are not defined in terms of other types.
+You can combine these primitive types to create more complex types. We&rsquo;ll see how soon enough.
+Integers
+u32, in particular, is an unsigned 32-bit integer.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/01_integers/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/01_integers/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Types, part 1
+In the &ldquo;Syntax&rdquo; section
+ compute&rsquo;s input parameters were of type u32.
+Let&rsquo;s unpack what that means.
+Primitive types
+u32 is one of Rust&rsquo;s primitive types. Primitive types are the most basic building blocks of a language.
+They&rsquo;re built into the language itself—i.e. they are not defined in terms of other types.
+You can combine these primitive types to create more complex types. We&rsquo;ll see how soon enough.
+Integers
+u32, in particular, is an unsigned 32-bit integer." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/01_integers/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Types, part 1
+In the &ldquo;Syntax&rdquo; section
+ compute&rsquo;s input parameters were of type u32.
+Let&rsquo;s unpack what that means.
+Primitive types
+u32 is one of Rust&rsquo;s primitive types. Primitive types are the most basic building blocks of a language.
+They&rsquo;re built into the language itself—i.e. they are not defined in terms of other types.
+You can combine these primitive types to create more complex types. We&rsquo;ll see how soon enough.
+Integers
+u32, in particular, is an unsigned 32-bit integer."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/01_integers/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Types, part 1 In the \u0026ldquo;Syntax\u0026rdquo; section compute\u0026rsquo;s input parameters were of type u32.\nLet\u0026rsquo;s unpack what that means.\nPrimitive types u32 is one of Rust\u0026rsquo;s primitive types. Primitive types are the most basic building blocks of a language. They\u0026rsquo;re built into the language itself—i.e. they are not defined in terms of other types.\nYou can combine these primitive types to create more complex types. We\u0026rsquo;ll see how soon enough.\nIntegers u32, in particular, is an unsigned 32-bit integer.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Types, part 1 In the “Syntax” section compute’s input parameters were of type u32.\nLet’s unpack what that means.\nPrimitive types u32 is one of Rust’s primitive types. Primitive types are the most basic building blocks of a language. They’re built into the language itself—i.e. they are not defined in terms of other types.\nYou can combine these primitive types to create more complex types. We’ll see how soon enough.\nIntegers u32, in particular, is an unsigned 32-bit integer.\nAn integer is a number that can be written without a fractional component. E.g. 1 is an integer, while 1.2 is not.\nSigned vs. unsigned An integer can be signed or unsigned.\nAn unsigned integer can only represent non-negative numbers (i.e. 0 or greater). A signed integer can represent both positive and negative numbers (e.g. -1, 12, etc.).\nThe u in u32 stands for unsigned.\nThe equivalent type for signed integer is i32, where the i stands for integer (i.e. any integer, positive or negative).\nBit width The 32 in u32 refers to the number of bits1 used to represent the number in memory.\nThe more bits, the larger the range of numbers that can be represented.\nRust supports multiple bit widths for integers: 8, 16, 32, 64, 128.\nWith 32 bits, u32 can represent numbers from 0 to 2^32 - 1 (a.k.a. u32::MAX ).\nWith the same number of bits, a signed integer (i32) can represent numbers from -2^31 to 2^31 - 1 (i.e. from i32::MIN to i32::MAX ).\nThe maximum value for i32 is smaller than the maximum value for u32 because one bit is used to represent the sign of the number. Check out the two’s complement representation for more details on how signed integers are represented in memory.\nSummary Combining the two variables (signed/unsigned and bit width), we get the following integer types:\nBit width Signed Unsigned 8-bit i8 u8 16-bit i16 u16 32-bit i32 u32 64-bit i64 u64 128-bit i128 u128 Literals A literal is a notation for representing a fixed value in source code.\nFor example, 42 is a Rust literal for the number forty-two.\nType annotations for literals But all values in Rust have a type, so… what’s the type of 42?\nThe Rust compiler will try to infer the type of a literal based on how it’s used.\nIf you don’t provide any context, the compiler will default to i32 for integer literals.\nIf you want to use a different type, you can add the desired integer type as a suffix—e.g. 2u64 is a 2 that’s explicitly typed as a u64.\nUnderscores in literals You can use underscores _ to improve the readability of large numbers.\nFor example, 1_000_000 is the same as 1000000.\nArithmetic operators Rust supports the following arithmetic operators2 for integers:\n+ for addition - for subtraction * for multiplication / for division % for remainder Precedence and associativity rules for these operators are the same as in mathematics.\nYou can use parentheses to override the default precedence. E.g. 2 * (3 + 4).\n⚠️ Warning\nThe division operator / performs integer division when used with integer types. I.e. the result is truncated towards zero. For example, 5 / 2 is 2, not 2.5.\nNo automatic type coercion As we discussed in the previous exercise, Rust is a statically typed language.\nIn particular, Rust is quite strict about type coercion. It won’t automatically convert a value from one type to another3, even if the conversion is lossless. You have to do it explicitly.\nFor example, you can’t assign a u8 value to a variable with type u32, even though all u8 values are valid u32 values:\nlet b: u8 = 100; let a: u32 = b; It’ll throw a compilation error:\nerror[E0308]: mismatched types | 3 | let a: u32 = b; | --- ^ expected `u32`, found `u8` | | | expected due to this | We’ll see how to convert between types later in this course .\nFurther reading The integer types section in the official Rust book A bit is the smallest unit of data in a computer. It can only have two values: 0 or 1. ↩︎\nRust doesn’t let you define custom operators, but it puts you in control of how the built-in operators behave. We’ll talk about operator overloading later in the course , after we’ve covered traits. ↩︎\nThere are some exceptions to this rule, mostly related to references, smart pointers and ergonomics. We’ll cover those later on . A mental model of “all conversions are explicit” will serve you well in the meantime. ↩︎\n",
+  "wordCount" : "759",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/01_integers/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="types-part-1">Types, part 1</h1>
+<p>In the <a href="../01_intro/01_syntax.md">&ldquo;Syntax&rdquo; section</a>
+ <code>compute</code>&rsquo;s input parameters were of type <code>u32</code>.<br>
+Let&rsquo;s unpack what that <em>means</em>.</p>
+<h2 id="primitive-types">Primitive types</h2>
+<p><code>u32</code> is one of Rust&rsquo;s <strong>primitive types</strong>. Primitive types are the most basic building blocks of a language.
+They&rsquo;re built into the language itself—i.e. they are not defined in terms of other types.</p>
+<p>You can combine these primitive types to create more complex types. We&rsquo;ll see how soon enough.</p>
+<h2 id="integers">Integers</h2>
+<p><code>u32</code>, in particular, is an <strong>unsigned 32-bit integer</strong>.</p>
+<p>An integer is a number that can be written without a fractional component. E.g. <code>1</code> is an integer, while <code>1.2</code> is not.</p>
+<h3 id="signed-vs-unsigned">Signed vs. unsigned</h3>
+<p>An integer can be <strong>signed</strong> or <strong>unsigned</strong>.<br>
+An unsigned integer can only represent non-negative numbers (i.e. <code>0</code> or greater).
+A signed integer can represent both positive and negative numbers (e.g. <code>-1</code>, <code>12</code>, etc.).</p>
+<p>The <code>u</code> in <code>u32</code> stands for <strong>unsigned</strong>.<br>
+The equivalent type for signed integer is <code>i32</code>, where the <code>i</code> stands for integer (i.e. any integer, positive or
+negative).</p>
+<h3 id="bit-width">Bit width</h3>
+<p>The <code>32</code> in <code>u32</code> refers to the <strong>number of bits<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></strong> used to represent the number in memory.<br>
+The more bits, the larger the range of numbers that can be represented.</p>
+<p>Rust supports multiple bit widths for integers: <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>.</p>
+<p>With 32 bits, <code>u32</code> can represent numbers from <code>0</code> to <code>2^32 - 1</code> (a.k.a. <a href="https://doc.rust-lang.org/std/primitive.u32.html#associatedconstant.MAX" target="_blank"><code>u32::MAX</code></a>
+).<br>
+With the same number of bits, a signed integer (<code>i32</code>) can represent numbers from <code>-2^31</code> to <code>2^31 - 1</code>
+(i.e. from <a href="https://doc.rust-lang.org/std/primitive.i32.html#associatedconstant.MIN" target="_blank"><code>i32::MIN</code></a>
+
+to <a href="https://doc.rust-lang.org/std/primitive.i32.html#associatedconstant.MAX" target="_blank"><code>i32::MAX</code></a>
+).<br>
+The maximum value for <code>i32</code> is smaller than the maximum value for <code>u32</code> because one bit is used to represent
+the sign of the number. Check out the <a href="https://en.wikipedia.org/wiki/Two%27s_complement" target="_blank">two&rsquo;s complement</a>
+
+representation for more details on how signed integers are represented in memory.</p>
+<h3 id="summary">Summary</h3>
+<p>Combining the two variables (signed/unsigned and bit width), we get the following integer types:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Bit width</th>
+          <th>Signed</th>
+          <th>Unsigned</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>8-bit</td>
+          <td><code>i8</code></td>
+          <td><code>u8</code></td>
+      </tr>
+      <tr>
+          <td>16-bit</td>
+          <td><code>i16</code></td>
+          <td><code>u16</code></td>
+      </tr>
+      <tr>
+          <td>32-bit</td>
+          <td><code>i32</code></td>
+          <td><code>u32</code></td>
+      </tr>
+      <tr>
+          <td>64-bit</td>
+          <td><code>i64</code></td>
+          <td><code>u64</code></td>
+      </tr>
+      <tr>
+          <td>128-bit</td>
+          <td><code>i128</code></td>
+          <td><code>u128</code></td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="literals">Literals</h2>
+<p>A <strong>literal</strong> is a notation for representing a fixed value in source code.<br>
+For example, <code>42</code> is a Rust literal for the number forty-two.</p>
+<h3 id="type-annotations-for-literals">Type annotations for literals</h3>
+<p>But all values in Rust have a type, so&hellip; what&rsquo;s the type of <code>42</code>?</p>
+<p>The Rust compiler will try to infer the type of a literal based on how it&rsquo;s used.<br>
+If you don&rsquo;t provide any context, the compiler will default to <code>i32</code> for integer literals.<br>
+If you want to use a different type, you can add the desired integer type as a suffix—e.g. <code>2u64</code> is a 2 that&rsquo;s
+explicitly typed as a <code>u64</code>.</p>
+<h3 id="underscores-in-literals">Underscores in literals</h3>
+<p>You can use underscores <code>_</code> to improve the readability of large numbers.<br>
+For example, <code>1_000_000</code> is the same as <code>1000000</code>.</p>
+<h2 id="arithmetic-operators">Arithmetic operators</h2>
+<p>Rust supports the following arithmetic operators<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> for integers:</p>
+<ul>
+<li><code>+</code> for addition</li>
+<li><code>-</code> for subtraction</li>
+<li><code>*</code> for multiplication</li>
+<li><code>/</code> for division</li>
+<li><code>%</code> for remainder</li>
+</ul>
+<p>Precedence and associativity rules for these operators are the same as in mathematics.<br>
+You can use parentheses to override the default precedence. E.g. <code>2 * (3 + 4)</code>.</p>
+<blockquote>
+<p>⚠️ <strong>Warning</strong></p>
+<p>The division operator <code>/</code> performs integer division when used with integer types.
+I.e. the result is truncated towards zero. For example, <code>5 / 2</code> is <code>2</code>, not <code>2.5</code>.</p></blockquote>
+<h2 id="no-automatic-type-coercion">No automatic type coercion</h2>
+<p>As we discussed in the previous exercise, Rust is a statically typed language.<br>
+In particular, Rust is quite strict about type coercion. It won&rsquo;t automatically convert a value from one type to
+another<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>,
+even if the conversion is lossless. You have to do it explicitly.</p>
+<p>For example, you can&rsquo;t assign a <code>u8</code> value to a variable with type <code>u32</code>, even though all <code>u8</code> values are valid <code>u32</code>
+values:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>b: <span style="color:#0aa">u8</span> =<span style="color:#bbb"> </span><span style="color:#099">100</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>a: <span style="color:#0aa">u32</span> =<span style="color:#bbb"> </span>b;<span style="color:#bbb">
+</span></span></span></code></pre></div><p>It&rsquo;ll throw a compilation error:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>error[E0308]: mismatched types
+</span></span><span style="display:flex;"><span>  |
+</span></span><span style="display:flex;"><span>3 |     let a: u32 = b;
+</span></span><span style="display:flex;"><span>  |            ---   ^ expected `u32`, found `u8`
+</span></span><span style="display:flex;"><span>  |            |
+</span></span><span style="display:flex;"><span>  |            expected due to this
+</span></span><span style="display:flex;"><span>  |
+</span></span></code></pre></div><p>We&rsquo;ll see how to convert between types <a href="../04_traits/09_from.md">later in this course</a>
+.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/ch03-02-data-types.html#integer-types" target="_blank">The integer types section</a>
+ in the official Rust book</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>A bit is the smallest unit of data in a computer. It can only have two values: <code>0</code> or <code>1</code>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Rust doesn&rsquo;t let you define custom operators, but it puts you in control of how the built-in operators
+behave.
+We&rsquo;ll talk about operator overloading <a href="../04_traits/03_operator_overloading.md">later in the course</a>
+, after we&rsquo;ve covered traits.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>There are some exceptions to this rule, mostly related to references, smart pointers and ergonomics. We&rsquo;ll
+cover those <a href="../04_traits/07_deref.md">later on</a>
+.
+A mental model of &ldquo;all conversions are explicit&rdquo; will serve you well in the meantime.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Sync
+Before we wrap up this chapter, let&rsquo;s talk about another key trait in Rust&rsquo;s standard library: Sync.
+Sync is an auto trait, just like Send.
+It is automatically implemented by all types that can be safely shared between threads.
+In other words: T is Sync if &amp;T is Send.
+T: Sync doesn&rsquo;t imply T: Send
+It&rsquo;s important to note that T can be Sync without being Send.
+For example: MutexGuard is not Send, but it is Sync.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/14_sync/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/14_sync/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Sync
+Before we wrap up this chapter, let&rsquo;s talk about another key trait in Rust&rsquo;s standard library: Sync.
+Sync is an auto trait, just like Send.
+It is automatically implemented by all types that can be safely shared between threads.
+In other words: T is Sync if &amp;T is Send.
+T: Sync doesn&rsquo;t imply T: Send
+It&rsquo;s important to note that T can be Sync without being Send.
+For example: MutexGuard is not Send, but it is Sync." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/07_threads/14_sync/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Sync
+Before we wrap up this chapter, let&rsquo;s talk about another key trait in Rust&rsquo;s standard library: Sync.
+Sync is an auto trait, just like Send.
+It is automatically implemented by all types that can be safely shared between threads.
+In other words: T is Sync if &amp;T is Send.
+T: Sync doesn&rsquo;t imply T: Send
+It&rsquo;s important to note that T can be Sync without being Send.
+For example: MutexGuard is not Send, but it is Sync."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/07_threads/14_sync/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Sync Before we wrap up this chapter, let\u0026rsquo;s talk about another key trait in Rust\u0026rsquo;s standard library: Sync.\nSync is an auto trait, just like Send.\nIt is automatically implemented by all types that can be safely shared between threads.\nIn other words: T is Sync if \u0026amp;T is Send.\nT: Sync doesn\u0026rsquo;t imply T: Send It\u0026rsquo;s important to note that T can be Sync without being Send.\nFor example: MutexGuard is not Send, but it is Sync.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Sync Before we wrap up this chapter, let’s talk about another key trait in Rust’s standard library: Sync.\nSync is an auto trait, just like Send.\nIt is automatically implemented by all types that can be safely shared between threads.\nIn other words: T is Sync if \u0026T is Send.\nT: Sync doesn’t imply T: Send It’s important to note that T can be Sync without being Send.\nFor example: MutexGuard is not Send, but it is Sync.\nIt isn’t Send because the lock must be released on the same thread that acquired it, therefore we don’t want MutexGuard to be dropped on a different thread.\nBut it is Sync, because giving a \u0026MutexGuard to another thread has no impact on where the lock is released.\nT: Send doesn’t imply T: Sync The opposite is also true: T can be Send without being Sync.\nFor example: RefCell is Send (if T is Send), but it is not Sync.\nRefCell performs runtime borrow checking, but the counters it uses to track borrows are not thread-safe. Therefore, having multiple threads holding a \u0026RefCell would lead to a data race, with potentially multiple threads obtaining mutable references to the same data. Hence RefCell is not Sync.\nSend is fine, instead, because when we send a RefCell to another thread we’re not leaving behind any references to the data it contains, hence no risk of concurrent mutable access.\n",
+  "wordCount" : "234",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/07_threads/14_sync/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="sync"><code>Sync</code></h1>
+<p>Before we wrap up this chapter, let&rsquo;s talk about another key trait in Rust&rsquo;s standard library: <code>Sync</code>.</p>
+<p><code>Sync</code> is an auto trait, just like <code>Send</code>.<br>
+It is automatically implemented by all types that can be safely <strong>shared</strong> between threads.</p>
+<p>In other words: <code>T</code> is Sync if <code>&amp;T</code> is <code>Send</code>.</p>
+<h2 id="t-sync-doesnt-imply-t-send"><code>T: Sync</code> doesn&rsquo;t imply <code>T: Send</code></h2>
+<p>It&rsquo;s important to note that <code>T</code> can be <code>Sync</code> without being <code>Send</code>.<br>
+For example: <code>MutexGuard</code> is not <code>Send</code>, but it is <code>Sync</code>.</p>
+<p>It isn&rsquo;t <code>Send</code> because the lock must be released on the same thread that acquired it, therefore we don&rsquo;t
+want <code>MutexGuard</code> to be dropped on a different thread.<br>
+But it is <code>Sync</code>, because giving a <code>&amp;MutexGuard</code> to another thread has no impact on where the lock is released.</p>
+<h2 id="t-send-doesnt-imply-t-sync"><code>T: Send</code> doesn&rsquo;t imply <code>T: Sync</code></h2>
+<p>The opposite is also true: <code>T</code> can be <code>Send</code> without being <code>Sync</code>.<br>
+For example: <code>RefCell&lt;T&gt;</code> is <code>Send</code> (if <code>T</code> is <code>Send</code>), but it is not <code>Sync</code>.</p>
+<p><code>RefCell&lt;T&gt;</code> performs runtime borrow checking, but the counters it uses to track borrows are not thread-safe.
+Therefore, having multiple threads holding a <code>&amp;RefCell</code> would lead to a data race, with potentially
+multiple threads obtaining mutable references to the same data. Hence <code>RefCell</code> is not <code>Sync</code>.<br>
+<code>Send</code> is fine, instead, because when we send a <code>RefCell</code> to another thread we&rsquo;re not
+leaving behind any references to the data it contains, hence no risk of concurrent mutable access.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

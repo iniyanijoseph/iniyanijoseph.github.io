@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Variables
+In Rust, you can use the let keyword to declare variables.
+For example:
+let x = 42;
+Above we defined a variable x and assigned it the value 42.
+Type
+Every variable in Rust must have a type. It can either be inferred by the compiler or explicitly specified by the
+developer.
+Explicit type annotation
+You can specify the variable type by adding a colon : followed by the type after the variable name. For example:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/02_variables/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/02_variables/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Variables
+In Rust, you can use the let keyword to declare variables.
+For example:
+let x = 42;
+Above we defined a variable x and assigned it the value 42.
+Type
+Every variable in Rust must have a type. It can either be inferred by the compiler or explicitly specified by the
+developer.
+Explicit type annotation
+You can specify the variable type by adding a colon : followed by the type after the variable name. For example:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/02_variables/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Variables
+In Rust, you can use the let keyword to declare variables.
+For example:
+let x = 42;
+Above we defined a variable x and assigned it the value 42.
+Type
+Every variable in Rust must have a type. It can either be inferred by the compiler or explicitly specified by the
+developer.
+Explicit type annotation
+You can specify the variable type by adding a colon : followed by the type after the variable name. For example:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/02_variables/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Variables In Rust, you can use the let keyword to declare variables.\nFor example:\nlet x = 42; Above we defined a variable x and assigned it the value 42.\nType Every variable in Rust must have a type. It can either be inferred by the compiler or explicitly specified by the developer.\nExplicit type annotation You can specify the variable type by adding a colon : followed by the type after the variable name. For example:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Variables In Rust, you can use the let keyword to declare variables.\nFor example:\nlet x = 42; Above we defined a variable x and assigned it the value 42.\nType Every variable in Rust must have a type. It can either be inferred by the compiler or explicitly specified by the developer.\nExplicit type annotation You can specify the variable type by adding a colon : followed by the type after the variable name. For example:\n// let : = ; let x: u32 = 42; In the example above, we explicitly constrained the type of x to be u32.\nType inference If we don’t specify the type of a variable, the compiler will try to infer it based on the context in which the variable is used.\nlet x = 42; let y: u32 = x; In the example above, we didn’t specify the type of x.\nx is later assigned to y, which is explicitly typed as u32. Since Rust doesn’t perform automatic type coercion, the compiler infers the type of x to be u32—the same as y and the only type that will allow the program to compile without errors.\nInference limitations The compiler sometimes needs a little help to infer the correct variable type based on its usage.\nIn those cases you’ll get a compilation error and the compiler will ask you to provide an explicit type hint to disambiguate the situation.\nFunction arguments are variables Not all heroes wear capes, not all variables are declared with let.\nFunction arguments are variables too!\nfn add_one(x: u32) -\u003e u32 { x + 1 } In the example above, x is a variable of type u32.\nThe only difference between x and a variable declared with let is that functions arguments must have their type explicitly declared. The compiler won’t infer it for you.\nThis constraint allows the Rust compiler (and us humans!) to understand the function’s signature without having to look at its implementation. That’s a big boost for compilation speed1!\nInitialization You don’t have to initialize a variable when you declare it.\nFor example\nlet x: u32; is a valid variable declaration.\nHowever, you must initialize the variable before using it. The compiler will throw an error if you don’t:\nlet x: u32; let y = x + 1; will throw a compilation error:\nerror[E0381]: used binding `x` isn't initialized --\u003e src/main.rs:3:9 | 2 | let x: u32; | - binding declared here but left uninitialized 3 | let y = x + 1; | ^ `x` used here but it isn't initialized | help: consider assigning a value | 2 | let x: u32 = 0; | +++ The Rust compiler needs all the help it can get when it comes to compilation speed. ↩︎\n",
+  "wordCount" : "461",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/02_variables/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="variables">Variables</h1>
+<p>In Rust, you can use the <code>let</code> keyword to declare <strong>variables</strong>.<br>
+For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#099">42</span>;<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Above we defined a variable <code>x</code> and assigned it the value <code>42</code>.</p>
+<h2 id="type">Type</h2>
+<p>Every variable in Rust must have a type. It can either be inferred by the compiler or explicitly specified by the
+developer.</p>
+<h3 id="explicit-type-annotation">Explicit type annotation</h3>
+<p>You can specify the variable type by adding a colon <code>:</code> followed by the type after the variable name. For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// let &lt;variable_name&gt;: &lt;type&gt; = &lt;expression&gt;;
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>x: <span style="color:#0aa">u32</span> =<span style="color:#bbb"> </span><span style="color:#099">42</span>;<span style="color:#bbb">
+</span></span></span></code></pre></div><p>In the example above, we explicitly constrained the type of <code>x</code> to be <code>u32</code>.</p>
+<h3 id="type-inference">Type inference</h3>
+<p>If we don&rsquo;t specify the type of a variable, the compiler will try to infer it based on the context in which the variable
+is used.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#099">42</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>y: <span style="color:#0aa">u32</span> =<span style="color:#bbb"> </span>x;<span style="color:#bbb">
+</span></span></span></code></pre></div><p>In the example above, we didn&rsquo;t specify the type of <code>x</code>.<br>
+<code>x</code> is later assigned to <code>y</code>, which is explicitly typed as <code>u32</code>. Since Rust doesn&rsquo;t perform automatic type coercion,
+the compiler infers the type of <code>x</code> to be <code>u32</code>—the same as <code>y</code> and the only type that will allow the program to compile
+without errors.</p>
+<h3 id="inference-limitations">Inference limitations</h3>
+<p>The compiler sometimes needs a little help to infer the correct variable type based on its usage.<br>
+In those cases you&rsquo;ll get a compilation error and the compiler will ask you to provide an explicit type hint to
+disambiguate the situation.</p>
+<h2 id="function-arguments-are-variables">Function arguments are variables</h2>
+<p>Not all heroes wear capes, not all variables are declared with <code>let</code>.<br>
+Function arguments are variables too!</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">fn</span> <span style="color:#0a0">add_one</span>(x: <span style="color:#0aa">u32</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">u32</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>x<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#099">1</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>In the example above, <code>x</code> is a variable of type <code>u32</code>.<br>
+The only difference between <code>x</code> and a variable declared with <code>let</code> is that functions arguments <strong>must</strong> have their type
+explicitly declared. The compiler won&rsquo;t infer it for you.<br>
+This constraint allows the Rust compiler (and us humans!) to understand the function&rsquo;s signature without having to look
+at its implementation. That&rsquo;s a big boost for compilation speed<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>!</p>
+<h2 id="initialization">Initialization</h2>
+<p>You don&rsquo;t have to initialize a variable when you declare it.<br>
+For example</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>x: <span style="color:#0aa">u32</span>;<span style="color:#bbb">
+</span></span></span></code></pre></div><p>is a valid variable declaration.<br>
+However, you must initialize the variable before using it. The compiler will throw an error if you don&rsquo;t:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>x: <span style="color:#0aa">u32</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>y<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#099">1</span>;<span style="color:#bbb">
+</span></span></span></code></pre></div><p>will throw a compilation error:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>error[E0381]: used binding `x` isn&#39;t initialized
+</span></span><span style="display:flex;"><span> --&gt; src/main.rs:3:9
+</span></span><span style="display:flex;"><span>  |
+</span></span><span style="display:flex;"><span>2 | let x: u32;
+</span></span><span style="display:flex;"><span>  |     - binding declared here but left uninitialized
+</span></span><span style="display:flex;"><span>3 | let y = x + 1;
+</span></span><span style="display:flex;"><span>  |         ^ `x` used here but it isn&#39;t initialized
+</span></span><span style="display:flex;"><span>  |
+</span></span><span style="display:flex;"><span>help: consider assigning a value
+</span></span><span style="display:flex;"><span>  |
+</span></span><span style="display:flex;"><span>2 | let x: u32 = 0;
+</span></span><span style="display:flex;"><span>  |            +++
+</span></span></code></pre></div><div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>The Rust compiler needs all the help it can get when it comes to compilation speed.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+/home/wug/Desktop/iniyanijoseph.github.io/content/projects/rustexercises/target/debug/libwelcome_00.rlib: /home/wug/Desktop/iniyanijoseph.github.io/content/projects/rustexercises/exercises/01_intro/00_welcome/src/lib.rs

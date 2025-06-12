@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Copying values, pt. 2
+Let&rsquo;s consider the same example as before, but with a slight twist: using u32 rather than String as a type.
+fn consumer(s: u32) { /* */ }
+
+fn example() {
+     let s: u32 = 5;
+     consumer(s);
+     let t = s &#43; 1;
+}
+It&rsquo;ll compile without errors! What&rsquo;s going on here? What&rsquo;s the difference between String and u32
+that makes the latter work without .clone()?
+Copy
+Copy is another trait defined in Rust&rsquo;s standard library:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/12_copy/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/12_copy/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Copying values, pt. 2
+Let&rsquo;s consider the same example as before, but with a slight twist: using u32 rather than String as a type.
+fn consumer(s: u32) { /* */ }
+
+fn example() {
+     let s: u32 = 5;
+     consumer(s);
+     let t = s &#43; 1;
+}
+It&rsquo;ll compile without errors! What&rsquo;s going on here? What&rsquo;s the difference between String and u32
+that makes the latter work without .clone()?
+Copy
+Copy is another trait defined in Rust&rsquo;s standard library:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/04_traits/12_copy/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Copying values, pt. 2
+Let&rsquo;s consider the same example as before, but with a slight twist: using u32 rather than String as a type.
+fn consumer(s: u32) { /* */ }
+
+fn example() {
+     let s: u32 = 5;
+     consumer(s);
+     let t = s &#43; 1;
+}
+It&rsquo;ll compile without errors! What&rsquo;s going on here? What&rsquo;s the difference between String and u32
+that makes the latter work without .clone()?
+Copy
+Copy is another trait defined in Rust&rsquo;s standard library:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/04_traits/12_copy/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Copying values, pt. 2 Let\u0026rsquo;s consider the same example as before, but with a slight twist: using u32 rather than String as a type.\nfn consumer(s: u32) { /* */ } fn example() { let s: u32 = 5; consumer(s); let t = s + 1; } It\u0026rsquo;ll compile without errors! What\u0026rsquo;s going on here? What\u0026rsquo;s the difference between String and u32 that makes the latter work without .clone()?\nCopy Copy is another trait defined in Rust\u0026rsquo;s standard library:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Copying values, pt. 2 Let’s consider the same example as before, but with a slight twist: using u32 rather than String as a type.\nfn consumer(s: u32) { /* */ } fn example() { let s: u32 = 5; consumer(s); let t = s + 1; } It’ll compile without errors! What’s going on here? What’s the difference between String and u32 that makes the latter work without .clone()?\nCopy Copy is another trait defined in Rust’s standard library:\npub trait Copy: Clone { } It is a marker trait, just like Sized.\nIf a type implements Copy, there’s no need to call .clone() to create a new instance of the type: Rust does it implicitly for you.\nu32 is an example of a type that implements Copy, which is why the example above compiles without errors: when consumer(s) is called, Rust creates a new u32 instance by performing a bitwise copy of s, and then passes that new instance to consumer. It all happens behind the scenes, without you having to do anything.\nWhat can be Copy? Copy is not equivalent to “automatic cloning”, although it implies it.\nTypes must meet a few requirements in order to be allowed to implement Copy.\nFirst of all, it must implement Clone, since Copy is a subtrait of Clone. This makes sense: if Rust can create a new instance of a type implicitly, it should also be able to create a new instance explicitly by calling .clone().\nThat’s not all, though. A few more conditions must be met:\nThe type doesn’t manage any additional resources (e.g. heap memory, file handles, etc.) beyond the std::mem::size_of bytes that it occupies in memory. The type is not a mutable reference (\u0026mut T). If both conditions are met, then Rust can safely create a new instance of the type by performing a bitwise copy of the original instance—this is often referred to as a memcpy operation, after the C standard library function that performs the bitwise copy.\nCase study 1: String String is a type that doesn’t implement Copy.\nWhy? Because it manages an additional resource: the heap-allocated memory buffer that stores the string’s data.\nLet’s imagine that Rust allowed String to implement Copy.\nThen, when a new String instance is created by performing a bitwise copy of the original instance, both the original and the new instance would point to the same memory buffer:\ns copied_s +---------+--------+----------+ +---------+--------+----------+ | pointer | length | capacity | | pointer | length | capacity | | | | 5 | 5 | | | | 5 | 5 | +--|------+--------+----------+ +--|------+--------+----------+ | | | | v | +---+---+---+---+---+ | | H | e | l | l | o | | +---+---+---+---+---+ | ^ | | | +------------------------------------+ This is bad! Both String instances would try to free the memory buffer when they go out of scope, leading to a double-free error. You could also create two distinct \u0026mut String references that point to the same memory buffer, violating Rust’s borrowing rules.\nCase study 2: u32 u32 implements Copy. All integer types do, in fact.\nAn integer is “just” the bytes that represent the number in memory. There’s nothing more! If you copy those bytes, you get another perfectly valid integer instance. Nothing bad can happen, so Rust allows it.\nCase study 3: \u0026mut u32 When we introduced ownership and mutable borrows, we stated one rule quite clearly: there can only ever be one mutable borrow of a value at any given time.\nThat’s why \u0026mut u32 doesn’t implement Copy, even though u32 does.\nIf \u0026mut u32 implemented Copy, you could create multiple mutable references to the same value and modify it in multiple places at the same time. That’d be a violation of Rust’s borrowing rules! It follows that \u0026mut T never implements Copy, no matter what T is.\nImplementing Copy In most cases, you don’t need to manually implement Copy. You can just derive it, like this:\n#[derive(Copy, Clone)] struct MyStruct { field: u32, } ",
+  "wordCount" : "669",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/04_traits/12_copy/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="copying-values-pt-2">Copying values, pt. 2</h1>
+<p>Let&rsquo;s consider the same example as before, but with a slight twist: using <code>u32</code> rather than <code>String</code> as a type.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">fn</span> <span style="color:#0a0">consumer</span>(s: <span style="color:#0aa">u32</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb"> </span><span style="color:#aaa;font-style:italic">/* */</span><span style="color:#bbb"> </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">fn</span> <span style="color:#0a0">example</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">     </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>s: <span style="color:#0aa">u32</span> =<span style="color:#bbb"> </span><span style="color:#099">5</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">     </span>consumer(s);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">     </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>t<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>s<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#099">1</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>It&rsquo;ll compile without errors! What&rsquo;s going on here? What&rsquo;s the difference between <code>String</code> and <code>u32</code>
+that makes the latter work without <code>.clone()</code>?</p>
+<h2 id="copy"><code>Copy</code></h2>
+<p><code>Copy</code> is another trait defined in Rust&rsquo;s standard library:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span><span style="color:#0aa">Copy</span>: <span style="color:#0aa">Clone</span> {<span style="color:#bbb"> </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>It is a marker trait, just like <code>Sized</code>.</p>
+<p>If a type implements <code>Copy</code>, there&rsquo;s no need to call <code>.clone()</code> to create a new instance of the type:
+Rust does it <strong>implicitly</strong> for you.<br>
+<code>u32</code> is an example of a type that implements <code>Copy</code>, which is why the example above compiles without errors:
+when <code>consumer(s)</code> is called, Rust creates a new <code>u32</code> instance by performing a <strong>bitwise copy</strong> of <code>s</code>,
+and then passes that new instance to <code>consumer</code>. It all happens behind the scenes, without you having to do anything.</p>
+<h2 id="what-can-be-copy">What can be <code>Copy</code>?</h2>
+<p><code>Copy</code> is not equivalent to &ldquo;automatic cloning&rdquo;, although it implies it.<br>
+Types must meet a few requirements in order to be allowed to implement <code>Copy</code>.</p>
+<p>First of all, it must implement <code>Clone</code>, since <code>Copy</code> is a subtrait of <code>Clone</code>.
+This makes sense: if Rust can create a new instance of a type <em>implicitly</em>, it should
+also be able to create a new instance <em>explicitly</em> by calling <code>.clone()</code>.</p>
+<p>That&rsquo;s not all, though. A few more conditions must be met:</p>
+<ol>
+<li>The type doesn&rsquo;t manage any <em>additional</em> resources (e.g. heap memory, file handles, etc.) beyond the <code>std::mem::size_of</code>
+bytes that it occupies in memory.</li>
+<li>The type is not a mutable reference (<code>&amp;mut T</code>).</li>
+</ol>
+<p>If both conditions are met, then Rust can safely create a new instance of the type by performing a <strong>bitwise copy</strong>
+of the original instance—this is often referred to as a <code>memcpy</code> operation, after the C standard library function
+that performs the bitwise copy.</p>
+<h3 id="case-study-1-string">Case study 1: <code>String</code></h3>
+<p><code>String</code> is a type that doesn&rsquo;t implement <code>Copy</code>.<br>
+Why? Because it manages an additional resource: the heap-allocated memory buffer that stores the string&rsquo;s data.</p>
+<p>Let&rsquo;s imagine that Rust allowed <code>String</code> to implement <code>Copy</code>.<br>
+Then, when a new <code>String</code> instance is created by performing a bitwise copy of the original instance, both the original
+and the new instance would point to the same memory buffer:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>              s                                 copied_s
+</span></span><span style="display:flex;"><span>+---------+--------+----------+      +---------+--------+----------+
+</span></span><span style="display:flex;"><span>| pointer | length | capacity |      | pointer | length | capacity |
+</span></span><span style="display:flex;"><span>|  |      |   5    |    5     |      |  |      |   5    |    5     |
+</span></span><span style="display:flex;"><span>+--|------+--------+----------+      +--|------+--------+----------+
+</span></span><span style="display:flex;"><span>   |                                    |
+</span></span><span style="display:flex;"><span>   |                                    |
+</span></span><span style="display:flex;"><span>   v                                    |
+</span></span><span style="display:flex;"><span> +---+---+---+---+---+                  |
+</span></span><span style="display:flex;"><span> | H | e | l | l | o |                  |
+</span></span><span style="display:flex;"><span> +---+---+---+---+---+                  |
+</span></span><span style="display:flex;"><span>   ^                                    |
+</span></span><span style="display:flex;"><span>   |                                    |
+</span></span><span style="display:flex;"><span>   +------------------------------------+
+</span></span></code></pre></div><p>This is bad!
+Both <code>String</code> instances would try to free the memory buffer when they go out of scope,
+leading to a double-free error.
+You could also create two distinct <code>&amp;mut String</code> references that point to the same memory buffer,
+violating Rust&rsquo;s borrowing rules.</p>
+<h3 id="case-study-2-u32">Case study 2: <code>u32</code></h3>
+<p><code>u32</code> implements <code>Copy</code>. All integer types do, in fact.<br>
+An integer is &ldquo;just&rdquo; the bytes that represent the number in memory. There&rsquo;s nothing more!
+If you copy those bytes, you get another perfectly valid integer instance.
+Nothing bad can happen, so Rust allows it.</p>
+<h3 id="case-study-3-mut-u32">Case study 3: <code>&amp;mut u32</code></h3>
+<p>When we introduced ownership and mutable borrows, we stated one rule quite clearly: there
+can only ever be <em>one</em> mutable borrow of a value at any given time.<br>
+That&rsquo;s why <code>&amp;mut u32</code> doesn&rsquo;t implement <code>Copy</code>, even though <code>u32</code> does.</p>
+<p>If <code>&amp;mut u32</code> implemented <code>Copy</code>, you could create multiple mutable references to
+the same value and modify it in multiple places at the same time.
+That&rsquo;d be a violation of Rust&rsquo;s borrowing rules!
+It follows that <code>&amp;mut T</code> never implements <code>Copy</code>, no matter what <code>T</code> is.</p>
+<h2 id="implementing-copy">Implementing <code>Copy</code></h2>
+<p>In most cases, you don&rsquo;t need to manually implement <code>Copy</code>.
+You can just derive it, like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#4c8317">#[derive(Copy, Clone)]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">MyStruct</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>field: <span style="color:#0aa">u32</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div>
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

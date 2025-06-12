@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Deref trait
+In the previous exercise you didn&rsquo;t have to do much, did you?
+Changing
+impl Ticket {
+    pub fn title(&amp;self) -&gt; &amp;String {
+        &amp;self.title
+    }
+}
+to
+impl Ticket {
+    pub fn title(&amp;self) -&gt; &amp;str {
+        &amp;self.title
+    }
+}
+was all you needed to do to get the code to compile and the tests to pass.
+Some alarm bells should be ringing in your head though.
+It shouldn&rsquo;t work, but it does
+Let&rsquo;s review the facts:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/07_deref/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/07_deref/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Deref trait
+In the previous exercise you didn&rsquo;t have to do much, did you?
+Changing
+impl Ticket {
+    pub fn title(&amp;self) -&gt; &amp;String {
+        &amp;self.title
+    }
+}
+to
+impl Ticket {
+    pub fn title(&amp;self) -&gt; &amp;str {
+        &amp;self.title
+    }
+}
+was all you needed to do to get the code to compile and the tests to pass.
+Some alarm bells should be ringing in your head though.
+It shouldn&rsquo;t work, but it does
+Let&rsquo;s review the facts:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/04_traits/07_deref/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Deref trait
+In the previous exercise you didn&rsquo;t have to do much, did you?
+Changing
+impl Ticket {
+    pub fn title(&amp;self) -&gt; &amp;String {
+        &amp;self.title
+    }
+}
+to
+impl Ticket {
+    pub fn title(&amp;self) -&gt; &amp;str {
+        &amp;self.title
+    }
+}
+was all you needed to do to get the code to compile and the tests to pass.
+Some alarm bells should be ringing in your head though.
+It shouldn&rsquo;t work, but it does
+Let&rsquo;s review the facts:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/04_traits/07_deref/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Deref trait In the previous exercise you didn\u0026rsquo;t have to do much, did you?\nChanging\nimpl Ticket { pub fn title(\u0026amp;self) -\u0026gt; \u0026amp;String { \u0026amp;self.title } } to\nimpl Ticket { pub fn title(\u0026amp;self) -\u0026gt; \u0026amp;str { \u0026amp;self.title } } was all you needed to do to get the code to compile and the tests to pass. Some alarm bells should be ringing in your head though.\nIt shouldn\u0026rsquo;t work, but it does Let\u0026rsquo;s review the facts:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Deref trait In the previous exercise you didn’t have to do much, did you?\nChanging\nimpl Ticket { pub fn title(\u0026self) -\u003e \u0026String { \u0026self.title } } to\nimpl Ticket { pub fn title(\u0026self) -\u003e \u0026str { \u0026self.title } } was all you needed to do to get the code to compile and the tests to pass. Some alarm bells should be ringing in your head though.\nIt shouldn’t work, but it does Let’s review the facts:\nself.title is a String \u0026self.title is, therefore, a \u0026String The output of the (modified) title method is \u0026str You would expect a compiler error, wouldn’t you? Expected \u0026String, found \u0026str or something similar. Instead, it just works. Why?\nDeref to the rescue The Deref trait is the mechanism behind the language feature known as deref coercion .\nThe trait is defined in the standard library, in the std::ops module:\n// I've slightly simplified the definition for now. // We'll see the full definition later on. pub trait Deref { type Target; fn deref(\u0026self) -\u003e \u0026Self::Target; } type Target is an associated type.\nIt’s a placeholder for a concrete type that must be specified when the trait is implemented.\nDeref coercion By implementing Deref",
+  "wordCount" : "383",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/04_traits/07_deref/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="deref-trait"><code>Deref</code> trait</h1>
+<p>In the previous exercise you didn&rsquo;t have to do much, did you?</p>
+<p>Changing</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">title</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#00a">&amp;</span><span style="color:#0aa">String</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>&amp;<span style="color:#0aa">self</span>.title<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>to</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Ticket<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">title</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#00a">&amp;</span><span style="color:#0aa">str</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>&amp;<span style="color:#0aa">self</span>.title<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>was all you needed to do to get the code to compile and the tests to pass.
+Some alarm bells should be ringing in your head though.</p>
+<h2 id="it-shouldnt-work-but-it-does">It shouldn&rsquo;t work, but it does</h2>
+<p>Let&rsquo;s review the facts:</p>
+<ul>
+<li><code>self.title</code> is a <code>String</code></li>
+<li><code>&amp;self.title</code> is, therefore, a <code>&amp;String</code></li>
+<li>The output of the (modified) <code>title</code> method is <code>&amp;str</code></li>
+</ul>
+<p>You would expect a compiler error, wouldn&rsquo;t you? <code>Expected &amp;String, found &amp;str</code> or something similar.
+Instead, it just works. <strong>Why</strong>?</p>
+<h2 id="deref-to-the-rescue"><code>Deref</code> to the rescue</h2>
+<p>The <code>Deref</code> trait is the mechanism behind the language feature known as <a href="https://doc.rust-lang.org/std/ops/trait.Deref.html#deref-coercion" target="_blank"><strong>deref coercion</strong></a>
+.<br>
+The trait is defined in the standard library, in the <code>std::ops</code> module:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// I&#39;ve slightly simplified the definition for now.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// We&#39;ll see the full definition later on.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span>Deref<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">Target</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">deref</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#00a">&amp;</span><span style="color:#0a0;text-decoration:underline">Self</span>::Target;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>type Target</code> is an <strong>associated type</strong>.<br>
+It&rsquo;s a placeholder for a concrete type that must be specified when the trait is implemented.</p>
+<h2 id="deref-coercion">Deref coercion</h2>
+<p>By implementing <code>Deref&lt;Target = U&gt;</code> for a type <code>T</code> you&rsquo;re telling the compiler that <code>&amp;T</code> and <code>&amp;U</code> are
+somewhat interchangeable.<br>
+In particular, you get the following behavior:</p>
+<ul>
+<li>References to <code>T</code> are implicitly converted into references to <code>U</code> (i.e. <code>&amp;T</code> becomes <code>&amp;U</code>)</li>
+<li>You can call on <code>&amp;T</code> all the methods defined on <code>U</code> that take <code>&amp;self</code> as input.</li>
+</ul>
+<p>There is one more thing around the dereference operator, <code>*</code>, but we don&rsquo;t need it yet (see <code>std</code>&rsquo;s docs
+if you&rsquo;re curious).</p>
+<h2 id="string-implements-deref"><code>String</code> implements <code>Deref</code></h2>
+<p><code>String</code> implements <code>Deref</code> with <code>Target = str</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Deref<span style="color:#bbb"> </span><span style="color:#00a">for</span><span style="color:#bbb"> </span><span style="color:#0aa">String</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">Target</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">str</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">deref</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#00a">&amp;</span><span style="color:#0aa">str</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Thanks to this implementation and deref coercion, a <code>&amp;String</code> is automatically converted into a <code>&amp;str</code> when needed.</p>
+<h2 id="dont-abuse-deref-coercion">Don&rsquo;t abuse deref coercion</h2>
+<p>Deref coercion is a powerful feature, but it can lead to confusion.<br>
+Automatically converting types can make the code harder to read and understand. If a method with the same name
+is defined on both <code>T</code> and <code>U</code>, which one will be called?</p>
+<p>We&rsquo;ll examine later in the course the &ldquo;safest&rdquo; use cases for deref coercion: smart pointers.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

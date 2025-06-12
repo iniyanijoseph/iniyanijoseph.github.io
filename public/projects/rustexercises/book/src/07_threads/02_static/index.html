@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="&#39;static
+If you tried to borrow a slice from the vector in the previous exercise,
+you probably got a compiler error that looks something like this:
+error[E0597]: `v` does not live long enough
+   |
+11 | pub fn sum(v: Vec&lt;i32&gt;) -&gt; i32 {
+   |            - binding `v` declared here
+...
+15 |     let right = &amp;v[split_point..];
+   |                  ^ borrowed value does not live long enough
+16 |     let left_handle = spawn(move || left.iter().sum::&lt;i32&gt;());
+   |                             -------------------------------- 
+                     argument requires that `v` is borrowed for `&#39;static`
+19 | }
+   |  - `v` dropped here while still borrowed
+argument requires that v is borrowed for &#39;static, what does that mean?">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/02_static/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/02_static/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="&#39;static
+If you tried to borrow a slice from the vector in the previous exercise,
+you probably got a compiler error that looks something like this:
+error[E0597]: `v` does not live long enough
+   |
+11 | pub fn sum(v: Vec&lt;i32&gt;) -&gt; i32 {
+   |            - binding `v` declared here
+...
+15 |     let right = &amp;v[split_point..];
+   |                  ^ borrowed value does not live long enough
+16 |     let left_handle = spawn(move || left.iter().sum::&lt;i32&gt;());
+   |                             -------------------------------- 
+                     argument requires that `v` is borrowed for `&#39;static`
+19 | }
+   |  - `v` dropped here while still borrowed
+argument requires that v is borrowed for &#39;static, what does that mean?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/07_threads/02_static/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="&#39;static
+If you tried to borrow a slice from the vector in the previous exercise,
+you probably got a compiler error that looks something like this:
+error[E0597]: `v` does not live long enough
+   |
+11 | pub fn sum(v: Vec&lt;i32&gt;) -&gt; i32 {
+   |            - binding `v` declared here
+...
+15 |     let right = &amp;v[split_point..];
+   |                  ^ borrowed value does not live long enough
+16 |     let left_handle = spawn(move || left.iter().sum::&lt;i32&gt;());
+   |                             -------------------------------- 
+                     argument requires that `v` is borrowed for `&#39;static`
+19 | }
+   |  - `v` dropped here while still borrowed
+argument requires that v is borrowed for &#39;static, what does that mean?"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/07_threads/02_static/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "'static If you tried to borrow a slice from the vector in the previous exercise, you probably got a compiler error that looks something like this:\nerror[E0597]: `v` does not live long enough | 11 | pub fn sum(v: Vec\u0026lt;i32\u0026gt;) -\u0026gt; i32 { | - binding `v` declared here ... 15 | let right = \u0026amp;v[split_point..]; | ^ borrowed value does not live long enough 16 | let left_handle = spawn(move || left.iter().sum::\u0026lt;i32\u0026gt;()); | -------------------------------- argument requires that `v` is borrowed for `\u0026#39;static` 19 | } | - `v` dropped here while still borrowed argument requires that v is borrowed for 'static, what does that mean?\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "'static If you tried to borrow a slice from the vector in the previous exercise, you probably got a compiler error that looks something like this:\nerror[E0597]: `v` does not live long enough | 11 | pub fn sum(v: Vec) -\u003e i32 { | - binding `v` declared here ... 15 | let right = \u0026v[split_point..]; | ^ borrowed value does not live long enough 16 | let left_handle = spawn(move || left.iter().sum::()); | -------------------------------- argument requires that `v` is borrowed for `'static` 19 | } | - `v` dropped here while still borrowed argument requires that v is borrowed for 'static, what does that mean?\nThe 'static lifetime is a special lifetime in Rust.\nIt means that the value will be valid for the entire duration of the program.\nDetached threads A thread launched via thread::spawn can outlive the thread that spawned it.\nFor example:\nuse std::thread; fn f() { thread::spawn(|| { thread::spawn(|| { loop { thread::sleep(std::time::Duration::from_secs(1)); println!(\"Hello from the detached thread!\"); } }); }); } In this example, the first spawned thread will in turn spawn a child thread that prints a message every second.\nThe first thread will then finish and exit. When that happens, its child thread will continue running for as long as the overall process is running.\nIn Rust’s lingo, we say that the child thread has outlived its parent.\n'static lifetime Since a spawned thread can:\noutlive the thread that spawned it (its parent thread) run until the program exits it must not borrow any values that might be dropped before the program exits; violating this constraint would expose us to a use-after-free bug.\nThat’s why std::thread::spawn’s signature requires that the closure passed to it has the 'static lifetime:\npub fn spawn",
+  "wordCount" : "524",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/07_threads/02_static/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="static"><code>'static</code></h1>
+<p>If you tried to borrow a slice from the vector in the previous exercise,
+you probably got a compiler error that looks something like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>error[E0597]: `v` does not live long enough
+</span></span><span style="display:flex;"><span>   |
+</span></span><span style="display:flex;"><span>11 | pub fn sum(v: Vec&lt;i32&gt;) -&gt; i32 {
+</span></span><span style="display:flex;"><span>   |            - binding `v` declared here
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>15 |     let right = &amp;v[split_point..];
+</span></span><span style="display:flex;"><span>   |                  ^ borrowed value does not live long enough
+</span></span><span style="display:flex;"><span>16 |     let left_handle = spawn(move || left.iter().sum::&lt;i32&gt;());
+</span></span><span style="display:flex;"><span>   |                             -------------------------------- 
+</span></span><span style="display:flex;"><span>                     argument requires that `v` is borrowed for `&#39;static`
+</span></span><span style="display:flex;"><span>19 | }
+</span></span><span style="display:flex;"><span>   |  - `v` dropped here while still borrowed
+</span></span></code></pre></div><p><code>argument requires that v is borrowed for 'static</code>, what does that mean?</p>
+<p>The <code>'static</code> lifetime is a special lifetime in Rust.<br>
+It means that the value will be valid for the entire duration of the program.</p>
+<h2 id="detached-threads">Detached threads</h2>
+<p>A thread launched via <code>thread::spawn</code> can <strong>outlive</strong> the thread that spawned it.<br>
+For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::thread;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">fn</span> <span style="color:#0a0">f</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>thread::spawn(||<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>thread::spawn(||<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#00a">loop</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>thread::sleep(std::time::Duration::from_secs(<span style="color:#099">1</span>));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#0a0">println!</span>(<span style="color:#a50">&#34;Hello from the detached thread!&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>});<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>});<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>In this example, the first spawned thread will in turn spawn
+a child thread that prints a message every second.<br>
+The first thread will then finish and exit. When that happens,
+its child thread will <strong>continue running</strong> for as long as the
+overall process is running.<br>
+In Rust&rsquo;s lingo, we say that the child thread has <strong>outlived</strong>
+its parent.</p>
+<h2 id="static-lifetime"><code>'static</code> lifetime</h2>
+<p>Since a spawned thread can:</p>
+<ul>
+<li>outlive the thread that spawned it (its parent thread)</li>
+<li>run until the program exits</li>
+</ul>
+<p>it must not borrow any values that might be dropped before the program exits;
+violating this constraint would expose us to a use-after-free bug.<br>
+That&rsquo;s why <code>std::thread::spawn</code>&rsquo;s signature requires that the closure passed to it
+has the <code>'static</code> lifetime:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">spawn</span>&lt;F,<span style="color:#bbb"> </span>T&gt;(f: <span style="color:#0a0;text-decoration:underline">F</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">JoinHandle</span>&lt;T&gt;<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">where</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>F: <span style="color:#0aa">FnOnce</span>()<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">T</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#0aa">Send</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#0aa">&#39;static</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>T: <span style="color:#0aa">Send</span> +<span style="color:#bbb"> </span><span style="color:#0aa">&#39;static</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// [..]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="static-is-not-just-about-references"><code>'static</code> is not (just) about references</h2>
+<p>All values in Rust have a lifetime, not just references.</p>
+<p>In particular, a type that owns its data (like a <code>Vec</code> or a <code>String</code>)
+satisfies the <code>'static</code> constraint: if you own it, you can keep working with it
+for as long as you want, even after the function that originally created it
+has returned.</p>
+<p>You can thus interpret <code>'static</code> as a way to say:</p>
+<ul>
+<li>Give me an owned value</li>
+<li>Give me a reference that&rsquo;s valid for the entire duration of the program</li>
+</ul>
+<p>The first approach is how you solved the issue in the previous exercise:
+by allocating new vectors to hold the left and right parts of the original vector,
+which were then moved into the spawned threads.</p>
+<h2 id="static-references"><code>'static</code> references</h2>
+<p>Let&rsquo;s talk about the second case, references that are valid for the entire
+duration of the program.</p>
+<h3 id="static-data">Static data</h3>
+<p>The most common case is a reference to <strong>static data</strong>, such as string literals:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>s: <span style="color:#00a">&amp;</span><span style="color:#0aa">&#39;static</span> <span style="color:#0aa">str</span> =<span style="color:#bbb"> </span><span style="color:#a50">&#34;Hello world!&#34;</span>;<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Since string literals are known at compile-time, Rust stores them <em>inside</em> your executable,
+in a region known as <strong>read-only data segment</strong>.
+All references pointing to that region will therefore be valid for as long as
+the program runs; they satisfy the <code>'static</code> contract.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Data_segment" target="_blank">The data segment</a>
+</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

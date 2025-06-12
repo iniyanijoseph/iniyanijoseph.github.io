@@ -1,0 +1,1 @@
+/home/wug/Desktop/iniyanijoseph.github.io/content/projects/rustexercises/target/debug/libfactorial.rlib: /home/wug/Desktop/iniyanijoseph.github.io/content/projects/rustexercises/exercises/02_basic_calculator/05_factorial/src/lib.rs

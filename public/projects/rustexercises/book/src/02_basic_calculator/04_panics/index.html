@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Panics
+Let&rsquo;s go back to the speed function you wrote for the &ldquo;Variables&rdquo; section
+.
+It probably looked something like this:
+fn speed(start: u32, end: u32, time_elapsed: u32) -&gt; u32 {
+    let distance = end - start;
+    distance / time_elapsed
+}
+If you have a keen eye, you might have spotted one issue1: what happens if time_elapsed is zero?
+You can try it
+out on the Rust playground
+!
+The program will exit with the following error message:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/04_panics/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/04_panics/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Panics
+Let&rsquo;s go back to the speed function you wrote for the &ldquo;Variables&rdquo; section
+.
+It probably looked something like this:
+fn speed(start: u32, end: u32, time_elapsed: u32) -&gt; u32 {
+    let distance = end - start;
+    distance / time_elapsed
+}
+If you have a keen eye, you might have spotted one issue1: what happens if time_elapsed is zero?
+You can try it
+out on the Rust playground
+!
+The program will exit with the following error message:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/04_panics/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Panics
+Let&rsquo;s go back to the speed function you wrote for the &ldquo;Variables&rdquo; section
+.
+It probably looked something like this:
+fn speed(start: u32, end: u32, time_elapsed: u32) -&gt; u32 {
+    let distance = end - start;
+    distance / time_elapsed
+}
+If you have a keen eye, you might have spotted one issue1: what happens if time_elapsed is zero?
+You can try it
+out on the Rust playground
+!
+The program will exit with the following error message:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/04_panics/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Panics Let\u0026rsquo;s go back to the speed function you wrote for the \u0026ldquo;Variables\u0026rdquo; section . It probably looked something like this:\nfn speed(start: u32, end: u32, time_elapsed: u32) -\u0026gt; u32 { let distance = end - start; distance / time_elapsed } If you have a keen eye, you might have spotted one issue1: what happens if time_elapsed is zero?\nYou can try it out on the Rust playground !\nThe program will exit with the following error message:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Panics Let’s go back to the speed function you wrote for the “Variables” section . It probably looked something like this:\nfn speed(start: u32, end: u32, time_elapsed: u32) -\u003e u32 { let distance = end - start; distance / time_elapsed } If you have a keen eye, you might have spotted one issue1: what happens if time_elapsed is zero?\nYou can try it out on the Rust playground !\nThe program will exit with the following error message:\nthread 'main' panicked at src/main.rs:3:5: attempt to divide by zero This is known as a panic.\nA panic is Rust’s way to signal that something went so wrong that the program can’t continue executing, it’s an unrecoverable error2. Division by zero classifies as such an error.\nThe panic! macro You can intentionally trigger a panic by calling the panic! macro3:\nfn main() { panic!(\"This is a panic!\"); // The line below will never be executed let x = 1 + 2; } There are other mechanisms to work with recoverable errors in Rust, which we’ll cover later . For the time being we’ll stick with panics as a brutal but simple stopgap solution.\nFurther reading The panic! macro documentation There’s another issue with speed that we’ll address soon enough. Can you spot it? ↩︎\nYou can try to catch a panic, but it should be a last resort attempt reserved for very specific circumstances. ↩︎\nIf it’s followed by a !, it’s a macro invocation. Think of macros as spicy functions for now. We’ll cover them in more detail later in the course. ↩︎\n",
+  "wordCount" : "259",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/02_basic_calculator/04_panics/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="panics">Panics</h1>
+<p>Let&rsquo;s go back to the <code>speed</code> function you wrote for the <a href="02_variables.md">&ldquo;Variables&rdquo; section</a>
+.
+It probably looked something like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">fn</span> <span style="color:#0a0">speed</span>(start: <span style="color:#0aa">u32</span>,<span style="color:#bbb"> </span>end: <span style="color:#0aa">u32</span>,<span style="color:#bbb"> </span>time_elapsed: <span style="color:#0aa">u32</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">u32</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>distance<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>end<span style="color:#bbb"> </span>-<span style="color:#bbb"> </span>start;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>distance<span style="color:#bbb"> </span>/<span style="color:#bbb"> </span>time_elapsed<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>If you have a keen eye, you might have spotted one issue<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>: what happens if <code>time_elapsed</code> is zero?</p>
+<p>You can try it
+out <a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2021&amp;gist=36e5ddbe3b3f741dfa9f74c956622bac" target="_blank">on the Rust playground</a>
+!<br>
+The program will exit with the following error message:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>thread &#39;main&#39; panicked at src/main.rs:3:5:
+</span></span><span style="display:flex;"><span>attempt to divide by zero
+</span></span></code></pre></div><p>This is known as a <strong>panic</strong>.<br>
+A panic is Rust&rsquo;s way to signal that something went so wrong that
+the program can&rsquo;t continue executing, it&rsquo;s an <strong>unrecoverable error</strong><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. Division by zero classifies as such an
+error.</p>
+<h2 id="the-panic-macro">The panic! macro</h2>
+<p>You can intentionally trigger a panic by calling the <code>panic!</code> macro<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">fn</span> <span style="color:#0a0">main</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#0a0">panic!</span>(<span style="color:#a50">&#34;This is a panic!&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// The line below will never be executed
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#099">1</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#099">2</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>There are other mechanisms to work with recoverable errors in Rust, which <a href="../05_ticket_v2/06_fallibility.md">we&rsquo;ll cover later</a>
+.
+For the time being we&rsquo;ll stick with panics as a brutal but simple stopgap solution.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://doc.rust-lang.org/std/macro.panic.html" target="_blank">The panic! macro documentation</a>
+</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>There&rsquo;s another issue with <code>speed</code> that we&rsquo;ll address soon enough. Can you spot it?&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>You can try to catch a panic, but it should be a last resort attempt reserved for very specific
+circumstances.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>If it&rsquo;s followed by a <code>!</code>, it&rsquo;s a macro invocation. Think of macros as spicy functions for now. We&rsquo;ll
+cover them in more detail later in the course.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

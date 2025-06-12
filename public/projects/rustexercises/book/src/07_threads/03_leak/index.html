@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Leaking data
+The main concern around passing references to spawned threads is use-after-free bugs:
+accessing data using a pointer to a memory region that&rsquo;s already been freed/de-allocated.
+If you&rsquo;re working with heap-allocated data, you can avoid the issue by
+telling Rust that you&rsquo;ll never reclaim that memory: you choose to leak memory,
+intentionally.
+This can be done, for example, using the Box::leak method from Rust&rsquo;s standard library:
+// Allocate a `u32` on the heap, by wrapping it in a `Box`.
+let x = Box::new(41u32);
+// Tell Rust that you&#39;ll never free that heap allocation
+// using `Box::leak`. You can thus get back a &#39;static reference.
+let static_ref: &amp;&#39;static mut u32 = Box::leak(x);
+Data leakage is process-scoped
+Leaking data is dangerous: if you keep leaking memory, you&rsquo;ll eventually
+run out and crash with an out-of-memory error.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/03_leak/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/03_leak/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Leaking data
+The main concern around passing references to spawned threads is use-after-free bugs:
+accessing data using a pointer to a memory region that&rsquo;s already been freed/de-allocated.
+If you&rsquo;re working with heap-allocated data, you can avoid the issue by
+telling Rust that you&rsquo;ll never reclaim that memory: you choose to leak memory,
+intentionally.
+This can be done, for example, using the Box::leak method from Rust&rsquo;s standard library:
+// Allocate a `u32` on the heap, by wrapping it in a `Box`.
+let x = Box::new(41u32);
+// Tell Rust that you&#39;ll never free that heap allocation
+// using `Box::leak`. You can thus get back a &#39;static reference.
+let static_ref: &amp;&#39;static mut u32 = Box::leak(x);
+Data leakage is process-scoped
+Leaking data is dangerous: if you keep leaking memory, you&rsquo;ll eventually
+run out and crash with an out-of-memory error." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/07_threads/03_leak/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Leaking data
+The main concern around passing references to spawned threads is use-after-free bugs:
+accessing data using a pointer to a memory region that&rsquo;s already been freed/de-allocated.
+If you&rsquo;re working with heap-allocated data, you can avoid the issue by
+telling Rust that you&rsquo;ll never reclaim that memory: you choose to leak memory,
+intentionally.
+This can be done, for example, using the Box::leak method from Rust&rsquo;s standard library:
+// Allocate a `u32` on the heap, by wrapping it in a `Box`.
+let x = Box::new(41u32);
+// Tell Rust that you&#39;ll never free that heap allocation
+// using `Box::leak`. You can thus get back a &#39;static reference.
+let static_ref: &amp;&#39;static mut u32 = Box::leak(x);
+Data leakage is process-scoped
+Leaking data is dangerous: if you keep leaking memory, you&rsquo;ll eventually
+run out and crash with an out-of-memory error."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/07_threads/03_leak/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Leaking data The main concern around passing references to spawned threads is use-after-free bugs: accessing data using a pointer to a memory region that\u0026rsquo;s already been freed/de-allocated.\nIf you\u0026rsquo;re working with heap-allocated data, you can avoid the issue by telling Rust that you\u0026rsquo;ll never reclaim that memory: you choose to leak memory, intentionally.\nThis can be done, for example, using the Box::leak method from Rust\u0026rsquo;s standard library:\n// Allocate a `u32` on the heap, by wrapping it in a `Box`. let x = Box::new(41u32); // Tell Rust that you\u0026#39;ll never free that heap allocation // using `Box::leak`. You can thus get back a \u0026#39;static reference. let static_ref: \u0026amp;\u0026#39;static mut u32 = Box::leak(x); Data leakage is process-scoped Leaking data is dangerous: if you keep leaking memory, you\u0026rsquo;ll eventually run out and crash with an out-of-memory error.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Leaking data The main concern around passing references to spawned threads is use-after-free bugs: accessing data using a pointer to a memory region that’s already been freed/de-allocated.\nIf you’re working with heap-allocated data, you can avoid the issue by telling Rust that you’ll never reclaim that memory: you choose to leak memory, intentionally.\nThis can be done, for example, using the Box::leak method from Rust’s standard library:\n// Allocate a `u32` on the heap, by wrapping it in a `Box`. let x = Box::new(41u32); // Tell Rust that you'll never free that heap allocation // using `Box::leak`. You can thus get back a 'static reference. let static_ref: \u0026'static mut u32 = Box::leak(x); Data leakage is process-scoped Leaking data is dangerous: if you keep leaking memory, you’ll eventually run out and crash with an out-of-memory error.\n// If you leave this running for a while, // it'll eventually use all the available memory. fn oom_trigger() { loop { let v: Vec\u003cusize\u003e = Vec::with_capacity(1024); v.leak(); } } At the same time, memory leaked via leak method is not truly forgotten.\nThe operating system can map each memory region to the process responsible for it. When the process exits, the operating system will reclaim that memory.\nKeeping this in mind, it can be OK to leak memory when:\nThe amount of memory you need to leak is bounded/known upfront, or Your process is short-lived and you’re confident you won’t exhaust all the available memory before it exits “Let the OS deal with it” is a perfectly valid memory management strategy if your usecase allows for it.\n",
+  "wordCount" : "263",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/07_threads/03_leak/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="leaking-data">Leaking data</h1>
+<p>The main concern around passing references to spawned threads is use-after-free bugs:
+accessing data using a pointer to a memory region that&rsquo;s already been freed/de-allocated.<br>
+If you&rsquo;re working with heap-allocated data, you can avoid the issue by
+telling Rust that you&rsquo;ll never reclaim that memory: you choose to <strong>leak memory</strong>,
+intentionally.</p>
+<p>This can be done, for example, using the <code>Box::leak</code> method from Rust&rsquo;s standard library:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// Allocate a `u32` on the heap, by wrapping it in a `Box`.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">Box</span>::new(<span style="color:#099">41</span><span style="color:#00a">u32</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// Tell Rust that you&#39;ll never free that heap allocation
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// using `Box::leak`. You can thus get back a &#39;static reference.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>static_ref: <span style="color:#00a">&amp;</span><span style="color:#0aa">&#39;static</span> <span style="color:#0a0;text-decoration:underline">mut</span><span style="color:#bbb"> </span><span style="color:#0aa">u32</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">Box</span>::leak(x);<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="data-leakage-is-process-scoped">Data leakage is process-scoped</h2>
+<p>Leaking data is dangerous: if you keep leaking memory, you&rsquo;ll eventually
+run out and crash with an out-of-memory error.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// If you leave this running for a while, 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// it&#39;ll eventually use all the available memory.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">fn</span> <span style="color:#0a0">oom_trigger</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">loop</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#00a">let</span><span style="color:#bbb"> </span>v: <span style="color:#0aa">Vec</span>&lt;<span style="color:#0aa">usize</span>&gt;<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">Vec</span>::with_capacity(<span style="color:#099">1024</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>v.leak();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>At the same time, memory leaked via <code>leak</code> method is not truly forgotten.<br>
+The operating system can map each memory region to the process responsible for it.
+When the process exits, the operating system will reclaim that memory.</p>
+<p>Keeping this in mind, it can be OK to leak memory when:</p>
+<ul>
+<li>The amount of memory you need to leak is bounded/known upfront, or</li>
+<li>Your process is short-lived and you&rsquo;re confident you won&rsquo;t exhaust
+all the available memory before it exits</li>
+</ul>
+<p>&ldquo;Let the OS deal with it&rdquo; is a perfectly valid memory management strategy
+if your usecase allows for it.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

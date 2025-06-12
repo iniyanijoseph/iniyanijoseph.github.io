@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Bounded vs unbounded channels
+So far we&rsquo;ve been using unbounded channels.
+You can send as many messages as you want, and the channel will grow to accommodate them.
+In a multi-producer single-consumer scenario, this can be problematic: if the producers
+enqueue messages at a faster rate than the consumer can process them, the channel will
+keep growing, potentially consuming all available memory.
+Our recommendation is to never use an unbounded channel in a production system.
+You should always enforce an upper limit on the number of messages that can be enqueued using a
+bounded channel.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/09_bounded/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/07_threads/09_bounded/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Bounded vs unbounded channels
+So far we&rsquo;ve been using unbounded channels.
+You can send as many messages as you want, and the channel will grow to accommodate them.
+In a multi-producer single-consumer scenario, this can be problematic: if the producers
+enqueue messages at a faster rate than the consumer can process them, the channel will
+keep growing, potentially consuming all available memory.
+Our recommendation is to never use an unbounded channel in a production system.
+You should always enforce an upper limit on the number of messages that can be enqueued using a
+bounded channel." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/07_threads/09_bounded/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Bounded vs unbounded channels
+So far we&rsquo;ve been using unbounded channels.
+You can send as many messages as you want, and the channel will grow to accommodate them.
+In a multi-producer single-consumer scenario, this can be problematic: if the producers
+enqueue messages at a faster rate than the consumer can process them, the channel will
+keep growing, potentially consuming all available memory.
+Our recommendation is to never use an unbounded channel in a production system.
+You should always enforce an upper limit on the number of messages that can be enqueued using a
+bounded channel."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/07_threads/09_bounded/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Bounded vs unbounded channels So far we\u0026rsquo;ve been using unbounded channels.\nYou can send as many messages as you want, and the channel will grow to accommodate them.\nIn a multi-producer single-consumer scenario, this can be problematic: if the producers enqueue messages at a faster rate than the consumer can process them, the channel will keep growing, potentially consuming all available memory.\nOur recommendation is to never use an unbounded channel in a production system.\nYou should always enforce an upper limit on the number of messages that can be enqueued using a bounded channel.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Bounded vs unbounded channels So far we’ve been using unbounded channels.\nYou can send as many messages as you want, and the channel will grow to accommodate them.\nIn a multi-producer single-consumer scenario, this can be problematic: if the producers enqueue messages at a faster rate than the consumer can process them, the channel will keep growing, potentially consuming all available memory.\nOur recommendation is to never use an unbounded channel in a production system.\nYou should always enforce an upper limit on the number of messages that can be enqueued using a bounded channel.\nBounded channels A bounded channel has a fixed capacity.\nYou can create one by calling sync_channel with a capacity greater than zero:\nuse std::sync::mpsc::sync_channel; let (sender, receiver) = sync_channel(10); receiver has the same type as before, Receiver.\nsender, instead, is an instance of SyncSender.\nSending messages You have two different methods to send messages through a SyncSender:\nsend: if there is space in the channel, it will enqueue the message and return Ok(()).\nIf the channel is full, it will block and wait until there is space available. try_send: if there is space in the channel, it will enqueue the message and return Ok(()).\nIf the channel is full, it will return Err(TrySendError::Full(value)), where value is the message that couldn’t be sent. Depending on your use case, you might want to use one or the other.\nBackpressure The main advantage of using bounded channels is that they provide a form of backpressure.\nThey force the producers to slow down if the consumer can’t keep up. The backpressure can then propagate through the system, potentially affecting the whole architecture and preventing end users from overwhelming the system with requests.\n",
+  "wordCount" : "283",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/07_threads/09_bounded/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="bounded-vs-unbounded-channels">Bounded vs unbounded channels</h1>
+<p>So far we&rsquo;ve been using unbounded channels.<br>
+You can send as many messages as you want, and the channel will grow to accommodate them.<br>
+In a multi-producer single-consumer scenario, this can be problematic: if the producers
+enqueue messages at a faster rate than the consumer can process them, the channel will
+keep growing, potentially consuming all available memory.</p>
+<p>Our recommendation is to <strong>never</strong> use an unbounded channel in a production system.<br>
+You should always enforce an upper limit on the number of messages that can be enqueued using a
+<strong>bounded channel</strong>.</p>
+<h2 id="bounded-channels">Bounded channels</h2>
+<p>A bounded channel has a fixed capacity.<br>
+You can create one by calling <code>sync_channel</code> with a capacity greater than zero:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::sync::mpsc::sync_channel;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>(sender,<span style="color:#bbb"> </span>receiver)<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>sync_channel(<span style="color:#099">10</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>receiver</code> has the same type as before, <code>Receiver&lt;T&gt;</code>.<br>
+<code>sender</code>, instead, is an instance of <code>SyncSender&lt;T&gt;</code>.</p>
+<h3 id="sending-messages">Sending messages</h3>
+<p>You have two different methods to send messages through a <code>SyncSender</code>:</p>
+<ul>
+<li><code>send</code>: if there is space in the channel, it will enqueue the message and return <code>Ok(())</code>.<br>
+If the channel is full, it will block and wait until there is space available.</li>
+<li><code>try_send</code>: if there is space in the channel, it will enqueue the message and return <code>Ok(())</code>.<br>
+If the channel is full, it will return <code>Err(TrySendError::Full(value))</code>, where <code>value</code> is the message that couldn&rsquo;t be sent.</li>
+</ul>
+<p>Depending on your use case, you might want to use one or the other.</p>
+<h3 id="backpressure">Backpressure</h3>
+<p>The main advantage of using bounded channels is that they provide a form of <strong>backpressure</strong>.<br>
+They force the producers to slow down if the consumer can&rsquo;t keep up.
+The backpressure can then propagate through the system, potentially affecting the whole architecture and
+preventing end users from overwhelming the system with requests.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="HashMap
+Our implementation of Index/IndexMut is not ideal: we need to iterate over the entire
+Vec to retrieve a ticket by id; the algorithmic complexity is O(n), where
+n is the number of tickets in the store.
+We can do better by using a different data structure for storing tickets: a HashMap&lt;K, V&gt;.
+use std::collections::HashMap;
+
+// Type inference lets us omit an explicit type signature (which
+// would be `HashMap&lt;String, String&gt;` in this example).
+let mut book_reviews = HashMap::new();
+
+book_reviews.insert(
+    &#34;Adventures of Huckleberry Finn&#34;.to_string(),
+    &#34;My favorite book.&#34;.to_string(),
+);
+HashMap works with key-value pairs. It&rsquo;s generic over both: K is the generic
+parameter for the key type, while V is the one for the value type.">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/15_hashmap/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/15_hashmap/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="HashMap
+Our implementation of Index/IndexMut is not ideal: we need to iterate over the entire
+Vec to retrieve a ticket by id; the algorithmic complexity is O(n), where
+n is the number of tickets in the store.
+We can do better by using a different data structure for storing tickets: a HashMap&lt;K, V&gt;.
+use std::collections::HashMap;
+
+// Type inference lets us omit an explicit type signature (which
+// would be `HashMap&lt;String, String&gt;` in this example).
+let mut book_reviews = HashMap::new();
+
+book_reviews.insert(
+    &#34;Adventures of Huckleberry Finn&#34;.to_string(),
+    &#34;My favorite book.&#34;.to_string(),
+);
+HashMap works with key-value pairs. It&rsquo;s generic over both: K is the generic
+parameter for the key type, while V is the one for the value type." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/15_hashmap/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="HashMap
+Our implementation of Index/IndexMut is not ideal: we need to iterate over the entire
+Vec to retrieve a ticket by id; the algorithmic complexity is O(n), where
+n is the number of tickets in the store.
+We can do better by using a different data structure for storing tickets: a HashMap&lt;K, V&gt;.
+use std::collections::HashMap;
+
+// Type inference lets us omit an explicit type signature (which
+// would be `HashMap&lt;String, String&gt;` in this example).
+let mut book_reviews = HashMap::new();
+
+book_reviews.insert(
+    &#34;Adventures of Huckleberry Finn&#34;.to_string(),
+    &#34;My favorite book.&#34;.to_string(),
+);
+HashMap works with key-value pairs. It&rsquo;s generic over both: K is the generic
+parameter for the key type, while V is the one for the value type."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/15_hashmap/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "HashMap Our implementation of Index/IndexMut is not ideal: we need to iterate over the entire Vec to retrieve a ticket by id; the algorithmic complexity is O(n), where n is the number of tickets in the store.\nWe can do better by using a different data structure for storing tickets: a HashMap\u0026lt;K, V\u0026gt;.\nuse std::collections::HashMap; // Type inference lets us omit an explicit type signature (which // would be `HashMap\u0026lt;String, String\u0026gt;` in this example). let mut book_reviews = HashMap::new(); book_reviews.insert( \u0026#34;Adventures of Huckleberry Finn\u0026#34;.to_string(), \u0026#34;My favorite book.\u0026#34;.to_string(), ); HashMap works with key-value pairs. It\u0026rsquo;s generic over both: K is the generic parameter for the key type, while V is the one for the value type.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "HashMap Our implementation of Index/IndexMut is not ideal: we need to iterate over the entire Vec to retrieve a ticket by id; the algorithmic complexity is O(n), where n is the number of tickets in the store.\nWe can do better by using a different data structure for storing tickets: a HashMap.\nuse std::collections::HashMap; // Type inference lets us omit an explicit type signature (which // would be `HashMap` in this example). let mut book_reviews = HashMap::new(); book_reviews.insert( \"Adventures of Huckleberry Finn\".to_string(), \"My favorite book.\".to_string(), ); HashMap works with key-value pairs. It’s generic over both: K is the generic parameter for the key type, while V is the one for the value type.\nThe expected cost of insertions, retrievals and removals is constant, O(1). That sounds perfect for our usecase, doesn’t it?\nKey requirements There are no trait bounds on HashMap’s struct definition, but you’ll find some on its methods. Let’s look at insert, for example:\n// Slightly simplified impl",
+  "wordCount" : "557",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/15_hashmap/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="hashmap"><code>HashMap</code></h1>
+<p>Our implementation of <code>Index</code>/<code>IndexMut</code> is not ideal: we need to iterate over the entire
+<code>Vec</code> to retrieve a ticket by id; the algorithmic complexity is <code>O(n)</code>, where
+<code>n</code> is the number of tickets in the store.</p>
+<p>We can do better by using a different data structure for storing tickets: a <code>HashMap&lt;K, V&gt;</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">use</span><span style="color:#bbb"> </span>std::collections::HashMap;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// Type inference lets us omit an explicit type signature (which
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// would be `HashMap&lt;String, String&gt;` in this example).
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span><span style="color:#00a">mut</span><span style="color:#bbb"> </span>book_reviews<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>HashMap::new();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>book_reviews.insert(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a50">&#34;Adventures of Huckleberry Finn&#34;</span>.to_string(),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a50">&#34;My favorite book.&#34;</span>.to_string(),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>HashMap</code> works with key-value pairs. It&rsquo;s generic over both: <code>K</code> is the generic
+parameter for the key type, while <code>V</code> is the one for the value type.</p>
+<p>The expected cost of insertions, retrievals and removals is <strong>constant</strong>, <code>O(1)</code>.
+That sounds perfect for our usecase, doesn&rsquo;t it?</p>
+<h2 id="key-requirements">Key requirements</h2>
+<p>There are no trait bounds on <code>HashMap</code>&rsquo;s struct definition, but you&rsquo;ll find some
+on its methods. Let&rsquo;s look at <code>insert</code>, for example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// Slightly simplified
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">impl</span>&lt;K,<span style="color:#bbb"> </span>V&gt;<span style="color:#bbb"> </span>HashMap&lt;K,<span style="color:#bbb"> </span>V&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">where</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>K: <span style="color:#0aa">Eq</span> +<span style="color:#bbb"> </span>Hash,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">fn</span> <span style="color:#0a0">insert</span>(&amp;<span style="color:#00a">mut</span><span style="color:#bbb"> </span><span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>k: <span style="color:#0a0;text-decoration:underline">K</span>,<span style="color:#bbb"> </span>v: <span style="color:#0a0;text-decoration:underline">V</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">Option</span>&lt;V&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The key type must implement the <code>Eq</code> and <code>Hash</code> traits.<br>
+Let&rsquo;s dig into those two.</p>
+<h2 id="hash"><code>Hash</code></h2>
+<p>A hashing function (or hasher) maps a potentially infinite set of a values (e.g.
+all possible strings) to a bounded range (e.g. a <code>u64</code> value).<br>
+There are many different hashing functions around, each with different properties
+(speed, collision risk, reversibility, etc.).</p>
+<p>A <code>HashMap</code>, as the name suggests, uses a hashing function behind the scene.
+It hashes your key and then uses that hash to store/retrieve the associated value.
+This strategy requires the key type must be hashable, hence the <code>Hash</code> trait bound on <code>K</code>.</p>
+<p>You can find the <code>Hash</code> trait in the <code>std::hash</code> module:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span>Hash<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// Required method
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">hash</span>&lt;H&gt;(&amp;<span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>state: <span style="color:#00a">&amp;</span><span style="color:#0a0;text-decoration:underline">mut</span><span style="color:#bbb"> </span>H)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">       </span><span style="color:#00a">where</span><span style="color:#bbb"> </span>H: <span style="color:#0a0;text-decoration:underline">Hasher</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>You will rarely implement <code>Hash</code> manually. Most of the times you&rsquo;ll derive it:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#4c8317">#[derive(Hash)]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">Person</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>id: <span style="color:#0aa">u32</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>name: <span style="color:#0aa">String</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="eq"><code>Eq</code></h2>
+<p><code>HashMap</code> must be able to compare keys for equality. This is particularly important
+when dealing with hash collisions—i.e. when two different keys hash to the same value.</p>
+<p>You may wonder: isn&rsquo;t that what the <code>PartialEq</code> trait is for? Almost!<br>
+<code>PartialEq</code> is not enough for <code>HashMap</code> because it doesn&rsquo;t guarantee reflexivity, i.e. <code>a == a</code> is always <code>true</code>.<br>
+For example, floating point numbers (<code>f32</code> and <code>f64</code>) implement <code>PartialEq</code>,
+but they don&rsquo;t satisfy the reflexivity property: <code>f32::NAN == f32::NAN</code> is <code>false</code>.<br>
+Reflexivity is crucial for <code>HashMap</code> to work correctly: without it, you wouldn&rsquo;t be able to retrieve a value
+from the map using the same key you used to insert it.</p>
+<p>The <code>Eq</code> trait extends <code>PartialEq</code> with the reflexivity property:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span><span style="color:#0aa">Eq</span>: <span style="color:#0aa">PartialEq</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// No additional methods
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>It&rsquo;s a marker trait: it doesn&rsquo;t add any new methods, it&rsquo;s just a way for you to say to the compiler
+that the equality logic implemented in <code>PartialEq</code> is reflexive.</p>
+<p>You can derive <code>Eq</code> automatically when you derive <code>PartialEq</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#4c8317">#[derive(PartialEq, Eq)]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">struct</span> <span style="color:#0a0;text-decoration:underline">Person</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>id: <span style="color:#0aa">u32</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>name: <span style="color:#0aa">String</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="eq-and-hash-are-linked"><code>Eq</code> and <code>Hash</code> are linked</h2>
+<p>There is an implicit contract between <code>Eq</code> and <code>Hash</code>: if two keys are equal, their hashes must be equal too.
+This is crucial for <code>HashMap</code> to work correctly. If you break this contract, you&rsquo;ll get nonsensical results
+when using <code>HashMap</code>.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

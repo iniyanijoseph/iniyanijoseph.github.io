@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Combinators
+Iterators can do so much more than for loops!
+If you look at the documentation for the Iterator trait, you&rsquo;ll find a vast collection of
+methods that you can leverage to transform, filter, and combine iterators in various ways.
+Let&rsquo;s mention the most common ones:
+
+map applies a function to each element of the iterator.
+filter keeps only the elements that satisfy a predicate.
+filter_map combines filter and map in one step.
+cloned converts an iterator of references into an iterator of values, cloning each element.
+enumerate returns a new iterator that yields (index, value) pairs.
+skip skips the first n elements of the iterator.
+take stops the iterator after n elements.
+chain combines two iterators into one.
+
+These methods are called combinators.
+They are usually chained together to create complex transformations in a concise and readable way:">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/07_combinators/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/07_combinators/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Combinators
+Iterators can do so much more than for loops!
+If you look at the documentation for the Iterator trait, you&rsquo;ll find a vast collection of
+methods that you can leverage to transform, filter, and combine iterators in various ways.
+Let&rsquo;s mention the most common ones:
+
+map applies a function to each element of the iterator.
+filter keeps only the elements that satisfy a predicate.
+filter_map combines filter and map in one step.
+cloned converts an iterator of references into an iterator of values, cloning each element.
+enumerate returns a new iterator that yields (index, value) pairs.
+skip skips the first n elements of the iterator.
+take stops the iterator after n elements.
+chain combines two iterators into one.
+
+These methods are called combinators.
+They are usually chained together to create complex transformations in a concise and readable way:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/07_combinators/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Combinators
+Iterators can do so much more than for loops!
+If you look at the documentation for the Iterator trait, you&rsquo;ll find a vast collection of
+methods that you can leverage to transform, filter, and combine iterators in various ways.
+Let&rsquo;s mention the most common ones:
+
+map applies a function to each element of the iterator.
+filter keeps only the elements that satisfy a predicate.
+filter_map combines filter and map in one step.
+cloned converts an iterator of references into an iterator of values, cloning each element.
+enumerate returns a new iterator that yields (index, value) pairs.
+skip skips the first n elements of the iterator.
+take stops the iterator after n elements.
+chain combines two iterators into one.
+
+These methods are called combinators.
+They are usually chained together to create complex transformations in a concise and readable way:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/07_combinators/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Combinators Iterators can do so much more than for loops!\nIf you look at the documentation for the Iterator trait, you\u0026rsquo;ll find a vast collection of methods that you can leverage to transform, filter, and combine iterators in various ways.\nLet\u0026rsquo;s mention the most common ones:\nmap applies a function to each element of the iterator. filter keeps only the elements that satisfy a predicate. filter_map combines filter and map in one step. cloned converts an iterator of references into an iterator of values, cloning each element. enumerate returns a new iterator that yields (index, value) pairs. skip skips the first n elements of the iterator. take stops the iterator after n elements. chain combines two iterators into one. These methods are called combinators.\nThey are usually chained together to create complex transformations in a concise and readable way:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Combinators Iterators can do so much more than for loops!\nIf you look at the documentation for the Iterator trait, you’ll find a vast collection of methods that you can leverage to transform, filter, and combine iterators in various ways.\nLet’s mention the most common ones:\nmap applies a function to each element of the iterator. filter keeps only the elements that satisfy a predicate. filter_map combines filter and map in one step. cloned converts an iterator of references into an iterator of values, cloning each element. enumerate returns a new iterator that yields (index, value) pairs. skip skips the first n elements of the iterator. take stops the iterator after n elements. chain combines two iterators into one. These methods are called combinators.\nThey are usually chained together to create complex transformations in a concise and readable way:\nlet numbers = vec![1, 2, 3, 4, 5]; // The sum of the squares of the even numbers let outcome: u32 = numbers.iter() .filter(|\u0026n| n % 2 == 0) .map(|\u0026n| n * n) .sum(); Closures What’s going on with the filter and map methods above?\nThey take closures as arguments.\nClosures are anonymous functions, i.e. functions that are not defined using the fn syntax we are used to.\nThey are defined using the |args| body syntax, where args are the arguments and body is the function body. body can be a block of code or a single expression. For example:\n// An anonymous function that adds 1 to its argument let add_one = |x| x + 1; // Could be written with a block too: let add_one = |x| { x + 1 }; Closures can take more than one argument:\nlet add = |x, y| x + y; let sum = add(1, 2); They can also capture variables from their environment:\nlet x = 42; let add_x = |y| x + y; let sum = add_x(1); If necessary, you can specify the types of the arguments and/or the return type:\n// Just the input type let add_one = |x: i32| x + 1; // Or both input and output types, using the `fn` syntax let add_one: fn(i32) -\u003e i32 = |x| x + 1; collect What happens when you’re done transforming an iterator using combinators?\nYou either iterate over the transformed values using a for loop, or you collect them into a collection.\nThe latter is done using the collect method.\ncollect consumes the iterator and collects its elements into a collection of your choice.\nFor example, you can collect the squares of the even numbers into a Vec:\nlet numbers = vec![1, 2, 3, 4, 5]; let squares_of_evens: Vec\u003cu32\u003e = numbers.iter() .filter(|\u0026n| n % 2 == 0) .map(|\u0026n| n * n) .collect(); collect is generic over its return type.\nTherefore you usually need to provide a type hint to help the compiler infer the correct type. In the example above, we annotated the type of squares_of_evens to be Vec. Alternatively, you can use the turbofish syntax to specify the type:\nlet squares_of_evens = numbers.iter() .filter(|\u0026n| n % 2 == 0) .map(|\u0026n| n * n) // Turbofish syntax: `::()` // It's called turbofish because `::\u003c\u003e` looks like a fish .collect::\u003cVec\u003cu32\u003e\u003e(); Further reading Iterator’s documentation gives you an overview of the methods available for iterators in std. The itertools crate defines even more combinators for iterators. ",
+  "wordCount" : "555",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/06_ticket_management/07_combinators/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="combinators">Combinators</h1>
+<p>Iterators can do so much more than <code>for</code> loops!<br>
+If you look at the documentation for the <code>Iterator</code> trait, you&rsquo;ll find a <strong>vast</strong> collection of
+methods that you can leverage to transform, filter, and combine iterators in various ways.</p>
+<p>Let&rsquo;s mention the most common ones:</p>
+<ul>
+<li><code>map</code> applies a function to each element of the iterator.</li>
+<li><code>filter</code> keeps only the elements that satisfy a predicate.</li>
+<li><code>filter_map</code> combines <code>filter</code> and <code>map</code> in one step.</li>
+<li><code>cloned</code> converts an iterator of references into an iterator of values, cloning each element.</li>
+<li><code>enumerate</code> returns a new iterator that yields <code>(index, value)</code> pairs.</li>
+<li><code>skip</code> skips the first <code>n</code> elements of the iterator.</li>
+<li><code>take</code> stops the iterator after <code>n</code> elements.</li>
+<li><code>chain</code> combines two iterators into one.</li>
+</ul>
+<p>These methods are called <strong>combinators</strong>.<br>
+They are usually <strong>chained</strong> together to create complex transformations in a concise and readable way:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>numbers<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0a0">vec!</span>[<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>,<span style="color:#bbb"> </span><span style="color:#099">3</span>,<span style="color:#bbb"> </span><span style="color:#099">4</span>,<span style="color:#bbb"> </span><span style="color:#099">5</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// The sum of the squares of the even numbers
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>outcome: <span style="color:#0aa">u32</span> =<span style="color:#bbb"> </span>numbers.iter()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.filter(|&amp;n|<span style="color:#bbb"> </span>n<span style="color:#bbb"> </span>%<span style="color:#bbb"> </span><span style="color:#099">2</span><span style="color:#bbb"> </span>==<span style="color:#bbb"> </span><span style="color:#099">0</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.map(|&amp;n|<span style="color:#bbb"> </span>n<span style="color:#bbb"> </span>*<span style="color:#bbb"> </span>n)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.sum();<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="closures">Closures</h2>
+<p>What&rsquo;s going on with the <code>filter</code> and <code>map</code> methods above?<br>
+They take <strong>closures</strong> as arguments.</p>
+<p>Closures are <strong>anonymous functions</strong>, i.e. functions that are not defined using the <code>fn</code> syntax we are used to.<br>
+They are defined using the <code>|args| body</code> syntax, where <code>args</code> are the arguments and <code>body</code> is the function body.
+<code>body</code> can be a block of code or a single expression.
+For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// An anonymous function that adds 1 to its argument
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>add_one<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>|x|<span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#099">1</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// Could be written with a block too:
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>add_one<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>|x|<span style="color:#bbb"> </span>{<span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#099">1</span><span style="color:#bbb"> </span>};<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Closures can take more than one argument:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>add<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>|x,<span style="color:#bbb"> </span>y|<span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>y;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>sum<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>add(<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><p>They can also capture variables from their environment:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#099">42</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>add_x<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>|y|<span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>y;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>sum<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>add_x(<span style="color:#099">1</span>);<span style="color:#bbb">
+</span></span></span></code></pre></div><p>If necessary, you can specify the types of the arguments and/or the return type:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// Just the input type
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>add_one<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>|x: <span style="color:#0aa">i32</span>|<span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#099">1</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#aaa;font-style:italic">// Or both input and output types, using the `fn` syntax
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>add_one: <span style="color:#0a0;text-decoration:underline">fn</span>(<span style="color:#0aa">i32</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">i32</span> =<span style="color:#bbb"> </span>|x|<span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#099">1</span>;<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="collect"><code>collect</code></h2>
+<p>What happens when you&rsquo;re done transforming an iterator using combinators?<br>
+You either iterate over the transformed values using a <code>for</code> loop, or you collect them into a collection.</p>
+<p>The latter is done using the <code>collect</code> method.<br>
+<code>collect</code> consumes the iterator and collects its elements into a collection of your choice.</p>
+<p>For example, you can collect the squares of the even numbers into a <code>Vec</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>numbers<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0a0">vec!</span>[<span style="color:#099">1</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>,<span style="color:#bbb"> </span><span style="color:#099">3</span>,<span style="color:#bbb"> </span><span style="color:#099">4</span>,<span style="color:#bbb"> </span><span style="color:#099">5</span>];<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">let</span><span style="color:#bbb"> </span>squares_of_evens: <span style="color:#0aa">Vec</span>&lt;<span style="color:#0aa">u32</span>&gt;<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>numbers.iter()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.filter(|&amp;n|<span style="color:#bbb"> </span>n<span style="color:#bbb"> </span>%<span style="color:#bbb"> </span><span style="color:#099">2</span><span style="color:#bbb"> </span>==<span style="color:#bbb"> </span><span style="color:#099">0</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.map(|&amp;n|<span style="color:#bbb"> </span>n<span style="color:#bbb"> </span>*<span style="color:#bbb"> </span>n)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.collect();<span style="color:#bbb">
+</span></span></span></code></pre></div><p><code>collect</code> is generic over its <strong>return type</strong>.<br>
+Therefore you usually need to provide a type hint to help the compiler infer the correct type.
+In the example above, we annotated the type of <code>squares_of_evens</code> to be <code>Vec&lt;u32&gt;</code>.
+Alternatively, you can use the <strong>turbofish syntax</strong> to specify the type:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>squares_of_evens<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>numbers.iter()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.filter(|&amp;n|<span style="color:#bbb"> </span>n<span style="color:#bbb"> </span>%<span style="color:#bbb"> </span><span style="color:#099">2</span><span style="color:#bbb"> </span>==<span style="color:#bbb"> </span><span style="color:#099">0</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.map(|&amp;n|<span style="color:#bbb"> </span>n<span style="color:#bbb"> </span>*<span style="color:#bbb"> </span>n)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// Turbofish syntax: `&lt;method_name&gt;::&lt;type&gt;()`
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#aaa;font-style:italic">// It&#39;s called turbofish because `::&lt;&gt;` looks like a fish
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>.collect::&lt;<span style="color:#0aa">Vec</span>&lt;<span style="color:#0aa">u32</span>&gt;&gt;();<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html" target="_blank"><code>Iterator</code>&rsquo;s documentation</a>
+ gives you an
+overview of the methods available for iterators in <code>std</code>.</li>
+<li><a href="https://docs.rs/itertools/" target="_blank">The <code>itertools</code> crate</a>
+ defines even <strong>more</strong> combinators for iterators.</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

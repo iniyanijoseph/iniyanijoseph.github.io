@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Iniyan Joseph</title>
+<meta name="keywords" content="">
+<meta name="description" content="Generics and associated types
+Let&rsquo;s re-examine the definition for two of the traits we studied so far, From and Deref:
+pub trait From&lt;T&gt; {
+    fn from(value: T) -&gt; Self;
+}
+
+pub trait Deref {
+    type Target;
+    
+    fn deref(&amp;self) -&gt; &amp;Self::Target;
+}
+They both feature type parameters.
+In the case of From, it&rsquo;s a generic parameter, T.
+In the case of Deref, it&rsquo;s an associated type, Target.
+What&rsquo;s the difference? Why use one over the other?">
+<meta name="author" content="Iniyan Joseph">
+<link rel="canonical" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/10_assoc_vs_generic/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.297612da9876c99eb140c5a6820b1b656e8b60ad2b887f4cc3bad8bcd8b2e69b.css" integrity="sha256-KXYS2ph2yZ6xQMWmggsbZW6LYK0riH9Mw7rYvNiy5ps=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/rustexercises/book/src/04_traits/10_assoc_vs_generic/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Generics and associated types
+Let&rsquo;s re-examine the definition for two of the traits we studied so far, From and Deref:
+pub trait From&lt;T&gt; {
+    fn from(value: T) -&gt; Self;
+}
+
+pub trait Deref {
+    type Target;
+    
+    fn deref(&amp;self) -&gt; &amp;Self::Target;
+}
+They both feature type parameters.
+In the case of From, it&rsquo;s a generic parameter, T.
+In the case of Deref, it&rsquo;s an associated type, Target.
+What&rsquo;s the difference? Why use one over the other?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/projects/rustexercises/book/src/04_traits/10_assoc_vs_generic/" /><meta property="article:section" content="projects" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Generics and associated types
+Let&rsquo;s re-examine the definition for two of the traits we studied so far, From and Deref:
+pub trait From&lt;T&gt; {
+    fn from(value: T) -&gt; Self;
+}
+
+pub trait Deref {
+    type Target;
+    
+    fn deref(&amp;self) -&gt; &amp;Self::Target;
+}
+They both feature type parameters.
+In the case of From, it&rsquo;s a generic parameter, T.
+In the case of Deref, it&rsquo;s an associated type, Target.
+What&rsquo;s the difference? Why use one over the other?"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/projects/rustexercises/book/src/04_traits/10_assoc_vs_generic/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Generics and associated types Let\u0026rsquo;s re-examine the definition for two of the traits we studied so far, From and Deref:\npub trait From\u0026lt;T\u0026gt; { fn from(value: T) -\u0026gt; Self; } pub trait Deref { type Target; fn deref(\u0026amp;self) -\u0026gt; \u0026amp;Self::Target; } They both feature type parameters.\nIn the case of From, it\u0026rsquo;s a generic parameter, T.\nIn the case of Deref, it\u0026rsquo;s an associated type, Target.\nWhat\u0026rsquo;s the difference? Why use one over the other?\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Generics and associated types Let’s re-examine the definition for two of the traits we studied so far, From and Deref:\npub trait From { fn from(value: T) -\u003e Self; } pub trait Deref { type Target; fn deref(\u0026self) -\u003e \u0026Self::Target; } They both feature type parameters.\nIn the case of From, it’s a generic parameter, T.\nIn the case of Deref, it’s an associated type, Target.\nWhat’s the difference? Why use one over the other?\nAt most one implementation Due to how deref coercion works, there can only be one “target” type for a given type. E.g. String can only deref to str. It’s about avoiding ambiguity: if you could implement Deref multiple times for a type, which Target type should the compiler choose when you call a \u0026self method?\nThat’s why Deref uses an associated type, Target.\nAn associated type is uniquely determined by the trait implementation. Since you can’t implement Deref more than once, you’ll only be able to specify one Target for a given type and there won’t be any ambiguity.\nGeneric traits On the other hand, you can implement From multiple times for a type, as long as the input type T is different. For example, you can implement From for WrappingU32 using both u32 and u16 as input types:\nimpl From\u003cu32\u003e for WrappingU32 { fn from(value: u32) -\u003e Self { WrappingU32 { inner: value } } } impl From\u003cu16\u003e for WrappingU32 { fn from(value: u16) -\u003e Self { WrappingU32 { inner: value.into() } } } This works because From and From are considered different traits.\nThere is no ambiguity: the compiler can determine which implementation to use based on type of the value being converted.\nCase study: Add As a closing example, consider the Add trait from the standard library:\npub trait Add\u003cRHS = Self\u003e { type Output; fn add(self, rhs: RHS) -\u003e Self::Output; } It uses both mechanisms:\nit has a generic parameter, RHS (right-hand side), which defaults to Self it has an associated type, Output, the type of the result of the addition RHS RHS is a generic parameter to allow for different types to be added together.\nFor example, you’ll find these two implementations in the standard library:\nimpl Add\u003cu32\u003e for u32 { type Output = u32; fn add(self, rhs: u32) -\u003e u32 { // ^^^ // This could be written as `Self::Output` instead. // The compiler doesn't care, as long as the type you // specify here matches the type you assigned to `Output` // right above. // [...] } } impl Add\u003c\u0026u32\u003e for u32 { type Output = u32; fn add(self, rhs: \u0026u32) -\u003e u32 { // [...] } } This allows the following code to compile:\nlet x = 5u32 + \u00265u32 + 6u32; because u32 implements Add\u003c\u0026u32\u003e as well as Add.\nOutput Output represents the type of the result of the addition.\nWhy do we need Output in the first place? Can’t we just use Self as output, the type implementing Add? We could, but it would limit the flexibility of the trait. In the standard library, for example, you’ll find this implementation:\nimpl Add\u003c\u0026u32\u003e for \u0026u32 { type Output = u32; fn add(self, rhs: \u0026u32) -\u003e u32 { // [...] } } The type they’re implementing the trait for is \u0026u32, but the result of the addition is u32.\nIt would be impossible1 to provide this implementation if add had to return Self, i.e. \u0026u32 in this case. Output lets std decouple the implementor from the return type, thus supporting this case.\nOn the other hand, Output can’t be a generic parameter. The output type of the operation must be uniquely determined once the types of the operands are known. That’s why it’s an associated type: for a given combination of implementor and generic parameters, there is only one Output type.\nConclusion To recap:\nUse an associated type when the type must be uniquely determined for a given trait implementation. Use a generic parameter when you want to allow multiple implementations of the trait for the same type, with different input types. Flexibility is rarely free: the trait definition is more complex due to Output, and implementors have to reason about what they want to return. The trade-off is only justified if that flexibility is actually needed. Keep that in mind when designing your own traits. ↩︎\n",
+  "wordCount" : "719",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Iniyan Joseph"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/rustexercises/book/src/04_traits/10_assoc_vs_generic/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Iniyan Joseph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Iniyan Joseph">
+             
+                <img src="http://localhost:1313/picture.jpg" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Iniyan Joseph</a>
+            <div class="logo-switches">
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/academics/" title="Academics">
+                    <span>Academics</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/music/" title="Music">
+                    <span>Music</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archive/" title="Timeline">
+                    <span>Timeline</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">Iniyan Joseph
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="generics-and-associated-types">Generics and associated types</h1>
+<p>Let&rsquo;s re-examine the definition for two of the traits we studied so far, <code>From</code> and <code>Deref</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span><span style="color:#0aa">From</span>&lt;T&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">from</span>(value: <span style="color:#0a0;text-decoration:underline">T</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Self</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span>Deref<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">Target</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">deref</span>(&amp;<span style="color:#0aa">self</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#00a">&amp;</span><span style="color:#0a0;text-decoration:underline">Self</span>::Target;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>They both feature type parameters.<br>
+In the case of <code>From</code>, it&rsquo;s a generic parameter, <code>T</code>.<br>
+In the case of <code>Deref</code>, it&rsquo;s an associated type, <code>Target</code>.</p>
+<p>What&rsquo;s the difference? Why use one over the other?</p>
+<h2 id="at-most-one-implementation">At most one implementation</h2>
+<p>Due to how deref coercion works, there can only be one &ldquo;target&rdquo; type for a given type. E.g. <code>String</code> can
+only deref to <code>str</code>.
+It&rsquo;s about avoiding ambiguity: if you could implement <code>Deref</code> multiple times for a type,
+which <code>Target</code> type should the compiler choose when you call a <code>&amp;self</code> method?</p>
+<p>That&rsquo;s why <code>Deref</code> uses an associated type, <code>Target</code>.<br>
+An associated type is uniquely determined <strong>by the trait implementation</strong>.
+Since you can&rsquo;t implement <code>Deref</code> more than once, you&rsquo;ll only be able to specify one <code>Target</code> for a given type
+and there won&rsquo;t be any ambiguity.</p>
+<h2 id="generic-traits">Generic traits</h2>
+<p>On the other hand, you can implement <code>From</code> multiple times for a type, <strong>as long as the input type <code>T</code> is different</strong>.
+For example, you can implement <code>From</code> for <code>WrappingU32</code> using both <code>u32</code> and <code>u16</code> as input types:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span><span style="color:#0aa">From</span>&lt;<span style="color:#0aa">u32</span>&gt;<span style="color:#bbb"> </span><span style="color:#00a">for</span><span style="color:#bbb"> </span>WrappingU32<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">from</span>(value: <span style="color:#0aa">u32</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Self</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>WrappingU32<span style="color:#bbb"> </span>{<span style="color:#bbb"> </span>inner: <span style="color:#0a0;text-decoration:underline">value</span><span style="color:#bbb"> </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">impl</span><span style="color:#bbb"> </span><span style="color:#0aa">From</span>&lt;<span style="color:#0aa">u16</span>&gt;<span style="color:#bbb"> </span><span style="color:#00a">for</span><span style="color:#bbb"> </span>WrappingU32<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">from</span>(value: <span style="color:#0aa">u16</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Self</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>WrappingU32<span style="color:#bbb"> </span>{<span style="color:#bbb"> </span>inner: <span style="color:#0a0;text-decoration:underline">value</span>.into()<span style="color:#bbb"> </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>This works because <code>From&lt;u16&gt;</code> and <code>From&lt;u32&gt;</code> are considered <strong>different traits</strong>.<br>
+There is no ambiguity: the compiler can determine which implementation to use based on type of the value being converted.</p>
+<h2 id="case-study-add">Case study: <code>Add</code></h2>
+<p>As a closing example, consider the <code>Add</code> trait from the standard library:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">pub</span><span style="color:#bbb"> </span><span style="color:#00a">trait</span><span style="color:#bbb"> </span>Add&lt;<span style="color:#a00">RHS</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">Self</span>&gt;<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">Output</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">add</span>(<span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>rhs: <span style="color:#0a0;text-decoration:underline">RHS</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0a0;text-decoration:underline">Self</span>::Output;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>It uses both mechanisms:</p>
+<ul>
+<li>it has a generic parameter, <code>RHS</code> (right-hand side), which defaults to <code>Self</code></li>
+<li>it has an associated type, <code>Output</code>, the type of the result of the addition</li>
+</ul>
+<h3 id="rhs"><code>RHS</code></h3>
+<p><code>RHS</code> is a generic parameter to allow for different types to be added together.<br>
+For example, you&rsquo;ll find these two implementations in the standard library:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Add&lt;<span style="color:#0aa">u32</span>&gt;<span style="color:#bbb"> </span><span style="color:#00a">for</span><span style="color:#bbb"> </span><span style="color:#0aa">u32</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">Output</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">u32</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">add</span>(<span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>rhs: <span style="color:#0aa">u32</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">u32</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#aaa;font-style:italic">//                      ^^^
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">      </span><span style="color:#aaa;font-style:italic">// This could be written as `Self::Output` instead.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">      </span><span style="color:#aaa;font-style:italic">// The compiler doesn&#39;t care, as long as the type you
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">      </span><span style="color:#aaa;font-style:italic">// specify here matches the type you assigned to `Output` 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">      </span><span style="color:#aaa;font-style:italic">// right above.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">      </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Add&lt;&amp;<span style="color:#0aa">u32</span>&gt;<span style="color:#bbb"> </span><span style="color:#00a">for</span><span style="color:#bbb"> </span><span style="color:#0aa">u32</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">Output</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">u32</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">add</span>(<span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>rhs: <span style="color:#00a">&amp;</span><span style="color:#0aa">u32</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">u32</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>This allows the following code to compile:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">let</span><span style="color:#bbb"> </span>x<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#099">5</span><span style="color:#00a">u32</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>&amp;<span style="color:#099">5</span><span style="color:#00a">u32</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#099">6</span><span style="color:#00a">u32</span>;<span style="color:#bbb">
+</span></span></span></code></pre></div><p>because <code>u32</code> implements <code>Add&lt;&amp;u32&gt;</code> <em>as well as</em> <code>Add&lt;u32&gt;</code>.</p>
+<h3 id="output"><code>Output</code></h3>
+<p><code>Output</code> represents the type of the result of the addition.</p>
+<p>Why do we need <code>Output</code> in the first place? Can&rsquo;t we just use <code>Self</code> as output, the type implementing <code>Add</code>?
+We could, but it would limit the flexibility of the trait. In the standard library, for example, you&rsquo;ll find
+this implementation:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a">impl</span><span style="color:#bbb"> </span>Add&lt;&amp;<span style="color:#0aa">u32</span>&gt;<span style="color:#bbb"> </span><span style="color:#00a">for</span><span style="color:#bbb"> </span>&amp;<span style="color:#0aa">u32</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">type</span> <span style="color:#0a0;text-decoration:underline">Output</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#0aa">u32</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00a">fn</span> <span style="color:#0a0">add</span>(<span style="color:#0aa">self</span>,<span style="color:#bbb"> </span>rhs: <span style="color:#00a">&amp;</span><span style="color:#0aa">u32</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#0aa">u32</span> {<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#aaa;font-style:italic">// [...]
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The type they&rsquo;re implementing the trait for is <code>&amp;u32</code>, but the result of the addition is <code>u32</code>.<br>
+It would be impossible<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> to provide this implementation if <code>add</code> had to return <code>Self</code>, i.e. <code>&amp;u32</code> in this case.
+<code>Output</code> lets <code>std</code> decouple the implementor from the return type, thus supporting this case.</p>
+<p>On the other hand, <code>Output</code> can&rsquo;t be a generic parameter. The output type of the operation <strong>must</strong> be uniquely determined
+once the types of the operands are known. That&rsquo;s why it&rsquo;s an associated type: for a given combination of implementor
+and generic parameters, there is only one <code>Output</code> type.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>To recap:</p>
+<ul>
+<li>Use an <strong>associated type</strong> when the type must be uniquely determined for a given trait implementation.</li>
+<li>Use a <strong>generic parameter</strong> when you want to allow multiple implementations of the trait for the same type,
+with different input types.</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Flexibility is rarely free: the trait definition is more complex due to <code>Output</code>, and implementors have to reason about
+what they want to return. The trade-off is only justified if that flexibility is actually needed. Keep that in mind
+when designing your own traits.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2025 Iniyan Joseph
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>
