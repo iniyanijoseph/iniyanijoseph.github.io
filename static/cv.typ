@@ -23,7 +23,7 @@
   author-position: center,
   personal-info-position: left,
 )
-#set text(size : 8.7pt)
+#set text(size : 9pt)
 == Education
 
 #edu(
@@ -42,15 +42,7 @@
   company: "The University of Texas at Dallas",
   dates: dates-helper(start-date: "Jan 2025", end-date: "May 2025"),
 )
-- Grade homework for Discrete Mathematics for Computing (CS 2305)
-
-#work(
-  title: "Pianist",
-  location: "Kemp, Texas",
-  company: "Cedar Creek Lake United Methodist Church",
-  dates: dates-helper(start-date: "Dec 2022", end-date: "Present"),
-)
-- Perform yearly Christmas cantata
+- Supported professor in grading for Discrete Mathematics for Computing (CS 2305).
 
 == Publications
 #project(
@@ -101,7 +93,7 @@
   name: "Project Kaos",
   dates: dates-helper(start-date: "Aug 2022", end-date: "May 2023"),
 )
-- Designed UI for Role Playing Game using Unreal Engine 5.  
+- Designed UI for Role Playing Game using Unreal Engine 5.
 
 == Extracurriculars & Certifications
 
@@ -132,6 +124,6 @@
 #extracurriculars(activity: "Piano", dates: "")
 - Compete in several music festivals and competitions, recieving Texas Federation of Music Clubs Gold Cup.
 == Skills
-- *Projects:* Python, Java, C/C++, Lua, Go, Bash, Typst, Latex, HTML/CSS, Nim, Nix, Lisp, Prolog
-- *Technologies:* Tensorflow, Unity, Godot, Unreal Engine 5, Git, Github, NixOS, Linux
+- *Projects:* Python, Java, C/C++, Lua, Go, Bash, Typst, Latex, HTML/CSS, Nim, Nix, Lisp, Prolog, Rust, Racket
+- *Technologies:* Tensorflow, Unity, Godot, Unreal Engine 5, Git, Github, NixOS, Linux, PyGame, Tkinter
 - *Languages:* English, Tamil, Esperanto
