@@ -130,7 +130,7 @@
 )
 
 #extracurriculars(activity: "Piano", dates: "")
-- Compete in several music festivals and competitions, recieving Texas Federation of Music Clubs Gold Cup.
+- Compete in several music festivals and competitions, receiving Texas Federation of Music Clubs Gold Cup.
 == Skills
 - *Projects:* Python, Java, C/C++, Lua, Go, Bash, Typst, Latex, HTML/CSS, Nim, Nix, Lisp, Prolog
 - *Technologies:* Tensorflow, Unity, Godot, Unreal Engine 5, Git, Github, NixOS, Linux
