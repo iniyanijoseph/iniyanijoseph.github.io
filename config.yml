@@ -32,7 +32,7 @@ menu:
 params:
     description: "I am a CS graduate from the University of Texas at Dallas researching combinatorial optimization."
     author: Iniyan Joseph
-    DateFormat: "Jan 2005"
+    DateFormat: "Jan 2006"
     defaultTheme: light
     hideFooter: false
     disableThemeToggle: true
@@ -54,7 +54,7 @@ params:
     profileMode:
           enabled: true
           title: Iniyan Joseph
-          subtitle: "I am a graduate of The University of Texas at Dallas (UTD), majoring in Computer Science. I am interested in studying theoretical CS, especially combinatorial optimization. Currently, I am advised by Professor Emily Fox at the Siebel School of Computing and Data Science at The University of Illinois Urbana-Champaign, researching algorithms for symmetric submodular optimization. My prior work was in efficient text entry in virtual reality, under Professor Jin Ryong Kim at the Erik Jonsson School of Engineering and Computer Science at UTD. I am currently applying to PhD programs, and hope to begin in Fall 2026. I am also a part-time substitute teacher at Frisco ISD and part-time employee and ReviveXR."
+          subtitle: "I am a graduate of The University of Texas at Dallas, where I majored in Computer Science. I am interested in studying theoretical CS, especially combinatorial optimization. Currently, I am advised by Professor Emily Fox at the Siebel School of Computing and Data Science at The University of Illinois Urbana-Champaign, researching algorithms for symmetric submodular optimization. My prior work was in efficient text entry in virtual reality, under Professor Jin Ryong Kim at the Erik Jonsson School of Engineering and Computer Science at UTD. I am currently applying to PhD programs, and hope to begin in Fall 2026. I am also a part-time substitute teacher at Frisco ISD and part-time software engineer at ReviveXR, a Dallas startup developing VR therapeutics for seniors. Outside of work, I love playing piano, sports kiting, watching movies, and traveling to new places."
           imageUrl: "picture.jpg"
           imageWidth: 256
           imageHeight: 256

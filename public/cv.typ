@@ -1,3 +1,5 @@
+// Make multiple versions?
+   
 #import "@preview/basic-resume:0.2.8": *
 
 // Put your personal information here, replacing mine
@@ -21,18 +23,18 @@
   author-position: center,
   personal-info-position: left,
 )
-#set text(size : 8.7pt)
+#set text(size : 9pt)
 == Education
 
 #edu(
   institution: "The University of Texas at Dallas",
   location: "Richardson, TX",
   dates: dates-helper(start-date: "Aug 2023", end-date: "Aug 2025"),
-  degree: "Bachelor's of Science, Computer Science",
+  degree: "Bachelor of Science, Computer Science",
 )
 - Cumulative GPA: 3.99\/4 | Dean's List, Academic Excellence Scholarship
 
-== Experience
+== Work Experience
 
 #work(
   title: "Grader",
@@ -40,15 +42,7 @@
   company: "The University of Texas at Dallas",
   dates: dates-helper(start-date: "Jan 2025", end-date: "May 2025"),
 )
-- Grade homework for Discrete Mathematics for Computing (CS 2305)
-
-#work(
-  title: "Pianist",
-  location: "Kemp, Texas",
-  company: "Cedar Creek Lake United Methodist Church",
-  dates: dates-helper(start-date: "Dec 2022", end-date: "Present"),
-)
-- Perform yearly Christmas cantata
+- Supported professor in grading for Discrete Mathematics for Computing (CS 2305).
 
 == Publications
 #project(
@@ -99,7 +93,7 @@
   name: "Project Kaos",
   dates: dates-helper(start-date: "Aug 2022", end-date: "May 2023"),
 )
-- Designed UI for Role Playing Game using Unreal Engine 5.  
+- Designed UI for Role Playing Game using Unreal Engine 5.
 
 == Extracurriculars & Certifications
 
@@ -128,8 +122,8 @@
 )
 
 #extracurriculars(activity: "Piano", dates: "")
-- Compete in several music festivals and competitions, recieving Texas Federation of Music Clubs Gold Cup.
+- Compete in several music festivals and competitions, receiving Texas Federation of Music Clubs Gold Cup.
 == Skills
-- *Projects:* Python, Java, C/C++, Lua, Go, Bash, Typst, Latex, HTML/CSS, Nim, Nix, Lisp, Prolog
-- *Technologies:* Tensorflow, Unity, Godot, Unreal Engine 5, Git, Github, NixOS, Linux
+- *Projects:* Python, Java, C/C++, Lua, Go, Bash, Typst, Latex, HTML/CSS, Nim, Nix, Lisp, Prolog, Rust, Racket
+- *Technologies:* Tensorflow, Unity, Godot, Unreal Engine 5, Git, Github, NixOS, Linux, PyGame, Tkinter
 - *Languages:* English, Tamil, Esperanto

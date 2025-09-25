@@ -76,6 +76,17 @@
     </item>
     
     <item>
+      <title>Project Kaos</title>
+      <link>http://localhost:1313/projects/projectkaos/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/projectkaos/</guid>
+      <description>&lt;p&gt;In my senior year of High School, I was able to participate in a small game development team (15 people). We used Unreal Engine 5 (which was new at the time). We used AGILE development, and I was the Scrum Master for the team.
+&lt;a href=&#34;https://sites.google.com/k12.friscoisd.org/projectkaos/dev-team&#34; target=&#34;_blank&#34;&gt;Details&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>AI Weather Prediction</title>
       <link>http://localhost:1313/projects/weatherprediction/</link>
       <pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate>
