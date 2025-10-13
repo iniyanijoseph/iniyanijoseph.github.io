@@ -4,7 +4,7 @@
 
 // Put your personal information here, replacing mine
 #let name = "Iniyan Joseph"
-#let location = "McKinney, TX"
+#let location = "8500 Blacktail Trail McKinney, TX 75070" 
 #let email = "iniyanijoseph@gmail.com"
 #let github = "github.com/iniyanijoseph"
 #let linkedin = "linkedin.com/in/iniyanijoseph"
@@ -14,25 +14,26 @@
   author: name,
   location: location,
   email: email,
-  github: github,
-  linkedin: linkedin,
+  // github: github,
+  // linkedin: linkedin,
+  phone: phone,
   personal-site: personal-site,
   accent-color: "#000000",
   font: "New Computer Modern",
   paper: "us-letter",
   author-position: center,
-  personal-info-position: left,
+  personal-info-position: center,
 )
-#set text(size : 9pt)
-== Education
+#set text(size : 11.5pt)
 
+== Education
 #edu(
   institution: "The University of Texas at Dallas",
   location: "Richardson, TX",
   dates: dates-helper(start-date: "Aug 2023", end-date: "Aug 2025"),
   degree: "Bachelor of Science, Computer Science",
 )
-- Cumulative GPA: 3.99\/4 | Dean's List, Academic Excellence Scholarship
+- Cumulative GPA: 3.99\/4 | Summa Cum Laude
 
 == Work Experience
 
@@ -42,12 +43,34 @@
   company: "The University of Texas at Dallas",
   dates: dates-helper(start-date: "Jan 2025", end-date: "May 2025"),
 )
-- Supported professor in grading for Discrete Mathematics for Computing (CS 2305).
 
-== Publications
+#work(
+  title: "Substitute Teacher",
+  location: "Frisco, TX",
+  company: "Frisco Independent School District",
+  dates: dates-helper(start-date: "Aug 2025", end-date: "Oct 2025"),
+)
+
+#work(
+  title: "Software Engineer",
+  location: "McKinney, TX",
+  company: "ReviveXR",
+  dates: dates-helper(start-date: "Jun 2025", end-date: "Dec 2025"),
+)
+
+#work(
+  title: "Teacher",
+  location: "Frisco, TX",
+  company: "KD College Prep",
+  dates: dates-helper(start-date: "Jan 2025", end-date: "Present"),
+)
+
+== Research
+Algorithms and data structures; combinatorial optimization; graph algorithms
+
 #project(
   name: "PropType: Everyday Props as Typing Surfaces in Augmented Reality",
-  dates: "ACM CHI 2025 Honorable Mention"
+  dates: "ACM CHI 2025 Honorable Mention, UIST 2026 Demo"
 )
 - _Hyunjae Gil, Ashish Pratap, Iniyan Joseph, Jin-Ryong Kim_
 
@@ -57,73 +80,57 @@
 )
 - _Iniyan Joseph_
 
-== Projects
-
 #project(
-  name: "Gus the Goose",
-  dates: dates-helper(start-date: "Jan 2025", end-date: "Present"),
+  name: "Design Challenges of In-Air Thumb Typing on Head-Mounted Displays",
+  dates: "Submitted"
 )
-- Authoring picture book written to teach Discrete Mathematics for children.
+- _Hyunjae Gil, Iniyan Joseph, Jin-Ryong Kim_
 
-#project(
-  name: "TurboMarkdown",
-  dates: dates-helper(start-date: "Aug 2024", end-date: "Dec 2024"),
-)
-- Created website to easily compile Markdown Files into pdfs with custom coloring.
+// == Projects
 
-#project(
-  name: "Simple Shell",
-  dates: dates-helper(start-date: "Jan 2024", end-date: "May 2024"),
-)
-- Wrote simple Bash shell application using C with support for piping.
+// #project(
+//   name: "NixOS Rice",
+//   dates: dates-helper(start-date: "Jan 2025", end-date: "Present"),
+// )
+// - Authoring picture book written to teach Discrete Mathematics for children.
 
-#project(
-  name: "Nebula Labs' API",
-  dates: dates-helper(start-date: "Aug 2023", end-date: "Dec 2023"),
-)
-- Developed scrapers for UTD Nebula Labs' API for aggregation of professor profile information.
+// #project(
+//   name: "Nebula Labs' API",
+//   dates: dates-helper(start-date: "Aug 2023", end-date: "Dec 2023"),
+// )
+// - Developed scrapers for UTD Nebula Labs' API for aggregation of professor profile information.
 
-#project(
-  name: "Sensory Profile Calculator",
-  dates: "Jun 2023"
-)
-- Designed UI for Sensory Profile Assessment for sensory tendencies among neurodivergent students.
-
-#project(
-  name: "Project Kaos",
-  dates: dates-helper(start-date: "Aug 2022", end-date: "May 2023"),
-)
-- Designed UI for Role Playing Game using Unreal Engine 5.
+== Awards & Honors
+- *Dean's List* - Fall 2023, Spring 2024, Spring 2025, Summer 2025
+- *Academic Excellence Scholarship* - Aug 2023 - Aug 2025
 
 == Extracurriculars & Certifications
 
-#extracurriculars(activity: "TCS Research - Advised by Emily Fox", dates: "Aug 2024 - Present")
-- Research algorithms for Symmetric Submodular Optimization.
+#extracurriculars(activity: "Research - Advised by Emily Fox", dates: "Aug 2024 - Present")
+// - Research algorithms for Symmetric Submodular Optimization.
 
-#extracurriculars(activity: "HCI Research - Advised by Jin-Ryong Kim", dates: "Sep 2023 - Sep 2024")
-- Coauthor two papers on efficient text entry in virtual and augmented reality.
+#extracurriculars(activity: "Research - Advised by Jin-Ryong Kim", dates: "Sep 2023 - Sep 2024")
+// - Coauthor two papers on efficient text entry in virtual and augmented reality.
 
-#extracurriculars(activity: "UTD Algorithms Club", dates: "May 2024 - Aug 2025")
-- Teach topics in Computational Geometry, Fair Division, and Combinatorial Optimization.
+#extracurriculars(activity: "President - UTD Algorithms Club", dates: "May 2024 - Aug 2025")
+// - Teach topics in Computational Geometry, Fair Division, and Combinatorial Optimization.
 
 #extracurriculars(activity: "UTD Codeburners", dates: "Aug 2023 - Aug 2025")
-- Participate in and host competitive programming competitions.
+// - Participate in and host competitive programming competitions.
 
-#certificates(
-  name: "HSP - Social and Behavioral",
-  issuer: "CITI",
-  date: "Jan 2024",
-)
+#extracurriculars(activity: "Nebula Labs", dates: "Aug 2023 - Mar 2024")
 
-#certificates(
-  name: "HSP - Responsible Conduct of Research for Engineers",
-  issuer: "CITI",
-  date: "Jan 2024",
-)
+// #certificates(
+//   name: "HSP - Social and Behavioral",
+//   issuer: "CITI",
+//   date: "Jan 2024",
+// )
 
-#extracurriculars(activity: "Piano", dates: "")
-- Compete in several music festivals and competitions, receiving Texas Federation of Music Clubs Gold Cup.
-== Skills
-- *Projects:* Python, Java, C/C++, Lua, Go, Bash, Typst, Latex, HTML/CSS, Nim, Nix, Lisp, Prolog, Rust, Racket
-- *Technologies:* Tensorflow, Unity, Godot, Unreal Engine 5, Git, Github, NixOS, Linux, PyGame, Tkinter
-- *Languages:* English, Tamil, Esperanto
+// #certificates(
+//   name: "HSP - Responsible Conduct of Research for Engineers",
+//   issuer: "CITI",
+//   date: "Jan 2024",
+// )
+
+// #extracurriculars(activity: "Piano", dates: "")
+// - Compete in several music festivals and competitions, receiving Texas Federation of Music Clubs Gold Cup
