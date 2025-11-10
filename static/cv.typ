@@ -62,11 +62,11 @@
   title: "Teacher",
   location: "Frisco, TX",
   company: "KD College Prep",
-  dates: dates-helper(start-date: "Jan 2025", end-date: "Present"),
+  dates: dates-helper(start-date: "Oct 2025", end-date: "Present"),
 )
 
 == Research
-Algorithms and data structures; combinatorial optimization; graph algorithms
+Algorithms and data structures; combinatorial optimization; graph algorithms; human-computer interaction
 
 #project(
   name: "PropType: Everyday Props as Typing Surfaces in Augmented Reality",
@@ -76,7 +76,7 @@ Algorithms and data structures; combinatorial optimization; graph algorithms
 
 #project(
   name: "Survey of Discrete Fair Division",
-  dates: dates-helper(start-date: "Aug 2024", end-date: "Dec 2024"),
+  // dates: dates-helper(start-date: "Aug 2024", end-date: "Dec 2024"),
 )
 - _Iniyan Joseph_
 
@@ -104,7 +104,7 @@ Algorithms and data structures; combinatorial optimization; graph algorithms
 - *Dean's List* - Fall 2023, Spring 2024, Spring 2025, Summer 2025
 - *Academic Excellence Scholarship* - Aug 2023 - Aug 2025
 
-== Extracurriculars & Certifications
+== Extracurriculars
 
 #extracurriculars(activity: "Research - Advised by Emily Fox", dates: "Aug 2024 - Present")
 // - Research algorithms for Symmetric Submodular Optimization.
@@ -115,8 +115,8 @@ Algorithms and data structures; combinatorial optimization; graph algorithms
 #extracurriculars(activity: "President - UTD Algorithms Club", dates: "May 2024 - Aug 2025")
 // - Teach topics in Computational Geometry, Fair Division, and Combinatorial Optimization.
 
-#extracurriculars(activity: "UTD Codeburners", dates: "Aug 2023 - Aug 2025")
-// - Participate in and host competitive programming competitions.
+#extracurriculars(activity: "UTD Codeburners (Competitive Programming)", dates: "Aug 2023 - Aug 2025")
+- _Won South Central USA Bronze Medal_
 
 #extracurriculars(activity: "Nebula Labs", dates: "Aug 2023 - Mar 2024")
 
