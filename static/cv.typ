@@ -116,9 +116,12 @@ Algorithms and data structures; combinatorial optimization; graph algorithms; hu
 // - Teach topics in Computational Geometry, Fair Division, and Combinatorial Optimization.
 
 #extracurriculars(activity: "UTD Codeburners (Competitive Programming)", dates: "Aug 2023 - Aug 2025")
-- _Won South Central USA Bronze Medal_
+- _ICPC South Central USA - Bronze Medal_
 
 #extracurriculars(activity: "Nebula Labs", dates: "Aug 2023 - Mar 2024")
+
+#extracurriculars(activity: "Piano", dates: "")
+- _Texas Federation of Music Clubs Gold Cup_
 
 // #certificates(
 //   name: "HSP - Social and Behavioral",
