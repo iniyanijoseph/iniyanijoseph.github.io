@@ -18,10 +18,9 @@
   gpa: "3.99/4",
 )
 == Research
-Advised by Emily Fox
+#timeline(start: datetime(year: 2024, month: 8, day: 22), end: "Present", event: "Advised by Emily Fox")
 
-Advised by Jin-Ryong Kim
-
+#timeline(start: datetime(year: 2023, month: 9, day: 22), end: datetime(year: 2024, month: 9, day: 20), event: "Advised by Jin-Ryong Kim")
 === Publications
 #paper(
   authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),

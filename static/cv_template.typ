@@ -1,4 +1,3 @@
-#import "@preview/gloat:0.1.0": *
 /// Apply the cv layout to the document.
 /// Sets up a header for the front page.
 /// Additional sections should be created using other functions, such as `exp` and `edu`.
@@ -67,6 +66,26 @@
   body
 }
 
+#let timeline(
+  /// The name of the award. If it is a specific grant, the identifier can also go here. -> content | str | none
+  event: "",
+  /// Date the award was given. -> datetime | str | none
+  start: "",
+  /// Date the award was given. -> datetime | str | none
+  end: "",
+
+) = {
+  grid(
+    columns: (8em, auto, 3em),
+    align(left)[
+      #{ if type(start) == datetime [#start.display("[month repr:short] [year]")] else [#start] }-#{ if type(end) == datetime [#end.display("[month repr:short] [year]")] else [#end] }
+    ],
+    align(left)[
+      #event
+    ],
+    gutter: 0.5em,
+  )
+}
 
 /// Create an education entry, suitable for one degree and accompanying information.
 /// -> content
@@ -574,7 +593,7 @@
   pieces: "",
 ) = {
   grid(
-    columns: (6em, auto, 3em),
+    columns: (4em, auto, 3em),
     align(left)[
       #{ if type(date) == datetime [#date.display("[year]")] else [#date] }
     ],
