@@ -41,7 +41,6 @@
   authors: ([*Iniyan Joseph*]),
   title: "Survey of Discrete Fair Division",
   journal: "CS 4V95 - Independent Study",
-  published: datetime(year: 2025, month: 03, day: 17),
 )
 
 == Employment

@@ -1,129 +1,240 @@
-// Make multiple versions?
-   
-#import "@preview/basic-resume:0.2.8": *
-
-// Put your personal information here, replacing mine
-#let name = "Iniyan Joseph"
-#let location = "McKinney, TX"
-#let email = "iniyanijoseph@gmail.com"
-#let github = "github.com/iniyanijoseph"
-#let linkedin = "linkedin.com/in/iniyanijoseph"
-#let phone = "+1 (510) 936-4409"
-#let personal-site = "iniyanijoseph.github.io"
-#show: resume.with(
-  author: name,
-  location: location,
-  email: email,
-  github: github,
-  linkedin: linkedin,
-  personal-site: personal-site,
-  accent-color: "#000000",
-  font: "New Computer Modern",
-  paper: "us-letter",
-  author-position: center,
-  personal-info-position: left,
+#import "cv_template.typ":* 
+#let showpiano = false
+#show: cv.with(
+  author: "Iniyan Joseph",
+  contacts: (
+    [#link("mailto:iniyanijoseph@gmail.com")[iniyanijoseph\@gmail.com]],
+    [#link("https://iniyanijoseph.github.io")[iniyanijoseph.github.io]]
+  ),
+  updated: datetime.today(),
 )
-#set text(size : 9pt)
-== Education
-
+= Education
 #edu(
   institution: "The University of Texas at Dallas",
+  degrees: (
+    [Bachelor of Science, Computer Science],
+  ),
+  date: datetime(year: 2025, month: 08, day: 23),
+  gpa: "3.99/4",
+)
+== Research
+#timeline(start: datetime(year: 2024, month: 8, day: 22), end: "Present", event: "Advised by Emily Fox")
+
+#timeline(start: datetime(year: 2023, month: 9, day: 22), end: datetime(year: 2024, month: 9, day: 20), event: "Advised by Jin-Ryong Kim")
+=== Publications
+#paper(
+  authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),
+  title: "PropType: Everyday Props as Typing Surfaces in Augmented Reality",
+  journal: "ACM CHI",
+  published: datetime(year: 2025, month: 03, day: 17),
+  DOI: "10.1145/3706598.3714056",
+)
+
+#paper(
+  authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),
+  title: "Design Challenges of In-Air Thumb Typing on Head-Mounted Displays",
+  journal: "Submitted",
+  
+)
+
+#preprint(
+  authors: ([*Iniyan Joseph*]),
+  title: "Survey of Discrete Fair Division",
+  journal: "CS 4V95 - Independent Study",
+  published: datetime(year: 2025, month: 03, day: 17),
+)
+
+== Employment
+
+#exp(
+  role: "Teacher",
+  org: "KD College Prep",
   location: "Richardson, TX",
-  dates: dates-helper(start-date: "Aug 2023", end-date: "Aug 2025"),
-  degree: "Bachelor of Science, Computer Science",
+  start: datetime(year: 2025, month: 10, day: 15),
+  end: "Present",
 )
-- Cumulative GPA: 3.99\/4 | Dean's List, Academic Excellence Scholarship
 
-== Work Experience
-
-#work(
-  title: "Grader",
+#exp(
+  role: "Software Engineer",
+  org: "ReviveXR",
   location: "Richardson, TX",
-  company: "The University of Texas at Dallas",
-  dates: dates-helper(start-date: "Jan 2025", end-date: "May 2025"),
-)
-- Supported professor in grading for Discrete Mathematics for Computing (CS 2305).
-
-== Publications
-#project(
-  name: "PropType: Everyday Props as Typing Surfaces in Augmented Reality",
-  dates: "ACM CHI 2025 Honorable Mention"
-)
-- _Hyunjae Gil, Ashish Pratap, Iniyan Joseph, Jin-Ryong Kim_
-
-#project(
-  name: "Survey of Discrete Fair Division",
-  dates: dates-helper(start-date: "Aug 2024", end-date: "Dec 2024"),
-)
-- _Iniyan Joseph_
-
-== Projects
-
-#project(
-  name: "Gus the Goose",
-  dates: dates-helper(start-date: "Jan 2025", end-date: "Present"),
-)
-- Authoring picture book written to teach Discrete Mathematics for children.
-
-#project(
-  name: "TurboMarkdown",
-  dates: dates-helper(start-date: "Aug 2024", end-date: "Dec 2024"),
-)
-- Created website to easily compile Markdown Files into pdfs with custom coloring.
-
-#project(
-  name: "Simple Shell",
-  dates: dates-helper(start-date: "Jan 2024", end-date: "May 2024"),
-)
-- Wrote simple Bash shell application using C with support for piping.
-
-#project(
-  name: "Nebula Labs' API",
-  dates: dates-helper(start-date: "Aug 2023", end-date: "Dec 2023"),
-)
-- Developed scrapers for UTD Nebula Labs' API for aggregation of professor profile information.
-
-#project(
-  name: "Sensory Profile Calculator",
-  dates: "Jun 2023"
-)
-- Designed UI for Sensory Profile Assessment for sensory tendencies among neurodivergent students.
-
-#project(
-  name: "Project Kaos",
-  dates: dates-helper(start-date: "Aug 2022", end-date: "May 2023"),
-)
-- Designed UI for Role Playing Game using Unreal Engine 5.
-
-== Extracurriculars & Certifications
-
-#extracurriculars(activity: "TCS Research - Advised by Emily Fox", dates: "Aug 2024 - Present")
-- Research algorithms for Symmetric Submodular Optimization.
-
-#extracurriculars(activity: "HCI Research - Advised by Jin-Ryong Kim", dates: "Sep 2023 - Sep 2024")
-- Coauthor two papers on efficient text entry in virtual and augmented reality.
-
-#extracurriculars(activity: "UTD Algorithms Club", dates: "May 2024 - Aug 2025")
-- Teach topics in Computational Geometry, Fair Division, and Combinatorial Optimization.
-
-#extracurriculars(activity: "UTD Codeburners", dates: "Aug 2023 - Aug 2025")
-- Participate in and host competitive programming competitions.
-
-#certificates(
-  name: "HSP - Social and Behavioral",
-  issuer: "CITI",
-  date: "Jan 2024",
+  start: datetime(year: 2025, month: 6, day: 15),
+  end: datetime(year: 2025, month: 12, day: 15),
 )
 
-#certificates(
-  name: "HSP - Responsible Conduct of Research for Engineers",
-  issuer: "CITI",
-  date: "Jan 2024",
+#exp(
+  role: "Substitute Teacher",
+  org: "Frisco Independent School District",
+  location: "Frisco, TX",
+  start: datetime(year: 2025, month: 8, day: 15),
+  end: datetime(year: 2025, month: 10, day: 15),
 )
 
-#extracurriculars(activity: "Piano", dates: "")
-- Compete in several music festivals and competitions, receiving Texas Federation of Music Clubs Gold Cup.
-== Skills
-- *Projects:* Python, Java, C/C++, Lua, Go, Bash, Typst, Latex, HTML/CSS, Nim, Nix, Lisp, Prolog, Rust, Racket
-- *Technologies:* Tensorflow, Unity, Godot, Unreal Engine 5, Git, Github, NixOS, Linux, PyGame, Tkinter
-- *Languages:* English, Tamil, Esperanto
+#exp(
+  role: "Grader",
+  org: "The University of Texas at Dallas",
+  location: "Richardson, TX",
+  start: datetime(year: 2025, month: 1, day: 15),
+  end: datetime(year: 2025, month: 5, day: 15),
+)
+
+== Awards & Honors
+
+#award(
+  name: "Dean's List",
+  from: "The University of Texas at Dallas",
+  date:"Fall 2023, Spring 2024, Spring 2025, Summer 2025",
+)
+
+#award(
+  name: "Academic Excellence Scholarship",
+  from: "The University of Texas at Dallas",
+  date: "Fall 2023 - Summer 2025",
+)
+
+#award(
+  name: "Bronze Medal",
+  from: "International Collegiate Competitive Programming South Central USA Regional Contest",
+  date: datetime(year: 2025, month: 2, day: 15),
+)
+
+#award(name: "Gold Cup",
+  from: "Texas Federation of Music Clubs",
+  date: datetime(year: 2023, month: 5, day: 15),)
+  
+== Other Activities
+#extracurricular(
+  role: "President",
+  org: "UTD Algorithms Club",
+  start: datetime(year: 2024, month: 5, day: 1),
+  end: datetime(year: 2025, month: 8, day: 23)
+)
+
+#extracurricular(
+  org: "UTD Codeburners (Competitive Programming)",
+  start: datetime(year: 2023, month: 8, day: 1),
+  end: datetime(year: 2025, month: 8, day: 23)
+)
+#extracurricular(
+  org: "Nebula Labs",
+  start: datetime(year: 2023, month: 8, day: 1),
+  end: datetime(year: 2025, month: 3, day: 1)
+)
+// Piano Stuff
+#{if showpiano [
+=== Piano
+
+==== Performance
+#performance(
+  program: "Joy Has Dawned",
+  location: "Cedar Creek Lake United Methodist Church",
+  date: datetime(year: 2024, month: 12, day: 1),
+  musicians: ([Seth Thomas], [*Iniyan Joseph*]),
+  performancelink: "z0EX8l6ZWnk",
+)
+#performance(
+  program: "Fall 2024 Recital",
+  location: "Cedar Creek Lake United Methodist Church",
+  date: datetime(year: 2024, month: 10, day: 1),
+  musicians: ([Seth Thomas], [*Iniyan Joseph*]),
+  performancelink: "tY56WEPD9R0",
+)
+#performance(
+  program: "A Christmas for All Time",
+  location: "Cedar Creek Lake United Methodist Church",
+  date: datetime(year: 2023, month: 12, day: 1),
+  musicians: ([Seth Thomas], [*Iniyan Joseph*]),
+  performancelink: "0odLKW9OCaA",
+)
+#performance(
+  program: "Senior Recital",
+  location: "McKinney Bible Church",
+  date: datetime(year: 2023, month:8 , day: 1),
+  musicians: ([*Iniyan Joseph*]),
+  performancelink: "T3SfiNYB4DA",
+)
+#performance(
+  program: "Senior Recital",
+  location: "Cedar Creek Lake United Methodist Church",
+  date: datetime(year: 2023, month: 7, day: 1),
+  musicians: ([*Iniyan Joseph*]),
+  performancelink: "Sk_h7YYb2-I",
+)
+#performance(
+  program: "Addams Family Musical",
+  location: "Independence High School",
+  date: datetime(year: 2023, month: 1, day: 1),
+  musicians: ([Independence High School Pit Orchestra]),
+)
+#performance(
+  program: "Let There be Christmas",
+  location: "Cedar Creek Lake United Methodist Church",
+  date: datetime(year: 2022, month: 12, day: 1),
+  musicians: ([Seth Thomas], [*Iniyan Joseph*]),
+  performancelink: "f2X2m_pDQNw",
+)
+#performance(
+  program: "Tuck Everlasting",
+  location: "Independence High School",
+  date: datetime(year: 2022, month: 1, day: 1),
+  musicians: ([Independence High School Pit Orchestra]),
+)
+
+==== Festivals and Competitions
+#festival(
+  score: "Outstanding",
+  festival: "Texas Federation of Music Clubs",
+  category: "Musically Advanced Class II",
+  date: datetime(year: 2023, month: 5, day: 1),
+  pieces: "Rachmaninov Polichinelle op. 3 no. 4",
+)
+#festival(
+  score: "Outstanding",
+  festival: "National Federation of Music Clubs",
+  category: "Musically Advanced Class II",
+  date: datetime(year: 2023, month: 3, day: 1),
+  pieces: "Rachmaninov Polichinelle op. 3 no. 4, Beethoven Tempest Sonata mvmt. 3",
+)
+#festival(
+  score: "1",
+  festival: "University Interscholastic League - Solo and Ensemble",
+  category: "1",
+  date: datetime(year: 2023, month: 1, day: 1),
+  pieces: "Beethoven Tempest Sonata mvmt. 3",
+)
+#festival(
+  score: "Outstanding",
+  festival: "Texas Federation of Music Clubs",
+  category: "Very Difficult Class 2",
+  date: datetime(year: 2022, month: 5, day: 1),
+  pieces: "Rachmaninoff Prelude c# minor op 3. no 2",
+)
+#festival(
+  score: "Outstanding",
+  festival: "National Federation of Music Clubs",
+  category: "Very Difficult Class 2",
+  date: datetime(year: 2022, month: 3, day: 1),
+  pieces: "Rachmaninoff Prelude c# minor op 3. no 2, Bach Invention a minor BWV 784",
+)
+#festival(
+  score: "1",
+  festival: "University Interscholastic League - Solo and Ensemble",
+  category: "2",
+  date: datetime(year: 2022, month: 1, day: 1),
+  pieces: "Bach Invention a minor BWV 784",
+)
+#festival(
+  score: "Outstanding",
+  festival: "Texas Federation of Music Clubs",
+  category: "Difficult Class 2",
+  date: datetime(year: 2021, month: 5, day: 1),
+  pieces: "Roubos Rapsodia Española",
+)
+#festival(
+  score: "Outstanding",
+  festival: "National Federation of Music Clubs",
+  category: "Difficult Class 2",
+  date: datetime(year: 2021, month: 3, day: 1),
+  pieces: "Roubos Rapsodia Española, Beethoven Bagatelle op. 119 no. 1",
+)
+]}
