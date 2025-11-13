@@ -16,6 +16,7 @@
   ),
   date: datetime(year: 2025, month: 08, day: 23),
   gpa: "3.99/4",
+  details: "Graduated Summa Cum Laude",
 )
 == Research
 #timeline(start: datetime(year: 2024, month: 8, day: 22), end: "Present", event: "Advised by Emily Fox")
@@ -33,8 +34,7 @@
 #paper(
   authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),
   title: "Design Challenges of In-Air Thumb Typing on Head-Mounted Displays",
-  journal: "Submitted",
-  
+  journal: "Submitted",  
 )
 
 #preprint(
@@ -78,7 +78,6 @@
 )
 
 == Awards & Honors
-
 #award(
   name: "Dean's List",
   from: "The University of Texas at Dallas",
