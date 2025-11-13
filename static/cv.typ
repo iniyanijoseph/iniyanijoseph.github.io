@@ -16,7 +16,7 @@
   ),
   date: datetime(year: 2025, month: 08, day: 23),
   gpa: "3.99/4",
-  details: "Graduated Summa Cum Laude",
+  details: "Summa Cum Laude",
 )
 == Research
 #timeline(start: datetime(year: 2024, month: 8, day: 22), end: "Present", event: "Advised by Emily Fox")
@@ -88,12 +88,6 @@
   name: "Academic Excellence Scholarship",
   from: "The University of Texas at Dallas",
   date: "Fall 2023 - Summer 2025",
-)
-
-#award(
-  name: "Bronze Medal",
-  from: "International Collegiate Competitive Programming South Central USA Regional Contest",
-  date: datetime(year: 2025, month: 2, day: 15),
 )
 
 #award(name: "Gold Cup",
