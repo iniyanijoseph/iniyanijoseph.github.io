@@ -112,10 +112,10 @@
       align(left)[
         #{
           for degree in degrees [
-            #strong[#degree] \
+            #strong[#degree]
           ]
-        }
-        #institution
+        }#emph[#details]
+        \ #institution
         \ #{
           if gpa != "" [
             GPA: #gpa
@@ -135,7 +135,7 @@
         }
       ],
     )
-    #{ if details != "" [#details] }
+    // #{ if details != "" [#details] }
   ]
 }
 
@@ -434,7 +434,7 @@
   enum.item[
     #{ if type(authors) == array { authors.enumerate().map(((i, author)) => text(author)).join(", ") } else { authors } }.
     #title.
-    #credit.
+    #credit. // #{if credit != "" [#credit]}
     #{
       if DOI != none [DOI: #link("https://doi.org" + DOI)[#DOI]]
     }
@@ -474,8 +474,8 @@
   enum.item[
     #{ if type(authors) == array { authors.enumerate().map(((i, author)) => text(author)).join(", ") } else { authors } }.
     #title.
-    #emph[#status].
-    #emph[#journal], #date.
+    #emph[#status]#{if date != "" [.]}
+    #emph[#journal]#{if date != "" [,]}#date.
     #{
       if DOI != none [DOI: #link("https://doi.org/" + DOI)[#DOI]]
     }

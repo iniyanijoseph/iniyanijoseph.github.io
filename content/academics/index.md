@@ -7,11 +7,8 @@ hidemeta: true
 ## At a Glance
 GPA - 3.99
 
-## Elective Coursework
-Combinatorial Optimization
-
-Independent Research (Submodular Optimization)
-
-Independent Study (Fair Division)
-
 [Transcript](Transcript.pdf)
+
+*PhD Application Materials:*
+[Personal History](/ApplicationEssays/PhD/personalhistory.pdf)
+[Statement of Purpose](/ApplicationEssays/PhD/GeneratedDocuments/uiuc/sop.pdf)

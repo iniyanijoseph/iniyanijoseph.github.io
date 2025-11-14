@@ -40,7 +40,7 @@ for (school, text) in schools.items():
             out += suffix.read()
             print(prefix.read())
 
-    output_path = f"Generated Documents/{school}/sop.typ"
+    output_path = f"GeneratedDocuments/{school}/sop.typ"
     if not os.path.exists(output_path ):
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w+") as file:
@@ -48,7 +48,7 @@ for (school, text) in schools.items():
     subprocess.run(["typst", "c", output_path])
 
     if school in personalstatement:
-        path = f"Generated Documents/{school}/personalhistory.typ"
+        path = f"GeneratedDocuments/{school}/personalhistory.typ"
         with open("personalhistory.typ", "r") as personalhistory:
             with open(path, "w+") as file:
                 file.write(personalhistory.read())

@@ -16,32 +16,7 @@
   ),
   date: datetime(year: 2025, month: 08, day: 23),
   gpa: "3.99/4",
-)
-== Research
-#timeline(start: datetime(year: 2024, month: 8, day: 22), end: "Present", event: "Advised by Emily Fox")
-
-#timeline(start: datetime(year: 2023, month: 9, day: 22), end: datetime(year: 2024, month: 9, day: 20), event: "Advised by Jin-Ryong Kim")
-=== Publications
-#paper(
-  authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),
-  title: "PropType: Everyday Props as Typing Surfaces in Augmented Reality",
-  journal: "ACM CHI",
-  published: datetime(year: 2025, month: 03, day: 17),
-  DOI: "10.1145/3706598.3714056",
-)
-
-#paper(
-  authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),
-  title: "Design Challenges of In-Air Thumb Typing on Head-Mounted Displays",
-  journal: "Submitted",
-  
-)
-
-#preprint(
-  authors: ([*Iniyan Joseph*]),
-  title: "Survey of Discrete Fair Division",
-  journal: "CS 4V95 - Independent Study",
-  published: datetime(year: 2025, month: 03, day: 17),
+  details: "Summa Cum Laude",
 )
 
 == Employment
@@ -78,8 +53,32 @@
   end: datetime(year: 2025, month: 5, day: 15),
 )
 
-== Awards & Honors
+== Research
+#timeline(start: datetime(year: 2024, month: 8, day: 22), end: "Present", event: "Advised by Emily Fox")
 
+#timeline(start: datetime(year: 2023, month: 9, day: 22), end: datetime(year: 2024, month: 9, day: 20), event: "Advised by Jin-Ryong Kim")
+=== Publications
+#paper(
+  authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),
+  title: "PropType: Everyday Props as Typing Surfaces in Augmented Reality",
+  journal: "ACM CHI",
+  published: datetime(year: 2025, month: 03, day: 17),
+  DOI: "10.1145/3706598.3714056",
+)
+
+#paper(
+  authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),
+  title: "Design Challenges of In-Air Thumb Typing on Head-Mounted Displays",
+  journal: "Submitted",  
+)
+
+#preprint(
+  authors: ([*Iniyan Joseph*]),
+  title: "Survey of Discrete Fair Division",
+  journal: "CS 4V95 - Independent Study",
+)
+
+== Awards & Honors
 #award(
   name: "Dean's List",
   from: "The University of Texas at Dallas",
@@ -90,12 +89,6 @@
   name: "Academic Excellence Scholarship",
   from: "The University of Texas at Dallas",
   date: "Fall 2023 - Summer 2025",
-)
-
-#award(
-  name: "Bronze Medal",
-  from: "International Collegiate Competitive Programming South Central USA Regional Contest",
-  date: datetime(year: 2025, month: 2, day: 15),
 )
 
 #award(name: "Gold Cup",
