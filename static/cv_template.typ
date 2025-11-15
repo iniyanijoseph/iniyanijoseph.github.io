@@ -58,7 +58,7 @@
     ],
     [],
     align(right)[
-      #{ if type(start) == datetime [#start.display("[month repr:long] [year]")] else [#start] }-#{ if type(end) == datetime [#end.display("[month repr:long] [year]")] else [#end] }
+      #{ if type(start) == datetime [#start.display("[month repr:long] [year]")] else [#start] } - #{ if type(end) == datetime [#end.display("[month repr:long] [year]")] else [#end] }
     ],
     gutter: 0.5em,
   )
