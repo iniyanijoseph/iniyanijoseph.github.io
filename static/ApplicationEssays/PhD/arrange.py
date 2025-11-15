@@ -4,30 +4,30 @@ import os
 personalstatement = {"dallas", "irvine", "purdue", "stanford"}
 
 schools = {
-    "uiuc" : "In graduate study, I intend to focus on algorithms. At the University of Illinois Urbana-Champaign, I am especially interested in working with Professors Ruta Mehta and Emily Fox. Professor Fox's work on graph optimization aligns with my interests. I am also interested in working with Professor Mehta on fair division and online algorithms.", 
+    "uiuc" : "At the University of Illinois Urbana-Champaign, I am excited to work with Professor Ruta Mehta on fair division and online algorithms, and Professor Fox on graph optimization.", 
     
-    "duke" : "In graduate study, I intend to focus on algorithms. At Duke, I am especially interested in working with Professor Debmalya Panigrahi. His work on graph optimization particularly interests me, and I am eager to research algorithms for cuts and flows.",
+    "duke" : "At Duke, I am excited to working with Professor Debmalya Panigrahi on graph optimization.",
     
-    "purdue" : "In graduate study, I intend to focus on algorithms. At Purdue, I am especially interested in working with Professors Kent Quanrud and Alex Psomas. Professor Quanrud's work on graph optimization aligns with my interests. I am also interested in working with Professor Psomas on fair division and online algorithms.",
+    "purdue" : "At Purdue, I am interested in working with Professors Kent Quanrud and Alex Psomas. Professor Quanrud's work on graph optimization aligns with my interests. I am also interested in working with Professor Psomas on fair division and online algorithms.",
        
-    "utah" : "In graduate study, I intend to focus on algorithms. At the University of Utah, I am especially interested in working with Professors Aditya Bhaskara and Haitao Wang. Professor Bhaskara's work on approximation algorithms aligns with my interests. I am also interested in working with Professor Wang on geometric optimization algorithms.",
+    "utah" : "At the University of Utah, I am interested in working with Professors Aditya Bhaskara and Haitao Wang. Professor Bhaskara's work on approximation algorithms aligns with my interests. I am also interested in working with Professor Wang on geometric optimization algorithms.",
     
-    "dallas" : "In graduate study, I intend to focus on algorithms. At The University of Texas at Dallas, I am especially interested in working with Professor Benjamin Raichel. His work on geometric optimization algorithms particularly interests me, and I am eager to research algorithms for metric embeddings and other optimization problems.",
+    "dallas" : "At The University of Texas at Dallas, I am excited to work with Professor Benjamin Raichel on geometric optimization algorithms. I am eager to research algorithms for metric embeddings and other optimization problems.",
         
-    "irvine" : "In graduate study, I intend to focus on algorithms. At UC Irvine, I am especially interested in working with Professor Vijay Vazirani. His work on matchings aligns with my interests, and I am eager to research fair division and other related optimization problems.",
+    "irvine" : "At UC Irvine, I am interested in working with Professor Vijay Vazirani. His work on matchings aligns with my interests and with my prior work in fair division, and I am eager to research fair division and other related optimization problems.",
 
-    "waterloo" : "In graduate study, I intend to focus on combinatorial optimization. At Waterloo, I am especially interested in working with Professors Joseph Cheriyan and Peter Nelson, whose work on graph connectivity and matroids respectively is closely aligned with my interests.",
+    "waterloo" : "At Waterloo, I am excited to work with Professors Joseph Cheriyan and Peter Nelson, on graph connectivity and matroids, and is aligned with my interest in combinatorial optimization.",
     
-    "nyu" : "In graduate study, I intend to focus on algorithms. At New York University, I am especially interested in working with Professor Aaron Bernstein. His work on graph optimization particularly interests me, and I am eager to research maximum flows and other optimization problems.",
+    "nyu" : "At New York University, I am excited to work with Professor Aaron Bernstein on graph optimization. His work aligns with my interests and my work in minimum cuts.",
     
-    "washington" : "In graduate study, I intend to focus on algorithms. At the University of Washington, I am especially interested in working with Professor Anna Karlin. Her work on economics and optimization is closely aligned with my interests, and I am eager to research markets and auctions.",
+    "washington" : "At the University of Washington, I am interested in working with Professor Anna Karlin. Her work on economics and optimization is closely aligned with my interests and my prior work in fair division.",
 
-    "uwmadison" : "In graduate study, I intend to focus on algorithms. At UW-Madison, I am especially interested in working with Professor Alberto Del Pia. His work on combinatorial optimization aligns with my interests.",
+    "uwmadison" : "At UW-Madison, I am excited to work with Professor Alberto Del Pia on combinatorial optimization.",
     
-    "stanford" : "In graduate study, I intend to focus on algorithms. At Stanford, I am especially interested in working with Professor Aviad Rubenstein. His work on game theory and complexity aligns with my interests."
+    "stanford" : "At Stanford, I am excited to work with Professor Aviad Rubenstein. His work on game theory and complexity aligns with my interests and my prior work in fair division."
 }
 
-schoolsuffix = " I am excited by the broader directions in optimization techniques and the structure of optimization problems, and by their applications to networks, economics, online algorithms, and geometry. I would be eager to contribute to this research community and explore new extensions of these problems."
+schoolsuffix = " I am excited by the broader directions in optimization techniques and the structure of optimization problems and am eager to contribute to this research community and explore new extensions of these problems."
 
 for (school, text) in schools.items():
     out = ""
