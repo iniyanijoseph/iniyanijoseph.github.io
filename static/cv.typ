@@ -46,7 +46,7 @@
 )
 
 #exp(
-  role: "Grader",
+  role: "Grader - Discrete Mathematics for Computing",
   org: "The University of Texas at Dallas",
   location: "Richardson, TX",
   start: datetime(year: 2025, month: 1, day: 15),
