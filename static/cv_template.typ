@@ -19,11 +19,11 @@
       left: 1.5cm,
       right: 1.5cm,
     ),
-    footer: [
-      #align(center)[
-        #author -- #context { counter(page).display("1 of 1", both: true) }
-      ]
-    ],
+    // footer: [
+    //   #align(center)[
+    //     #author -- #context { counter(page).display("1 of 1", both: true) }
+    //   ]
+    // ],
   )
 
   show heading: it => text(size: 12pt, it.body)

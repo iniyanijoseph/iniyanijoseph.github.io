@@ -8,6 +8,7 @@
   ),
   updated: datetime.today(),
 )
+
 = Education
 #edu(
   institution: "The University of Texas at Dallas",
@@ -19,8 +20,33 @@
   details: "Summa Cum Laude",
 )
 
-== Employment
+= Research
+#timeline(start: datetime(year: 2024, month: 8, day: 22), end: "Present", event: "Advised by Dr. Emily Fox")
 
+#timeline(start: datetime(year: 2023, month: 9, day: 22), end: datetime(year: 2024, month: 9, day: 20), event: "Advised by Dr. Jin-Ryong Kim")
+
+== Publications
+#paper(
+  authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),
+  title: "PropType: Everyday Props as Typing Surfaces in Augmented Reality",
+     journal: "ACM CHI",
+  published: datetime(year: 2025, month: 03, day: 17),
+  DOI: "10.1145/3706598.3714056",
+)
+
+#paper(
+  authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),
+  title: "Design Challenges of In-Air Thumb Typing on Head-Mounted Displays",
+  journal: "Submitted",  
+)
+
+#preprint(
+  authors: ([*Iniyan Joseph*]),
+  title: "Survey of Discrete Fair Division",
+  journal: "CS 4V95 - Independent Study",
+)
+
+= Employment
 #exp(
   role: "Teacher",
   org: "KD College Prep",
@@ -53,32 +79,15 @@
   end: datetime(year: 2025, month: 5, day: 15),
 )
 
-== Research
-#timeline(start: datetime(year: 2024, month: 8, day: 22), end: "Present", event: "Advised by Emily Fox")
-
-#timeline(start: datetime(year: 2023, month: 9, day: 22), end: datetime(year: 2024, month: 9, day: 20), event: "Advised by Jin-Ryong Kim")
-=== Publications
-#paper(
-  authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),
-  title: "PropType: Everyday Props as Typing Surfaces in Augmented Reality",
-  journal: "ACM CHI",
-  published: datetime(year: 2025, month: 03, day: 17),
-  DOI: "10.1145/3706598.3714056",
+#exp(
+  role: "Pianist (Seasonal)",
+  org: "Cedar Creek Lake United Methodist Church",
+  location: "Tool, TX",
+  start: datetime(year: 2022, month: 12, day: 15),
+  end: datetime(year: 2025, month: 12, day: 15),
 )
 
-#paper(
-  authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),
-  title: "Design Challenges of In-Air Thumb Typing on Head-Mounted Displays",
-  journal: "Submitted",  
-)
-
-#preprint(
-  authors: ([*Iniyan Joseph*]),
-  title: "Survey of Discrete Fair Division",
-  journal: "CS 4V95 - Independent Study",
-)
-
-== Awards & Honors
+= Awards & Honors
 #award(
   name: "Dean's List",
   from: "The University of Texas at Dallas",
@@ -95,7 +104,7 @@
   from: "Texas Federation of Music Clubs",
   date: datetime(year: 2023, month: 5, day: 15),)
   
-== Other Activities
+= Other Activities
 #extracurricular(
   role: "President",
   org: "UTD Algorithms Club",
@@ -114,10 +123,11 @@
   end: datetime(year: 2025, month: 3, day: 1)
 )
 // Piano Stuff
-#{if showpiano [
-=== Piano
+#{
+if showpiano [
+== Piano
 
-==== Performance
+=== Performance
 #performance(
   program: "Joy Has Dawned",
   location: "Cedar Creek Lake United Methodist Church",
@@ -173,7 +183,7 @@
   musicians: ([Independence High School Pit Orchestra]),
 )
 
-==== Festivals and Competitions
+=== Festivals and Competitions
 #festival(
   score: "Outstanding",
   festival: "Texas Federation of Music Clubs",
@@ -230,4 +240,13 @@
   date: datetime(year: 2021, month: 3, day: 1),
   pieces: "Roubos Rapsodia Española, Beethoven Bagatelle op. 119 no. 1",
 )
-]}
+]
+
+else [
+#extracurricular(
+  org: "Piano",
+  start: datetime(year: 2009, month: 12, day: 1),
+  end: "Present"
+)
+]
+}
