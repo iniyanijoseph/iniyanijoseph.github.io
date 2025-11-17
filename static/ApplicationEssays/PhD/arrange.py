@@ -24,7 +24,7 @@ schools = {
     
     "uwmadison" : "At UW-Madison, I am excited to work with Professor Alberto Del Pia on combinatorial optimization. His work is aligned with my interests and my prior coursework and research in this area.",
     
-    "stanford" : "At Stanford, I am excited to work with Professor Aviad Rubenstein. His work on game theory and complexity aligns with my interests and my prior work in fair division."
+    "stanford" : "At Stanford, I am excited to work with Professor Aviad Rubenstein on game theory and complexity, and with Professor Aaron Sidford on combinatorial optimization. I believe that my prior work with fair division and matchings and reserach interests are closely aligned with theirs."
 }
 
 schoolsuffix = " I am excited by the broader directions in optimization techniques and the structure of optimization problems and am eager to contribute to this research community and explore new extensions of these problems."

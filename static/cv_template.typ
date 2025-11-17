@@ -269,7 +269,7 @@
     .join()
 
   enum.item[
-    #pad(right:6em)[
+    // #pad(right:6em)[
     #{ if type(authors) == array { authors.enumerate().map(((i, author)) => text(author)).join(", ") } else { authors } }.
     #title.
     #emph[#conference],
@@ -280,7 +280,7 @@
       if DOI != none [DOI: #link("https://doi.org" + DOI)[#DOI]]
     }
     ]
-  ]
+  // ]
 }
 
 #let paper(
@@ -313,14 +313,14 @@
     .join()
 
   enum.item[
-    #pad(right: 6em)[
+    // #pad(right: 6em)[
     #{ if type(authors) == array { authors.enumerate().map(((i, author)) => text(author)).join(", ") } else { authors } }.
     #title.
     #{if credit != "" [#credit.]}
     #{
       if DOI != none [DOI: #link("https://doi.org" + DOI)[#DOI]]
     }
-    ]
+    // ]
   ]
 }
 
@@ -342,7 +342,7 @@
   }
 
   enum.item[
-    #pad(right: 6em)[
+    // #pad(right: 6em)[
     #{ if type(authors) == array { authors.enumerate().map(((i, author)) => text(author)).join(", ") } else { authors } }.
     #title.
     #emph[#status]#{if date != "" [.]}
@@ -351,7 +351,7 @@
       if DOI != none [DOI: #link("https://doi.org/" + DOI)[#DOI]]
     }
     ]
-  ]
+  // ]
 }
 
 #let pres(
@@ -375,7 +375,7 @@
     .join()
 
   enum.item[
-    #pad(right: 6em)[
+    // #pad(right: 6em)[
     #{ if type(authors) == array { authors.enumerate().map(((i, author)) => text(author)).join(", ") } else { authors } }.
     #title.
     #emph[#conference],
@@ -386,7 +386,7 @@
       if DOI != none [DOI: #link("https://doi.org" + DOI)[#DOI]]
     }
   ]
-  ]
+  // ]
 }
 
 #let extracurricular(

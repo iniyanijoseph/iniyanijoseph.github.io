@@ -27,7 +27,7 @@
 
 == Publications
 #paper(
-  authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),
+  authors: ([Hyunjae Gil], [Ashish Pratap], [*Iniyan Joseph*], [Jin-Ryong Kim]),
   title: "PropType: Everyday Props as Typing Surfaces in Augmented Reality",
      journal: "ACM CHI",
   published: datetime(year: 2025, month: 03, day: 17),
@@ -46,11 +46,16 @@
   journal: "CS 4V95 - Independent Study",
 )
 
+#preprint(
+  authors: ([Immanual Joseph], [Savitha Sundar], [*Iniyan Joseph*]),
+  title: "AI-Driven Adaptive Extended Reality System and Method for Personalized Cognitive, Emotional, and Behavioral Interventions",
+  journal: "Patent Pending",
+)
 = Employment
 #exp(
   role: "Teacher",
   org: "KD College Prep",
-  location: "Richardson, TX",
+  location: "Frisco, TX",
   start: datetime(year: 2025, month: 10, day: 15),
   end: "Present",
 )
@@ -58,7 +63,7 @@
 #exp(
   role: "Software Engineer",
   org: "ReviveXR",
-  location: "Richardson, TX",
+  location: "McKinney, TX",
   start: datetime(year: 2025, month: 6, day: 15),
   end: datetime(year: 2025, month: 12, day: 15),
 )
