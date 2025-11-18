@@ -4,27 +4,27 @@ import os
 personalstatement = {"irvine", "purdue", "stanford", "uiuc"}
 
 schools = {
-    "uiuc" : "At the University of Illinois Urbana-Champaign, I am excited to work with Professor Ruta Mehta on fair division and online algorithms, and to continue working with Professor Fox on graph optimization. I had the opportunity to meet and speak with them both as part of the Grainger MERGE program, and I believe that their work is aligned with my interests and prior work.", 
+    "uiuc" : "At the University of Illinois Urbana-Champaign, I am excited to work with Professor Ruta Mehta on fair division and online algorithms, and to continue working with Professor Fox on graph optimization. I had the opportunity to meet and speak with Professor Mehta as part of the Grainger MERGE program, and have been working with Professor Fox for this past year. My prior work has given me direct exposure to their research, and I hope to deepen my understanding as a student.", 
     
-    "duke" : "At Duke, I am excited to work with Professor Debmalya Panigrahi on graph optimization. His work is aligned with my interests and prior work in the field, and I am eager to work with him in researching cuts and connectivity.",
+    "duke" : "At Duke, I am excited to work with Professor Debmalya Panigrahi on graph optimization. My prior work has given me direct exposure to his research, and I am eager to work with him in researching cuts and connectivity with him.",
     
-    "purdue" : "At Purdue, I am excited to work with Professor Kent Quanrud on graph optimization, and with Professor Alex Psomas on fair division and online algorithms. Their work aligns with my interests and prior research.",
+    "purdue" : "At Purdue, I am excited to work with Professor Kent Quanrud on graph optimization, and with Professor Alex Psomas and Simina Branzei on fair division and online algorithms. My prior work has given me a direct exposure to their research, and I am eager to deepen my understanding of their fields as a graduate student.",
        
-    "utah" : "At the University of Utah, I am excited to work with Professors Aditya Bhaskara and Haitao Wang. Professor Bhaskara's work on approximation algorithms aligns with my interests, and I am eager to work with Professor Wang on geometric optimization algorithms.",
+    "utah" : "At the University of Utah, I am excited to work with Professors Aditya Bhaskara and Haitao Wang. Professor Bhaskara's work on approximation algorithms aligns with my interests, and I am eager to work with Professor Wang on geometric optimization algorithms. I look forward to deepening my understanding of their fields as a graduate student.",
     
     "dallas" : "At The University of Texas at Dallas, I am excited to work with Professor Benjamin Raichel on geometric optimization. I am eager to research algorithms for metric embeddings and other optimization problems, and to expand on my existing research at the university.",
         
     "irvine" : "At UC Irvine, I am excited to work with Professor Vijay Vazirani. His work on matchings aligns with my interests and my prior work in fair division, and I am eager to research fair division and other related optimization problems.",
     
-    "waterloo" : "At Waterloo, I am excited to work with Professors Joseph Cheriyan and Peter Nelson on graph connectivity and matroids. Their work is aligned with my interests and prior work in combinatorial optimization.",
+    "waterloo" : "At Waterloo, I am excited to work with Professors Joseph Cheriyan and Peter Nelson on graph connectivity and matroids. Their work is aligned with my undergraduate coursework and research in combinatorial optimization, and I am eager to depeen my understanding of the field.",
     
     "nyu" : "At New York University, I am excited to work with Professor Aaron Bernstein on graph optimization. His work on maximum flow and shortest paths aligns with my interests and broadly aligns with my prior work on minimum cuts and combinatorial optimization.",
     
-    "washington" : "At the University of Washington, I am excited to work with Professor Anna Karlin. Her work on economics and optimization aligns closely with my interests and my prior work in fair division.",
+    "washington" : "At the University of Washington, I am excited to work with Professor Anna Karlin. Her work on economics and optimization aligns closely with my interests and my prior work in fair division. My prior work has given me direct exposure to her research, and I hope to deepen my understanding as her student.",
     
     "uwmadison" : "At UW-Madison, I am excited to work with Professor Alberto Del Pia on combinatorial optimization. I am fascinated by linear programming, and believe his interest integer optimization problems in are aligned with my prior coursework and research in this area.",
     
-    "stanford" : "At Stanford, I am excited to work with Professor Aviad Rubenstein on game theory and complexity, and with Professor Aaron Sidford on combinatorial optimization. I believe that my prior work with fair division and matchings and research interests are closely aligned with theirs."
+    "stanford" : "At Stanford, I am excited to work with Professor Aviad Rubenstein on game theory and complexity, and with Professor Aaron Sidford on combinatorial optimization. I believe that my prior work with fair division and matchings and research interests are closely aligned with theirs. I am eager to deepen my understanding as a student."
 }
 
 schoolsuffix = " I am excited by the broader directions algorithms and am eager to contribute to this research community."
