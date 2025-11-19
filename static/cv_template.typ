@@ -1,3 +1,11 @@
+#import "@preview/bullseye:0.1.0": *
+#import "typki.typ"
+
+
+// apply image styling only for html output
+#show image: show-target(html: img => {
+  html.elem("img", attrs: ("src": img.source, "alt": img.alt))
+})
 #let cv(
   author: "",
   address: "",
@@ -9,32 +17,36 @@
   set text(
     size: 11pt,
     lang: "en",
-    font: "New Computer Modern"
+    font: "New Computer Modern",
   )
 
-  set page(
-    margin: (
-      top: 1.25cm,
-      bottom: 1.25cm,
-      left: 1.5cm,
-      right: 1.5cm,
-    ),
-    // footer: [
-    //   #align(center)[
-    //     #author -- #context { counter(page).display("1 of 1", both: true) }
-    //   ]
-    // ],
-  )
+  show: show-target(paged: doc => {
+    set page(
+      margin: (
+        top: 1.25cm,
+        bottom: 1.25cm,
+        left: 1.5cm,
+        right: 1.5cm,
+      ),
+      footer: [
+        #align(center)[
+          #author -- #context { counter(page).display("1 of 1", both: true) }
+        ]
+      ],
+    )
 
-  show heading: it => text(size: 12pt, it.body)
-  show heading.where(level: 2): it => pad(bottom: 0pt, it)
-  show heading.where(level: 3): it => text(size:11pt, it.body)
-  show heading.where(level: 4): it => text(size:11pt, emph[#it.body])
+    doc
 
-  align(center)[
-    #block(text(size: 14pt, weight: 700, [#smallcaps(author)]))
-  ]
+    show heading: it => text(size: 12pt, it.body)
+    show heading.where(level: 2): it => pad(bottom: 0pt, it)
+    show heading.where(level: 3): it => text(size: 11pt, it.body)
+    show heading.where(level: 4): it => text(size: 11pt, emph[#it.body])
+  })
 
+  align(center)[ #block(text(size: 14pt, weight: 700, [#smallcaps(author)])) ]
+  context on-target(html: {
+    heading(author)
+  })
   pad(
     top: 0pt,
     align(center)[
@@ -43,6 +55,8 @@
   )
   set par(justify: true)
 
+  show: typki.fix-html
+  // show grid: it => box(html.frame(it))
   body
 }
 
@@ -60,6 +74,7 @@
     align(right)[
       #{ if type(start) == datetime [#start.display("[month repr:long] [year]")] else [#start] } - #{ if type(end) == datetime [#end.display("[month repr:long] [year]")] else [#end] }
     ],
+
     gutter: 0.5em,
   )
 }
@@ -110,38 +125,38 @@
   summary: "",
 ) = {
   [#grid(
-      columns: (auto, 1fr),
-      align(left)[
-        #strong[#role]
-        \ #org
-        #{
-          if summary != "" [
-            \ #summary
+    columns: (auto, 1fr),
+    align(left)[
+      #strong[#role]
+      \ #org
+      #{
+        if summary != "" [
+          \ #summary
+        ]
+      }
+    ],
+    align(right)[
+      #{
+        if location != "" [
+          #location
+        ]
+      }
+      #text[
+        \ #{
+          if type(start) == datetime {
+            start.display("[month repr:long] [year]")
+          } else { start }
+        } #{
+          if end != "" [
+            #{
+              if type(end) == datetime {
+                end.display("- [month repr:long] [year]")
+              } else [\- #end]
+            }
           ]
-        }
-      ],
-      align(right)[
-        #{
-          if location != "" [
-            #location
-          ]
-        }
-        #text[
-          \ #{
-            if type(start) == datetime {
-              start.display("[month repr:long] [year]")
-            } else { start }
-          } #{
-            if end != "" [
-              #{
-                if type(end) == datetime {
-                  end.display("- [month repr:long] [year]")
-                } else [\- #end]
-              }
-            ]
-          }]
-      ],
-    )]
+        }]
+    ],
+  )]
 }
 
 #let ser(
@@ -195,7 +210,7 @@
     align(right)[
       #{ if type(date) == datetime [#date.display("[year]")] else [#date] }
     ],
-    
+
     gutter: 0.5em,
   )
 }
@@ -279,7 +294,7 @@
     #{
       if DOI != none [DOI: #link("https://doi.org" + DOI)[#DOI]]
     }
-    ]
+  ]
   // ]
 }
 
@@ -293,6 +308,7 @@
   pages: none,
   DOI: none,
   show-link: false,
+  file: "",
 ) = {
   let date = {
     if type(published) == datetime {
@@ -313,15 +329,14 @@
     .join()
 
   enum.item[
-    // #pad(right: 6em)[
     #{ if type(authors) == array { authors.enumerate().map(((i, author)) => text(author)).join(", ") } else { authors } }.
     #title.
-    #{if credit != "" [#credit.]}
+    #{ if credit != "" [#credit.] }
     #{
       if DOI != none [DOI: #link("https://doi.org" + DOI)[#DOI]]
     }
-    // ]
-  ]
+    #if file != "" {pdf.attach(file)}
+]
 }
 
 
@@ -332,6 +347,7 @@
   published: "",
   status: none,
   DOI: none,
+  file: "",
 ) = {
   let date = {
     if type(published) == datetime {
@@ -342,16 +358,15 @@
   }
 
   enum.item[
-    // #pad(right: 6em)[
     #{ if type(authors) == array { authors.enumerate().map(((i, author)) => text(author)).join(", ") } else { authors } }.
     #title.
-    #emph[#status]#{if date != "" [.]}
-    #emph[#journal]#{if date != "" [,]}#date.
+    #emph[#status]#{ if date != "" [.] }
+    #emph[#journal]#{ if date != "" [,] }#date.
     #{
       if DOI != none [DOI: #link("https://doi.org/" + DOI)[#DOI]]
     }
-    ]
-  // ]
+    #if file != "" {pdf.attach(file)}
+  ]
 }
 
 #let pres(
@@ -397,37 +412,37 @@
   location: "",
 ) = {
   [#grid(
-      columns: (auto, 1fr),
-      align(left)[
-        #strong[#org]
+    columns: (auto, 1fr),
+    align(left)[
+      #strong[#org]
+      \ #{
+        if role != "" [
+          #role
+        ]
+      }
+    ],
+    align(right)[
+      #{
+        if location != "" [
+          #location
+        ]
+      }
+      #text[
         \ #{
-          if role != "" [
-            #role
+          if type(start) == datetime {
+            start.display("[month repr:long] [year]")
+          } else { start }
+        } #{
+          if end != "" [
+            #{
+              if type(end) == datetime {
+                end.display("- [month repr:long] [year]")
+              } else [\- #end]
+            }
           ]
-        }
-      ],
-      align(right)[
-        #{
-          if location != "" [
-            #location
-          ]
-        }
-        #text[
-          \ #{
-            if type(start) == datetime {
-              start.display("[month repr:long] [year]")
-            } else { start }
-          } #{
-            if end != "" [
-              #{
-                if type(end) == datetime {
-                  end.display("- [month repr:long] [year]")
-                } else [\- #end]
-              }
-            ]
-          }]
-      ],
-    )]
+        }]
+    ],
+  )]
 }
 
 
@@ -447,6 +462,7 @@
     align(right)[
       #{ if type(date) == datetime [#date.display("[year]")] else [#date] }
     ],
+
     gutter: 1em,
   )
 }
@@ -459,16 +475,14 @@
   performancelink: "",
 ) = {
   enum.item[
-    #pad(right: 6em)[
     #{ if type(musicians) == array { musicians.enumerate().map(((i, musicians)) => text(musicians)).join(", ") } else { musicians } }.
     #program, #emph[#location]. #{
-      if type(date) == datetime {
-        date.display("[month repr:long] [year]")
-      } else { date }
+      if type(date) == datetime { date.display("[month repr:long] [year]") } else { date }
     }.
     #{
-      if performancelink != "" [link: #emph[#link("https://y2u.be/" + performancelink)[#{"https://y2u.be/"+performancelink}]]]
+      if (
+        performancelink != ""
+      ) [link: #emph[#link("https://y2u.be/" + performancelink)[#{ "https://y2u.be/" + performancelink }]]]
     }
-    ]
   ]
 }

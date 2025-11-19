@@ -2,40 +2,34 @@
 #import "@preview/ctheorems:1.1.3": *
 #import "@preview/lovelace:0.3.0": *
 
-// #show: ams-article.with(
-//   title: [Fair Division Survey],
-//   authors: (
-//     (
-//       name: "Iniyan Joseph",
-//       department: [Erik Jonsson School of Engineering and Computer Science],
-//       organization: [University of Texas at Dallas],
-//       location: [Richardson, TX],
-//       email: "IIJ210000@utdallas.edu",
-//       url: "iniyanijoseph.github.io"
-//     ),
-//   ),
-//   bibliography: bibliography("refs.bib"),
-// )
+#show: ams-article.with(
+  title: [Fair Division Survey],
+  authors: (
+    (
+      name: "Iniyan Joseph",
+      department: [Erik Jonsson School of Engineering and Computer Science],
+      organization: [University of Texas at Dallas],
+      location: [Richardson, TX],
+      email: "IIJ210000@utdallas.edu",
+      url: "iniyanijoseph.github.io"
+    ),
+  ),
+  bibliography: bibliography("refs.bib"),
+)
 
-#set text(12pt)
 #show "thm-qed-symbol" : $square$
 #let proof = thmproof("proof", "Proof")
 #let openproblem = thmbox("Open Problem", "Open Problem", breakable:true)
-
 #let NNN = $cal(N)$;
 #let MMM = $cal(M)$;
-#set cite(style: "taylor-and-francis-chicago-author-date")
+
 #show figure: set block(breakable: true)
-#set par(spacing:1.5em, first-line-indent: 0em)
 
-#show math.equation.where(block:false): it => box()[#html.frame(it)]
-#bibliography("refs.bib")
-
-// #footnote(numbering: it => "")[
-//   #par(justify: true, first-line-indent: 1em)[
-//     _This paper was written in fulfillment of the requirements of Independent Study CS 4V95.009 for the fall semester of 2024_
-//   ]
-// ]
+#footnote(numbering: it => "")[
+  #par(justify: true, first-line-indent: 1em)[
+    _This paper was written in fulfillment of the requirements of Independent Study CS 4V95.009 for the fall semester of 2024_
+  ]
+]
 
 
 = Introduction
@@ -44,7 +38,7 @@ Fair division is a problem with roots in the Bible and in Greek mythology. When 
 = Preliminaries
 Let $NNN$ be a set of agents with $abs(NNN) = n$ and $MMM$ be a set of goods with $abs(MMM) = m$. Each agent $i in NNN$ possesses a valuation function $v_i : 2^cal(MMM) -> RR_(>=0)$, representing their value of each bundle of goods within $S subset.eq MMM$. It is assumed that for each agent $i in NNN$ that $v_i (emptyset) = 0$. For simplicity, we write $v_i ({g})$ as $v_i (g)$ for individual items $g in MMM$. The valuation function is usually taken to be additive, meaning that an agent's value of a $S$ is equal to the sum of the agent's values of the individual goods. Formally, $v_i (S) = sum_(g in S) v_i (g)$. For more general contexts, the valuation function is taken as monotone, i.e., that $v_i (S) <= v_i (T)$ for all $S subset.eq T subset.eq MMM$. In this survey, we focus on the additive context, however several of the results hold for monotone valuations as well.
 
-An allocation $X$ is a partition $MMM$ into $n$ disjoint sets and assign each partition to an agent $i in NNN$. The subset of $MMM$ assigned to agent $i$ (called $i$'s bundle) is denoted $X_i$, and each agent $i$'s valuation of their own bundle is $i$'s "utility". The goal of fair division is to take a tuple $(NNN, MMM, angle.l v_1, ..., v_n angle.r)$ and to compute a "fair" allocation efficiently. To this end, there are several notions of fairness. Computing fair allocations efficiently is not always known to be possible, or is hard, so the valuation functions are restricted. We primarily focus on two settings, that of identical valuations where $forall_(i in NNN) v_i = v$, and binary valuations where $v_i ({g}) in {0, 1}$.  In these contexts, several notions become easier to compute.
+An allocation $X$ is a partition $MMM$ into $n$ disjoint sets and assign each partition to an agent $i in NNN$. The subset of $MMM$ assigned to agent $i$ (called $i$'s bundle) is denoted $X_i$, and each agent $i$'s valuation of their own bundle is $i$'s "utility". The goal of fair division is to take a tuple $(NNN, MMM, chevron.l v_1, ..., v_n chevron.r)$ and to compute a "fair" allocation efficiently. To this end, there are several notions of fairness. Computing fair allocations efficiently is not always known to be possible, or is hard, so the valuation functions are restricted. We primarily focus on two settings, that of identical valuations where $forall_(i in NNN) v_i = v$, and binary valuations where $v_i ({g}) in {0, 1}$.  In these contexts, several notions become easier to compute.
 
 = Envy
 Arguably, the gold standard of fair division is envy freeness (EF), where no agent would like another's bundle more than their own. Formally, $forall_(i, j in NNN) v_i (X_i) >= v_i (X_j)$. If this is not the case, (i.e. $v_i (X_i) < v_i (X_j)$), $i$ is said to "envy" "$j$". It is clear that for discrete goods, this does not always exist, as seen in the following counterexample:
@@ -104,18 +98,18 @@ One such well-known algorithm is the round robin algorithm, presented below: Inf
   ]
 ]
 
-Another common algorithm for computing an EF1 is Envy-Cycle Elimination. Define the envy-graph $G$, with $V = N$ and a directed edge between agents, $i -> j$ iff $v_i (X_i) < v_i (X_j))$. The algorithm works as follows. Find an arbitrary unenvied agent $i$ and give them their most valued good. If no such agent exists, then there must be a cycle $C = angle.l c_i, c_(i+1), ..., c_(i-1), c_i angle.r$ where $c_j$ envies $c_(j+1)$ (as otherwise there would have to exist a sink, as it would be a DAG). To remove or "eliminate" this cycle (then for agent $c_j$, give them the bundle  of agent $c_(j+1)$). Until an unenvied agent is found, repeatedly remove directed cycles. Then, give the agent their most favorite unallocated good.
+Another common algorithm for computing an EF1 is Envy-Cycle Elimination. Define the envy-graph $G$, with $V = N$ and a directed edge between agents, $i -> j$ iff $v_i (X_i) < v_i (X_j))$. The algorithm works as follows. Find an arbitrary unenvied agent $i$ and give them their most valued good. If no such agent exists, then there must be a cycle $C = chevron.l c_i, c_(i+1), ..., c_(i-1), c_i chevron.r$ where $c_j$ envies $c_(j+1)$ (as otherwise there would have to exist a sink, as it would be a DAG). To remove or "eliminate" this cycle (then for agent $c_j$, give them the bundle  of agent $c_(j+1)$). Until an unenvied agent is found, repeatedly remove directed cycles. Then, give the agent their most favorite unallocated good.
 //#box()[
 #align(center)[
   #pseudocode-list(booktabs:true, title: [Envy-Cycle Elimination])[
     - *Input:* $(NNN, MMM, v)$
     -  *Output:* An EF1 and $1/2$-EFX allocation $X$
-    + $X = angle.l emptyset, ... , emptyset angle.r$
+    + $X = chevron.l emptyset, ... , emptyset chevron.r$
     + *for* $i = 1, ..., n$
       + $X_i <- emptyset$
     + *for* $ell = 1...m$
       + *while* $exists.not$ unenvied agent \# Perform envy-cycle elimination
-        + Find an envy cycle $C =angle.l c_i, c_(i+1), ..., c_(i-1), c_i angle.r$
+        + Find an envy cycle $C =chevron.l c_i, c_(i+1), ..., c_(i-1), c_i chevron.r$
         + $C_i <- C_(i + 1)$
 
       + *let* $i$ be an unenvied agent \# Find an unenvied agent $i$
@@ -195,7 +189,7 @@ Oe common technique for producing $1/2$-MMS allocations is known as the bag-fill
   - *Input:* $(NNN, MMM, v)$
   - *Output:* A $1/2$-MMS allocation X
   + $bag = nothing$
-  + $X = angle.l emptyset, ... , emptyset angle.r$
+  + $X = chevron.l emptyset, ... , emptyset chevron.r$
   + *while* $exists i in NNN and g in MMM$ such that $v_i (g) >= 1/2$
     + $X_i <- {g}$ \# Give $i$ their favorite good.
     + $NNN <- NNN \\ {i}$
@@ -423,7 +417,7 @@ Still proportionality can be disappointing, as @aziz2020polynomial showed that e
 An intermediary notion, PROPm has been shown to always exist and be computable in polynomial time. @baklanov2021propm defines the maximin good as $d(i) = max_(i' != i) min_(g in X_i) v_i (g)$ is the largest among the smallest goods in other agent's bundles. If adding this good's value to $i$'s utility is greater than or equal to $1/n$, i.e. $v_i (X_i) + d(i) >= 1/n$, then an allocation is PROPm.
 
 = Fisher Markets
-Although Nash Welfare is compelling, for its simultaneous EF1 + PO, it is also NP-hard to compute. One line of work attempting to simultaneous achieve fairness and efficiency tries to use the computation of market equilibria of fisher markets. This has also been used to compute approximate MNW, as mentioned previously. In the fisher market, goods are given prices $p = angle.l p_1, ..., p_m angle.r $, agents are given earnings $ell$, and monotone valuations, as defined above. These goods may be fractionally allocated with linear valuations, i.e. $v_i (X_i) = sum_(g in X_i) g times x_(i, g)$ where $x_(i, g)$ is the fraction of $g$ given to $i$.
+Although Nash Welfare is compelling, for its simultaneous EF1 + PO, it is also NP-hard to compute. One line of work attempting to simultaneous achieve fairness and efficiency tries to use the computation of market equilibria of fisher markets. This has also been used to compute approximate MNW, as mentioned previously. In the fisher market, goods are given prices $p = chevron.l p_1, ..., p_m chevron.r $, agents are given earnings $ell$, and monotone valuations, as defined above. These goods may be fractionally allocated with linear valuations, i.e. $v_i (X_i) = sum_(g in X_i) g times x_(i, g)$ where $x_(i, g)$ is the fraction of $g$ given to $i$.
 
 A fisher market equilibrium is a fractional allocation in which
 + All goods $g in MMM$ allocated, i.e. that $sum_(i in NNN) x_(i, g) = 1$
@@ -462,3 +456,4 @@ Another common approach to allowing measurement of goods is to give each agent s
 In this survey, we discussed some of the most common notions of fairness. Although there are some further related notions of fairness, these are the most well-studied among the literature. We also showed that, under identical additive valuations, $"MNW" => "EQX"$.
 
 Related to fair division, within economics and computation (EC), recent research has also studied computing market equilibria, beyond the Fisher Market. Other works in EC focus more on strategyproofness, studying voting and consensus procedures.
+

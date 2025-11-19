@@ -22,7 +22,7 @@
       <pubDate>Wed, 23 Apr 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/papers/proptype/</guid>
-      <description>ACM CHI 2025 Best Paper Honorable Mention</description>
+      <description>ACM CHI 2025 Honorable Mention, Demo UIST 2025</description>
     </item>
     
     <item>
@@ -256,16 +256,6 @@
       <guid>http://localhost:1313/projects/asteroids/</guid>
       <description>Asteroids</description>
     </item>
-    
-    <item>
-      <title>Academics</title>
-      <link>http://localhost:1313/academics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/academics/</guid>
-      <description>School</description>
-    </item>
-    
     
   </channel>
 </rss>
