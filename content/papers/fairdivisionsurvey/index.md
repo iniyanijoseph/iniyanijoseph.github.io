@@ -6,10 +6,5 @@ summary: "Survey of Discrete Fair Division written for Independent Study"
 showToc: true
 disableAnchoredHeadings: false
 ---
-## Full PDF (with citations)
+[Full Paper](main.pdf)
 
-[PDF](main.pdf)
-
-## Paper Contents
-
-{{< embed file="main.html" >}}

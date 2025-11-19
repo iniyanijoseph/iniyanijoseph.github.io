@@ -456,4 +456,3 @@ Another common approach to allowing measurement of goods is to give each agent s
 In this survey, we discussed some of the most common notions of fairness. Although there are some further related notions of fairness, these are the most well-studied among the literature. We also showed that, under identical additive valuations, $"MNW" => "EQX"$.
 
 Related to fair division, within economics and computation (EC), recent research has also studied computing market equilibria, beyond the Fisher Market. Other works in EC focus more on strategyproofness, studying voting and consensus procedures.
-
