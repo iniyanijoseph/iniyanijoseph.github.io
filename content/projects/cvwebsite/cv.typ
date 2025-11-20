@@ -1,5 +1,5 @@
 #import "cv_template.typ": *
-#let showpiano = false
+#let showpiano = true
 #show: cv.with(
   author: "Iniyan Joseph",
   contacts: (

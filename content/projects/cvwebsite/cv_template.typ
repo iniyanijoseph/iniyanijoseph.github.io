@@ -33,32 +33,34 @@
           #author -- #context { counter(page).display("1 of 1", both: true) }
         ]
       ],
+    )
+  align(center)[ #block(text(size: 14pt, weight: 700, [#smallcaps(author)])) ]
     pad(
       top: 0pt,
       align(center)[
         #contacts.join(" | ")
       ],
     )
-    )
-
-    doc
-
-  align(center)[ #block(text(size: 14pt, weight: 700, [#smallcaps(author)])) ]
 
     show heading: it => text(size: 12pt, it.body)
     show heading.where(level: 2): it => pad(bottom: 0pt, it)
     show heading.where(level: 3): it => text(size: 11pt, it.body)
     show heading.where(level: 4): it => text(size: 11pt, emph[#it.body])
+
+  doc
+
   })
 
   context on-target(html: {
-    heading(author)
+    html.elem("h1", attrs:("style":"text-align: center"), 
+      author
+    )
+    html.elem("p", attrs:("style":"text-align: center"), 
     contacts.join(" | ")
+    )
   })
   set par(justify: true)
 
-  show: typki.fix-html
-  // show grid: it => box(html.frame(it))
   show grid: it => if target() == "html" {
     let (children, stroke, inset, ..v) = it.fields();
     table(..v, inset: if inset == (:) {0pt} else {inset}, stroke: if stroke == (:) {none} else {stroke}, ..children.map(it => {
@@ -76,18 +78,31 @@
   start: "",
   end: "",
 ) = {
-  grid(
-    columns: (auto, 6em, 1fr),
-    align(left)[
-      #event
-    ],
-    [],
-    align(right)[
-      #{ if type(start) == datetime [#start.display("[month repr:long] [year]")] else [#start] } - #{ if type(end) == datetime [#end.display("[month repr:long] [year]")] else [#end] }
-    ],
+  context {
+    if target() != "html" {
+      grid(
+        columns: (auto, 6em, 1fr),
+        align(left)[
+          #event
+        ],
+        [],
+        align(right)[
+          #{ if type(start) == datetime [#start.display("[month repr:long] [year]")] else [#start] } - #{ if type(end) == datetime [#end.display("[month repr:long] [year]")] else [#end] }
+        ],
 
-    gutter: 0.5em,
-  )
+        gutter: 0.5em,
+      )
+    } else {
+      html.elem("table", attrs:("style":"width:100%"),
+        html.elem("tr",{
+          html.elem("td", attrs: (style:"text-align:left"))[
+            #event
+          ]
+          html.elem("td", attrs: (style:"text-align:right"))[ #{ if type(start) == datetime [#start.display("[month repr:long] [year]")] else [#start] } - #{ if type(end) == datetime [#end.display("[month repr:long] [year]")] else [#end] } ]
+        })
+      )
+    }
+  }
 }
 
 #let edu(
@@ -97,34 +112,67 @@
   location: "",
   gpa: "",
   details: "",
-) = {
-  [#grid(
-      columns: (auto, 1fr),
-      align(left)[
-        #{
-          for degree in degrees [
-            #strong[#degree]
-          ]
-        }#emph[#details]
-        \ #institution
-        \ #{
-          if gpa != "" [
-            GPA: #gpa
-          ]
+) = context {
+  if target() != "html" {
+    [#grid(
+        columns: (auto, 1fr),
+        align(left)[
+          #{
+            for degree in degrees [
+              #strong[#degree]
+            ]
+          }#emph[#details]
+          \ #institution
+          \ #{
+            if gpa != "" [
+              GPA: #gpa
+            ]
+          }
+        ],
+        align(right)[
+          #{ if location != "" { location } }
+          #{
+            if type(date) == datetime [
+              \ #date.display("[month repr:long] [year]")
+            ] else [
+              \ #date
+            ]
+          }
+        ],
+      )
+    ]
+  } else {
+    html.elem("table", attrs:("style":"width:100%"),
+      {
+        for degree in degrees {
+          html.elem("tr", {
+            html.elem("td", attrs: (style:"text-align:left"))[
+              #strong[#degree], #emph[#details]
+            ]
+            html.elem("td", attrs: (style:"text-align:right"))[
+              #{
+                if type(date) == datetime [
+                  \ #date.display("[month repr:long] [year]")
+                ] else [
+                  \ #date
+                ]
+              }
+            ]
+          })
+          html.elem("tr", {
+            html.elem("td", attrs: (style:"text-align:left"))[
+              #institution
+            ]
+            html.elem("td", attrs: (style:"text-align:right"))[
+              #if gpa != "" [
+                #gpa
+              ]
+            ]
+          })
         }
-      ],
-      align(right)[
-        #{ if location != "" { location } }
-        #{
-          if type(date) == datetime [
-            \ #date.display("[month repr:long] [year]")
-          ] else [
-            \ #date
-          ]
-        }
-      ],
+      }
     )
-  ]
+  }
 }
 
 #let exp(
@@ -134,7 +182,8 @@
   end: "",
   location: "",
   summary: "",
-) = {
+) = context {
+if target() != "html" {
   [#grid(
     columns: (auto, 1fr),
     align(left)[
@@ -168,6 +217,27 @@
         }]
     ],
   )]
+
+} else {
+    html.elem("table", attrs:("style":"width:100%"),
+      {
+        html.elem("tr", {
+          html.elem("td", attrs: (style:"text-align:left"))[
+            #strong[#role]
+          ]
+          html.elem("td", attrs: (style:"text-align:right"))[
+            #location
+          ]
+        })
+        html.elem("tr", {
+          html.elem("td", attrs: (style:"text-align:left"))[
+            #org
+          ]
+          html.elem("td", attrs: (style:"text-align:right"))[ #{ if type(start) == datetime [#start.display("[month repr:long] [year]")] else [#start] } - #{ if type(end) == datetime [#end.display("[month repr:long] [year]")] else [#end] } ]
+        })
+      }
+    )
+  }
 }
 
 #let ser(
@@ -212,28 +282,30 @@
   from: "",
   amt: "",
   details: "",
-) = {
-  grid(
-    columns: (auto, 1fr),
-    align(left)[
-      #strong[#name,] #text[#from. #details]
-    ],
-    align(right)[
-      #{ if type(date) == datetime [#date.display("[year]")] else [#date] }
-    ],
+) = context {
+  if target() != "html" {
+    grid(
+      columns: (auto, 1fr),
+      align(left)[
+        #strong[#name,] #text[#from. #details]
+      ],
+      align(right)[
+        #{ if type(date) == datetime [#date.display("[year]")] else [#date] }
+      ],
 
-    gutter: 0.5em,
-  )
-}
-
-
-#let skills(
-  areas,
-) = {
-  for area in areas {
-    strong[#area.at(0): ]
-    area.at(1).join(" | ")
-    linebreak()
+      gutter: 0.5em,
+    )
+  } else {
+    html.elem("table", attrs:("style":"width:100%"),
+      html.elem("tr",{
+        html.elem("td", attrs: (style:"text-align:left"))[
+          #strong[#name,] #text[#from. #details]
+        ]
+        html.elem("td", attrs: (style:"text-align:right"))[
+          #{ if type(date) == datetime [#date.display("[year]")] else [#date] }
+        ]
+      })
+    )
   }
 }
 
@@ -421,39 +493,58 @@
   start: "",
   end: "",
   location: "",
-) = {
-  [#grid(
-    columns: (auto, 1fr),
-    align(left)[
-      #strong[#org]
-      \ #{
-        if role != "" [
-          #role
-        ]
-      }
-    ],
-    align(right)[
-      #{
-        if location != "" [
-          #location
-        ]
-      }
-      #text[
+) = context {
+  if target() != "html" {
+    [#grid(
+      columns: (auto, 1fr),
+      align(left)[
+        #strong[#org]
         \ #{
-          if type(start) == datetime {
-            start.display("[month repr:long] [year]")
-          } else { start }
-        } #{
-          if end != "" [
-            #{
-              if type(end) == datetime {
-                end.display("- [month repr:long] [year]")
-              } else [\- #end]
-            }
+          if role != "" [
+            #role
           ]
-        }]
-    ],
-  )]
+        }
+      ],
+      align(right)[
+        #{
+          if location != "" [
+            #location
+          ]
+        }
+        #text[
+          \ #{
+            if type(start) == datetime {
+              start.display("[month repr:long] [year]")
+            } else { start }
+          } #{
+            if end != "" [
+              #{
+                if type(end) == datetime {
+                  end.display("- [month repr:long] [year]")
+                } else [\- #end]
+              }
+            ]
+          }]
+      ],
+    )]
+  } else {
+    html.elem("table", attrs:("style":"width:100%"),
+      {
+        html.elem("tr", {
+          html.elem("td", attrs: (style:"text-align:left"))[
+            #strong[#org]
+          ]
+          html.elem("td", attrs: (style:"text-align:right"))[ #{ if type(start) == datetime [#start.display("[month repr:long] [year]")] else [#start] } - #{ if type(end) == datetime [#end.display("[month repr:long] [year]")] else [#end] } ]
+        })
+        html.elem("tr", {
+          html.elem("td", attrs: (style:"text-align:left"))[
+            #role
+          ]
+        })
+      }
+
+    )
+  }
 }
 
 
@@ -463,19 +554,34 @@
   date: "",
   score: "",
   pieces: "",
-) = {
-  grid(
-    columns: (auto, 3em, 1fr),
-    align(left)[
-      #strong[#score,] #text[#festival,  #category. #pieces]
-    ],
-    [],
-    align(right)[
-      #{ if type(date) == datetime [#date.display("[year]")] else [#date] }
-    ],
+) = context {
+  if target() != "html" {
+    enum.item[
+      #grid(
+        columns: (auto, 3em, 1fr),
+        align(left)[
+          #strong[#score,] #text[#festival,  #category. #pieces]
+        ],
+        [],
+        align(right)[
+          #{ if type(date) == datetime [#date.display("[year]")] else [#date] }
+        ],
 
-    gutter: 1em,
-  )
+        gutter: 1em,
+      )
+    ]
+  } else {
+    html.elem("table", attrs:("style":"width:100%"),
+      html.elem("tr",{
+        html.elem("td", attrs: (style:"text-align:left"))[
+          #strong[#score,] #text[#festival, #category. #pieces]
+        ]
+        html.elem("td", attrs: (style:"text-align:right"))[
+          #{ if type(date) == datetime [#date.display("[year]")] else [#date] }
+        ]
+      })
+    )
+  }
 }
 
 #let performance(
