@@ -1,7 +1,7 @@
 import subprocess
 import os
 
-personalstatement = {"irvine", "purdue", "stanford", "uiuc"}
+personalstatement = {"irvine", "purdue", "stanford"}
 
 schools = {
     "uiuc" : "At the University of Illinois Urbana-Champaign, I am excited to work with Professor Ruta Mehta on fair division and online algorithms, and to continue working with Professor Fox on graph optimization. I had the opportunity to meet and speak with Professor Mehta as part of the Grainger MERGE program, and have been working with Professor Fox for this past year. My prior work has given me direct exposure to their research, and I hope to deepen my understanding as a student.", 
