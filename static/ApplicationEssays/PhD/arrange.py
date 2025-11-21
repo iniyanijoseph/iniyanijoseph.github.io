@@ -53,4 +53,15 @@ for (school, text) in schools.items():
             with open(path, "w+") as file:
                 file.write(personalhistory.read())
         subprocess.run(["typst", "c", path])
+    if school == "uiuc":
+        path1 = f"GeneratedDocuments/{school}/ps_1.typ"
+        path2 = f"GeneratedDocuments/{school}/ps_2.typ"
+        with open("personalhistory.typ", "r") as personalhistory:
+            text = personalhistory.readlines()
 
+            with open(path1, "w+") as file:
+                file.write(f"{text[0]}\n{text[1]}\n{text[3]}")
+            with open(path2, "w+") as file:
+                file.write(f"{text[0]}\n{text[1]}\n{text[5]}\n\n{text[7]}")
+            subprocess.run(["typst", "c", path1])
+            subprocess.run(["typst", "c", path2])
