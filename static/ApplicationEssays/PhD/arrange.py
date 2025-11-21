@@ -12,7 +12,7 @@ schools = {
        
     "utah" : "At the University of Utah, I am excited to work with Professor Haitao Wang on geometric optimization algorithms. I look forward to deepening my understanding of the field as a graduate student, and I believe that my prior research will make me a strong graduate student.",
     
-    "dallas" : "At The University of Texas at Dallas, I am excited to work with Professor Benjamin Raichel on geometric optimization. I am eager to research algorithms for metric embeddings and other optimization problems, and to continue researching at the university. I believe that my prior research and work in theory will make me a strong graduate student",
+    "dallas" : "At The University of Texas at Dallas, I am excited to work with Professor Benjamin Raichel on geometric optimization. I am eager to research algorithms for metric embeddings and other optimization problems, and to continue researching at the university. I believe that my prior research and work in theory will make me a strong graduate student.",
         
     "irvine" : "At UC Irvine, I am excited to work with Professor Vijay Vazirani. His work on matchings aligns with my interests and my prior work in fair division, and I am eager to research fair division and other related optimization problems.",
     
