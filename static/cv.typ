@@ -1,5 +1,5 @@
 #import "cv_template.typ": *
-#let showpiano = true
+#let showpiano = false
 #show: cv.with(
   author: "Iniyan Joseph",
   contacts: (
@@ -19,7 +19,6 @@
   gpa: "3.99/4",
   details: "Summa Cum Laude",
 )
-#pdf.attach("Transcript.pdf")
 
 == Research
 #timeline(start: datetime(year: 2024, month: 8, day: 22), end: "Present", event: "Advised by Dr. Emily Fox")
@@ -49,7 +48,7 @@
   authors: [*Iniyan Joseph*],
   title: "Survey of Discrete Fair Division",
   journal: "CS 4V95 - Independent Study",
-  file: "fairdivisionsurvey.pdf",
+  // file: "fairdivisionsurvey.pdf",
 )
 
 #preprint(

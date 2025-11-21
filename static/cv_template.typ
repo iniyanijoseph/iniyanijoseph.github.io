@@ -37,13 +37,14 @@
 
     doc
 
+  align(center)[ #block(text(size: 14pt, weight: 700, [#smallcaps(author)])) ]
+
     show heading: it => text(size: 12pt, it.body)
     show heading.where(level: 2): it => pad(bottom: 0pt, it)
     show heading.where(level: 3): it => text(size: 11pt, it.body)
     show heading.where(level: 4): it => text(size: 11pt, emph[#it.body])
   })
 
-  align(center)[ #block(text(size: 14pt, weight: 700, [#smallcaps(author)])) ]
   context on-target(html: {
     heading(author)
   })
@@ -57,6 +58,15 @@
 
   show: typki.fix-html
   // show grid: it => box(html.frame(it))
+  show grid: it => if target() == "html" {
+    let (children, stroke, inset, ..v) = it.fields();
+    table(..v, inset: if inset == (:) {0pt} else {inset}, stroke: if stroke == (:) {none} else {stroke}, ..children.map(it => {
+      let (body, ..v) = it.fields();
+      table.cell(..v, body)
+    }))
+  } else {
+    it
+  }
   body
 }
 
