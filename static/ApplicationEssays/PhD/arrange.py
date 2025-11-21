@@ -6,7 +6,7 @@ personalstatement = {"irvine", "purdue", "stanford"}
 schools = {
     "uiuc" : "At the University of Illinois Urbana-Champaign, I am excited to work with Professor Ruta Mehta on fair division and online algorithms, and to continue working with Professor Fox on graph optimization. I had the opportunity to meet and speak with Professor Mehta as part of the Grainger MERGE program, and have been working with Professor Fox for this past year. My prior work has given me direct exposure to their research, and I hope to deepen my understanding as a student.", 
     
-    "duke" : "At Duke, I am excited to work with Professor Debmalya Panigrahi on graph optimization. My prior work in symmetric submodular function minimization has given me direct exposure to his research on hypergraph k-cut via randomized contractions, and I am eager to work with him in researching cuts and connectivity with him.",
+    "duke" : "At Duke, I am excited to work with Professor Debmalya Panigrahi on graph optimization. My prior work in symmetric submodular function minimization has given me direct exposure to his research on hypergraph k-cut via randomized contractions, and I am eager to work with him in researching cuts and connectivity.",
     
     "purdue" : "At Purdue, I am excited to work with Professor Kent Quanrud on graph optimization, and with Professor Alex Psomas and Simina Branzei on fair division and online algorithms. My prior research in partitions of symmetric submodular functions and survey on fair division have given me a direct exposure to their research, and I am eager to deepen my understanding of their fields as a graduate student.",
        
@@ -16,15 +16,15 @@ schools = {
         
     "irvine" : "At UC Irvine, I am excited to work with Professor Vijay Vazirani. His work on matchings aligns with my interests and my prior work in fair division, and I am eager to research fair division and other related optimization problems.",
     
-    "waterloo" : "At Waterloo, I am excited to work with Professors Joseph Cheriyan and Peter Nelson on graph connectivity and matroids. Their work is aligned with my undergraduate coursework and research in combinatorial optimization, and I am eager to depeen my understanding of the field.",
+    "waterloo" : "At Waterloo, I am excited to work with Professors Joseph Cheriyan and Peter Nelson on graph connectivity and matroids. Their work is aligned with my undergraduate coursework and research in combinatorial optimization, and I am eager to deepen my understanding of the field.",
     
     "nyu" : "At New York University, I am excited to work with Professor Aaron Bernstein on graph optimization. His work on maximum flow and shortest paths aligns with my interests and broadly aligns with my prior work on minimum cuts and combinatorial optimization.",
     
-    "washington" : "At the University of Washington, I am excited to work with Professor Anna Karlin. Her work on economics and optimization aligns closely with my interests and my prior work in fair division. I have had direct exposure to her research through my survey paper, and I hope to deepen my understanding as her student.",
+    "washington" : "At the University of Washington, I am excited to work with Professor Anna Karlin. Her work on economics and optimization aligns closely with my interests and my prior work in fair division. I have had direct exposure to her research through my survey paper, and I hope to deepen my understanding as her student. I look forward to working with her, and to contribute to this research community.",
     
-    "uwmadison" : "At UW-Madison, I am excited to work with Professor Alberto Del Pia on combinatorial optimization. I am fascinated by linear programming, and believe his interest integer optimization problems in are aligned with my prior coursework and research in this area.",
+    "uwmadison" : "At UW-Madison, I am excited to work with Professor Alberto Del Pia on combinatorial optimization. I am fascinated by linear programming, and believe his interests in integer optimization are aligned with my prior coursework and research in this area. I look forward to learning more about combinatorial optimization, and to contribute to this research community.",
     
-    "stanford" : "At Stanford, I am excited to work with Professor Aviad Rubenstein on game theory and complexity, and with Professor Aaron Sidford on combinatorial optimization. I believe that my prior work with fair division and matchings and research interests are closely aligned with theirs. I am eager to deepen my understanding as a student."
+    "stanford" : "At Stanford, I am excited to work with Professor Aviad Rubenstein on game theory and complexity, and with Professor Aaron Sidford on combinatorial optimization. I believe that my prior work with fair division and matchings and research interests are closely aligned with theirs, and I am eager to deepen my understanding as a student."
 }
 
 schoolsuffix = ""# " I am excited by the broader directions algorithms and am eager to contribute to this research community."
