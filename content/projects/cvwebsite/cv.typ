@@ -1,258 +1,82 @@
-#import "cv_template.typ": *
-#let showpiano = true
-#show: cv.with(
-  author: "Iniyan Joseph",
-  contacts: (
-    [#link("mailto:iniyanijoseph@gmail.com")[iniyanijoseph\@gmail.com]],
-    [#link("https://iniyanijoseph.github.io")[iniyanijoseph.github.io]],
-  ),
-  updated: datetime.today(),
-)
+#import "@preview/bullseye:0.1.0": *
+#import "base.typ":* 
+#import "cv_template.typ":* 
+#import "fields.typ":* 
+
+#show: cv.with(author: "Iniyan Joseph", )
+
+#let day1 = datetime(year: 2008, month: 1, day: 1)
+#let day2 = datetime(year: 2010, month: 1, day: 1)
 
 == Education
 #edu(
-  institution: "The University of Texas at Dallas",
-  degrees: (
-    [Bachelor of Science, Computer Science],
-  ),
-  date: datetime(year: 2025, month: 08, day: 23),
-  gpa: "3.99/4",
-  details: "Summa Cum Laude",
+  start: day1,
+  end: datetime(year:2025, month:8, day: 23),
+  degree: "B.S. in Computer Science",
+  university: "University of Texas at Dallas",
+  details: "Graduated Summa Cum Laude (3.987/4.00)",
 )
+
 
 == Research
-#timeline(start: datetime(year: 2024, month: 8, day: 22), end: "Present", event: "Advised by Dr. Emily Fox")
+#other(start: datetime(year:2024, month:9, day: 1), end: "Present", name: "Advised by Emily Fox", description: "")
 
-#timeline(
-  start: datetime(year: 2023, month: 9, day: 22),
-  end: datetime(year: 2024, month: 9, day: 20),
-  event: "Advised by Dr. Jin-Ryong Kim",
-)
+#other(start: datetime(year:2023, month:9, day: 1), end: datetime(year:2024, month:9, day: 23), name: "Advised by Jin-Ryong Kim", description: "")
 
 === Publications
-#paper(
-  authors: ([Hyunjae Gil], [Ashish Pratap], [*Iniyan Joseph*], [Jin-Ryong Kim]),
-  title: "PropType: Everyday Props as Typing Surfaces in Augmented Reality",
-  journal: "ACM CHI",
-  published: datetime(year: 2025, month: 03, day: 17),
-  DOI: "10.1145/3706598.3714056",
-)
+#bibliography("publications.bib", title: none, full: true)
 
-#paper(
-  authors: ([Hyunjae Gil], [*Iniyan Joseph*], [Jin-Ryong Kim]),
-  title: "Design Challenges of In-Air Thumb Typing on Head-Mounted Displays",
-  journal: "Submitted",
-)
-
-#preprint(
-  authors: [*Iniyan Joseph*],
-  title: "Survey of Discrete Fair Division",
-  journal: "CS 4V95 - Independent Study",
-  // file: "fairdivisionsurvey.pdf",
-)
-
-#preprint(
-  authors: ([Immanual Joseph], [Savitha Sundar], [*Iniyan Joseph*]),
-  title: "AI-Driven Adaptive Extended Reality System and Method for Personalized Cognitive, Emotional, and Behavioral Interventions",
-  journal: "Patent Pending",
-)
 == Employment
-#exp(
+#job(
+  start: day1,
+  end: day2,
   role: "Teacher",
-  org: "KD College Prep",
-  location: "Frisco, TX",
-  start: datetime(year: 2025, month: 10, day: 15),
-  end: "Present",
+  location: "KD College Prep"
 )
 
-#exp(
+#job(
+  start: day1,
+  end: day2,
   role: "Software Engineer",
-  org: "ReviveXR",
-  location: "McKinney, TX",
-  start: datetime(year: 2025, month: 6, day: 15),
-  end: datetime(year: 2025, month: 12, day: 15),
+  location: "ReviveXR"
 )
 
-#exp(
+#job(
+  start: day1,
+  end: day2,
   role: "Substitute Teacher",
-  org: "Frisco Independent School District",
-  location: "Frisco, TX",
-  start: datetime(year: 2025, month: 8, day: 15),
-  end: datetime(year: 2025, month: 10, day: 15),
+  location: "Frisco Independent School District"
 )
 
-#exp(
-  role: "Grader - Discrete Mathematics for Computing",
-  org: "The University of Texas at Dallas",
-  location: "Richardson, TX",
-  start: datetime(year: 2025, month: 1, day: 15),
-  end: datetime(year: 2025, month: 5, day: 15),
+#job(
+  start: day1,
+  end: day2,
+  role: "Grader - Discrete Math for Computing",
+  location: "University of Texas at Dallas"
 )
 
-#exp(
-  role: "Pianist (Seasonal)",
-  org: "Cedar Creek Lake United Methodist Church",
-  location: "Tool, TX",
-  start: datetime(year: 2022, month: 12, day: 15),
-  end: datetime(year: 2025, month: 12, day: 15),
+#job(
+  start: day1,
+  end: day2,
+  role: "Pianist",
+  location: "Cedar Creek Lake United Methodist Church"
 )
 
 == Awards & Honors
-#award(
-  name: "Dean's List",
-  from: "The University of Texas at Dallas",
-  date: "Fall 2023, Spring 2024, Spring 2025, Summer 2025",
-)
+#award(start: datetime(year:2023, month:8, day: 1), end: datetime(year:2025, month:8, day: 23), name: "Academic Excellence Scholarship", description: "University of Texas at Dallas")
 
-#award(
-  name: "Academic Excellence Scholarship",
-  from: "The University of Texas at Dallas",
-  date: "Fall 2023 - Summer 2025",
-)
+#award(start: datetime(year:2023, month:8, day: 1), end: datetime(year:2025, month:8, day: 23), name: "Dean's List", description: "University of Texas at Dallas, (Fall 2023, Spring 2024, Spring 2025, Summer 2025)")
 
-#award(name: "Gold Cup", from: "Texas Federation of Music Clubs", date: datetime(year: 2023, month: 5, day: 15))
+#award(date: datetime(year:2023, month:5, day: 1), name: "Gold Cup", description: "Texas Federation of Music Clubs")
 
 == Other Activities
-#extracurricular(
-  role: "President",
-  org: "UTD Algorithms Club",
-  start: datetime(year: 2024, month: 5, day: 1),
-  end: datetime(year: 2025, month: 8, day: 23),
-)
+#other(start: datetime(year:2024, month:5, day: 1), end: datetime(year:2025, month:8, day: 23), name: "UTD Algorithms Club", description: "President")
 
-#extracurricular(
-  org: "UTD Codeburners (Competitive Programming)",
-  start: datetime(year: 2023, month: 8, day: 1),
-  end: datetime(year: 2025, month: 8, day: 23),
-)
-#extracurricular(
-  org: "Nebula Labs",
-  start: datetime(year: 2023, month: 8, day: 1),
-  end: datetime(year: 2025, month: 3, day: 1),
-)
-// Piano Stuff
-#{
-  if showpiano [
-    === Piano
 
-    ==== Performance
-    #performance(
-      program: "Joy Has Dawned",
-      location: "Cedar Creek Lake United Methodist Church",
-      date: datetime(year: 2024, month: 12, day: 1),
-      musicians: ([Seth Thomas], [*Iniyan Joseph*]),
-      performancelink: "z0EX8l6ZWnk",
-    )
-    #performance(
-      program: "Fall 2024 Recital",
-      location: "Cedar Creek Lake United Methodist Church",
-      date: datetime(year: 2024, month: 10, day: 1),
-      musicians: ([Seth Thomas], [*Iniyan Joseph*]),
-      performancelink: "tY56WEPD9R0",
-    )
-    #performance(
-      program: "A Christmas for All Time",
-      location: "Cedar Creek Lake United Methodist Church",
-      date: datetime(year: 2023, month: 12, day: 1),
-      musicians: ([Seth Thomas], [*Iniyan Joseph*]),
-      performancelink: "0odLKW9OCaA",
-    )
-    #performance(
-      program: "Senior Recital",
-      location: "McKinney Bible Church",
-      date: datetime(year: 2023, month: 8, day: 1),
-      musicians: [*Iniyan Joseph*],
-      performancelink: "T3SfiNYB4DA",
-    )
-    #performance(
-      program: "Senior Recital",
-      location: "Cedar Creek Lake United Methodist Church",
-      date: datetime(year: 2023, month: 7, day: 1),
-      musicians: [*Iniyan Joseph*],
-      performancelink: "Sk_h7YYb2-I",
-    )
-    #performance(
-      program: "Addams Family Musical",
-      location: "Independence High School",
-      date: datetime(year: 2023, month: 1, day: 1),
-      musicians: [Independence High School Pit Orchestra],
-    )
-    #performance(
-      program: "Let There be Christmas",
-      location: "Cedar Creek Lake United Methodist Church",
-      date: datetime(year: 2022, month: 12, day: 1),
-      musicians: ([Seth Thomas], [*Iniyan Joseph*]),
-      performancelink: "f2X2m_pDQNw",
-    )
-    #performance(
-      program: "Tuck Everlasting",
-      location: "Independence High School",
-      date: datetime(year: 2022, month: 1, day: 1),
-      musicians: [Independence High School Pit Orchestra],
-    )
+#other(start: datetime(year:2023, month:8, day: 1), end: datetime(year:2025, month:8, day: 23), name: "UTD Codeburners", description: "")
 
-    ==== Festivals and Competitions
-    #festival(
-      score: "Outstanding",
-      festival: "Texas Federation of Music Clubs",
-      category: "Musically Advanced Class II",
-      date: datetime(year: 2023, month: 5, day: 1),
-      pieces: "Rachmaninov Polichinelle op. 3 no. 4",
-    )
-    #festival(
-      score: "Outstanding",
-      festival: "National Federation of Music Clubs",
-      category: "Musically Advanced Class II",
-      date: datetime(year: 2023, month: 3, day: 1),
-      pieces: "Rachmaninov Polichinelle op. 3 no. 4, Beethoven Tempest Sonata mvmt. 3",
-    )
-    #festival(
-      score: "1",
-      festival: "University Interscholastic League - Solo and Ensemble",
-      category: "1",
-      date: datetime(year: 2023, month: 1, day: 1),
-      pieces: "Beethoven Tempest Sonata mvmt. 3",
-    )
-    #festival(
-      score: "Outstanding",
-      festival: "Texas Federation of Music Clubs",
-      category: "Very Difficult Class 2",
-      date: datetime(year: 2022, month: 5, day: 1),
-      pieces: "Rachmaninoff Prelude c# minor op 3. no 2",
-    )
-    #festival(
-      score: "Outstanding",
-      festival: "National Federation of Music Clubs",
-      category: "Very Difficult Class 2",
-      date: datetime(year: 2022, month: 3, day: 1),
-      pieces: "Rachmaninoff Prelude c# minor op 3. no 2, Bach Invention a minor BWV 784",
-    )
-    #festival(
-      score: "1",
-      festival: "University Interscholastic League - Solo and Ensemble",
-      category: "2",
-      date: datetime(year: 2022, month: 1, day: 1),
-      pieces: "Bach Invention a minor BWV 784",
-    )
-    #festival(
-      score: "Outstanding",
-      festival: "Texas Federation of Music Clubs",
-      category: "Difficult Class 2",
-      date: datetime(year: 2021, month: 5, day: 1),
-      pieces: "Roubos Rapsodia Española",
-    )
-    #festival(
-      score: "Outstanding",
-      festival: "National Federation of Music Clubs",
-      category: "Difficult Class 2",
-      date: datetime(year: 2021, month: 3, day: 1),
-      pieces: "Roubos Rapsodia Española, Beethoven Bagatelle op. 119 no. 1",
-    )
-  ] else [
-    #extracurricular(
-      org: "Piano",
-      start: datetime(year: 2009, month: 12, day: 1),
-      end: "Present",
-    )
-  ]
-}
+
+#other(start: datetime(year:2023, month:8, day: 1), end: datetime(year:2024, month:3, day: 23), name: "Nebula Labs", description: "")
+
+#other(start: datetime(year:2009, month:5, day: 1), end: "Present", name: "Piano", description: "")
+
