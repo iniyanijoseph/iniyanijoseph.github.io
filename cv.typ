@@ -72,7 +72,7 @@
 #other(start: datetime(year:2023, month:8, day: 1), end: datetime(year:2025, month:8, day: 23), name: "UTD Codeburners", description: "")
 
 
-#other(start: datetime(year:2023, month:8, day: 1), end: datetime(year:2024, month:3, day: 23), name: "Nebula Labs", description: "President")
+#other(start: datetime(year:2023, month:8, day: 1), end: datetime(year:2024, month:3, day: 23), name: "Nebula Labs", description: "")
 
 
 #other(start: datetime(year:2009, month:5, day: 1), end: "Present", name: "Piano", description: "")
