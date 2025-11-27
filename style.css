@@ -2,12 +2,75 @@ body {
   background-color: #d3dad9;
   /* color: white; */
   padding: 5rem;
-  font-family: "Garamond"
+  padding-top: 7rem; /* Extra padding for fixed navbar */
+  font-family: "Garamond";
+  margin: 0;
 }
 @media (max-width: 600px) {
     body {
         padding: 1rem;
+        padding-top: 5rem;
     }
+}
+
+/* Sticky Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #37353e;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar a {
+  color: #d3dad9;
+  text-decoration: none;
+  font-style: italic;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .navbar a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Group each h3 with its content to span full viewport height */
+section > h3 {
+  margin-top: 100vh;
+  padding-top: 2rem;
+  scroll-margin-top: 5rem; /* Offset for fixed navbar */
+}
+
+section > h3:first-child {
+  margin-top: 0;
+}
+
+/* Add spacing after the very last element in the section */
+section > table:last-child {
+  margin-bottom: 100vh;
+}
+
+/* Add same spacing after h2 elements */
+h2 {
+  margin-bottom: 100vh;
+  padding-bottom: 2rem;
 }
 
 .twopanel {

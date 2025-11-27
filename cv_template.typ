@@ -5,7 +5,7 @@
 #import "figures.typ": template-figures
 #import "layout.typ": full-width, margin-note
 
-#let cv(author: "", body) = {
+#let cv(author: "", icon:"", body) = {
   set document(author: author, title: author, date: datetime.today())
 
   set text(size: 12pt, lang: "en", font: "New Computer Modern")
@@ -49,8 +49,9 @@
         html.meta(charset: "utf-8")
         html.meta(name: "viewport", content: "width=device-width, initial-scale=1")
         html.title(author)
-        // html.link(rel: "stylesheet", href: global-css)
         html.link(rel: "stylesheet", href: local-css)
+        html.link(rel: "icon", href: "favicon.ico")
+        html.script(src: "navbar.js")
       })
 
       html.article({

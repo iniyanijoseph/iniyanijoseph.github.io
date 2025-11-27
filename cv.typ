@@ -3,7 +3,7 @@
 #import "cv_template.typ":* 
 #import "fields.typ":* 
 
-#show: cv.with(author: "Iniyan Joseph", )
+#show: cv.with(author: "Iniyan Joseph", icon: "favicon.ico")
 
 == Education
 #edu(
