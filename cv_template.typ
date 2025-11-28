@@ -52,6 +52,7 @@
         html.link(rel: "stylesheet", href: local-css)
         html.link(rel: "icon", href: "favicon.ico")
         html.script(src: "navbar.js")
+        html.script(src: "trim.js")
       })
 
       html.article({
