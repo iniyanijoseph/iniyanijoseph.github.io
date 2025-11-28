@@ -310,3 +310,35 @@ h4 {
     min-width: 40px;
   }
 }
+
+/* Publications list */
+ul {
+  margin: 0;
+  padding: 0;
+  color: #2d3748;
+}
+
+ul li {
+  color: #2d3748;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  border: 1px solid #e2e8f0;
+  list-style: none;
+}
+
+ul li:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e0;
+}
+
+.prefix {
+  color: #718096;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
