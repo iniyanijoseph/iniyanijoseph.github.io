@@ -42,20 +42,27 @@
 
 #let performance(date: "", name: "", details: none, location: "", musicians: "") = {
   two_panel(
-    dates: {date.display("[year]")} ,
+    dates: { date.display("[year]") },
     content: [
-      #strong(name)#{ if musicians != "" [, #musicians]; if location!= "" [, #emph(location)] }
+      #strong(name)#{
+        if musicians != "" [, #musicians]
+        if location != "" [, #emph(location)]
+      }
     ],
-    details: if details != none {html.iframe(width: 640, height: 365, src: "https://youtu.be/"+details)[Link to Performance]},
+    details: if details != none [#link("https://youtu.be/" + details)[Link to Performance]
+    ],
   )
 }
 
 
 #let festival(date: "", name: "", details: none, category: "", score: "") = {
   two_panel(
-    dates: {date.display("[year]")} ,
+    dates: { date.display("[year]") },
     content: [
-      #strong(name)#{ if category != "" [, Category: #category]; if score != "" [, #emph[Score: #score]] }
+      #strong(name)#{
+        if category != "" [, Category: #category]
+        if score != "" [, #emph[Score: #score]]
+      }
     ],
     details: details,
   )
