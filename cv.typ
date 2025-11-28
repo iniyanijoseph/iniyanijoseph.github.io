@@ -153,8 +153,7 @@
     )
 
     #other(
-      start: dt(2022, 8),
-      end: dt(2023, 5),
+      date: dt(2023, 5),
       name: "Project Kaos",
       description: "Scrum Master",
       details: link("https://sites.google.com/k12.friscoisd.org/projectkaos/dev-team"),
