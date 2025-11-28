@@ -36,7 +36,6 @@
           },
         ),
       )
-      // let global-css = "https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css"
       let local-css = "style.css"
 
       show: template-math
@@ -56,7 +55,7 @@
       })
 
       html.article({
-        heading(author, level: 1)
+        heading(html.elem("a", attrs:(href: "cv.pdf", style: "color:black"), author), level: 1)
         html.section(body)
       })
     }
