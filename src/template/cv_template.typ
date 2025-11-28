@@ -1,7 +1,6 @@
 #import "@preview/bullseye:0.1.0": *
 #import "math.typ": template-math
 #import "refs.typ": template-refs
-#import "notes.typ": template-notes
 #import "figures.typ": template-figures
 #import "layout.typ": full-width, margin-note
 
@@ -36,11 +35,8 @@
           },
         ),
       )
-      let local-css = "style.css"
-
       show: template-math
       show: template-refs
-      show: template-notes
       show: template-figures
 
 
@@ -48,11 +44,11 @@
         html.meta(charset: "utf-8")
         html.meta(name: "viewport", content: "width=device-width, initial-scale=1")
         html.title(author)
-        html.link(rel: "stylesheet", href: local-css)
+        html.link(rel: "stylesheet", href: "src/styles/style.css")
         html.link(rel: "icon", href: "favicon.ico")
-        html.script(src: "navbar.js")
-        html.script(src: "trim.js")
-        html.script(src: "collapsible.js")
+        html.script(src: "src/scripts/navbar.js")
+        html.script(src: "src/scripts/trim.js")
+        html.script(src: "src/scripts/collapsible.js")
       })
 
       html.article({

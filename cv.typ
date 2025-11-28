@@ -1,7 +1,6 @@
 #import "@preview/bullseye:0.1.0": *
-#import "base.typ": *
-#import "cv_template.typ": *
-#import "fields.typ": *
+#import "src/template/cv_template.typ": *
+#import "src/template/fields.typ": *
 
 #show: cv.with(author: "Iniyan Joseph", icon: "favicon.ico")
 
@@ -20,7 +19,7 @@
 #other(start: dt(2023, 9), end: dt(2024, 9), name: "Advised by Jin-Ryong Kim", description: "")
 
 === Publications
-#bibliography("publications.bib", title: none, full: true)
+#bibliography("publications/publications.bib", title: none, full: true)
 
 == Employment
 #job(
