@@ -1,0 +1,88 @@
+/* responsive.css - Media queries for all breakpoints */
+
+/* Tablets and below (768px) */
+@media (max-width: 768px) {
+  .twopanel tr {
+    flex-direction: column;
+    padding: 1.25rem;
+  }
+  
+  .paneldate {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.75rem;
+  }
+  
+  .panelcontent {
+    width: 100%;
+  }
+  
+  h1, h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+  }
+  
+  h4 {
+    font-size: 1.15rem;
+  }
+  
+  ul li {
+    padding: 1.25rem;
+  }
+  
+  img {
+    width: 80%;
+  }
+}
+
+/* Mobile devices (600px and below) */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+    padding-top: 5rem;
+  }
+  
+  .navbar {
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .navbar a {
+    font-size: 0.85rem;
+  }
+  
+  .page-nav-buttons {
+    bottom: 1rem;
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+  }
+  
+  .page-nav-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .page-indicator {
+    font-size: 0.85rem;
+    min-width: 40px;
+  }
+}
+
+/* Small phones (480px and below) */
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+  
+  img {
+    width: 100%;
+  }
+}

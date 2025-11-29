@@ -1,0 +1,139 @@
+/* tables.css - Two-panel table layout */
+.twopanel {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.75rem;
+}
+
+.twopanel tr {
+  display: flex;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  margin-bottom: 0.75rem;
+  border: 1px solid #e2e8f0;
+}
+
+.twopanel tr:not(.detail-row):hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e0;
+}
+
+.twopanel tr.expanded {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.twopanel tr.detail-row {
+  display: none;
+  padding: 0 1.5rem 1rem 1.5rem;
+  margin-top: -0.75rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  flex-direction: column;
+}
+
+.twopanel tr.expanded + tr.detail-row {
+  display: flex;
+}
+
+.twopanel td {
+  display: inline-block;
+  vertical-align: top;
+  min-width: 0;
+}
+
+.paneldate {
+  color: #718096;
+  width: 140px;
+  min-width: 140px;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+  font-size: 0.95rem;
+}
+
+.paneldate em {
+  color: #718096;
+  font-style: normal;
+}
+
+.panelcontent {
+  color: #2d3748;
+  flex: 1;
+  min-width: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.panelcontent strong {
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 0.25rem;
+  color: #1a202c;
+  font-weight: 600;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.panelcontent p {
+  margin: 0;
+  color: #4a5568;
+  line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.panelcontent p:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.panelcontent p strong {
+  display: block;
+  font-size: inherit;
+  margin-bottom: 0;
+  color: #1a202c;
+  font-weight: 600;
+}
+
+.panelcontent p em {
+  color: #718096;
+  font-style: italic;
+}
+
+.panelcontent a {
+  color: #3182ce;
+}
+
+.panelcontent a:hover {
+  color: #2c5282;
+}
+
+.detail-content {
+  width: 100%;
+  color: #4a5568;
+  line-height: 1.6;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 0.5rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.detail-content p {
+  margin: 0 0 0.5rem 0;
+}
+
+.detail-content p:last-child {
+  margin-bottom: 0;
+}
+
+section > table:last-child {
+  margin-bottom: 0;
+}
