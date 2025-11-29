@@ -6,7 +6,7 @@
     content: [
       #strong(degree), #university, #{
         if type(end) == datetime { end.display("[month repr:long] [year]") }
-      }#if details != none [, #emph(details)]
+      }#if details != none [, (details)]
 
       #if advisor != none [Advisor: #advisor]
 
@@ -27,7 +27,7 @@
 
 #let other(date: "", name: "", description: "", start: "", end: "", details: none) = {
   two_panel(
-    dates: { if date == "" { time_range(start: start, end: end) } else { [#date.display("[year]")] } },
+    dates: { if date == "" { time_range(start: start, end: end) } else { [#emph(date.display("[year]"))] } },
     content: [
       #strong(name)#{ if description != "" [, #description] }
     ],
