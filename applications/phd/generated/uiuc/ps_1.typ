@@ -1,0 +1,5 @@
+#set text(font: "New Computer Modern", size:12pt)
+
+#set page(header: [#align(center)[Iniyan Joseph | Link: #underline(link("iniyanijoseph.github.io")) | Email: #underline(link("mailto:iniyanijoseph@gmail.com"))] #line(length: 100%)])
+
+The decision to graduate in two years was practical: with my sister entering college, I felt a sense of responsibility to graduate early and ease my family's financial burden. Motivated to pursue my academic goals and make the most of my college experience, I conducted research as a freshman, started an algorithms club, and sought out mentors. This pressure taught me to identify opportunities and manage long-term time constraints. To graduate quickly while still pursuing my academic goals, I sought out community and mentorship through a research advisor and various clubs. It shaped me as a student and learner, and gave me the resourcefulness and commitment to maximize my time in graduate school. Going into undergrad, I wanted to develop a specific passion in computer science, and so I joined computer science clubs and research. It is now the desire to become an expert in my field that drives me to pursue a PhD.
