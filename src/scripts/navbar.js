@@ -21,6 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
     navbar.appendChild(link);
   });
   
+  // Add CV link at the end
+  const cvLink = document.createElement('a');
+  cvLink.href = 'cv.pdf';
+  cvLink.textContent = 'CV';
+  cvLink.target = '_blank'; // Opens in new tab
+  navbar.appendChild(cvLink);
+  
   // Insert navbar at the beginning of body
   document.body.insertBefore(navbar, document.body.firstChild);
 });
