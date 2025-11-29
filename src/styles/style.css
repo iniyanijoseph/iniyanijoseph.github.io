@@ -7,6 +7,7 @@ body {
   margin: 0;
   color: #2d3748;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 @media (max-width: 600px) {
@@ -41,6 +42,7 @@ body {
   transition: all 0.2s ease;
   position: relative;
   padding: 0.5rem 0;
+  white-space: nowrap;
 }
 
 .navbar a::after {
@@ -152,6 +154,7 @@ h2 {
 .twopanel td {
   display: inline-block;
   vertical-align: top;
+  min-width: 0;
 }
 
 .paneldate {
@@ -171,6 +174,9 @@ h2 {
 .panelcontent {
   color: #2d3748;
   flex: 1;
+  min-width: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .panelcontent strong {
@@ -179,12 +185,16 @@ h2 {
   margin-bottom: 0.25rem;
   color: #1a202c;
   font-weight: 600;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .panelcontent p {
   margin: 0;
   color: #4a5568;
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .panelcontent p:not(:last-child) {
@@ -211,6 +221,8 @@ h2 {
   padding-top: 1rem;
   border-top: 1px solid #e2e8f0;
   margin-top: 0.5rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .detail-content p {
@@ -239,6 +251,8 @@ ul li {
   transition: all 0.2s ease;
   border: 1px solid #e2e8f0;
   list-style: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 ul li:hover {
@@ -256,6 +270,9 @@ a {
   color: #3182ce;
   transition: color 0.2s ease;
   text-decoration: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 a:hover {
@@ -276,6 +293,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   color: #1a202c;
   text-shadow: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 h1, h2 {
@@ -300,6 +319,50 @@ h5 {
   font-size: 1.1rem;
 }
 
+/* Mobile responsiveness for two-panel layout */
+@media (max-width: 768px) {
+  .twopanel tr {
+    flex-direction: column;
+    padding: 1.25rem;
+  }
+  
+  .paneldate {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.75rem;
+  }
+  
+  .panelcontent {
+    width: 100%;
+  }
+  
+  h1, h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+  }
+  
+  h4 {
+    font-size: 1.15rem;
+  }
+  
+  ul li {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
 /* Page navigation buttons */
 .page-nav-buttons {
   position: fixed;
@@ -315,6 +378,7 @@ h5 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border: 1px solid #e2e8f0;
   z-index: 999;
+  max-width: 90vw;
 }
 
 .page-nav-btn {
@@ -328,6 +392,7 @@ h5 {
   font-size: 0.9rem;
   transition: all 0.2s ease;
   font-family: inherit;
+  white-space: nowrap;
 }
 
 .page-nav-btn:hover:not(:disabled) {
@@ -371,4 +436,18 @@ img {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  img {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  img {
+    width: 100%;
+  }
 }
