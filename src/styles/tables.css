@@ -14,11 +14,40 @@
   transition: all 0.2s ease;
   margin-bottom: 0.75rem;
   border: 1px solid #e2e8f0;
+  position: relative;
+}
+
+/* Add click indicator for clickable rows */
+.twopanel tr[style*="cursor: pointer"]::after {
+  content: '▼';
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a0aec0;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.twopanel tr[style*="cursor: pointer"].expanded::after {
+  transform: translateY(-50%) rotate(180deg);
+  color: #4a5568;
 }
 
 .twopanel tr:not(.detail-row):hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-color: #cbd5e0;
+}
+
+.twopanel tr[style*="cursor: pointer"]:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
+  border-color: #a0aec0;
+  background: #fafafa;
+}
+
+.twopanel tr[style*="cursor: pointer"]:hover::after {
+  color: #4a5568;
 }
 
 .twopanel tr.expanded {

@@ -12,7 +12,6 @@
 
       #if advisor != none [Thesis: #emph(thesis)]
     ],
-    details: details,
   )
 }
 
