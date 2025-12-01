@@ -30,4 +30,19 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Insert navbar at the beginning of body
   document.body.insertBefore(navbar, document.body.firstChild);
+  
+  // Function to update padding based on navbar height
+  function updatePadding() {
+    const navbarHeight = navbar.offsetHeight;
+    const additionalOffset=20;
+
+    document.body.style.paddingTop = (navbarHeight+additionalOffset)+ 'px';
+    document.documentElement.style.scrollPaddingTop = (navbarHeight+additionalOffset) + 'px';
+  }
+  
+  // Update padding after navbar is rendered
+  updatePadding();
+  
+  // Update padding on window resize (in case navbar wraps)
+  window.addEventListener('resize', updatePadding);
 });

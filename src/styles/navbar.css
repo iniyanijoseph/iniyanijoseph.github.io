@@ -5,11 +5,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Add padding to body to prevent navbar overlap */
-body {
-  padding-top: 80px; /* Adjust this value based on your navbar height */
-}
-
 .navbar {
   position: fixed;
   top: 0;
