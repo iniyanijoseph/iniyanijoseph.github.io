@@ -7,13 +7,13 @@
 
 .twopanel tr {
   display: flex;
-  background: #ffffff;
-  border-radius: 8px;
+  background: linear-gradient(145deg, #e6ebf1, #f5f7fa);
+  border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
+  box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
   margin-bottom: 0.75rem;
-  border: 1px solid #e2e8f0;
+  border: none;
   position: relative;
 }
 
@@ -36,14 +36,14 @@
 }
 
 .twopanel tr:not(.detail-row):hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-color: #cbd5e0;
+  box-shadow: 12px 12px 24px rgba(163, 177, 198, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
 }
 
 .twopanel tr[style*="cursor: pointer"]:hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
-  border-color: #a0aec0;
-  background: #fafafa;
+  box-shadow: 12px 12px 24px rgba(163, 177, 198, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  background: linear-gradient(145deg, #dce2e9, #f0f3f7);
 }
 
 .twopanel tr[style*="cursor: pointer"]:hover::after {
@@ -51,8 +51,8 @@
 }
 
 .twopanel tr.expanded {
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   margin-bottom: 0.75rem;
   padding-bottom: 0.5rem;
 }
@@ -80,16 +80,17 @@
 }
 
 .paneldate {
-  color: #718096;
+  color: #667eea;
   width: 140px;
   min-width: 140px;
   margin-right: 1.5rem;
   flex-shrink: 0;
   font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .paneldate em {
-  color: #718096;
+  color: #667eea;
   font-style: normal;
 }
 
@@ -137,11 +138,11 @@
 }
 
 .panelcontent a {
-  color: #3182ce;
+  color: #667eea;
 }
 
 .panelcontent a:hover {
-  color: #2c5282;
+  color: #5a67d8;
 }
 
 .detail-content {

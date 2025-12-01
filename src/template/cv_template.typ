@@ -51,8 +51,9 @@
         html.script(src: "src/scripts/collapsible.js")
       })
 
+      let pictureStyling = "border-radius: 50%; aspect-ratio: 1/1; object-fit: cover; height: 33vh !important; width: auto !important; box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8); transition: all 0.3s ease;"
       html.article({
-        html.elem("img", attrs:(src: photo, style: "border-radius: 50%; aspect-ratio: 1/1; object-fit: cover; height: 33vh !important; width: auto !important;")) 
+        html.elem("img", attrs:(src: photo, style: pictureStyling)) 
         heading(html.elem("a", attrs:(href: "cv.pdf", style: "color:black"), author), level: 1)
         if aboutme != "" {
            html.elem("p", attrs:(class: "aboutme"), aboutme)
