@@ -4,7 +4,7 @@
 #import "figures.typ": template-figures
 #import "layout.typ": full-width, margin-note
 
-#let cv(author: "", icon:"", body) = {
+#let cv(author: "", icon:"", aboutme: "", photo: "", body) = {
   set document(author: author, title: author, date: datetime.today())
 
   set text(size: 12pt, lang: "en", font: "New Computer Modern")
@@ -52,7 +52,11 @@
       })
 
       html.article({
+        html.elem("img", attrs:(src: photo, style: "border-radius: 50%; aspect-ratio: 1/1; object-fit: cover")) 
         heading(html.elem("a", attrs:(href: "cv.pdf", style: "color:black"), author), level: 1)
+        if aboutme != "" {
+           html.elem("p", attrs:(class: "aboutme"), aboutme)
+        }
         html.section(body)
       })
     }

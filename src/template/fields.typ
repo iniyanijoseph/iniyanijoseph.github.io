@@ -6,7 +6,7 @@
     content: [
       #strong(degree), #university, #{
         if type(end) == datetime { end.display("[month repr:long] [year]") }
-      }#if details != none [, (details)]
+      }#if details != none [, #emph(details)]
 
       #if advisor != none [Advisor: #advisor]
 
