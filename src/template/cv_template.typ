@@ -52,7 +52,7 @@
       })
 
       html.article({
-        html.elem("img", attrs:(src: photo, style: "border-radius: 50%; aspect-ratio: 1/1; object-fit: cover")) 
+        html.elem("img", attrs:(src: photo, style: "border-radius: 50%; aspect-ratio: 1/1; object-fit: cover; height: 33vh !important; width: auto !important;")) 
         heading(html.elem("a", attrs:(href: "cv.pdf", style: "color:black"), author), level: 1)
         if aboutme != "" {
            html.elem("p", attrs:(class: "aboutme"), aboutme)
