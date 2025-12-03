@@ -4,7 +4,7 @@ import os
 personalstatement = {"irvine", "purdue", "stanford"}
 
 schools = {
-    "cmu" : "At Carnegie Mellon University, I am excited to work with Professor ", 
+    "cmu" : "At Carnegie Mellon University, I am excited to work with Professor Vincent Conitzer on social choice and to work with Professor Tuomas Sandholm on mechanism design. My prior paper surveying fair division has given me exposure to their research, and I am eager to deepen my understanding of their fields as a graduate student.", 
 
     "uiuc" : "At the University of Illinois Urbana-Champaign, I am excited to work with Professor Ruta Mehta on fair division and online algorithms, and to continue working with Professor Fox on graph optimization. I had the opportunity to meet and speak with Professor Mehta as part of the Grainger MERGE program, and have been working with Professor Fox for this past year. My prior work has given me direct exposure to their research, and I hope to deepen my understanding as a student.", 
     
