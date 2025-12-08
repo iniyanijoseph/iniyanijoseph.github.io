@@ -20,7 +20,6 @@
     
     if position == 0{
       count += 1
-      
     }
   }
   linebreak()
