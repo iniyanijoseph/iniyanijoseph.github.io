@@ -109,6 +109,37 @@
     )
 
     #other(
+      date: dt(2025, 5),
+      name: "Typst Homework Template",
+      details: [
+        This template lets me write homework solutions very quickly using Typst. This has a few useful features:
+
+        First, it allows you to do things more like Markdown by using the a raw using "table" as the language
+
+        Second, you can both use the default numbering for headings provided by Typst, or you can prefix a heading using "number)" and it will replace the default heading.
+
+        Third, you can write algorithms using the algorithms language
+          \`\`\`algorithm
+          + while true
+            + if a is true
+              + break
+            + else
+              + break
+          \`\`\`
+
+        Fourth, you can use write theorems quickly using the theorem, lemma, and corollary raw blocks. The first line of the language is the theorem statement, all other lines are the proof. 
+
+        Fifth, you can draw Graphiz diagrams with the graphiz raw block.
+
+        Sixth, you can compile Latex code written in the tex raw block. This can be convenient.
+
+        Finally, you can use +-, ==>, <==, and |- as shortcuts in math mode.
+
+        #link("projects/hwtemplate/template.typ")
+      ],
+    )
+
+    #other(
       date: dt(2025, 1),
       name: "Gus the Goose",
       details: [
