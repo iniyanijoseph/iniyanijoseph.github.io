@@ -2,18 +2,18 @@
 .twopanel {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0 0.75rem;
+  border-spacing: 0 0.5rem;
 }
 
 .twopanel tr {
   display: flex;
-  background: linear-gradient(145deg, #e6ebf1, #f5f7fa);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8);
-  transition: all 0.3s ease;
-  margin-bottom: 0.75rem;
-  border: none;
+  background: #ffffff;
+  border-radius: 0;
+  padding: 1.75rem;
+  border: 1px solid #e0e0e0;
+  border-left: 3px solid #e0e0e0;
+  transition: all 0.15s ease;
+  margin-bottom: 0.5rem;
   position: relative;
 }
 
@@ -24,44 +24,43 @@
   right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #a0aec0;
-  font-size: 0.75rem;
-  transition: all 0.2s ease;
+  color: #cccccc;
+  font-size: 0.7rem;
+  transition: all 0.15s ease;
   pointer-events: none;
 }
 
 .twopanel tr[style*="cursor: pointer"].expanded::after {
   transform: translateY(-50%) rotate(180deg);
-  color: #4a5568;
+  color: #666666;
 }
 
 .twopanel tr:not(.detail-row):hover {
-  box-shadow: 12px 12px 24px rgba(163, 177, 198, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.9);
-  transform: translateY(-2px);
+  border-color: #cccccc;
+  border-left-color: #999999;
 }
 
 .twopanel tr[style*="cursor: pointer"]:hover {
-  box-shadow: 12px 12px 24px rgba(163, 177, 198, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.9);
-  transform: translateY(-2px);
-  background: linear-gradient(145deg, #dce2e9, #f0f3f7);
+  border-left-color: #000000;
 }
 
 .twopanel tr[style*="cursor: pointer"]:hover::after {
-  color: #4a5568;
+  color: #666666;
 }
 
 .twopanel tr.expanded {
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  margin-bottom: 0.75rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
+  border-left-color: #000000;
 }
 
 .twopanel tr.detail-row {
   display: none;
-  padding: 0 1.5rem 1rem 1.5rem;
-  margin-top: -0.75rem;
-  margin-bottom: 0.75rem;
+  padding: 0 1.75rem 1.5rem 1.75rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
   border-radius: 0;
   border: none;
   box-shadow: none;
@@ -80,22 +79,23 @@
 }
 
 .paneldate {
-  color: #667eea;
-  width: 140px;
-  min-width: 140px;
-  margin-right: 1.5rem;
+  color: #666666;
+  width: 130px;
+  min-width: 130px;
+  margin-right: 2rem;
   flex-shrink: 0;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 .paneldate em {
-  color: #667eea;
+  color: #666666;
   font-style: normal;
 }
 
 .panelcontent {
-  color: #2d3748;
+  color: #1a1a1a;
   flex: 1;
   min-width: 0;
   word-wrap: break-word;
@@ -104,18 +104,19 @@
 
 .panelcontent strong {
   display: block;
-  font-size: 1.1em;
-  margin-bottom: 0.25rem;
-  color: #1a202c;
+  font-size: 1.05em;
+  margin-bottom: 0.4rem;
+  color: #000000;
   font-weight: 600;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  letter-spacing: -0.01em;
 }
 
 .panelcontent p {
   margin: 0;
-  color: #4a5568;
-  line-height: 1.6;
+  color: #333333;
+  line-height: 1.65;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
@@ -128,30 +129,30 @@
   display: block;
   font-size: inherit;
   margin-bottom: 0;
-  color: #1a202c;
+  color: #000000;
   font-weight: 600;
 }
 
 .panelcontent p em {
-  color: #718096;
+  color: #666666;
   font-style: italic;
 }
 
 .panelcontent a {
-  color: #667eea;
+  color: #0066cc;
 }
 
 .panelcontent a:hover {
-  color: #5a67d8;
+  color: #004999;
 }
 
 .detail-content {
   width: 100%;
-  color: #4a5568;
-  line-height: 1.6;
+  color: #333333;
+  line-height: 1.65;
   padding-top: 1rem;
-  border-top: 1px solid #e2e8f0;
-  margin-top: 0.5rem;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 0.75rem;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }

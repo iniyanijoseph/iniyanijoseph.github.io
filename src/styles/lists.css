@@ -2,31 +2,31 @@
 ul {
   margin: 0;
   padding: 0;
-  color: #2d3748;
+  color: #1a1a1a;
 }
 
 ul li {
-  color: #2d3748;
-  line-height: 1.8;
-  margin-bottom: 1rem;
+  color: #1a1a1a;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
   padding: 1.5rem;
-  background: linear-gradient(145deg, #e6ebf1, #f5f7fa);
-  border-radius: 12px;
-  box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8);
-  transition: all 0.3s ease;
-  border: none;
+  background: #ffffff;
+  border-radius: 0;
+  border: 1px solid #e0e0e0;
+  border-left: 3px solid #e0e0e0;
+  transition: all 0.15s ease;
   list-style: none;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
 ul li:hover {
-  box-shadow: 12px 12px 24px rgba(163, 177, 198, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.9);
-  transform: translateY(-2px);
+  border-color: #cccccc;
+  border-left-color: #999999;
 }
 
 .prefix {
-  color: #667eea;
+  color: #000000;
   font-weight: 600;
   margin-right: 0.5rem;
 }

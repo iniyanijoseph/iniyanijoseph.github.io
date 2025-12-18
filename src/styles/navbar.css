@@ -1,4 +1,4 @@
-/* navbar.css - Navigation styles */
+/* navbar.css - Navigation styles with hamburger menu */
 
 /* Smooth scrolling for the entire page */
 html {
@@ -10,45 +10,200 @@ html {
   top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(145deg, #e6ebf1, #f5f7fa);
-  backdrop-filter: blur(10px);
-  padding: 1rem 2rem;
+  background: #ffffff;
+  padding: 1.25rem 2rem;
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  align-items: center;
+  gap: 2.5rem;
   z-index: 1000;
-  box-shadow: 0 8px 16px rgba(163, 177, 198, 0.4), 0 -4px 12px rgba(255, 255, 255, 0.8);
-  border-bottom: none;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.navbar a {
-  color: #4a5568;
+/* Hamburger menu (hidden by default) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: absolute;
+  left: 1rem;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #000000;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.hamburger:hover span {
+  background: #666666;
+}
+
+/* Nav links container */
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #666666;
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
   position: relative;
   padding: 0.5rem 0;
   white-space: nowrap;
+  letter-spacing: 0.01em;
 }
 
-.navbar a::after {
+.nav-links a::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: #000000;
   transition: width 0.2s ease;
 }
 
-.navbar a:hover,
-.navbar a.active {
-  color: #1a202c;
+.nav-links a:hover,
+.nav-links a.active {
+  color: #000000;
 }
 
-.navbar a:hover::after,
-.navbar a.active::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
   width: 100%;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  body {
+    padding-top: 4.5rem;
+  }
+  
+  .navbar {
+    justify-content: flex-start;
+    padding: 1rem;
+    background: transparent;
+    border-bottom: none;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100vh;
+    background: #ffffff;
+    flex-direction: column;
+    gap: 0;
+    padding: 5rem 0 2rem 0;
+    border-right: 1px solid #e0e0e0;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    align-items: flex-start;
+    overflow-y: auto;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  
+  .navbar.active .nav-links {
+    left: 0;
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-links a {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f5f5f5;
+    color: #666666;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    position: relative;
+  }
+  
+  .nav-links a:first-child {
+    border-top: 1px solid #f5f5f5;
+  }
+  
+  .nav-links a::after {
+    display: none;
+  }
+  
+  .nav-links a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: #000000;
+    transition: width 0.15s ease;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a:active,
+  .nav-links a.active {
+    background: #fafafa;
+    color: #000000;
+  }
+  
+  .nav-links a:hover::before,
+  .nav-links a:active::before,
+  .nav-links a.active::before {
+    width: 3px;
+  }
+  
+  /* Hamburger animation when active */
+  .navbar.active .hamburger {
+    position: fixed;
+  }
+  
+  .navbar.active .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+  
+  .navbar.active .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .navbar.active .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+  
+  /* Backdrop overlay */
+  .navbar.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }

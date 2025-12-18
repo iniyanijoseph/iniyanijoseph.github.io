@@ -49,6 +49,7 @@
         html.script(src: "src/scripts/navbar.js")
         html.script(src: "src/scripts/trim.js")
         html.script(src: "src/scripts/collapsible.js")
+        html.script(src: "src/scripts/scroll-animation.js")
       })
 
       let pictureStyling = "border-radius: 50%; aspect-ratio: 1/1; object-fit: cover; height: 33vh !important; width: auto !important; box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8); transition: all 0.3s ease;"
