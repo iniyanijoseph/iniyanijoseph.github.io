@@ -4,7 +4,7 @@
 #import "figures.typ": template-figures
 #import "layout.typ": full-width, margin-note
 
-#let cv(author: "", icon:"", aboutme: "", photo: "", body) = {
+#let cv(author: "", icon:"", aboutme: "", photo: "", website: "", email:"", body) = {
   set document(author: author, title: author, date: datetime.today())
 
   set text(size: 12pt, lang: "en", font: "New Computer Modern")
@@ -22,7 +22,8 @@
     show heading.where(level: 1): it => align(center, it)
 
     heading(author, level: 1)
-
+    align(center, [#link(website) | #link("mailto:"+email)])
+    // line(length: 100%)
     body
   })
 
