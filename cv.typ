@@ -220,6 +220,13 @@
 
     ==== Performance
     #performance(
+      name: "This Christmastide",
+      location: "Cedar Creek Lake United Methodist Church",
+      date: dt(2025, 12),
+      musicians: "Seth Thomas, Iniyan Joseph",
+      details: "XwKFCbZh3Ks",
+    )
+    #performance(
       name: "Joy Has Dawned",
       location: "Cedar Creek Lake United Methodist Church",
       date: dt(2024, 12),
