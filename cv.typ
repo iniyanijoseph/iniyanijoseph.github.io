@@ -2,6 +2,8 @@
 #import "src/template/cv_template.typ": *
 #import "src/template/fields.typ": *
 
+#let showpiano = false
+
 #show: cv.with(author: "Iniyan Joseph", aboutme: "Hi, I'm Iniyan. I recently recieved my undergraduate degree in Computer Science from The University of Texas at Dallas, and am a Teacher at KD College Prep. I am currently applying to PhD programs in Theoretical Computer Science focusing on Algorithms, and am advised by Professor Emily K. Fox at the University of Illinois, Urbana-Champaign.", icon: "favicon.ico", photo: "photo.png", website: "https://iniyanijoseph.github.io", email: "iniyanijoseph@gmail.com")
 
 == Education
@@ -214,7 +216,7 @@
 )
 
 #context {
-  if target() == "html" [
+  if target() == "html" or showpiano == true [
     === Piano
     #other(start: dt(2009, 5), end: "Present", name: "Piano")
 
@@ -342,3 +344,4 @@
     #other(start: dt(2009, 5), end: "Present", name: "Piano")
   ]
 }
+
