@@ -66,3 +66,13 @@
     details: details,
   )
 }
+
+#let blog(name: "", url: "", details: none, ) = {
+  two_panel(
+    dates: {},
+    content: [
+      #strong(link(url)[#name])
+    ],
+    details: details,
+  )
+}

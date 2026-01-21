@@ -345,3 +345,25 @@
   ]
 }
 
+#context {
+  if target() == "html" [
+    === Other Documents
+    #blog(
+      name: "File on Conscience",
+      url: "blog/letteronconscience/index.html"
+    )
+    #blog(
+      name: "University of Texas at Dallas Transcript",
+      url: "school/utdtranscript.pdf"
+    )
+
+    #blog(
+      name: "Collin College Transcript",
+      url: "school/collintranscript.pdf"
+    )
+    #blog(
+      name: "SAT",
+      url: "school/sat.pdf"
+    )
+  ]
+}
