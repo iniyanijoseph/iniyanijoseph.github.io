@@ -12,7 +12,7 @@
   end: dt(2025, 8),
   degree: "B.S. in Computer Science",
   university: "University of Texas at Dallas",
-  details: "Graduated Summa Cum Laude (3.987/4)",
+  details: context{if target() != "html" {"Graduated Summa Cum Laude (3.987/4)"} else {link("school/utdtranscript.pdf")[Graduated Summa Cum Laude (3.987/4)]}},
 )
 
 == Research
@@ -193,7 +193,7 @@
   ]
 }
 
-== Other Activities
+== Activities
 #other(
   start: dt(2024, 5),
   end: dt(2025, 8),
@@ -347,23 +347,10 @@
 
 #context {
   if target() == "html" [
-    === Other Documents
+    == Other
     #blog(
       name: "File on Conscience",
       url: "blog/letteronconscience/index.html"
-    )
-    #blog(
-      name: "University of Texas at Dallas Transcript",
-      url: "school/utdtranscript.pdf"
-    )
-
-    #blog(
-      name: "Collin College Transcript",
-      url: "school/collintranscript.pdf"
-    )
-    #blog(
-      name: "SAT",
-      url: "school/sat.pdf"
     )
   ]
 }
