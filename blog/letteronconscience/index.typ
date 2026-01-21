@@ -16,7 +16,7 @@
  //    zip: "75070-7920",
  //    phone: "+1-504-214-3785",
  //  ),
- date: datetime.today().display("[month repr:long] [day] [year]"),
+ date: "January 18, 2026",//, datetime.today().display("[month repr:long] [day] [year]"),
  subject: "Letter of Conscientious Objection",
  signer: "Iniyan Joseph",
  attachments: none,
