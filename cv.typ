@@ -345,12 +345,12 @@
   ]
 }
 
-#context {
-  if target() == "html" [
-    == Other
-    #blog(
-      name: "File on Conscience",
-      url: "blog/letteronconscience/index.html"
-    )
-  ]
-}
+// #context {
+//   if target() == "html" [
+//     == Other
+//     #blog(
+//       name: "File on Conscience",
+//       url: "blog/letteronconscience/index.html"
+//     )
+//   ]
+// }
