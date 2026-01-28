@@ -43,7 +43,7 @@
 
       html.head({
         html.meta(charset: "utf-8")
-        html.meta(name: "viewport", content: "width=device-width, initial-scale=1")
+        html.meta(name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no")
         html.title(author)
         html.link(rel: "stylesheet", href: "src/styles/style.css")
         html.link(rel: "icon", href: "favicon.ico")
@@ -57,7 +57,7 @@
       let pictureStyling = "border-radius: 50%; aspect-ratio: 1/1; object-fit: cover; height: 33vh !important; width: auto !important; transition: all 0.3s ease;"
       html.article({
         html.elem("img", attrs:(src: photo, style: pictureStyling)) 
-        heading(html.elem("a", attrs:(href: "cv.pdf", style: "color:white"), author), level: 1)
+        heading(html.elem("a", attrs:(href: "cv.pdf", style: ""), author), level: 1)
         if aboutme != "" {
            html.elem("p", attrs:(class: "aboutme"), aboutme)
         }
