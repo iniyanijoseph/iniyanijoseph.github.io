@@ -1,25 +1,26 @@
 /* base.css - Base styles and typography */
 body {
-  background: #fafafa;
+  background: var(--bg-primary);
   min-height: 100vh;
-  padding: 2rem;
+  padding: var(--spacing-xl);
   padding-top: 5rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-body);
   margin: 0;
-  color: #1a1a1a;
+  color: var(--text-primary);
   line-height: 1.7;
   overflow-x: hidden;
+  position: relative;
 }
 
 .page-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: var(--spacing-xl) 0;
 }
 
 a {
-  color: #0066cc;
-  transition: color 0.15s ease;
+  color: var(--accent-primary);
+  transition: color var(--transition-fast);
   text-decoration: none;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -27,16 +28,17 @@ a {
 }
 
 a:hover {
-  color: #004999;
+  color: var(--accent-hover);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  color: #000000;
+  color: var(--text-heading);
   text-shadow: none;
   word-wrap: break-word;
   overflow-wrap: break-word;
   line-height: 1.3;
+  font-family: var(--font-heading);
 }
 
 h1, h2 {
@@ -52,18 +54,42 @@ h1, h2 {
 
 h3 {
   font-size: 1.5rem;
-  color: #000000;
+  color: var(--text-heading);
   margin-top: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-lg);
   padding-top: 0;
-  scroll-margin-top: 5rem;
+}
+
+/* Sticky header wrapper */
+.sticky-header-wrapper {
+  position: sticky;
+  top: 80px;
+  z-index: 100;
+  margin-bottom: var(--spacing-lg);
+}
+
+.sticky-header-wrapper h3 {
+  margin: 0;
+  padding: var(--spacing-md) 0;
+  background: transparent;
+  transition: all var(--transition-medium);
+  border-left: 3px solid transparent;
+}
+
+.sticky-header-wrapper h3.sticky-active {
+  border-left-color: var(--accent-primary);
+  padding-left: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  background: var(--bg-navbar);
+  backdrop-filter: blur(10px);
 }
 
 h4 {
   font-size: 1.25rem;
-  color: #000000;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  color: var(--text-heading);
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
 }
 
 h5 {
@@ -77,11 +103,11 @@ img {
   width: 50%;
   max-width: 100%;
   height: auto;
-  border-radius: 2px;
-  border: 1px solid #e0e0e0;
-  transition: all 0.15s ease;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-default);
+  transition: all var(--transition-fast);
 }
 
 img:hover {
-  border-color: #999999;
+  border-color: var(--border-hover);
 }

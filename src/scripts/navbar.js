@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const additionalOffset = 20;
 
     document.body.style.paddingTop = (navbarHeight + additionalOffset) + 'px';
-    document.documentElement.style.scrollPaddingTop = (navbarHeight + additionalOffset) + 'px';
+    document.documentElement.style.scrollPaddingTop = navbarHeight + 'px';
   }
   
   // Update padding after navbar is rendered

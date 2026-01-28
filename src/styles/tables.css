@@ -2,18 +2,19 @@
 .twopanel {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0 0.5rem;
+  border-spacing: 0 var(--spacing-xs);
 }
 
 .twopanel tr {
   display: flex;
-  background: #ffffff;
-  border-radius: 0;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
   padding: 1.75rem;
-  border: 1px solid #e0e0e0;
-  border-left: 3px solid #e0e0e0;
-  transition: all 0.15s ease;
-  margin-bottom: 0.5rem;
+  border: 1px solid var(--border-default);
+  border-left: 3px solid var(--border-default);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all var(--transition-fast);
+  margin-bottom: var(--spacing-xs);
   position: relative;
 }
 
@@ -24,48 +25,48 @@
   right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #cccccc;
+  color: var(--border-hover);
   font-size: 0.7rem;
-  transition: all 0.15s ease;
+  transition: all var(--transition-fast);
   pointer-events: none;
 }
 
 .twopanel tr[style*="cursor: pointer"].expanded::after {
   transform: translateY(-50%) rotate(180deg);
-  color: #666666;
+  color: var(--text-secondary);
 }
 
 .twopanel tr:not(.detail-row):hover {
-  border-color: #cccccc;
-  border-left-color: #999999;
+  border-color: var(--border-hover);
+  border-left-color: var(--text-secondary);
 }
 
 .twopanel tr[style*="cursor: pointer"]:hover {
-  border-left-color: #000000;
+  border-left-color: var(--accent-primary);
 }
 
 .twopanel tr[style*="cursor: pointer"]:hover::after {
-  color: #666666;
+  color: var(--text-secondary);
 }
 
 .twopanel tr.expanded {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-left-color: #000000;
+  margin-bottom: 0;
+  border-left-color: var(--accent-primary);
 }
 
 .twopanel tr.detail-row {
   display: none;
-  padding: 0 1.75rem 1.5rem 1.75rem;
-  margin-top: -0.5rem;
-  margin-bottom: 0.5rem;
-  border-radius: 0;
-  border: none;
-  box-shadow: none;
-  background: transparent;
+  padding: 0 1.75rem 1.75rem 1.75rem;
+  margin-top: 0;
+  margin-bottom: var(--spacing-xs);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  border: 1px solid var(--border-default);
+  border-top: none;
+  background: var(--bg-card);
   flex-direction: column;
+  border-left: 3px solid var(--accent-primary);
 }
 
 .twopanel tr.expanded + tr.detail-row {
@@ -79,10 +80,10 @@
 }
 
 .paneldate {
-  color: #666666;
+  color: var(--text-secondary);
   width: 130px;
   min-width: 130px;
-  margin-right: 2rem;
+  margin-right: var(--spacing-xl);
   flex-shrink: 0;
   font-size: 0.875rem;
   font-weight: 500;
@@ -90,12 +91,12 @@
 }
 
 .paneldate em {
-  color: #666666;
+  color: var(--text-secondary);
   font-style: normal;
 }
 
 .panelcontent {
-  color: #1a1a1a;
+  color: var(--text-primary);
   flex: 1;
   min-width: 0;
   word-wrap: break-word;
@@ -106,7 +107,7 @@
   display: block;
   font-size: 1.05em;
   margin-bottom: 0.4rem;
-  color: #000000;
+  color: var(--text-heading);
   font-weight: 600;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -115,50 +116,50 @@
 
 .panelcontent p {
   margin: 0;
-  color: #333333;
+  color: var(--text-primary);
   line-height: 1.65;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
 .panelcontent p:not(:last-child) {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-xs);
 }
 
 .panelcontent p strong {
   display: block;
   font-size: inherit;
   margin-bottom: 0;
-  color: #000000;
+  color: var(--text-heading);
   font-weight: 600;
 }
 
 .panelcontent p em {
-  color: #666666;
+  color: var(--text-secondary);
   font-style: italic;
 }
 
 .panelcontent a {
-  color: #0066cc;
+  color: var(--accent-primary);
 }
 
 .panelcontent a:hover {
-  color: #004999;
+  color: var(--accent-hover);
 }
 
 .detail-content {
   width: 100%;
-  color: #333333;
+  color: var(--text-primary);
   line-height: 1.65;
-  padding-top: 1rem;
-  border-top: 1px solid #e0e0e0;
-  margin-top: 0.75rem;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-default);
+  margin-top: var(--spacing-sm);
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
 .detail-content p {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 var(--spacing-xs) 0;
 }
 
 .detail-content p:last-child {
