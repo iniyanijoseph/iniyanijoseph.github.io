@@ -57,33 +57,25 @@ h3 {
   color: var(--text-heading);
   margin-top: 0;
   margin-bottom: var(--spacing-lg);
-  padding-top: 0;
-}
-
-/* Sticky header wrapper */
-.sticky-header-wrapper {
-  position: sticky;
-  top: 80px;
-  z-index: 100;
-  margin-bottom: var(--spacing-lg);
-}
-
-.sticky-header-wrapper h3 {
-  margin: 0;
   padding: var(--spacing-md) 0;
+  position: sticky;
+  top: 65px;
+  z-index: 100;
   background: transparent;
   transition: all var(--transition-medium);
   border-left: 3px solid transparent;
 }
 
-.sticky-header-wrapper h3.sticky-active {
+h3.sticky-active {
   border-left-color: var(--accent-primary);
   padding-left: var(--spacing-lg);
-  padding-top: var(--spacing-lg);
-  padding-bottom: var(--spacing-lg);
   background: var(--bg-navbar);
   backdrop-filter: blur(10px);
+  padding-top: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
 }
+
+/* Remove old sticky wrapper styles since h3 is now sticky directly */
 
 h4 {
   font-size: 1.25rem;

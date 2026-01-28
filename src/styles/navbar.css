@@ -21,6 +21,22 @@ html {
   border-bottom: 1px solid var(--border-default);
 }
 
+/* Theme toggle in nav */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: var(--spacing-xs) 0;
+  transition: color var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+  color: var(--text-heading);
+}
+
 /* Hamburger menu (hidden by default) */
 .hamburger {
   display: none;
@@ -92,6 +108,18 @@ html {
 @media (max-width: 768px) {
   body {
     padding-top: 4.5rem;
+  }
+  
+  /* Disable sticky h3 on mobile */
+  h3 {
+    position: static;
+    border-left: none;
+  }
+  
+  h3.sticky-active {
+    background: transparent;
+    border-left: none;
+    padding-left: 0;
   }
   
   .navbar {

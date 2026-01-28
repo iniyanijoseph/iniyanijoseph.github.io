@@ -51,6 +51,7 @@
         html.script(src: "src/scripts/trim.js")
         html.script(src: "src/scripts/collapsible.js")
         html.script(src: "src/scripts/scroll-animation.js")
+        html.script(src: "src/scripts/theme-toggle.js")
       })
 
       let pictureStyling = "border-radius: 50%; aspect-ratio: 1/1; object-fit: cover; height: 33vh !important; width: auto !important; transition: all 0.3s ease;"

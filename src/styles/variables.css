@@ -1,6 +1,6 @@
 /* variables.css - Centralized design tokens */
 :root {
-  /* Colors - Claude.ai theme */
+  /* Colors - Dark theme */
   --bg-primary: #0f0f0f;
   --bg-card: rgba(26, 26, 26, 0.85);
   --bg-navbar: rgba(15, 15, 15, 0.95);
@@ -39,4 +39,19 @@
   /* Transitions */
   --transition-fast: 0.15s ease;
   --transition-medium: 0.3s ease;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --bg-primary: #faf8f5;
+  --bg-card: rgba(255, 255, 255, 0.8);
+  --bg-navbar: rgba(250, 248, 245, 0.95);
+  --bg-hover: rgba(245, 243, 240, 0.9);
+  
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-heading: #1a1a1a;
+  
+  --border-default: #e5e5e5;
+  --border-hover: #4db8b8;
 }
