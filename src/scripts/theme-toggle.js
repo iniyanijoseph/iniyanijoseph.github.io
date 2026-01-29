@@ -125,14 +125,14 @@ function createSunBackground() {
     
     updateCardColors(scrollProgress);
     
-    // Sun position in semicircle arc
+    // Sun position - arc from bottom-left to bottom-right corners
     const angle = Math.PI * scrollProgress;
-    const arcRadius = Math.min(canvas.width, canvas.height) * 0.6;
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height;
+    const arcHeight = canvas.height * 0.5;
     
-    const sunX = centerX + Math.cos(Math.PI - angle) * arcRadius;
-    const sunY = centerY - Math.sin(angle) * arcRadius;
+    // Position at actual corners: left edge to right edge
+    const padding = -80; // Negative to position off-screen
+    const sunX = padding + (canvas.width - 2 * padding) * scrollProgress;
+    const sunY = canvas.height + 150 - Math.sin(angle) * arcHeight;
     const sunRadius = 50 + Math.sin(angle) * 15;
     
     // Sun glow
