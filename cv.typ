@@ -3,8 +3,17 @@
 #import "src/template/fields.typ": *
 
 #let showpiano = false
+#let showblog = true
 
-#show: cv.with(author: "Iniyan Joseph", aboutme: "Hi, I'm Iniyan. I recently received my undergraduate degree in Computer Science from The University of Texas at Dallas, and am a Teacher at KD College Prep. I am currently applying to PhD programs in Theoretical Computer Science focusing on Algorithms, and am advised by Professor Emily K. Fox at the University of Illinois, Urbana-Champaign.", icon: "favicon.ico", photo: "photo.jpg", website: "https://iniyanijoseph.github.io", email: "iniyanijoseph@gmail.com", blog-shown: false)
+#show: cv.with(
+  author: "Iniyan Joseph",
+  aboutme: "Hi, I'm Iniyan. I recently received my undergraduate degree in Computer Science from The University of Texas at Dallas, and am a Teacher at KD College Prep. I am currently applying to PhD programs in Theoretical Computer Science focusing on Algorithms, and am advised by Professor Emily K. Fox at the University of Illinois, Urbana-Champaign.",
+  icon: "favicon.ico",
+  photo: "photo.jpg",
+  website: "https://iniyanijoseph.github.io",
+  email: "iniyanijoseph@gmail.com",
+  blog-shown: false,
+)
 
 == Education
 #edu(
@@ -12,7 +21,11 @@
   end: dt(2025, 8),
   degree: "B.S. in Computer Science",
   university: "University of Texas at Dallas",
-  details: context{if target() != "html" {"Graduated Summa Cum Laude (3.987/4)"} else {link("school/utdtranscript.pdf")[Graduated Summa Cum Laude (3.987/4)]}},
+  details: context {
+    if target() != "html" { "Graduated Summa Cum Laude (3.987/4)" } else {
+      link("school/utdtranscript.pdf")[Graduated Summa Cum Laude (3.987/4)]
+    }
+  },
 )
 
 == Research
@@ -121,15 +134,15 @@
         Second, you can both use the default numbering for headings provided by Typst, or you can prefix a heading using "number)" and it will replace the default heading.
 
         Third, you can write algorithms using the algorithms language
-          \`\`\`algorithm
-          + while true
-            + if a is true
-              + break
-            + else
-              + break
-          \`\`\`
+        \`\`\`algorithm
+        + while true
+          + if a is true
+            + break
+          + else
+            + break
+        \`\`\`
 
-        Fourth, you can use write theorems quickly using the theorem, lemma, and corollary raw blocks. The first line of the language is the theorem statement, all other lines are the proof. 
+        Fourth, you can use write theorems quickly using the theorem, lemma, and corollary raw blocks. The first line of the language is the theorem statement, all other lines are the proof.
 
         Fifth, you can draw Graphiz diagrams with the graphiz raw block.
 
@@ -345,3 +358,45 @@
   ]
 }
 
+#context {
+  if target() == "html" [
+    == Blog
+    === Recipes
+    #blog(
+      name: "Pizza",
+      url: "blog/food/pizza.html",
+    )
+    #blog(
+      name: "Bread",
+      url: "blog/food/bread.html",
+    )
+    #blog(
+      name: "Dubu Jorim (Braised Tofu)",
+      url: "blog/food/tofubanchan.html",
+    )
+    #blog(
+      name: "Vegetable Chapathi",
+      url: "blog/food/vegetablechapathi.html",
+    )
+
+    === Travel
+    #blog(
+      name: "Amtrak Rail Pass",
+      url: "blog/travel/train.html",
+    )
+
+    === File on Conscience
+    #blog(
+      name: "Statement of Conscience",
+      url: "blog/letteronconscience/index.html",
+    )
+    #blog(
+      name: "Marina Reeves Supporting Letter",
+      url: "blog/letteronconscience/marinareevesletter.pdf",
+    )
+    #blog(
+      name: "Immanual Joseph Supporting Letter",
+      url: "blog/letteronconscience/immanualjosephletter.pdf",
+    )
+  ]
+}

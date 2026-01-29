@@ -1,6 +1,6 @@
 #import "@preview/pro-letter:0.1.1": pro-letter
 #import "@preview/bullseye:0.1.0": *
-#import "../index.typ": *
+#import "../../cv.typ": *
 
 #show: cv.with(subpage: true, root: "../../")
 

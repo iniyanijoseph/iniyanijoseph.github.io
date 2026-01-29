@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add home link at the beginning
     const homeLink = document.createElement('a');
-    homeLink.href = '../index.html';
+    homeLink.href = '../../';
     homeLink.textContent = 'Back';
     navLinks.appendChild(homeLink);
   }, 50);
