@@ -205,6 +205,20 @@ html {
     width: 3px;
   }
   
+  /* Style theme toggle button for mobile */
+  .theme-toggle-btn {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--border-default);
+    text-align: left;
+    font-size: 0.95rem;
+  }
+  
+  .theme-toggle-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-heading);
+  }
+  
   /* Hamburger animation when active */
   .navbar.active .hamburger {
     position: fixed;

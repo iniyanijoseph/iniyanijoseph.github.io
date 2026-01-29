@@ -49,8 +49,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     function updateToggleText(btn, theme) {
-      btn.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+      const isMobile = window.innerWidth <= 768;
+      if (isMobile) {
+        btn.innerHTML = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+      } else {
+        btn.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+      }
     }
+    
+    // Update on resize
+    window.addEventListener('resize', () => {
+      updateToggleText(toggleBtn, document.documentElement.getAttribute('data-theme'));
+    });
+    
+    // Update text on resize
+    window.addEventListener('resize', () => {
+      updateToggleText(toggleBtn, document.documentElement.getAttribute('data-theme'));
+    });
     
     // Initialize light mode if needed
     if (savedTheme === 'light') {
@@ -112,13 +127,13 @@ function createSunBackground() {
     
     // Sun position in semicircle arc
     const angle = Math.PI * scrollProgress;
-    const arcRadius = canvas.height * 0.7;
+    const arcRadius = Math.min(canvas.width, canvas.height) * 0.6;
     const centerX = canvas.width / 2;
-    const centerY = canvas.height + arcRadius * 0.3;
+    const centerY = canvas.height;
     
     const sunX = centerX + Math.cos(Math.PI - angle) * arcRadius;
     const sunY = centerY - Math.sin(angle) * arcRadius;
-    const sunRadius = 60 + Math.sin(angle) * 20;
+    const sunRadius = 50 + Math.sin(angle) * 15;
     
     // Sun glow
     const glowGradient = ctx.createRadialGradient(sunX, sunY, sunRadius * 0.3, sunX, sunY, sunRadius * 2.5);
