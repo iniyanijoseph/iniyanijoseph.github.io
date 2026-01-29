@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggleBtn = document.createElement('button');
     toggleBtn.className = 'theme-toggle-btn';
     toggleBtn.setAttribute('aria-label', 'Toggle theme');
-    toggleBtn.innerHTML = '☀️ Light Mode';
+    toggleBtn.innerHTML = '☀️';
     
     // Add to nav links
     navLinks.appendChild(toggleBtn);
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     function updateToggleText(btn, theme) {
-      btn.innerHTML = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+      btn.innerHTML = theme === 'dark' ? '☀️' : '🌙';
     }
     
     // Initialize light mode if needed
