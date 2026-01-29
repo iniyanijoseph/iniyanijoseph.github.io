@@ -359,7 +359,7 @@
 }
 
 #context {
-  if target() == "html" [
+  if target() == "html" and showblog [
     == Blog
     === Recipes
     #blog(
