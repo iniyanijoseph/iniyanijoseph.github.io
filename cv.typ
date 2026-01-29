@@ -4,7 +4,7 @@
 
 #let showpiano = false
 
-#show: cv.with(author: "Iniyan Joseph", aboutme: "Hi, I'm Iniyan. I recently received my undergraduate degree in Computer Science from The University of Texas at Dallas, and am a Teacher at KD College Prep. I am currently applying to PhD programs in Theoretical Computer Science focusing on Algorithms, and am advised by Professor Emily K. Fox at the University of Illinois, Urbana-Champaign.", icon: "favicon.ico", photo: "photo.jpg", website: "https://iniyanijoseph.github.io", email: "iniyanijoseph@gmail.com")
+#show: cv.with(author: "Iniyan Joseph", aboutme: "Hi, I'm Iniyan. I recently received my undergraduate degree in Computer Science from The University of Texas at Dallas, and am a Teacher at KD College Prep. I am currently applying to PhD programs in Theoretical Computer Science focusing on Algorithms, and am advised by Professor Emily K. Fox at the University of Illinois, Urbana-Champaign.", icon: "favicon.ico", photo: "photo.jpg", website: "https://iniyanijoseph.github.io", email: "iniyanijoseph@gmail.com", blog-shown: false)
 
 == Education
 #edu(
@@ -345,12 +345,3 @@
   ]
 }
 
-// #context {
-//   if target() == "html" [
-//     == Other
-//     #blog(
-//       name: "File on Conscience",
-//       url: "blog/letteronconscience/index.html"
-//     )
-//   ]
-// }

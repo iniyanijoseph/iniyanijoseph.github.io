@@ -35,13 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.appendChild(link);
   });
   
-  // Add CV link at the end
-  const cvLink = document.createElement('a');
-  cvLink.href = 'cv.pdf';
-  cvLink.textContent = 'CV';
-  cvLink.target = '_blank';
-  navLinks.appendChild(cvLink);
-  
   // Append hamburger and links to navbar
   navbar.appendChild(hamburger);
   navbar.appendChild(navLinks);
