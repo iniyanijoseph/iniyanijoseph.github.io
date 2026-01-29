@@ -1,15 +1,19 @@
-.PHONY: all cv index blog clean
+.PHONY: all cv html clean
 
-all: cv index blog
+# Find all .typ files containing "cv.with" (not in src/), excluding cv.typ itself
+HTML_SOURCES := $(shell grep -l "cv\.with" $$(find . -name '*.typ' ! -path '*/src/*' ! -name 'cv.typ'))
+HTML_TARGETS := $(HTML_SOURCES:.typ=.html)
+
+all: clean cv html
 
 cv:
-	sudo typst c cv.typ cv.pdf
-
-index:
+	typst c cv.typ cv.pdf
 	typst c --features html -f html cv.typ index.html
 
-blog:
-	typst c --features html -f html blog/index.typ blog/index.html --root .
+html: $(HTML_TARGETS)
+
+%.html: %.typ
+	typst c --features html -f html $< $@ --root .
 
 clean:
-	rm -f cv.pdf index.html blog/index.html
+	rm -f cv.pdf index.html $(HTML_TARGETS)
