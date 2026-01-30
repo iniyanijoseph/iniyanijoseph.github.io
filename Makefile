@@ -16,4 +16,4 @@ html: $(HTML_TARGETS)
 	typst c --features html -f html $< $@ --root .
 
 clean:
-	rm -f cv.pdf index.html $(HTML_TARGETS)
+	rm -f cv.pdf index.html $(HTML_TARGETS) $(HTML_TARGETS:.html=.pdf)

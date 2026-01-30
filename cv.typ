@@ -361,6 +361,10 @@
 #context {
   if target() == "html" and showblog [
     == Blog
+    #blog(
+      name: "Advice for PhD Applicants",
+      url: "blog/school/phdapplications.html",
+    )
     === Recipes
     #blog(
       name: "Pizza",
