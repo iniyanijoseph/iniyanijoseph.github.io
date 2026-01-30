@@ -3,7 +3,7 @@
 
 #show: cv.with(subpage: true, root: "../../")
 
-This recipe by John Kanell is has been my favorite, and is quite easy @kanell2022bread.
+This recipe by John Kanell looks good, and is quite easy @kanell2022bread.
 
 == Ingredients
 - 450g$+ epsilon$ bread flour
