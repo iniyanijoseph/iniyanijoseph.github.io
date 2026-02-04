@@ -15,7 +15,7 @@ I recently applied to the following PhD programs (in no particular order):
 - University of Utah (Awaiting decision)
 - UT Dallas (Awaiting decision)
 - UC Irvine (Awaiting decision)
-- University of Wisconsin - Madison (Awaiting decision)
+- University of Wisconsin - Madison (Rejected 🤡)
 - University of Waterloo (Awaiting decision)
 - New York University (Awaiting decision)
 - University of Washington (Awaiting decision)
