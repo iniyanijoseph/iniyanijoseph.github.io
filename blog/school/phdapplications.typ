@@ -13,7 +13,7 @@ I recently applied to the following PhD programs (in no particular order):
 - Purdue (Awaiting decision)
 - Duke University (Awaiting decision)
 - University of Utah (Awaiting decision)
-- UT Dallas (Awaiting decision)
+- UT Dallas (✨Accepted✨)
 - UC Irvine (Awaiting decision)
 - University of Wisconsin - Madison (Rejected 🤡)
 - University of Waterloo (Awaiting decision)
