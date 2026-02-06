@@ -19,7 +19,7 @@ I recently applied to the following PhD programs (in no particular order):
 - University of Waterloo (Awaiting decision)
 - New York University (Awaiting decision)
 - University of Washington (Rejected 🤡)
-- Stanford University (Awaiting decision)
+- Stanford University (Rejected 🤡)
 - Carnegie Mellon (Awaiting decision)
 
 I selected a #link("sop.pdf")[statement of purpose (SOP)] from one of the universities (I selected Purdue at random) and my #link("personalhistory.pdf")[personal history], and have attached these below.
