@@ -10,7 +10,7 @@ I did not write the GRE - it is becoming increasingly unimportant to application
 
 I recently applied to the following PhD programs (in no particular order): 
 - University of Illinois at Urbana-Champaign (Awaiting decision)
-- Purdue (Accepted 🚂)
+- Purdue (Accepted with TAship 🚂)
 - Duke University (Awaiting decision)
 - University of Utah (Awaiting decision)
 - UT Dallas (Accepted 👌)
