@@ -20,7 +20,7 @@ I recently applied to the following PhD programs (in no particular order):
 - New York University (Awaiting decision)
 - University of Washington (Rejected 🤡)
 - Stanford University (Rejected 🤡)
-- Carnegie Mellon (Awaiting decision)
+- Carnegie Mellon (Rejected 🤡)
 
 I selected a #link("sop.pdf")[statement of purpose (SOP)] from one of the universities (I selected Purdue at random) and my #link("personalhistory.pdf")[personal history], and have attached these below.
 #footnote[I will replace this SOP with the SOP from the school I decide to attend.]
