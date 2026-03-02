@@ -8,22 +8,7 @@ PhD applications in Computer Science are due in early to mid-December. I recomme
 
 I did not write the GRE - it is becoming increasingly unimportant to applications. That being said, some top schools like MIT and UT Austin required it in the 2025-2026 admissions cycle, so it may be worth writing it if you want to apply to a program that requires it. While in undergrad, SAT optional is not usually a good option if you are able to score well, since you are competing with multiple hard-to-differentiate candidates. In contrast, for graduate school, your application is (or should be) inherently unique, so the GRE is unlikely to be a substantial differentiator. It also does not reveal much about your research abilities in mathematics fields like Theoretical Computer Science.
 
-I recently applied to the following PhD programs (in no particular order): 
-- University of Illinois at Urbana-Champaign (Awaiting decision)
-- Purdue (Accepted with TAship 🚂)
-- Duke University (Awaiting decision)
-- University of Utah (Awaiting decision)
-- UT Dallas (Accepted 👌)
-- UC Irvine (Awaiting decision)
-- University of Wisconsin - Madison (Rejected 🤡)
-- University of Waterloo (Awaiting decision)
-- New York University (Awaiting decision)
-- University of Washington (Rejected 🤡)
-- Stanford University (Rejected 🤡)
-- Carnegie Mellon (Rejected 🤡)
-
-I selected a #link("sop.pdf")[statement of purpose (SOP)] from one of the universities (I selected Purdue at random) and my #link("personalhistory.pdf")[personal history], and have attached these below.
-#footnote[I will replace this SOP with the SOP from the school I decide to attend.]
+I selected a #link("sop.pdf")[statement of purpose (SOP)] from Purdue, and my #link("personalhistory.pdf")[personal history], and have attached these below.
 
 Compared to writing applications for undergrad, the process of writing PhD applications can be much easier. All schools ask for essentially the same documents, primarily the SOP and Curriculum Vitae (CV). Some schools also ask you to submit a personal history, which complements the SOP by focusing more on your personal journey and how it shaped your research interests.
 
@@ -38,3 +23,17 @@ That being said, clarity, flow, and the confidence conveyed make up a large part
 The personal history is an even trickier document to write. It reads more narratively and should discuss your personal life and how it shaped you as a student and researcher. It should also speak to your ability to engage with your research community. After all, research is a group activity, and you should show that you will be a good co-worker as a PhD student.
 
 I found the advice of my friends and my research community to be very useful. I highly recommend having as many people as possible read your application documents, even if it can feel a bit vulnerable.
+
+I recently applied to the following PhD programs (in no particular order): 
+- University of Illinois at Urbana-Champaign (Awaiting decision)
+- Purdue (Accepted with TAship 🚂)
+- Duke University (Awaiting decision)
+- University of Utah (Awaiting decision)
+- UT Dallas (Accepted 👌)
+- UC Irvine (Awaiting decision)
+- University of Wisconsin - Madison (Rejected 🤡)
+- University of Waterloo (Awaiting decision)
+- New York University (Awaiting decision)
+- University of Washington (Rejected 🤡)
+- Stanford University (Rejected 🤡)
+- Carnegie Mellon (Rejected 🤡)

@@ -2,16 +2,18 @@
 #import "../../cv.typ": *
 
 #show: cv.with(subpage: true, root: "../../")
-This recipe is a slightly modified (less sugar) version of @Debe6496.
-== Ingredients
-- 9 inch piecrust
-- 2 tbsp flour
-- 2 tbsp lemon juice
-- $1/2$ cup sugar
-- $1/2$ tsp vanilla extract
-- 1 stick melted butter
-- 2 eggs
-- 1 cup applesauce
+Recipe by @CustardPecanPie.
+ == Ingredients
+- 9 inch pie crust
+- 2 cups brown sugar
+- 1 tablespoon all-purpose flour
+- $1/2$ cup melted butter
+- 1 cup evaporated milk
+- 1 teaspoon vanilla extract
+- 3 eggs
+- 1 cup chopped pecans
+- 1 cup pecan halves
+
 
 == Directions
 - Mix ingredients together and pour into pie crust.
