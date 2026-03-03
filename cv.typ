@@ -8,6 +8,7 @@
 #show: cv.with(
   author: "Iniyan Joseph",
   aboutme: "Hi, I'm Iniyan. I recently received my undergraduate degree in Computer Science from The University of Texas at Dallas, and am a Teacher at KD College Prep. I am currently applying to PhD programs in Theoretical Computer Science focusing on Algorithms, and am advised by Professor Emily K. Fox at the University of Illinois, Urbana-Champaign.",
+  // Hi, I'm Iniyan! I am an incoming Ph.D student at (Purdue/UT Dallas). Previously, I was an undergraduate student at the University of Texas at Dallas. 
   icon: "favicon.ico",
   photo: "photo.jpg",
   website: "https://iniyanijoseph.github.io",
