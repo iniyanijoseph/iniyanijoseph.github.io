@@ -16,5 +16,8 @@ In general, we can think of the graph as sets of negatively reachable vertices c
 
 In the shortest path, there can be at most $n-1$ negative edges if there are no negative cycles. 
 
-To do this, we compute a set of valid potentials
-// For $phi(overline(u))$
+To do this, we compute a set of valid potentials, then Dijkstra's algorithm once on the reweighted edges.
+
+From this point on, the recent improvements of Bellman-Ford focus on finding valid potentials efficiently.
+
+== LLRZ 
