@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath, amsthm, amsfonts}
+\usepackage[natbib]{biblatex}
+\addbibresource{refs.bib}
+\usepackage{hyperref}
+\title{Empirically Assessing Approximation Algorithms for the Fr{\'e}chet Distance}
+\author{Iniyan Joseph}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+The Fr{\'e}chet distance is a measure of similarity between two parameterized curves. It has been used for handwriting recognition \cite{handwriting}, protein alignment \cite{ProteinStructureAlignment}, visual heirarchy \cite{visualheirarchy}, deep neural networks \cite{deepneuralnetwork}, and map construction \cite{mapconstruction, mapMatching}. Because of this, it has been heavily studied within the computer science subfield of computational geometry.
+
+It is defined as follows: Take two parameterized curves in d-dimensional space $P : [1, m] \to \mathbb{R}^d$ and $Q : [1, n] \to \mathbb{R}^d$. For each curve, there exist ordered sequences of points in $\mathbb{R}^d$ $\left<p_1,\dots,p_m\right>$ with $P(i) = p_i$ and $\left<q_1,\dots,q_n\right>$ with $Q(i) = q_i$ which are linearly parameterized by the curve (i.e. the points are connected to one another by line segments).
+
+We re-parameterize $P$ and $Q$ with the continuous non-decreasing functions $\sigma : \left[0, 1\right] \to \left[1, m\right]$ and $\theta : \left[0, 1\right] \to \left[1, n\right]$. % with $\sigma (0) = \theta (0) = 1$, $\sigma (1) = m$, and $\theta (1) = n$.
+
+A tuple of such re-parameterizing functions $(\sigma, \theta)$, is called a Fr{\'e}chet correspondence, and the set of all Fr{\'e}chet correspondences is $\Pi_{\text{FD}}$.
+%A pair of numbers are considered matched if and only if there exists a $(\sigma(r)$, $\theta(r))$ for $0\leq r \leq 1$.
+Let $d \left(p, q\right)$ denote the euclidian distance between two points $p$ and $q$ in $\mathbb{R}^d$.
+
+Our goal is to find the Fr{\'e}chet correspondence minimizing the largest distance between two matched points along the curves $P$ and $Q$. This distance is the Fr{\'e}chet distance ($\text{FD}(P, Q)$).
+
+In other words, the Fr{\'e}chet distance between $P$ and $Q$ is
+\[ \text{FD}(P, Q) := \min_{(\sigma, \theta) \in \Pi_{\text{FD}}} \max_{0\leq r \leq 1} d (P(\sigma(r)), Q(\theta (r)))\]
+
+
+While there is an $O(n^2 \log n)$ time algorithm to compute the Fr{\'e}chet distance, it is unlikely that strongly subquadratic algorithms $(n^{2-\Omega(1)})$ exist for computing the Fr{\'e}chet distance \cite{whywalkingthedogtakestime}. As a result, prior works have attempted to approximate Fr{\'e}chet correspondences efficiently.
+
+\citet{approximatingforrealisticcurvesDriemel} and \citet{frechetDistanceOnCPickedCurves} consider "realistic" families of curves and find a $(1 + \epsilon)$-approximation in subquadratic and often near-linear time.
+
+% who find an $O(\alpha)$-approximate Fr{\'e}chet correspondence in $O((n^3/\alpha^2)\log n)$ time for $\alpha \in \left[\sqrt{n}, n\right]$.
+\citet{approximatingFrechetDistance} presented the first paper for approximating the Fr{\'e}chet distance for arbitrary curves, finding an $O(\alpha)$-approximate Fr{\'e}chet correspondence in $O((n^3/\alpha^2)\log n)$ time with $\alpha \in \left[\sqrt{n}, n\right]$ in the worst case. \citet{neApproximation} improved this by giving an $O(\alpha)$-approximate algorithm which runs in $O((n + mn/\alpha) \log n)$ for $\alpha \in \left[1, n\right]$.
+Recently, \citet{truncatedSmoothing} further improved this to $O((n^2/\alpha) \log ^2 n)$ with the same approximation.
+
+We propose to extend the prior work on subquadratic approximation algorithms. It is unclear if the bounds above are met in practice or are asymptotically tight. We plan to implement some of the above approximation algorithms starting with that of \citet{approximatingFrechetDistance} using the library given by \citet{priorImplementation} and conduct empirical tests to verify its asymptotic accuracy and running time, comparing against a previous implementation \cite{priorImplementation} of the exact Fr{\'e}chet distance algorithm proposed by \citet{computingFrechetBetweenPolygonalCurves}. Additionally, we will explore the design of new heuristics to enhance the algorithms' performance.
+
+
+% Say we will implement starting with
+% Remove some of the stuff in definition
+% Present approximatingFrechetDistance as well before
+% Worst case bounds on running time and it is unclear if these bounds are met in practice, motivating the implementation, so we compare to the asymptotic worst case function.
+
+\printbibliography
+\end{document}
