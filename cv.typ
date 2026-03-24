@@ -3,7 +3,7 @@
 #import "src/template/fields.typ": *
 
 #let showpiano = false
-#let showblog = false
+#let showblog = true
 
 #show: cv.with(
   author: "Iniyan Joseph",
