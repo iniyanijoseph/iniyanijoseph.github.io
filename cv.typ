@@ -7,8 +7,8 @@
 
 #show: cv.with(
   author: "Iniyan Joseph",
-  aboutme: "Hi, I'm Iniyan. I recently received my undergraduate degree in Computer Science from The University of Texas at Dallas, and am a Teacher at KD College Prep. I am currently applying to PhD programs in Theoretical Computer Science focusing on Algorithms, and am advised by Professor Emily K. Fox at the University of Illinois, Urbana-Champaign.",
-  // Hi, I'm Iniyan! I am an incoming Ph.D student at (Purdue/UT Dallas). Previously, I was an undergraduate student at the University of Texas at Dallas. 
+  aboutme: //"Hi, I'm Iniyan. I recently received my undergraduate degree in Computer Science from The University of Texas at Dallas, and am a Teacher at KD College Prep. I am currently applying to PhD programs in Theoretical Computer Science focusing on Algorithms, and am advised by Professor Emily K. Fox at the University of Illinois, Urbana-Champaign. ",
+  [Hi, I'm Iniyan! I am an incoming Ph.D Computer Science student at Purdue, advised by #link("https://www.alexpsomas.com/home")[Alex Psomas]. Previously, I was an undergraduate student at the University of Texas at Dallas, working with #link("https://ekfox.web.illinois.edu/")[Emily K. Fox.] and #link("https://jessekim.com/")[Jin-Ryong Kim]. Broadly, I am interested in Theory CS, especially Algorithmic Game Theory and Combinatorial Optimization.],
   icon: "favicon.ico",
   photo: "photo.jpg",
   website: "https://iniyanijoseph.github.io",
@@ -30,12 +30,12 @@
 )
 
 == Research
-#other(start: dt(2024, 9), end: "Present", name: "Advised by Emily Fox", description: "")
+#other(start: dt(2024, 9), end: "Present", name: "Advised by Emily K. Fox", description: "")
 
 #other(start: dt(2023, 9), end: dt(2024, 9), name: "Advised by Jin-Ryong Kim", description: "")
 
 === Publications
-#bibliography("publications/publications.bib", title: none, full: true)
+#bibliography("papers/publications.bib", title: none, full: true)
 
 == Employment
 #job(
