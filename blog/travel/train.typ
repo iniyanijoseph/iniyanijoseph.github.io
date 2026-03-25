@@ -11,27 +11,49 @@ The following map gives an overview of the approximate Amtrak routes across the 
 
 #figure([#image("AmtrakRoutes.png")], alt: "Amtrak Route Map", caption: [Amtrak Route Map @caliberal2023amtrak])
 
-=== Itinerary
+== Itinerary
 Currently, the itinerary of cities is
 - Dallas -> Chicago (Texas Eagle)
-- Chicago -> Seattle (Empire Builder)
-- Seattle -> Sacramento (Coast Starlight)
-- Sacramento -> Los Angeles (Coast Starlight)
-- Los Angeles -> Emeryville (Coast Starlight)
-- Emeryville -> Chicago (California Zephyr)
 - Chicago -> Boston (Lakeshore Limited)
 - Boston -> New York City (Lakeshore Limited)
-- New York City -> Philadelphia (Flixbus, no rail pass)
+- New York City -> Philadelphia
 - Philadelpha -> Washington D.C. (Northeast Regional, no rail pass)
 - Washington D.C. -> Chicago (Cardinal)
+- Chicago -> Seattle (Empire Builder)
+- Seattle -> Los Angeles (Coast Starlight)
+- Los Angeles -> Emeryville (Coast Starlight)
+- Emeryville -> Chicago (California Zephyr)
 - Chicago -> Dallas (Texas Eagle)
 
-=== Packing List
+== Packing List
 - Hiking Bag
 - Water Bottle
-- Laptop/Charger
+
 - 3 Pairs Jeans
+- Sweatpants
+- TShirts
+- Sweater
+- Shoes
+- Raincoat
 - Sewing Kit
+
+- Towel
+- Toothbrush/toothpaste
+- Deodorant
+- Shampoo/soap (travel sizes)
+- Hand sanitizer
+- TP 
+
 - Phone/Charger
+- Laptop/Charger
+- Battery Pack
+
+- Granola
+- Dried Fruit
+- Bread
+- Hard Cheese
+- Nut Butter
+- Ziploc Bag
+- Cutlery
 
 #bibliography("references.bib")

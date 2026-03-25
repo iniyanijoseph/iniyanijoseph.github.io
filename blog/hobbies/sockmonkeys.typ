@@ -14,5 +14,4 @@ If you wear short socks, making sock monkeys may not seem like an option, but a 
 - With the short sock, cut the foot (in front of the heel), leaving a 1-inch gap from the heel. 
 - In the 1-inch gap, cut two ears and a tail. Then cut out the heel to form the mouth.
 - Sewing the monkey together is the most time-consuming part. Make sure to invert all of the parts of the monkey before sewing, almost but not completely. Invert, then stuff with polyfill, yarn, cotton balls, or fabric pieces, and fill the monkey. 
-
-- Making eyes is the only part of this monkey that uses otherwise useful items, since it is necessary to use good buttons, but this cost is fairly negligible. Mismatched buttons are also fairly easy to come by using the extra buttons provided in button-up shirts.
+ - Making eyes is the only part of this monkey that uses otherwise useful items, since it is necessary to use good buttons, but this cost is fairly negligible. Mismatched buttons are also fairly easy to come by using the extra buttons provided in button-up shirts. To attach the eyes, superglue seems to work well.

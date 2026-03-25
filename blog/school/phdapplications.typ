@@ -22,4 +22,4 @@ That being said, clarity, flow, and the confidence conveyed make up a large part
 
 The personal history is an even trickier document to write. It reads more narratively and should discuss your personal life and how it shaped you as a student and researcher. It should also speak to your ability to engage with your research community. After all, research is a group activity, and you should show that you will be a good co-worker as a PhD student.
 
-I found the advice of my friends and my research community to be very useful. I highly recommend having as many people as possible read your application documents, even if it can feel a bit vulnerable.
+I found the advice of my friends and my research community to be very useful. I highly recommend having as many people as possible read your application documents, even if it can feel a bit vulnerable. This is also my writing advice for applications in general.

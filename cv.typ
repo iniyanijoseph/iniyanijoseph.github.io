@@ -3,17 +3,15 @@
 #import "src/template/fields.typ": *
 
 #let showpiano = false
-#let showblog = true
 
 #show: cv.with(
   author: "Iniyan Joseph",
-  aboutme: //"Hi, I'm Iniyan. I recently received my undergraduate degree in Computer Science from The University of Texas at Dallas, and am a Teacher at KD College Prep. I am currently applying to PhD programs in Theoretical Computer Science focusing on Algorithms, and am advised by Professor Emily K. Fox at the University of Illinois, Urbana-Champaign. ",
-  [Hi, I'm Iniyan! I am an incoming Ph.D Computer Science student at Purdue, advised by #link("https://www.alexpsomas.com/home")[Alex Psomas]. Previously, I was an undergraduate student at the University of Texas at Dallas, working with #link("https://ekfox.web.illinois.edu/")[Emily K. Fox.] and #link("https://jessekim.com/")[Jin-Ryong Kim]. Broadly, I am interested in Theory CS, especially Algorithmic Game Theory and Combinatorial Optimization.],
+  aboutme: [Hi, I'm Iniyan! I am an incoming Ph.D Computer Science student at Purdue, advised by #link("https://www.alexpsomas.com/home")[Alex Psomas]. Previously, I was an undergraduate student at the University of Texas at Dallas, working with #link("https://ekfox.web.illinois.edu/")[Emily K. Fox.] and #link("https://jessekim.com/")[Jin-Ryong Kim]. Broadly, I am interested in Theory CS, especially Algorithmic Game Theory and Combinatorial Optimization.],
   icon: "favicon.ico",
   photo: "photo.jpg",
   website: "https://iniyanijoseph.github.io",
   email: "iniyanijoseph@gmail.com",
-  blog-shown: false,
+  blog-shown: true,
 )
 
 == Education
@@ -356,52 +354,5 @@
     )
   ] else [
     #other(start: dt(2009, 5), end: "Present", name: "Piano")
-  ]
-}
-
-#context {
-  if target() == "html" and showblog [
-    == Blog
-    #blog(
-      name: "Advice for PhD Applicants",
-      url: "blog/school/phdapplications.html",
-    )
-    === Recipes
-    #blog(
-      name: "Pizza",
-      url: "blog/food/pizza.html",
-    )
-    #blog(
-      name: "Bread",
-      url: "blog/food/bread.html",
-    )
-    #blog(
-      name: "Dubu Jorim (Braised Tofu)",
-      url: "blog/food/tofubanchan.html",
-    )
-    #blog(
-      name: "Vegetable Chapathi",
-      url: "blog/food/vegetablechapathi.html",
-    )
-
-    === Travel
-    #blog(
-      name: "Amtrak Rail Pass",
-      url: "blog/travel/train.html",
-    )
-
-    === File on Conscience
-    #blog(
-      name: "Statement of Conscience",
-      url: "blog/letteronconscience/index.html",
-    )
-    #blog(
-      name: "Marina Reeves Supporting Letter",
-      url: "blog/letteronconscience/marinareevesletter.pdf",
-    )
-    #blog(
-      name: "Immanual Joseph Supporting Letter",
-      url: "blog/letteronconscience/immanualjosephletter.pdf",
-    )
   ]
 }
