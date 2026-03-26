@@ -16,6 +16,10 @@
   url: "food/bread.html",
 )
 #blog(
+  name: "Breakfast Burrito",
+  url: "food/breakfastburrito.html",
+)
+#blog(
   name: "Dubu Jorim (Braised Tofu)",
   url: "food/tofubanchan.html",
 )
