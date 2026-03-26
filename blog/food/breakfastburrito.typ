@@ -12,9 +12,10 @@
 - $12$ oz spinach
 - 2 diced bell peppers 
 - 1 diced white onion
+- 8 oz pinto beans
 
 == Directions
-- Combine the potatoes, peppers, spinach, and onion in a nonstick skillet. Cover and cook 5-6 minutes without stirring.
+- Combine the potatoes, peppers, spinach, pinto beans, and onion in a nonstick skillet. Cover and cook 5-6 minutes without stirring.
 - Separate egg yolks and whites.
 - Beat egg whites to stiff peaks.
 - Fold in egg yolks, cheese, and potato mixture in skillet and cook until fully cooked.
