@@ -75,6 +75,9 @@
            html.elem("p", attrs:(class: "aboutme"), aboutme)
         }
         html.section(body)
+        // <!-- Elfsight Visitor Counter | Untitled Visitor Counter -->
+        html.script(src: "https://elfsightcdn.com/platform.js", async: true)
+        html.div(class: "elfsight-app-d83d1962-9ab9-4c86-b323-12bbfac6b310")
       })
     }
   }
