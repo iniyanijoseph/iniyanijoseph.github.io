@@ -4,13 +4,13 @@
   two_panel(
     dates: time_range(start: start, end: end),
     content: [
-      #strong(degree), #university, #{
-        if type(end) == datetime { end.display("[month repr:long] [year]") }
+      #strong(degree), #university#{
+        if type(end) == datetime {", " + end.display("[month repr:long] [year]") }
       }#if details != none [, #emph(details)]
 
       #if advisor != none [Advisor: #advisor]
 
-      #if advisor != none [Thesis: #emph(thesis)]
+      #if thesis != none [Thesis: #emph(thesis)]
     ],
   )
 }

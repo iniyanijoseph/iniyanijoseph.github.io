@@ -6,7 +6,7 @@
 
 #show: cv.with(
   author: "Iniyan Joseph",
-  aboutme: [Hi, I'm Iniyan! I am an incoming Ph.D Computer Science student at Purdue, advised by #link("https://www.alexpsomas.com/home")[Alex Psomas]. Previously, I was an undergraduate student at the University of Texas at Dallas, working with #link("https://ekfox.web.illinois.edu/")[Emily K. Fox.] and #link("https://jessekim.com/")[Jin-Ryong Kim]. Broadly, I am interested in Theory CS, especially Algorithmic Game Theory and Combinatorial Optimization.],
+  aboutme: [Hi, I'm Iniyan! I am an incoming Ph.D Computer Science student at Purdue, and will be advised by #link("https://www.alexpsomas.com/home")[Alex Psomas]. Previously, I was an undergraduate student at the University of Texas at Dallas, working with #link("https://ekfox.web.illinois.edu/")[Emily K. Fox.] and #link("https://jessekim.com/")[Jin-Ryong Kim]. Broadly, I am interested in Theory CS, especially Algorithmic Game Theory and Combinatorial Optimization.],
   icon: "favicon.ico",
   photo: "photo.jpg",
   website: "https://iniyanijoseph.github.io",
@@ -15,6 +15,15 @@
 )
 
 == Education
+#edu(
+  start: dt(2026, 8),
+  // end: dt(2025, 8),
+  degree: "Ph.D in Computer Science",
+  university: "Purdue University",
+  details: none,
+  advisor: "Alex Psomas"
+)
+
 #edu(
   start: dt(2023, 8),
   end: dt(2025, 8),
@@ -28,18 +37,20 @@
 )
 
 == Research
-#other(start: dt(2024, 9), end: "Present", name: "Advised by Emily K. Fox", description: "")
+// #other(start: dt(2026, 8), end: "", name: "Advised by Alex Psomas", description: "")
 
-#other(start: dt(2023, 9), end: dt(2024, 9), name: "Advised by Jin-Ryong Kim", description: "")
+// #other(start: dt(2024, 8), end: dt(2026, 8), name: "Advised by Emily K. Fox", description: "")
 
-=== Publications
+// #other(start: dt(2023, 9), end: dt(2024, 9), name: "Advised by Jin-Ryong Kim", description: "")
+
+// === Publications
 #bibliography("papers/publications.bib", title: none, full: true)
 
 == Employment
 #job(
   start: dt(2025, 10),
   end: "Present",
-  role: "Teacher",
+  role: "Math Teacher",
   location: "KD College Prep",
 )
 
@@ -72,6 +83,13 @@
 )
 
 == Awards & Honors
+#award(
+  start: dt(2026, 8),
+  end: dt(2027, 5),
+  name: "Herbold Scholarship",
+  description: "Purdue University",
+)
+
 #award(
   start: dt(2023, 8),
   end: dt(2025, 8),
