@@ -16,7 +16,7 @@ Currently, the itinerary of cities is
 - Dallas -> Chicago (Texas Eagle)
 - Chicago -> Boston (Lakeshore Limited)
 - Boston -> New York City (Lakeshore Limited)
-- New York City -> Philadelphia
+- New York City -> Philadelphia (Many Options for Line)
 - Philadelpha -> Washington D.C. (Northeast Regional, no rail pass)
 - Washington D.C. -> Chicago (Cardinal)
 - Chicago -> Seattle (Empire Builder)
@@ -29,9 +29,9 @@ Currently, the itinerary of cities is
 - Hiking Bag
 - Water Bottle
 
-- 3 Pairs Jeans
+- 3 Pairs Pants
 - Sweatpants
-- TShirts
+- Shirt
 - Sweater
 - Shoes
 - Raincoat
@@ -55,5 +55,69 @@ Currently, the itinerary of cities is
 - Nut Butter
 - Ziploc Bag
 - Cutlery
+
+- Trackers
+
+== Boston
+3 Days
+
+Freedom Trail
+North End Galleria Umberto
+Isabella Gardner Museum
+JFK Presidential Library
+Paul Revere Hours
+Boston Common
+
+== New York City
+5 Days
+
+Smithsonian American Museum of Natural History
+Pizza
+World Trade Center
+Central Park
+Empire State Building (see from outside)
+Rockefeller Center
+Museum Mile
+5th Avenue
+St. Patrick's Cathedral
+Museum of Modern Art
+Guggenheim Museum
+Times Square
+Greenwich Village
+The Edge
+Walk across Brooklyn Bridge
+Grand Central Station + Penn Station
+New York Public Library
+Little Italy
+Chinatown
+Brooklyn Botanic Garden
+
+== Philadelphia
+2 Days
+
+Independence Hall
+Reading Terminal Market
+Benjamin Franklin Parkway
+Philadelphia Museum of Art
+Longwood Gardens
+Delaware River Waterfront
+
+== Washington D.C.
+3 Days
+
+Smithsonian Museums
+Baltimore
+
+== Seattle
+3 Days
+
+== Los Angeles
+3 Days
+
+== San Francisco
+4 Days
+
+== Chicago
+
 
 #bibliography("references.bib")
