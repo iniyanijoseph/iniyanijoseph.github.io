@@ -14,7 +14,7 @@ Currently, the itinerary of cities is
 - #link("AmtrakTickets/1-marshall-boston.pdf")[Marshall, Texas -> Chicago (Texas Eagle) April 25-26]
 - #link("AmtrakTickets/1-marshall-boston.pdf")[Chicago -> Boston (Lakeshore Limited) April 26-27]
 - #link("AmtrakTickets/2-boston-nyc.pdf")[Boston -> New York City (Lakeshore Limited) April 30]
-- #link("AmtrakTickets/3-nyc-philadelphia")[New York City -> Philadelphia (Vermonter) May 5]
+- #link("AmtrakTickets/3-nyc-philadelphia.pdf")[New York City -> Philadelphia (Vermonter) May 5]
 - #link("AmtrakTickets/4-philadelphia-washington.pdf")[Philadelpha -> Washington D.C. (Northeast Regional) May 8]
 - #link("AmtrakTickets/5-washington-seattle.pdf")[Washington D.C. -> Chicago (Floridian) May 11th-May 12]
 - #link("AmtrakTickets/5-washington-seattle.pdf")[Chicago -> Seattle (Empire Builder) May 12-May 14]
@@ -36,7 +36,9 @@ Currently, the itinerary of cities is
 - Smithsonian American Museum of Natural History
 - Pizza
 - Central Park
+- Prospect Park
 - Empire State Building (see from outside)
+- Statue of Liberty
 - Rockefeller Center
 - Museum Mile
 - 5th Avenue
@@ -50,7 +52,7 @@ Currently, the itinerary of cities is
 - Grand Central Station + Penn Station
 - New York Public Library
 - Little Italy
-- Chinatown
+- Flushing Chinatown
 - Brooklyn Botanic Garden
 
 == Philadelphia - May 5th-May 8th
