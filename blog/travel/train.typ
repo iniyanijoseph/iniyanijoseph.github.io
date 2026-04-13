@@ -25,46 +25,46 @@ Currently, the itinerary of cities is
 
 
 == Boston - April 27th-30th
- Freedom Trail
-North End Galleria Umberto
-Isabella Gardner Museum
-JFK Presidential Library
-Paul Revere Hours
-Boston Common
+- Freedom Trail
+- North End Galleria Umberto
+- Isabella Gardner Museum
+- JFK Presidential Library
+- Paul Revere Hours
+- Boston Common
 
 == New York City - April 30th-May 5th
-Smithsonian American Museum of Natural History
-Pizza
-Central Park
-Empire State Building (see from outside)
-Rockefeller Center
-Museum Mile
-5th Avenue
-St. Patrick's Cathedral
-Museum of Modern Art
-Guggenheim Museum
-Times Square
-Greenwich Village
-The Edge
-Walk across Brooklyn Bridge
-Grand Central Station + Penn Station
-New York Public Library
-Little Italy
-Chinatown
-Brooklyn Botanic Garden
+- Smithsonian American Museum of Natural History
+- Pizza
+- Central Park
+- Empire State Building (see from outside)
+- Rockefeller Center
+- Museum Mile
+- 5th Avenue
+- St. Patrick's Cathedral
+- Museum of Modern Art
+- Guggenheim Museum
+- Times Square
+- Greenwich Village
+- The Edge
+- Walk across Brooklyn Bridge
+- Grand Central Station + Penn Station
+- New York Public Library
+- Little Italy
+- Chinatown
+- Brooklyn Botanic Garden
 
 == Philadelphia - May 5th-May 8th
-Independence Hall
-Reading Terminal Market
-Benjamin Franklin Parkway
-Philadelphia Museum of Art
-Longwood Gardens
-Delaware River Waterfront
-Quaker Site?
+- Independence Hall
+- Reading Terminal Market
+- Benjamin Franklin Parkway
+- Philadelphia Museum of Art
+- Longwood Gardens
+- Delaware River Waterfront
+- Quaker Site?
 
 == Washington D.C. - May 8th-May 11th
-Smithsonian Museums
-Baltimore
+- Smithsonian Museums
+- Baltimore
 
 == Seattle - May 14-May 17
 
