@@ -24,43 +24,10 @@ Currently, the itinerary of cities is
 - #link("AmtrakTickets/7-emeryville-chicago.pdf")[Emeryville -> Chicago (California Zephyr) May 20-22]
 - #link("AmtrakTickets/8-chicago-dallas.pdf")[Chicago -> Dallas (Texas Eagle) May 23-May 24]
 
-== Packing List
-- Hiking Bag
-- Water Bottle
-- Sleeping Bag
 
-- 3 Pairs Pants
-- Sweatpants
-- Shirt
-- Sweater
-- Shoes
-- Raincoat
-- Sewing Kit
-
-- Towel
-- Toothbrush/toothpaste
-- Deodorant
-- Shampoo/soap (travel sizes)
-- Hand sanitizer
-- TP 
-
-- Phone/Charger
-- Laptop/Charger
-- Battery Pack
-
-- Granola
-- Dried Fruit
-- Bread
-- Hard Cheese
-- Nut Butter
-- Ziploc Bag
-- Cutlery
-
-- Trackers
 
 == Boston - April 27th-30th
-
-Freedom Trail
+ Freedom Trail
 North End Galleria Umberto
 Isabella Gardner Museum
 JFK Presidential Library
@@ -68,11 +35,8 @@ Paul Revere Hours
 Boston Common
 
 == New York City - April 30th-May 5th
-5 Days
-
 Smithsonian American Museum of Natural History
 Pizza
-World Trade Center
 Central Park
 Empire State Building (see from outside)
 Rockefeller Center
@@ -92,31 +56,49 @@ Chinatown
 Brooklyn Botanic Garden
 
 == Philadelphia - May 5th-May 8th
-2 Days
-
 Independence Hall
 Reading Terminal Market
 Benjamin Franklin Parkway
 Philadelphia Museum of Art
 Longwood Gardens
 Delaware River Waterfront
+Quaker Site?
 
 == Washington D.C. - May 8th-May 11th
-4 Days
-
 Smithsonian Museums
 Baltimore
 
-== Seattle
-3 Days
+== Seattle - May 14-May 17
 
-== Los Angeles
-3 Days
+== San Francisco - May 18-May 20
 
-== San Francisco
-4 Days
-
-== Chicago
-
+== Packing List
+- Hiking Bag
+- Water Bottle
+- Sleeping Bag
+- 3 Pairs Pants
+- Sweatpants
+- Shirt
+- Sweater
+- Shoes
+- Raincoat
+- Sewing Kit
+- Towel
+- Toothbrush/toothpaste
+- Deodorant
+- Shampoo/soap (travel sizes)
+- Hand sanitizer
+- TP 
+- Phone/Charger
+- Laptop/Charger
+- Battery Pack
+- Granola
+- Dried Fruit
+- Bread
+- Hard Cheese
+- Nut Butter
+- Ziploc Bag
+- Cutlery
+- Trackers
 
 #bibliography("references.bib")

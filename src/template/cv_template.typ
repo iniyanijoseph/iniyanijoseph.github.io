@@ -3,12 +3,18 @@
 #import "refs.typ": template-refs
 #import "figures.typ": template-figures
 #import "layout.typ": full-width, margin-note
+#import "@preview/diagraph:0.3.5": *
+#import "@preview/cmarker:0.1.7": *
 
 #let cv(author: "", icon:"", aboutme: "", photo: "", website: "", email:"", subpage:false, blog-shown:false, root:"", body) = {
   set document(author: author, title: author, date: datetime.today())
 
   set text(size: 12pt, lang: "en", font: "New Computer Modern")
   set par(leading: 0.5em, spacing: 0.5em)
+
+  show raw.where(lang: "table"): it => render(it.text) 
+
+  show raw.where(lang: "graphiz"): it => raw-render(it, width: 100%)
 
   show: show-target(paged: doc => {
     set page(
