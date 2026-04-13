@@ -13,21 +13,21 @@ The following map gives an overview of the approximate Amtrak routes across the 
 
 == Itinerary
 Currently, the itinerary of cities is
-- Dallas -> Chicago (Texas Eagle)
-- Chicago -> Boston (Lakeshore Limited)
-- Boston -> New York City (Lakeshore Limited)
-- New York City -> Philadelphia (Many Options for Line)
-- Philadelpha -> Washington D.C. (Northeast Regional, no rail pass)
-- Washington D.C. -> Chicago (Cardinal)
-- Chicago -> Seattle (Empire Builder)
-- Seattle -> Los Angeles (Coast Starlight)
-- Los Angeles -> Emeryville (Coast Starlight)
-- Emeryville -> Chicago (California Zephyr)
-- Chicago -> Dallas (Texas Eagle)
+- #link("AmtrakTickets/1-marshall-boston.pdf")[Marshall, Texas -> Chicago (Texas Eagle) April 25-26]
+- #link("AmtrakTickets/1-marshall-boston.pdf")[Chicago -> Boston (Lakeshore Limited) April 26-27]
+- #link("AmtrakTickets/2-boston-nyc.pdf")[Boston -> New York City (Lakeshore Limited) April 30]
+- #link("AmtrakTickets/3-nyc-philadelphia")[New York City -> Philadelphia (Vermonter) May 5]
+- #link("AmtrakTickets/4-philadelphia-washington.pdf")[Philadelpha -> Washington D.C. (Northeast Regional) May 8]
+- #link("AmtrakTickets/5-washington-seattle.pdf")[Washington D.C. -> Chicago (Floridian) May 11th-May 12]
+- #link("AmtrakTickets/5-washington-seattle.pdf")[Chicago -> Seattle (Empire Builder) May 12-May 14]
+- #link("AmtrakTickets/6-seattle-emeryville.pdf")[Seattle -> Emeryville (Coast Starlight) May 17-May 18]
+- #link("AmtrakTickets/7-emeryville-chicago.pdf")[Emeryville -> Chicago (California Zephyr) May 20-22]
+- #link("AmtrakTickets/8-chicago-dallas.pdf")[Chicago -> Dallas (Texas Eagle) May 23-May 24]
 
 == Packing List
 - Hiking Bag
 - Water Bottle
+- Sleeping Bag
 
 - 3 Pairs Pants
 - Sweatpants
@@ -58,8 +58,7 @@ Currently, the itinerary of cities is
 
 - Trackers
 
-== Boston
-3 Days
+== Boston - April 27th-30th
 
 Freedom Trail
 North End Galleria Umberto
@@ -68,7 +67,7 @@ JFK Presidential Library
 Paul Revere Hours
 Boston Common
 
-== New York City
+== New York City - April 30th-May 5th
 5 Days
 
 Smithsonian American Museum of Natural History
@@ -92,7 +91,7 @@ Little Italy
 Chinatown
 Brooklyn Botanic Garden
 
-== Philadelphia
+== Philadelphia - May 5th-May 8th
 2 Days
 
 Independence Hall
@@ -102,8 +101,8 @@ Philadelphia Museum of Art
 Longwood Gardens
 Delaware River Waterfront
 
-== Washington D.C.
-3 Days
+== Washington D.C. - May 8th-May 11th
+4 Days
 
 Smithsonian Museums
 Baltimore
