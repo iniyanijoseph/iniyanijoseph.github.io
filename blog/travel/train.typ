@@ -56,8 +56,6 @@ Currently, the itinerary of cities is
 
 == New York City - April 30th-May 5th
 
-- Museum Mile free/cheap student picks: The Met (pay-what-you-wish, can pay \$1 with ID), El Museo del Barrio (free), Museum of the City of New York (free) — skip the Neue Galerie (\$25, no discount)
-
 ```table
 | Day                           | Time        | Stop                                                    | Cost              | Notes                                  |
 |-----                          |------       |------                                                   |------             |-------                                 |
@@ -174,9 +172,9 @@ Currently, the itinerary of cities is
 === Other
 - #sym.ballot.check Playing Cards
 - #sym.ballot Ziploc Bag
-- #sym.ballot Driver's License
-- #sym.ballot Pictures of Passport
-- #sym.ballot Credit/Debit Card
+- #sym.ballot.check Driver's License
+- #sym.ballot.check Pictures of Passport
+- #sym.ballot.check Credit/Debit Card
 - #sym.ballot Printed Tickets
 
 #bibliography("references.bib")
