@@ -145,7 +145,7 @@ Currently, the itinerary of cities is
 ==== Extra
 - #sym.ballot.check Emergency Poncho
 - #sym.ballot.check Umbrella
-- #sym.ballot Needle/Thread
+- #sym.ballot.check Needle/Thread
 === Toiletries
 - #sym.ballot Towel
 - #sym.ballot Toothbrush/toothpaste
