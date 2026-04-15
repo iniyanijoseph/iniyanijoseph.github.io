@@ -92,6 +92,7 @@ Currently, the itinerary of cities is
 
 == Philadelphia - May 5th-May 8th
 
+#figure([#image("philadelphiamurals.jpg")], alt: "Map of Philadelphia's Murals", caption: [Map of Philadelphia's Murals])
 ```table
 | Day                                            | Time        | Stop                       | Cost          | Notes                                                     |
 |-----                                           |------       |------                      |------         |-------                                                    |
