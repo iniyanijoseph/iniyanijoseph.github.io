@@ -90,7 +90,8 @@ Currently, the itinerary of cities is
 |                               | **6:49 PM** | **Depart NYC**                                          | —                 |                                        |
 ```
 
-== Philadelphia few additions worth knowing:
+== Philadelphia - May 5th-May 8th
+
 ```table
 | Day                                            | Time        | Stop                       | Cost          | Notes                                                     |
 |-----                                           |------       |------                      |------         |-------                                                    |
