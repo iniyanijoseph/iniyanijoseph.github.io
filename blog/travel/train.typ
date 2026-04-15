@@ -90,9 +90,8 @@ Currently, the itinerary of cities is
 |                               | **6:49 PM** | **Depart NYC**                                          | —                 |                                        |
 ```
 
-== PhilaA few additions worth knowing:
-```
-table
+== Philadelphia few additions worth knowing:
+```table
 | Day                                            | Time        | Stop                       | Cost          | Notes                                                     |
 |-----                                           |------       |------                      |------         |-------                                                    |
 | **May 5**                                      | 8:07 PM     | Arrive Philadelphia        | —             | Grab food near hotel; Reading Terminal closes ~6pm        |
