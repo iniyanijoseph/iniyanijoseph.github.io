@@ -120,8 +120,50 @@ Currently, the itinerary of cities is
 
 == Seattle - May 14-May 17
 
-== San Francisco - May 18-May 20
+```table
 
+| Day                         | Time        | Stop                                   | Cost          | Notes                                      |
+|-----                        |------       |------                                  |------         |-------                                     |
+| **May 14 – Arrive 11:30am** | Afternoon   | Pike Place Market + Original Starbucks | FREE to enter | 1912 Pike Place; expect a line             |
+|                             | Afternoon   | Seattle Waterfront / Pier 57           | FREE          | Walk along the water                       |
+|                             | Afternoon   | Pioneer Square                         | FREE          | Oldest neighborhood in Seattle             |
+|                             | Evening     | Capitol Hill                           | FREE          | Best food/nightlife neighborhood           |
+| **Day 2 – May 15**          | Morning     | Kerry Park                             | FREE          | Best Space Needle + skyline view           |
+|                             | Morning     | Seattle Center grounds                 | FREE          | Space Needle exterior, fountain            |
+|                             | Mid-Morning | Chihuly Garden and Glass               | ~$27          | Student ID                                 |
+|                             | Midday      | International District                 | FREE          | Cheap lunch                                |
+|                             | Afternoon   | Fremont + Fremont Troll                | FREE          | Canal views                                |
+|                             | Afternoon   | Gas Works Park                         | FREE          | Great lake views                           |
+| **Day 3 – May 16**          | Morning     | Seattle Art Museum                     | ~$15          | Student ID                                 |
+|                             | Mid-Morning | Seattle Public Library                 | FREE          | Architecturally stunning inside            |
+|                             | Midday      | Ballard neighborhood                   | FREE          | Fishermen's Terminal, Ballard Locks (free) |
+|                             | Afternoon   | University of Washington campus        | FREE          | Beautiful quad, free to walk               |
+|                             | Evening     | Last dinner in Capitol Hill            | —             |                                            |
+| **May 17**                  | By 9:55 AM  | Depart Seattle                         | —             |                                            |
+
+```
+
+== San Francisco - May 18-May 20
+```table
+
+| Day                        | Time        | Stop                          | Cost           | Notes                                               |
+|-----                       |------       |------                         |------          |-------                                              |
+| **May 18 – Arrive 8:30am** | Morning     | Ferry Building                | FREE           | Great breakfast, farmers market on Sat              |
+|                            | Morning     | Embarcadero / Waterfront walk | FREE           |                                                     |
+|                            | Mid-Morning | Chinatown                     | FREE           | Walk through, cheap eats                            |
+|                            | Midday      | North Beach                   | FREE           | City Lights Bookstore, Beat Generation neighborhood |
+|                            | Afternoon   | Coit Tower                    | FREE exterior  | Views nearly as good from outside                   |
+|                            | Afternoon   | Fisherman's Wharf             | FREE to wander |                                                     |
+|                            | Evening     | Mission District              | FREE           | Best cheap food in SF; Dolores Park stroll          |
+| **Day 2 – May 19**         | Morning     | Golden Gate Bridge            | FREE           | Walk across                                         |
+|                            | Mid-Morning | Golden Gate Park              | FREE           |                                                     |
+|                            | ↳           | de Young Museum               | ~$15           | Student ID; free first Tues of month                |
+|                            | Midday      | Haight-Ashbury                | FREE           | Historic counterculture neighborhood                |
+|                            | Afternoon   | SFMOMA                        | ~$19           | Free last Thursday evening                          |
+|                            | Evening     | Castro District               | FREE           | Iconic neighborhood, great food                     |
+| **May 20**                 | By 8:30 AM  | Depart SF                     | —              | Pack the night before                               |
+
+```
 == Packing List
 === Essentials
 - #sym.ballot.check Hiking Bag
