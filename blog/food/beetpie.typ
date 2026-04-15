@@ -1,7 +1,7 @@
 #import "@preview/bullseye:0.1.0": *
 #import "../../cv.typ": *
 
-#show: cv.with(subpage: true, root: "../../")
+#show: cv.with(subpage: true, root: "../../", fancylist: false)
 
 == Ingredients
 - 9 inch piecrust

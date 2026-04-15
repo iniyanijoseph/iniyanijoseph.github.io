@@ -1,7 +1,7 @@
 #import "@preview/bullseye:0.1.0": *
 #import "../../cv.typ": *
 
-#show: cv.with(subpage: true, root: "../../")
+#show: cv.with(subpage: true, root: "../../", fancylist: false)
 
 American-style pie is a remarkably versatile dessert. These broadly fall into three categories: custard pies, like pumpkin and applesauce, meringue pies like lemon meringue and banana cream, and stewed fruit pies like blueberry and apple.
 

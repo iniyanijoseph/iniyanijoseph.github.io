@@ -6,7 +6,7 @@
 #import "@preview/diagraph:0.3.5": *
 #import "@preview/cmarker:0.1.7": *
 
-#let cv(author: "", icon:"", aboutme: "", photo: "", website: "", email:"", subpage:false, blog-shown:false, root:"", body) = {
+#let cv(author: "", icon:"", aboutme: "", photo: "", website: "", email:"", subpage:false, blog-shown:false, root:"", fancylist: true, body) = {
   set document(author: author, title: author, date: datetime.today())
 
   set text(size: 12pt, lang: "en", font: "New Computer Modern")
@@ -54,6 +54,9 @@
         html.meta(name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no")
         html.title(author)
         html.link(rel: "stylesheet", href: root+"src/styles/style.css")
+        if fancylist {
+          html.link(rel: "stylesheet", href: root+"src/styles/lists.css")
+        }
         html.link(rel: "icon", href: "favicon.ico")
         html.script(src: root+"src/scripts/navbar.js")
         html.script(src: root+"src/scripts/trim.js")

@@ -1,7 +1,7 @@
 #import "@preview/bullseye:0.1.0": *
 #import "../../cv.typ": *
 
-#show: cv.with(subpage: true, root: "../../")
+#show: cv.with(subpage: true, root: "../../", fancylist: false)
 
 When a close friend of mine when to Korea, I wanted to learn some Korean cooking. I particularly enjoyed this Dubu Jorim recipe by Korean Bapsang @koreanbapsang2021dubujorim.
 

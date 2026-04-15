@@ -1,7 +1,7 @@
 #import "@preview/bullseye:0.1.0": *
 #import "../../cv.typ": *
 
-#show: cv.with(subpage: true, root: "../../")
+#show: cv.with(subpage: true, root: "../../", fancylist: false)
 
 Recently, I have had the opportunity to make more pizza. This recipe by Lopez-Alt is has been my favorite, and is quite easy @lopez2025nycpizza.
 
