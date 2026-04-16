@@ -23,35 +23,39 @@ Currently, the itinerary of cities is
 - #link("AmtrakTickets/8-chicago-dallas.pdf")[Chicago -> Dallas (Texas Eagle) May 23-May 24]
 
 
+// **Book in Advance:**
+// - **Independence Hall** — free timed tickets at recreation.gov, these fill up fast
+// - **Brooklyn Botanic Garden** — check if advance tickets needed on their site
 
 == Boston - April 27th-30th
 
 ```table
-| Day                | Time         | Stop                            | Cost     | Notes                  |
-|-----               |------        |------                           |------    |-------                 |
-| **Day 1 – Apr 28** | 9:00 AM      | Boston Common                   | FREE     | Start here             |
-|                    | Morning      | Public Garden                   | FREE     | Swan Boats seasonal    |
-|                    | Morning      | Beacon Hill Friends House       | FREE     | Brief stop             |
-|                    | Mid-Morning  | Freedom Trail (2.5 mi)          | FREE     | Follow red brick path  |
-|                    | Mid-Morning  | Park Street Church              | FREE     | Along trail            |
-|                    | Mid-Morning  | Granary Burying Ground          | FREE     | Along trail            |
-|                    | Mid-Morning  | King's Chapel                   | FREE     | Along trail            |
-|                    | Lunch        | Faneuil Hall & Quincy Market    | FREE     | Browse & eat           |
-|                    | Afternoon    | Paul Revere House               | $5.50    |                        |
-|                    | Afternoon    | Old North Church                | $5       |                        |
-|                    | Lunch/Dinner | Galleria Umberto                | $8–$12   | Cash only              |
-|                    | Evening      | Rose Kennedy Greenway           | FREE     | Neighborhood stroll    |
-|                    | Evening      | Beacon Hill                     | FREE     | End near South Station |
-| **Day 2 – Apr 29** | Morning      | Isabella Stewart Gardner Museum | $15      | 2–3 hours              |
-|                    | Midday       | Museum of Fine Arts             | $30      |                        |
-|                    | Afternoon    | Trinity Church                  | FREE     | Back Bay, 30 min       |
-|                    | Afternoon    | Boston Public Library           | FREE     | Back Bay, 30 min       |
-|                    | Afternoon    | Copley Square                   | FREE     | Walk around            |
-| **Day 3 – Apr 30** | Morning      | Newbury Street                  | FREE     | Shopping/dining        |
-|                    | Morning      | Harvard Square                  | FREE     | If not done Day 2      |
-|                    | Midday       | Waterfront/Harbor Walk          | FREE     | Scenic walk            |
-|                    | Midday       | Seaport District                | FREE     | Restaurants & browsing |
-|                    | **7:47 PM**  | **Depart South Station**        | —        | —                      |
+
+| Day                | Time        | Stop                            | Cost  | Notes                                    |
+|-----               |------       |------                           |------ |-------                                   |
+| **Day 1 – Apr 28** | 9:00 AM     | Boston Common                   | FREE  | Start here                               |
+|                    | Morning     | Public Garden                   | FREE  | Swan Boats seasonal                      |
+|                    | Morning     | Beacon Hill Friends House       | FREE  | Brief stop                               |
+|                    | Mid-Morning | Freedom Trail (2.5 mi)          | FREE  | Follow red brick path                    |
+|                    | ↳           | Park Street Church              | FREE  | Along trail                              |
+|                    | ↳           | Granary Burying Ground          | FREE  | Along trail                              |
+|                    | ↳           | King's Chapel                   | FREE  | Along trail                              |
+|                    | Lunch       | Faneuil Hall & Quincy Market    | FREE  | Browse & eat                             |
+|                    | Afternoon   | Paul Revere House               | $5.50 |                                          |
+|                    | Afternoon   | Old North Church                | $5    |                                          |
+|                    | Evening     | Rose Kennedy Greenway           | FREE  | Neighborhood stroll                      |
+|                    | Evening     | Beacon Hill                     | FREE  | End near South Station                   |
+| **Day 2 – Apr 29** | Morning     | Isabella Stewart Gardner Museum | $15   | 2–3 hours (Fenway)                       |
+|                    | Afternoon   | Harvard Art Museums             | FREE  | Student ID; take T from Fenway           |
+|                    | Afternoon   | Harvard Square + Harvard Yard   | FREE  | Walk around after museums                |
+| **Day 3 – Apr 30** | Morning     | Newbury Street                  | FREE  | Shopping/dining                          |
+|                    | Morning     | Trinity Church                  | FREE  | Back Bay, 30 min                         |
+|                    | Morning     | Boston Public Library           | FREE  | Back Bay, 30 min                         |
+|                    | Midday      | Copley Square                   | FREE  |                                          |
+|                    | Midday      | Waterfront/Harbor Walk          | FREE  | Scenic walk                              |
+|                    | Afternoon   | Seaport District                | FREE  | Restaurants & browsing                   |
+|                    | **7:47 PM** | **Depart South Station**        | —     | Seaport is a short walk to South Station |
+
 ```
 
 == New York City - April 30th-May 5th
@@ -84,7 +88,6 @@ Currently, the itinerary of cities is
 |                               | Evening     | Little Italy                                            | FREE              | Dinner on the way back                 |
 | **Day 5 – May 5 (Queens AM)** | Morning     | Explore local Queens neighborhood                       | FREE              | Easy since you're staying there        |
 |                               | Mid-Morning | Statue of Liberty — Battery Park or Staten Island Ferry | FREE              | Ferry is free + closer views           |
-|                               | Afternoon   | The Edge / Penn Station area                            | ~$38 or FREE      | Optional last splurge before departure |
 |                               | **6:49 PM** | **Depart NYC**                                          | —                 |                                        |
 ```
 
@@ -116,7 +119,15 @@ Currently, the itinerary of cities is
 
 == Washington D.C. - May 8th-May 11th
 - Smithsonian Museums
-- Baltimore
+- Baltimore (afternoon with Narein)
+- Library of Congress
+- Mount Vernon
+- Alexandria
+- Rockville
+- Dupont Circle
+- Arlington Cemetery/Arlington
+- Embassy Row
+- Navy Yard
 
 == Seattle - May 14-May 17
 
@@ -164,22 +175,37 @@ Currently, the itinerary of cities is
 | **May 20**                 | By 8:30 AM  | Depart SF                     | —              | Pack the night before                               |
 
 ```
+#text(red)[Add Lombard Street + Mission Style Burrito and Ghiradelli]
+ 
+== Pizza List
+The most iconic pizzas from each city are: 
+
+```table
+| City         | Style                   | Where                        | Est. Cost   |
+|------        |-------                  |-------                       |-----------  |
+| Boston       | Thin crust New England  | Regina Pizzeria (North End)  | ~$4/slice   |
+| NYC          | Classic NY dollar slice | Any corner shop              | ~$2–3/slice |
+| Philadelphia | Tomato pie (no cheese)  | Santucci's or Lorenzo's      | ~$8–12      |
+| DC           | Jumbo slice             | Any Adams Morgan spot        | ~$4–5       |
+|Seattle       | No iconic style         | Ballard Pizza Co. or similar | ~$4/slice   |
+| SF           | Sourdough crust         | Tony's Pizza Napoletana      | ~$5/slice   |
+```
+
+
 == Packing List
-=== Essentials
+ === Essentials
 - #sym.ballot.check Hiking Bag
 - #sym.ballot.check Water Bottle
 - #sym.ballot.check Sleeping Bag
 - #sym.ballot Trackers
-- #sym.ballot Day Bag
+- #sym.ballot Drawstring Bag
 === Clothing
 === Essentials
-- #sym.ballot 3 Pants
-- #sym.ballot 1 Sweatpant
-- #sym.ballot 2 Undershirt
-- #sym.ballot 3 Athletic T-Shirts
-- #sym.ballot 1 Sweater
+- #sym.ballot.check 3 Pants
+- #sym.ballot.check 3 Undershirt
+- #sym.ballot.check 3 Athletic T-Shirts
 - #sym.ballot 4 Socks
-- #sym.ballot 4 Underwear
+- #sym.ballot.check 4 Underwear
 - #sym.ballot Shoes
 - #sym.ballot.check Windbreaker
 ==== Extra
@@ -200,6 +226,7 @@ Currently, the itinerary of cities is
 === Electronics
 - #sym.ballot Phone/Charger
 - #sym.ballot Laptop/Charger
+- #sym.ballot Ziploc Bag
 - #sym.ballot Battery Pack
 === Food
 ==== Grocery Items
@@ -213,7 +240,6 @@ Currently, the itinerary of cities is
 - #sym.ballot Spoon/Knife/Fork
 === Other
 - #sym.ballot.check Playing Cards
-- #sym.ballot Ziploc Bag
 - #sym.ballot.check Driver's License
 - #sym.ballot.check Pictures of Passport
 - #sym.ballot.check Credit/Debit Card
