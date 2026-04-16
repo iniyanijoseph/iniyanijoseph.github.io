@@ -37,9 +37,9 @@ Currently, the itinerary of cities is
 |                    | Morning     | Public Garden                   | FREE  | Swan Boats seasonal                      |
 |                    | Morning     | Beacon Hill Friends House       | FREE  | Brief stop                               |
 |                    | Mid-Morning | Freedom Trail (2.5 mi)          | FREE  | Follow red brick path                    |
-|                    | ↳           | Park Street Church              | FREE  | Along trail                              |
-|                    | ↳           | Granary Burying Ground          | FREE  | Along trail                              |
-|                    | ↳           | King's Chapel                   | FREE  | Along trail                              |
+|                    | Mid-Morning | Park Street Church              | FREE  | Along trail                              |
+|                    | Mid-Morning | Granary Burying Ground          | FREE  | Along trail                              |
+|                    | Mid-Morning | King's Chapel                   | FREE  | Along trail                              |
 |                    | Lunch       | Faneuil Hall & Quincy Market    | FREE  | Browse & eat                             |
 |                    | Afternoon   | Paul Revere House               | $5.50 |                                          |
 |                    | Afternoon   | Old North Church                | $5    |                                          |
@@ -118,16 +118,30 @@ Currently, the itinerary of cities is
 ```
 
 == Washington D.C. - May 8th-May 11th
-- Smithsonian Museums
-- Baltimore (afternoon with Narein)
-- Library of Congress
-- Mount Vernon
-- Alexandria
-- Rockville
-- Dupont Circle
-- Arlington Cemetery/Arlington
-- Embassy Row
-- Navy Yard
+
+```table
+| Day                      | Time           | Stop                        | Cost   | Notes                                                    |
+|---                       |---             |---                          |---     |---                                                       |
+| **Day 1 – May 8 (Thu)**  | 3:45 PM        | Arrive DC                   | —      | Check in, freshen up                                     |
+|                          | 5:30 PM        | Embassy Row                 | FREE   | Stroll Massachusetts Ave NW                              |
+|                          | Evening        | Dupont Circle               | FREE   | Dinner, neighborhood walk                                |
+| **Day 2 – May 9 (Fri)**  | 8:00 AM        | Arlington National Cemetery | FREE   | Tomb of Unknown Soldier, 2–3 hrs                         |
+|                          | ↳              | Arlington House             | FREE   | Along the way                                            |
+|                          | Midday         | Cross Memorial Bridge       | —      | Walk or rideshare to the Mall                            |
+|                          | Afternoon      | Smithsonian Museums         | FREE   | Pick 2–3: Air & Space, Natural History, American History |
+|                          | Late Afternoon | Library of Congress         | FREE   | Thomas Jefferson Building tour                           |
+|                          | Evening        | Navy Yard / The Yards       | FREE   | Waterfront bars & dinner                                 |
+| **Day 3 – May 10 (Sat)** | Morning        | Rockville                   | FREE   | Pike & Rose area, downtown Rockville                     |
+|                          | ↳              | Metro back                  | —      | Red Line                                                 |
+|                          | Afternoon      | Baltimore (with Narein)     | Varies | MARC train from Union Station (~45 min, $9)              |
+|                          | ↳              | Inner Harbor / Fell's Point | FREE   | Explore with Narein                                      |
+|                          | Evening        | Return to DC                | —      | MARC back to Union Station                               |
+| **Day 4 – May 11 (Sun)** | 9:00 AM        | Mount Vernon                | $28    | Drive/rideshare ~30 min south                            |
+|                          | 11:30 AM       | Old Town Alexandria         | FREE   | King Street, waterfront stroll                           |
+|                          | ↳              | Lunch                       | Varies | King Street restaurant row                               |
+|                          | 2:00 PM        | Head back to DC             | —      | Metro (King St–Old Town Blue/Yellow)                     |
+|                          | **4:00 PM**    | **Depart DC**               | —      |                                                          |
+```
 
 == Seattle - May 14-May 17
 
@@ -226,11 +240,11 @@ The most iconic pizzas from each city are:
 === Electronics
 - #sym.ballot Phone/Charger
 - #sym.ballot Laptop/Charger
-- #sym.ballot Ziploc Bag
 - #sym.ballot Battery Pack
 === Food
 ==== Grocery Items
 - #sym.ballot Granola
+- #sym.ballot Ziploc Bag
 - #sym.ballot Dried Fruit
 - #sym.ballot Bread
 - #sym.ballot Hard Cheese
