@@ -51,8 +51,6 @@ Currently, the itinerary of cities is
 | **Day 3 – Apr 30** | Morning     | Newbury Street                  | FREE  | Shopping/dining                          |
 |                    | Morning     | Trinity Church                  | FREE  | Back Bay, 30 min                         |
 |                    | Morning     | Boston Public Library           | FREE  | Back Bay, 30 min                         |
-|                    | Midday      | Copley Square                   | FREE  |                                          |
-|                    | Midday      | Waterfront/Harbor Walk          | FREE  | Scenic walk                              |
 |                    | Afternoon   | Seaport District                | FREE  | Restaurants & browsing                   |
 |                    | **7:47 PM** | **Depart South Station**        | —     | Seaport is a short walk to South Station |
 
@@ -63,7 +61,7 @@ Currently, the itinerary of cities is
 ```table
 | Day                           | Time        | Stop                                                    | Cost              | Notes                                  |
 |-----                          |------       |------                                                   |------             |-------                                 |
-| **Apr 30**                    | 11:49 PM    | Arrive Queens                                           | —                 | Check in, rest                         |
+| **Apr 30**                    |  Evening    | Arrive Queens                                           | —                 | Check in, rest                         |
 | **Day 1 – May 1 (Manhattan)** | Morning     | Times Square                                            | FREE              | Less crowded early                     |
 |                               | Morning     | New York Public Library                                 | FREE              |                                        |
 |                               | Mid-Morning | Grand Central Station                                   | FREE              |                                        |
@@ -207,56 +205,113 @@ The most iconic pizzas from each city are:
 
 
 == Packing List
- === Essentials
+=== Essentials
 - #sym.ballot.check Hiking Bag
 - #sym.ballot.check Water Bottle
 - #sym.ballot.check Sleeping Bag
+- #sym.ballot.check Drawstring Bag
 - #sym.ballot Trackers
-- #sym.ballot Drawstring Bag
 === Clothing
 === Essentials
 - #sym.ballot.check 3 Pants
 - #sym.ballot.check 3 Undershirt
 - #sym.ballot.check 3 Athletic T-Shirts
-- #sym.ballot 4 Socks
+- #sym.ballot.check 4 Socks
 - #sym.ballot.check 4 Underwear
-- #sym.ballot Shoes
 - #sym.ballot.check Windbreaker
+- #sym.ballot Shoes
 ==== Extra
 - #sym.ballot.check Emergency Poncho
 - #sym.ballot.check Umbrella
 - #sym.ballot.check Needle/Thread
 === Toiletries
-- #sym.ballot Towel
-- #sym.ballot Toothbrush/toothpaste
-- #sym.ballot Mouth Guard
+- #sym.ballot.check Towel
+- #sym.ballot.check Toothbrush/toothpaste
+- #sym.ballot.check Tongue Cleaner
+- #sym.ballot.check Mouth Guard
 - #sym.ballot.check Deodorant
-- #sym.ballot Shampoo/soap (travel sizes)
-- #sym.ballot Hand sanitizer
+- #sym.ballot.check Comb
+- #sym.ballot.check Beard Trimmer
 - #sym.ballot.check First Aid Kit
 - #sym.ballot.check Sunscreen
-- #sym.ballot TP 
 - #sym.ballot.check First Aid Kit
+- #sym.ballot Hand sanitizer
+- #sym.ballot Wet Wipes
 === Electronics
 - #sym.ballot Phone/Charger
 - #sym.ballot Laptop/Charger
-- #sym.ballot Battery Pack
 === Food
 ==== Grocery Items
-- #sym.ballot Granola
-- #sym.ballot Ziploc Bag
-- #sym.ballot Dried Fruit
-- #sym.ballot Bread
-- #sym.ballot Hard Cheese
-- #sym.ballot Nut Butter
-- #sym.ballot Dark Chocolate
-==== Extra
-- #sym.ballot Spoon/Knife/Fork
+- #sym.ballot.check Bread
+- #sym.ballot.check Hard Cheese
+- #sym.ballot.check Granola Bars
+- #sym.ballot.check Dried Fruit
 === Other
 - #sym.ballot.check Playing Cards
 - #sym.ballot.check Driver's License
 - #sym.ballot.check Pictures of Passport
 - #sym.ballot.check Credit/Debit Card
-- #sym.ballot Printed Tickets
+- #sym.ballot.check Tickets
+
+== Day 1 - April 25 (Sat)
+
+== Day 2 - April 26 (Sun)
+
+== Day 3 - April 27 (Mon)
+
+== Day 4 - April 28 (Tue)
+
+== Day 5 - April 29 (Wed)
+
+== Day 6 - April 30 (Thu)
+
+== Day 7 - May 1 (Fri)
+
+== Day 8 - May 2 (Sat)
+
+== Day 9 - May 3 (Sun)
+
+== Day 10 - May 4 (Mon)
+
+== Day 11 - May 5 (Tue)
+
+== Day 12 - May 6 (Wed)
+
+== Day 13 - May 7 (Thu)
+
+== Day 14 - May 8 (Fri)
+
+== Day 15 - May 9 (Sat)
+
+== Day 16 - May 10 (Sun)
+
+== Day 17 - May 11 (Mon)
+
+== Day 18 - May 12 (Tue)
+
+== Day 19 - May 13 (Wed)
+
+== Day 20 - May 14 (Thu)
+
+== Day 21 - May 15 (Fri)
+
+== Day 22 - May 16 (Sat)
+
+== Day 23 - May 17 (Sun)
+
+== Day 24 - May 18 (Mon)
+
+== Day 25 - May 19 (Tue)
+
+== Day 26 - May 20 (Wed)
+
+== Day 27 - May 21 (Thu)
+
+== Day 28 - May 22 (Fri)
+
+== Day 29 - May 23 (Sat)
+
+== Day 30 - May 24 (Sun)
+
 
 #bibliography("references.bib")
