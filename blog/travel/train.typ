@@ -253,65 +253,66 @@ The most iconic pizzas from each city are:
 - #sym.ballot.check Credit/Debit Card
 - #sym.ballot.check Tickets
 
-== Day 1 - April 25 (Sat)
+== Daily Updates
+=== Day 1 - April 25 (Sat)
 
-== Day 2 - April 26 (Sun)
+=== Day 2 - April 26 (Sun)
 
-== Day 3 - April 27 (Mon)
+=== Day 3 - April 27 (Mon)
 
-== Day 4 - April 28 (Tue)
+=== Day 4 - April 28 (Tue)
 
-== Day 5 - April 29 (Wed)
+=== Day 5 - April 29 (Wed)
 
-== Day 6 - April 30 (Thu)
+=== Day 6 - April 30 (Thu)
 
-== Day 7 - May 1 (Fri)
+=== Day 7 - May 1 (Fri)
 
-== Day 8 - May 2 (Sat)
+=== Day 8 - May 2 (Sat)
 
-== Day 9 - May 3 (Sun)
+=== Day 9 - May 3 (Sun)
 
-== Day 10 - May 4 (Mon)
+=== Day 10 - May 4 (Mon)
 
-== Day 11 - May 5 (Tue)
+=== Day 11 - May 5 (Tue)
 
-== Day 12 - May 6 (Wed)
+=== Day 12 - May 6 (Wed)
 
-== Day 13 - May 7 (Thu)
+=== Day 13 - May 7 (Thu)
 
-== Day 14 - May 8 (Fri)
+=== Day 14 - May 8 (Fri)
 
-== Day 15 - May 9 (Sat)
+=== Day 15 - May 9 (Sat)
 
-== Day 16 - May 10 (Sun)
+=== Day 16 - May 10 (Sun)
 
-== Day 17 - May 11 (Mon)
+=== Day 17 - May 11 (Mon)
 
-== Day 18 - May 12 (Tue)
+=== Day 18 - May 12 (Tue)
 
-== Day 19 - May 13 (Wed)
+=== Day 19 - May 13 (Wed)
 
-== Day 20 - May 14 (Thu)
+=== Day 20 - May 14 (Thu)
 
-== Day 21 - May 15 (Fri)
+=== Day 21 - May 15 (Fri)
 
-== Day 22 - May 16 (Sat)
+=== Day 22 - May 16 (Sat)
 
-== Day 23 - May 17 (Sun)
+=== Day 23 - May 17 (Sun)
 
-== Day 24 - May 18 (Mon)
+=== Day 24 - May 18 (Mon)
 
-== Day 25 - May 19 (Tue)
+=== Day 25 - May 19 (Tue)
 
-== Day 26 - May 20 (Wed)
+=== Day 26 - May 20 (Wed)
 
-== Day 27 - May 21 (Thu)
+=== Day 27 - May 21 (Thu)
 
-== Day 28 - May 22 (Fri)
+=== Day 28 - May 22 (Fri)
 
-== Day 29 - May 23 (Sat)
+=== Day 29 - May 23 (Sat)
 
-== Day 30 - May 24 (Sun)
+=== Day 30 - May 24 (Sun)
 
 
 #bibliography("references.bib")
