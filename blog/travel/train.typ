@@ -52,7 +52,7 @@ Currently, the itinerary of cities is
 |                    | Morning     | Trinity Church                  | FREE  | Back Bay, 30 min                         |
 |                    | Morning     | Boston Public Library           | FREE  | Back Bay, 30 min                         |
 |                    | Afternoon   | Seaport District                | FREE  | Restaurants & browsing                   |
-|                    | **7:47 PM** | **Depart South Station**        | —     | Seaport is a short walk to South Station |
+|                    | **3:15 PM** | **Depart South Station**        | —     | Seaport is a short walk to South Station |
 
 ```
 

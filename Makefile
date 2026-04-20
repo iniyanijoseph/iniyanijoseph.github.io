@@ -4,7 +4,7 @@
 HTML_SOURCES := $(shell grep -l "cv\.with" $$(find . -name '*.typ' ! -path '*/src/*' ! -name 'cv.typ'))
 HTML_TARGETS := $(HTML_SOURCES:.typ=.html)
 
-all: clean cv html
+all: clean cv html recompile
 
 cv:
 	typst c cv.typ cv.pdf
@@ -17,3 +17,6 @@ html: $(HTML_TARGETS)
 
 clean:
 	rm -f cv.pdf index.html $(HTML_TARGETS) $(HTML_TARGETS:.html=.pdf)
+
+recompile:
+	typst c blog/travel/train.typ --root .
