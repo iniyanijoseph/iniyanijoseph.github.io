@@ -11,25 +11,25 @@ The following map gives an overview of the approximate Amtrak routes across the 
 
 == Itinerary
 Currently, the itinerary of cities is
-- #link("AmtrakTickets/1-marshall-boston.pdf")[Marshall, Texas -> Chicago (Texas Eagle) April 25-26]
+- #link("AmtrakTickets/1-marshall-boston.pdf")[Marshall, Texas -> Chicago (Texas Eagle) April 25\@9:30pm-26\@4:15pm]
 - #block(inset: -2pt, clip:true, width: 20%)[#image("AmtrakTickets/1-marshall-boston.jpg")]
-- #link("AmtrakTickets/1-marshall-boston.pdf")[Chicago -> Boston (Lakeshore Limited) April 26-27]
+- #link("AmtrakTickets/1-marshall-boston.pdf")[Chicago -> Boston (Lakeshore Limited) April 26\@9:30pm-27\@8:30pm]
 - #block(inset: -3pt, clip:true, width:20%)[#image("AmtrakTickets/1-marshall-boston.jpg")]
-- #link("AmtrakTickets/2-boston-nyc.pdf")[Boston -> New York City (Lakeshore Limited) April 30]
+- #link("AmtrakTickets/2-boston-nyc.pdf")[Boston -> New York City (Lakeshore Limited) April 30\@3:15pm-7:45pm]
 - #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/2-boston-nyc.jpg")]
-- #link("AmtrakTickets/3-nyc-philadelphia.pdf")[New York City -> Philadelphia (Vermonter) May 5]
+- #link("AmtrakTickets/3-nyc-philadelphia.pdf")[New York City -> Philadelphia (Vermonter) May 5\@6:45pm-8:15pm]
 - #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/3-nyc-philadelphia.jpg")]
-- #link("AmtrakTickets/4-philadelphia-washington.pdf")[Philadelpha -> Washington D.C. (Northeast Regional) May 8]
+- #link("AmtrakTickets/4-philadelphia-washington.pdf")[Philadelpha -> Washington D.C. (Northeast Regional) May 8\@1:47pm-3:45pm]
 - #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/4-philadelphia-washington.jpg")]
-- #link("AmtrakTickets/5-washington-seattle.pdf")[Washington D.C. -> Chicago (Floridian) May 11th-May 12]
+- #link("AmtrakTickets/5-washington-seattle.pdf")[Washington D.C. -> Chicago (Floridian) May 11th\@3:57pm-May 12\@8:45am]
 - #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/5-washington-seattle.jpg")]
-- #link("AmtrakTickets/5-washington-seattle.pdf")[Chicago -> Seattle (Empire Builder) May 12-May 14]
+- #link("AmtrakTickets/5-washington-seattle.pdf")[Chicago -> Seattle (Empire Builder) May 12\@3pm-May 14\@11:30am]
 - #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/5-washington-seattle.jpg")]
-- #link("AmtrakTickets/6-seattle-emeryville.pdf")[Seattle -> Emeryville (Coast Starlight) May 17-May 18]
+- #link("AmtrakTickets/6-seattle-emeryville.pdf")[Seattle -> Emeryville (Coast Starlight) May 17\@9:45am-May 18\@8:30pm]
 - #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/6-seattle-emeryville.jpg")]
-- #link("AmtrakTickets/7-emeryville-chicago.pdf")[Emeryville -> Chicago (California Zephyr) May 20-22]
+- #link("AmtrakTickets/7-emeryville-chicago.pdf")[Emeryville -> Chicago (California Zephyr) May 20\@8:15am-22\@2:45pm]
 - #block(inset: -3pt, clip:true, width:20%)[#image("AmtrakTickets/7-emeryville-chicago.jpg")]
-- #link("AmtrakTickets/8-chicago-dallas.pdf")[Chicago -> Dallas (Texas Eagle) May 23-May 24]
+- #link("AmtrakTickets/8-chicago-dallas.pdf")[Chicago -> Dallas (Texas Eagle) May 23\@2pm-May 24\@12pm]
 - #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/8-chicago-dallas.jpg")]
 
 
@@ -71,7 +71,7 @@ Currently, the itinerary of cities is
 ```table
 | Day                           | Time        | Stop                                                    | Cost              | Notes                                  |
 |-----                          |------       |------                                                   |------             |-------                                 |
-| **Apr 30**                    |  Evening    | Arrive Queens                                           | —                 | Check in, rest                         |
+| **Apr 30**                    | Evening     | Arrive Queens                                           | —                 | Check in, rest                         |
 | **Day 1 – May 1 (Manhattan)** | Morning     | Times Square                                            | FREE              | Less crowded early                     |
 |                               | Morning     | New York Public Library                                 | FREE              |                                        |
 |                               | Mid-Morning | Grand Central Station                                   | FREE              |                                        |
@@ -85,10 +85,11 @@ Currently, the itinerary of cities is
 |                               | Mid-Morning | El Museo del Barrio                                     | **FREE**          | Students free                          |
 |                               | Mid-Morning | Museum of the City of New York                          | **FREE**          | Students free                          |
 |                               | Afternoon   | Guggenheim                                              | **$18**           | Student ID                             |
-|                               | Evening ⭐  | MoMA                                                    | **FREE**          | Free every Fri 5:30–9pm                |
+|                               | Evening     | MoMA                                                    | **FREE**          | Free every Fri 5:30–9pm                |
 | **Day 3 – May 3 (Queens)**    | Morning     | Flushing Chinatown                                      | FREE              | Best cheap food in NYC                 |
 |                               | Afternoon   | Flushing Meadows-Corona Park                            | FREE              | USTA, Queens Museum nearby             |
 |                               | Evening     | Jackson Heights                                         | FREE              | Little India — great cheap eats        |
+|                               | Evening     | Queens Night Market                                     | FREE              |                                        |
 | **Day 4 – May 4 (Brooklyn)**  | Morning     | Brooklyn Botanic Garden                                 | ~$15              | Free Tues & select Sat mornings        |
 |                               | Midday      | Prospect Park                                           | FREE              | Adjacent to BBG                        |
 |                               | Afternoon   | DUMBO                                                   | FREE              | Great Manhattan Bridge views           |
@@ -221,7 +222,6 @@ The most iconic pizzas from each city are:
 - #sym.ballot.check Water Bottle
 - #sym.ballot.check Sleeping Bag
 - #sym.ballot.check Drawstring Bag
-- #sym.ballot Trackers
 === Clothing
 === Essentials
 - #sym.ballot.check 3 Pants
@@ -246,17 +246,21 @@ The most iconic pizzas from each city are:
 - #sym.ballot.check First Aid Kit
 - #sym.ballot.check Sunscreen
 - #sym.ballot.check First Aid Kit
-- #sym.ballot Hand sanitizer
+- #sym.ballot.check Hand sanitizer
 - #sym.ballot Wet Wipes
 === Electronics
-- #sym.ballot Phone/Charger
-- #sym.ballot Laptop/Charger
+- #sym.ballot.check Phone/Charger
+- #sym.ballot.check Laptop/Charger
+- #sym.ballot.check Earbuds/Charger
+- #sym.ballot.check Batteries
+- #sym.ballot.check Trackers
 === Food
 ==== Grocery Items
-- #sym.ballot.check Bread
-- #sym.ballot.check Hard Cheese
-- #sym.ballot.check Granola Bars
+- #sym.ballot Granola
+- #sym.ballot.check Nuts
+- #sym.ballot.check Cheese
 - #sym.ballot.check Dried Fruit
+- #sym.ballot.check Chocolate
 === Other
 - #sym.ballot.check Playing Cards
 - #sym.ballot.check Driver's License
