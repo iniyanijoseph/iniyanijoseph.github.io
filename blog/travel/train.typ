@@ -247,7 +247,7 @@ The most iconic pizzas from each city are:
 - #sym.ballot.check Sunscreen
 - #sym.ballot.check First Aid Kit
 - #sym.ballot.check Hand sanitizer
-- #sym.ballot Wet Wipes
+- #sym.ballot.check Wet Wipes
 === Electronics
 - #sym.ballot.check Phone/Charger
 - #sym.ballot.check Laptop/Charger
@@ -256,7 +256,7 @@ The most iconic pizzas from each city are:
 - #sym.ballot.check Trackers
 === Food
 ==== Grocery Items
-- #sym.ballot Granola
+- #sym.ballot.check Granola
 - #sym.ballot.check Nuts
 - #sym.ballot.check Cheese
 - #sym.ballot.check Dried Fruit
