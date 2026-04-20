@@ -12,15 +12,25 @@ The following map gives an overview of the approximate Amtrak routes across the 
 == Itinerary
 Currently, the itinerary of cities is
 - #link("AmtrakTickets/1-marshall-boston.pdf")[Marshall, Texas -> Chicago (Texas Eagle) April 25-26]
+- #block(inset: -2pt, clip:true, width: 20%)[#image("AmtrakTickets/1-marshall-boston.jpg")]
 - #link("AmtrakTickets/1-marshall-boston.pdf")[Chicago -> Boston (Lakeshore Limited) April 26-27]
+- #block(inset: -3pt, clip:true, width:20%)[#image("AmtrakTickets/1-marshall-boston.jpg")]
 - #link("AmtrakTickets/2-boston-nyc.pdf")[Boston -> New York City (Lakeshore Limited) April 30]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/2-boston-nyc.jpg")]
 - #link("AmtrakTickets/3-nyc-philadelphia.pdf")[New York City -> Philadelphia (Vermonter) May 5]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/3-nyc-philadelphia.jpg")]
 - #link("AmtrakTickets/4-philadelphia-washington.pdf")[Philadelpha -> Washington D.C. (Northeast Regional) May 8]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/4-philadelphia-washington.jpg")]
 - #link("AmtrakTickets/5-washington-seattle.pdf")[Washington D.C. -> Chicago (Floridian) May 11th-May 12]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/5-washington-seattle.jpg")]
 - #link("AmtrakTickets/5-washington-seattle.pdf")[Chicago -> Seattle (Empire Builder) May 12-May 14]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/5-washington-seattle.jpg")]
 - #link("AmtrakTickets/6-seattle-emeryville.pdf")[Seattle -> Emeryville (Coast Starlight) May 17-May 18]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/6-seattle-emeryville.jpg")]
 - #link("AmtrakTickets/7-emeryville-chicago.pdf")[Emeryville -> Chicago (California Zephyr) May 20-22]
+- #block(inset: -3pt, clip:true, width:20%)[#image("AmtrakTickets/7-emeryville-chicago.jpg")]
 - #link("AmtrakTickets/8-chicago-dallas.pdf")[Chicago -> Dallas (Texas Eagle) May 23-May 24]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/8-chicago-dallas.jpg")]
 
 
 // **Book in Advance:**
@@ -169,38 +179,39 @@ Currently, the itinerary of cities is
 == San Francisco - May 18-May 20
 ```table
 
-| Day                        | Time        | Stop                          | Cost           | Notes                                               |
-|-----                       |------       |------                         |------          |-------                                              |
-| **May 18 – Arrive 8:30am** | Morning     | Ferry Building                | FREE           | Great breakfast, farmers market on Sat              |
-|                            | Morning     | Embarcadero / Waterfront walk | FREE           |                                                     |
-|                            | Mid-Morning | Chinatown                     | FREE           | Walk through, cheap eats                            |
-|                            | Midday      | North Beach                   | FREE           | City Lights Bookstore, Beat Generation neighborhood |
-|                            | Afternoon   | Coit Tower                    | FREE exterior  | Views nearly as good from outside                   |
-|                            | Afternoon   | Fisherman's Wharf             | FREE to wander |                                                     |
-|                            | Evening     | Mission District              | FREE           | Best cheap food in SF; Dolores Park stroll          |
-| **Day 2 – May 19**         | Morning     | Golden Gate Bridge            | FREE           | Walk across                                         |
-|                            | Mid-Morning | Golden Gate Park              | FREE           |                                                     |
-|                            | ↳           | de Young Museum               | ~$15           | Student ID; free first Tues of month                |
-|                            | Midday      | Haight-Ashbury                | FREE           | Historic counterculture neighborhood                |
-|                            | Afternoon   | SFMOMA                        | ~$19           | Free last Thursday evening                          |
-|                            | Evening     | Castro District               | FREE           | Iconic neighborhood, great food                     |
-| **May 20**                 | By 8:30 AM  | Depart SF                     | —              | Pack the night before                               |
+| Day                        | Time        | Stop                                                 | Cost           | Notes                                               |
+|-----                       |------       |------                                                |------          |-------                                              |
+| **May 18 – Arrive 8:30am** | Morning     | Ferry Building                                       | FREE           | Great breakfast, farmers market on Sat              |
+|                            | Morning     | Embarcadero / Waterfront walk                        | FREE           |                                                     |
+|                            | Mid-Morning | Chinatown                                            | FREE           | Walk through, cheap eats                            |
+|                            | Midday      | North Beach                                          | FREE           | City Lights Bookstore, Beat Generation neighborhood |
+|                            | Midday      | Lombard Street                                       | FREE           |                                                     |
+|                            | Afternoon   | Coit Tower                                           | FREE exterior  | Views nearly as good from outside                   |
+|                            | Afternoon   | Fisherman's Wharf                                    | FREE to wander |                                                     |
+|                            | Evening     | Mission District + Mission Style Burrito             | FREE           | Best cheap food in SF; Dolores Park stroll          |
+| **Day 2 – May 19**         | Morning     | Golden Gate Bridge                                   | FREE           | Walk across                                         |
+|                            | Mid-Morning | Golden Gate Park                                     | FREE           |                                                     |
+|                            | ↳           | de Young Museum                                      | ~$15           | Student ID; free first Tues of month                |
+|                            | Midday      | Haight-Ashbury                                       | FREE           | Historic counterculture neighborhood                |
+|                            | Afternoon   | SFMOMA                                               | ~$19           | Free last Thursday evening                          |
+|                            | Evening     | Castro District                                      | FREE           | Iconic neighborhood, great food                     |
+| **May 20**                 | By 8:30 AM  | Depart SF                                            | —              | Pack the night before                               |
 
 ```
-#text(red)[Add Lombard Street + Mission Style Burrito and Ghiradelli]
  
 == Pizza List
 The most iconic pizzas from each city are: 
 
 ```table
-| City         | Style                   | Where                        | Est. Cost   |
-|------        |-------                  |-------                       |-----------  |
-| Boston       | Thin crust New England  | Regina Pizzeria (North End)  | ~$4/slice   |
-| NYC          | Classic NY dollar slice | Any corner shop              | ~$2–3/slice |
-| Philadelphia | Tomato pie (no cheese)  | Santucci's or Lorenzo's      | ~$8–12      |
-| DC           | Jumbo slice             | Any Adams Morgan spot        | ~$4–5       |
-|Seattle       | No iconic style         | Ballard Pizza Co. or similar | ~$4/slice   |
-| SF           | Sourdough crust         | Tony's Pizza Napoletana      | ~$5/slice   |
+| City              | Style                                            | Where                                             | Est. Cost   |
+|------             |-------                                           |-------                                            |-----------  |
+| Boston            | Thin crust New England                           | Regina Pizzeria (North End)                       | ~$4/slice   |
+| NYC               | Classic NY dollar slice + Sicilian Pizza         | Luigi's Pizza + L&P Spumoni Gardens               | ~$2–3/slice |
+| Philadelphia      | Tomato pie (no cheese)                           | Santucci's or Lorenzo's                           | ~$8–12      |
+| DC                | Jumbo slice                                      | Any Adams Morgan spot                             | ~$4–5       |
+| Seattle           | No iconic style                                  | Ballard Pizza Co. or similar                      | ~$4/slice   |
+| SF                | Sourdough crust                                  | Tony's Pizza Napoletana                           | ~$5/slice   |
+| Chicago           | Deep Dish + Tavern Style                         | Pizzeria Uno + Pizz'Amici                         | ~$5/slice   |
 ```
 
 
