@@ -12,25 +12,15 @@ The following map gives an overview of the approximate Amtrak routes across the 
 == Itinerary
 Currently, the itinerary of cities is
 - #link("AmtrakTickets/1-marshall-boston.pdf")[Marshall, Texas -> Chicago (Texas Eagle) April 25\@9:30pm-26\@4:15pm]
-- #block(inset: -2pt, clip:true, width: 20%)[#image("AmtrakTickets/1-marshall-boston.jpg")]
 - #link("AmtrakTickets/1-marshall-boston.pdf")[Chicago -> Boston (Lakeshore Limited) April 26\@9:30pm-27\@8:30pm]
-- #block(inset: -3pt, clip:true, width:20%)[#image("AmtrakTickets/1-marshall-boston.jpg")]
 - #link("AmtrakTickets/2-boston-nyc.pdf")[Boston -> New York City (Lakeshore Limited) April 30\@3:15pm-7:45pm]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/2-boston-nyc.jpg")]
 - #link("AmtrakTickets/3-nyc-philadelphia.pdf")[New York City -> Philadelphia (Vermonter) May 5\@6:45pm-8:15pm]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/3-nyc-philadelphia.jpg")]
 - #link("AmtrakTickets/4-philadelphia-washington.pdf")[Philadelpha -> Washington D.C. (Northeast Regional) May 8\@1:47pm-3:45pm]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/4-philadelphia-washington.jpg")]
 - #link("AmtrakTickets/5-washington-seattle.pdf")[Washington D.C. -> Chicago (Floridian) May 11th\@3:57pm-May 12\@8:45am]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/5-washington-seattle.jpg")]
 - #link("AmtrakTickets/5-washington-seattle.pdf")[Chicago -> Seattle (Empire Builder) May 12\@3pm-May 14\@11:30am]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/5-washington-seattle.jpg")]
 - #link("AmtrakTickets/6-seattle-emeryville.pdf")[Seattle -> Emeryville (Coast Starlight) May 17\@9:45am-May 18\@8:30pm]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/6-seattle-emeryville.jpg")]
 - #link("AmtrakTickets/7-emeryville-chicago.pdf")[Emeryville -> Chicago (California Zephyr) May 20\@8:15am-22\@2:45pm]
-- #block(inset: -3pt, clip:true, width:20%)[#image("AmtrakTickets/7-emeryville-chicago.jpg")]
 - #link("AmtrakTickets/8-chicago-dallas.pdf")[Chicago -> Dallas (Texas Eagle) May 23\@2pm-May 24\@12pm]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/8-chicago-dallas.jpg")]
 
 
 // **Book in Advance:**
@@ -329,5 +319,25 @@ The most iconic pizzas from each city are:
 
 === Day 30 - May 24 (Sun)
 
-
+== Tickets
+- #link("AmtrakTickets/1-marshall-boston.pdf")[Marshall, Texas -> Chicago (Texas Eagle) April 25\@9:30pm-26\@4:15pm]
+- #block(inset: -2pt, clip:true, width: 20%)[#image("AmtrakTickets/1-marshall-boston.jpg")]
+- #link("AmtrakTickets/1-marshall-boston.pdf")[Chicago -> Boston (Lakeshore Limited) April 26\@9:30pm-27\@8:30pm]
+- #block(inset: -3pt, clip:true, width:20%)[#image("AmtrakTickets/1-marshall-boston.jpg")]
+- #link("AmtrakTickets/2-boston-nyc.pdf")[Boston -> New York City (Lakeshore Limited) April 30\@3:15pm-7:45pm]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/2-boston-nyc.jpg")]
+- #link("AmtrakTickets/3-nyc-philadelphia.pdf")[New York City -> Philadelphia (Vermonter) May 5\@6:45pm-8:15pm]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/3-nyc-philadelphia.jpg")]
+- #link("AmtrakTickets/4-philadelphia-washington.pdf")[Philadelpha -> Washington D.C. (Northeast Regional) May 8\@1:47pm-3:45pm]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/4-philadelphia-washington.jpg")]
+- #link("AmtrakTickets/5-washington-seattle.pdf")[Washington D.C. -> Chicago (Floridian) May 11th\@3:57pm-May 12\@8:45am]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/5-washington-seattle.jpg")]
+- #link("AmtrakTickets/5-washington-seattle.pdf")[Chicago -> Seattle (Empire Builder) May 12\@3pm-May 14\@11:30am]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/5-washington-seattle.jpg")]
+- #link("AmtrakTickets/6-seattle-emeryville.pdf")[Seattle -> Emeryville (Coast Starlight) May 17\@9:45am-May 18\@8:30pm]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/6-seattle-emeryville.jpg")]
+- #link("AmtrakTickets/7-emeryville-chicago.pdf")[Emeryville -> Chicago (California Zephyr) May 20\@8:15am-22\@2:45pm]
+- #block(inset: -3pt, clip:true, width:20%)[#image("AmtrakTickets/7-emeryville-chicago.jpg")]
+- #link("AmtrakTickets/8-chicago-dallas.pdf")[Chicago -> Dallas (Texas Eagle) May 23\@2pm-May 24\@12pm]
+- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/8-chicago-dallas.jpg")]
 #bibliography("references.bib")
