@@ -179,7 +179,7 @@ Currently, the itinerary of cities is
 |                            | Midday      | Lombard Street                                       | FREE           |                                                     |
 |                            | Afternoon   | Coit Tower                                           | FREE exterior  | Views nearly as good from outside                   |
 |                            | Afternoon   | Fisherman's Wharf                                    | FREE to wander |                                                     |
-|                            | Evening     | Mission District + Mission Style Burrito             | FREE           | Best cheap food in SF; Dolores Park stroll          |
+|                            | Evening     | Mission District + Mission Style Burrito@La Cumbre  | FREE           | Best cheap food in SF; Dolores Park stroll          |
 | **Day 2 – May 19**         | Morning     | Golden Gate Bridge                                   | FREE           | Walk across                                         |
 |                            | Mid-Morning | Golden Gate Park                                     | FREE           |                                                     |
 |                            | ↳           | de Young Museum                                      | ~$15           | Student ID; free first Tues of month                |
