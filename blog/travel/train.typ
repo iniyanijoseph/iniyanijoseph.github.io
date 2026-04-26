@@ -220,14 +220,14 @@ The most iconic pizzas from each city are:
 - #sym.ballot.check 4 Socks
 - #sym.ballot.check 4 Underwear
 - #sym.ballot.check Windbreaker
-- #sym.ballot Shoes
+- #sym.ballot.check Shoes
 ==== Extra
 - #sym.ballot.check Emergency Poncho
 - #sym.ballot.check Umbrella
 - #sym.ballot.check Needle/Thread
 === Toiletries
 - #sym.ballot.check Towel
-- #sym.ballot.check Toothbrush/toothpaste
+- #sym.ballot.check Toothbrush/Toothpaste
 - #sym.ballot.check Tongue Cleaner
 - #sym.ballot.check Mouth Guard
 - #sym.ballot.check Deodorant
@@ -235,7 +235,6 @@ The most iconic pizzas from each city are:
 - #sym.ballot.check Beard Trimmer
 - #sym.ballot.check First Aid Kit
 - #sym.ballot.check Sunscreen
-- #sym.ballot.check First Aid Kit
 - #sym.ballot.check Hand sanitizer
 - #sym.ballot.check Wet Wipes
 === Electronics
@@ -260,8 +259,10 @@ The most iconic pizzas from each city are:
 
 == Daily Updates
 === Day 1 - April 25 (Sat)
+Today was a surprisingly relaxed day. I fell asleep around midnight and woke up around 7 (a little shorter than I would have liked, but restful nontheless). I got ready and picked up Rina from UTD, and we got cookies from Hug Cafe in downtown McKinney. I probably never would have heard about it if it weren't from a coupon I received in the mail, but honestly it may be worth revisiting. The food was good, but more compellingly the restaurant provides employment to primarily people with intellectual disabilities. I came home and had paneer fried rice with Rina, then went to Swig for a small treat. We lost track of time a little, but made it home by 4 to leave for Marshall. I tried Chili's for the first time on the drive over, and Rina and I both ordered the veggies burger. It was alright, although there was nothing exemplary about it. I am excited for her move towards flex/veg-itarianism. It definitely will be challenging for her, but I also think it will be very rewarding. Overall, it was just nice being able to spend time with my family and one of my best friends, and I am looking forward to more days of just time to spend idly with Rina and Rino over the summer. I hope Rina has time when I go to D.C., but I am not holding my breath since its finals season. This does feel like the right time to travel though. Logically, I have the most time now, but I am also reminded of Ibn Batuta's words as well: "travelling - it gives you home in a thousand strange places, then leaves you a stranger in your own land". I hope this journey gives me a new lens on America, and I hope I come to appreciate my friends and family and home here even more. Until I got onto the train, I hadn't really contemplated the magnitude of the trip, but 30 days of constat travel is a long time, and more intense than even my 3 weeks of travel in India in December '24. I am a bit nervous, but also very excited. But first, as I write this, its probably time to sleep. The seats seem reasonably comfortable, and definitely more than I was expecting. Overall, today was a great start to what is hopefully a great trip.
 
 === Day 2 - April 26 (Sun)
+// I woke up today morning in rural Missouri. I was expecting primarily cornfields on the train north to Chicago, so to see the woods south of St. Louis was a pleasant and unexpected surprise. I am reminded of the idea that people rarely see the things in their own city.
 
 === Day 3 - April 27 (Mon)
 
