@@ -3,6 +3,7 @@
 
 #show: cv.with(subpage: true, root: "../../", fancylist: false)
 = Amtrak Rail Pass
+#figure([#image("amtrak.qr.jpg")], alt: "", caption: [QR Cde])
 This summer, I plan to use the Amtrak Rail Pass to travel for 1 month. This blog will contain my plans for the journey, and my thoughts on each day's experiences. 
 
 The following map gives an overview of the approximate Amtrak routes across the U.S. Chicago is the center of the rail network.
