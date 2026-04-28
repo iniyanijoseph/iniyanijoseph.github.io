@@ -63,6 +63,7 @@ Currently, the itinerary of cities is
 |-----                          |------       |------                                                   |------             |-------                                 |
 | **Apr 30**                    | Evening     | Arrive Queens                                           | —                 | Check in, rest                         |
 | **Day 1 – May 1 (Manhattan)** | Morning     | Times Square                                            | FREE              | Less crowded early                     |
+| **Day 1 – May 1 (Manhattan)** | Morning     | $ 1.50 Fresh Pizza                                      | $1.50 (Duh)       | Ask for "regular, not cheese"          |
 |                               | Morning     | New York Public Library                                 | FREE              |                                        |
 |                               | Mid-Morning | Grand Central Station                                   | FREE              |                                        |
 |                               | Mid-Morning | Rockefeller Center                                      | FREE              | Exterior                               |
@@ -303,6 +304,24 @@ Song of the Day: Draft Dodger's Rag, Phil Ochs
  #figure([#image("AmtrakPhotos/3.BostonChinatown.jpg")], caption: [Durgesh and I in front of the entrance to Boston's Chinatown])
  #figure([#image("AmtrakPhotos/3.BostonBay.jpg")], caption: [A cool building with an arch overlooking Boston's Harbor])
 
+Last night's sleep was far worse. Partly, this is because the overhead lighting on the Lakeshore Limited didn't turn off all night, but I also think I need to start using my mouth guard on the trains as well. Thank god I brought it on the trip, I wasn't sure for a while, although it might be a bit annoying to wash on the train.
+
+I also think I overpacked food. It seems like just bringing sandwiches or rice is more than enough to make it through the long hauls, and I won't need the granola bars or dried fruit much. The weight is a bit of an inconvenience compared to buying a pizza. Amtrak also serves hot water for free, which really scratches the itch for coffee when waking up. It will get lighter as I go on, since I can use the nut bars as mini-meals/snacks in the cities, and I am giving Chocolate away as I go.
+
+I woke up about 1-2 hours west of Cleveland. Like with Missouri and Illinois, there was definitely a shift in scenery as we passed through each state. OH was more traditional Midwestern farming with corn and soy, where Pennsylvania was more fishing on Lake Erie and grapevines. New York felt industrial, especially Buffalo, and had swamps and the Erie Canal, and although there was a certain peace going through Pennsylvania, the hills in Massachusetts were just stunning.
+
+On this trip, I think I should practice my Esperanto/French. It isn't likely going to be super useful, but having learned Esperanto has given me more reference words for learning other languages. French in particular was the source of most Latin and Greek into English, and so should be easy from vocabulary (alongside being fun and widely spoken internationally). I as considering writing by blog in Esperanto, but I think that would defeat the point of a blog if only a few people could really read it. It's also a lot of work to write in two languages. So for now I think I will write my notes in a combination of Esperanto and English and retranslate as I type up the blog.
+
+I met some more Amish people in the train. I was surprised by how many people I saw dressed plain, but since they typically can ride in, but just not operate motorized vehicles it makes sense. And, of course, being geographically within where the Amish and old-order Mennonites live helps. I would learn Pennsylvania Dutch, but honestly the romance languages seem a lot easier (knowing full well that if I knew more of a germanic language I would think the opposite). From what I did understand from overhearing their conversations though,it was generally hilariously mundane. It is a good reminder that despite our dissimilarities, we are all hilariously human.
+
+I met my first two rail pass users today as well. The first was a background actor from Manhattan, who gave me some recommendations for where to eat and some places to add to my itinerary. We didn't speak too much though, and mostly watched the scenery. The second person was Dominic, from Boston, and we talked more in depth about traveling with the rail pass He actually had an interesting idea, of using the rail pass to do weekend trips to a different place every weekend. He had a Bingo card he made of various travel and work goals to achieve each month, which was really cool. He had also traveled last September in the loop around the west of Chicago, but seen it a bit more fully, including the parks between cities. I met one more person from Buffalo, who I talked a bit about Christianity with, specifically the reliability of the Epistles of St. Paul over the teachings of other early church fathers, and how that related to Orthodox Christianity. It was interesting, since I had a similar conversation with Rina. In my skeptical Quaker manner, I think it is important to remember when reading it, that St. Paul was ultimately just a guy. It is impossible to know how he would have reacted or spoken/written to modern society, and instead should (in my opinion) be examined looking for larger themes and relating it to Jesus's sermons in the gospels. 
+
+The weather was really nice today, so it's a bit of a shame that it was a train day, but I think it gave a good chance to walk around Boston and see Chinatown. In Albany they actually split the train itself into two parts rather than reboarding some group, with passengers headed to Boston assigned seating in the first half, and passengers headed to NYC assigned seating in the second half.
+
+It was also cool catching up with Durgesh, we talked a bit about The Republic and the shortcomings of classical philosophers and their failure to introspect. I hadn't known much about them, but it was interesting hearing the critiques of these usually lauded writers. Tomorrow morning I think I will have some orange juice and nut bars for breakfast, it seems like a good, on-the-go combo. Since I am trying to get a keychain from every city, CVS might be a good place to get both in Boston since it's so close to Piano Row where I am staying. I didn't realize that it as named for the actual original (now decrepit and abandoned) Boston Steinway showroom on Boylston. 
+
+Today was slower paced, but it was nice to see the scenery, finally take a shower, and see Boston.
+
 Song of the Day: Piano Concerto no. 5 "Emperor", Beethoven
 === Day 4 - April 28 (Tue)
 
@@ -358,25 +377,4 @@ Song of the Day: Piano Concerto no. 5 "Emperor", Beethoven
 
 === Day 30 - May 24 (Sun)
 
-== Tickets
-- #link("AmtrakTickets/1-marshall-boston.pdf")[Marshall, Texas -> Chicago (Texas Eagle) April 25\@9:30pm-26\@4:15pm]
-- #block(inset: -2pt, clip:true, width: 20%)[#image("AmtrakTickets/1-marshall-boston.jpg")]
-- #link("AmtrakTickets/1-marshall-boston.pdf")[Chicago -> Boston (Lakeshore Limited) April 26\@9:30pm-27\@8:30pm]
-- #block(inset: -3pt, clip:true, width:20%)[#image("AmtrakTickets/1-marshall-boston.jpg")]
-- #link("AmtrakTickets/2-boston-nyc.pdf")[Boston -> New York City (Lakeshore Limited) April 30\@3:15pm-7:45pm]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/2-boston-nyc.jpg")]
-- #link("AmtrakTickets/3-nyc-philadelphia.pdf")[New York City -> Philadelphia (Vermonter) May 5\@6:45pm-8:15pm]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/3-nyc-philadelphia.jpg")]
-- #link("AmtrakTickets/4-philadelphia-washington.pdf")[Philadelpha -> Washington D.C. (Northeast Regional) May 8\@1:47pm-3:45pm]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/4-philadelphia-washington.jpg")]
-- #link("AmtrakTickets/5-washington-seattle.pdf")[Washington D.C. -> Chicago (Floridian) May 11th\@3:57pm-May 12\@8:45am]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/5-washington-seattle.jpg")]
-- #link("AmtrakTickets/5-washington-seattle.pdf")[Chicago -> Seattle (Empire Builder) May 12\@3pm-May 14\@11:30am]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/5-washington-seattle.jpg")]
-- #link("AmtrakTickets/6-seattle-emeryville.pdf")[Seattle -> Emeryville (Coast Starlight) May 17\@9:45am-May 18\@8:30pm]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/6-seattle-emeryville.jpg")]
-- #link("AmtrakTickets/7-emeryville-chicago.pdf")[Emeryville -> Chicago (California Zephyr) May 20\@8:15am-22\@2:45pm]
-- #block(inset: -3pt, clip:true, width:20%)[#image("AmtrakTickets/7-emeryville-chicago.jpg")]
-- #link("AmtrakTickets/8-chicago-dallas.pdf")[Chicago -> Dallas (Texas Eagle) May 23\@2pm-May 24\@12pm]
-- #block(inset: -2pt, clip:true, width:20%)[#image("AmtrakTickets/8-chicago-dallas.jpg")]
 #bibliography("references.bib")
