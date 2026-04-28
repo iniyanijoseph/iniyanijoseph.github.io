@@ -293,7 +293,15 @@ Overall, today was slower paced, but I had some interesting conversations, and I
 
 Song of the Day: Draft Dodger's Rag, Phil Ochs
 === Day 3 - April 27 (Mon)
-
+ #figure([#image("AmtrakPhotos/3.Ohio.jpg")], caption: [Ohio in the morning along the line])
+ #figure([#image("AmtrakPhotos/3.PAFarm.jpg")], caption: [Farmland in PA])
+ #figure([#image("AmtrakPhotos/3.PAErie.jpg")], caption: [Pennsylvania past Erie, overlooking the lake])
+ #figure([#image("AmtrakPhotos/3.NYUpstate.jpg")], caption: [New York Upstate Scenery])
+ #figure([#image("AmtrakPhotos/3.MA.jpg")], caption: [Massachusets Scenery])
+ #figure([#image("AmtrakPhotos/3.LakeshoreLimitedTrain.jpg")], caption: [Picture of the Lakeshore Limited Train (while stopped in Syracuse)])
+ #figure([#image("AmtrakPhotos/3.BackBayStation.jpg")], caption: [Historic Buildings outside Back Bay Station (where I arrived in Boston)])
+ #figure([#image("AmtrakPhotos/3.BostonChinatown.jpg")], caption: [Durgesh and I in front of the entrance to Boston's Chinatown])
+ #figure([#image("AmtrakPhotos/3.BostonBay.jpg")], caption: [A cool building with an arch overlooking Boston's Harbor])
 
 Song of the Day: Piano Concerto no. 5 "Emperor", Beethoven
 === Day 4 - April 28 (Tue)
