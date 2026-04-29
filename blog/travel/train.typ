@@ -5,7 +5,6 @@
 #let linked-image(src) = html.elem("img", attrs:(src: src))
 
 = Amtrak Rail Pass
-#figure([#linked-image("amtrak.qr.jpg")], alt: "", caption: [QR Cde])
 This summer, I plan to use the Amtrak Rail Pass to travel for 1 month. This blog will contain my plans for the journey, and my thoughts on each day's experiences. 
 
 The following map gives an overview of the approximate Amtrak routes across the U.S. Chicago is the center of the rail network.
@@ -431,3 +430,6 @@ Song of the Day: 'Tis The Gift to Be Simple
 === Day 30 - May 24 (Sun)
 
 #bibliography("references.bib")
+
+== QR Code
+#figure([#linked-image("amtrak.qr.jpg")], alt: "", caption: [QR])
