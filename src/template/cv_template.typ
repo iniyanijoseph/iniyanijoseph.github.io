@@ -15,6 +15,7 @@
   show raw.where(lang: "table"): it => render(it.text) 
 
   show raw.where(lang: "graphiz"): it => raw-render(it, width: 100%)
+  let linked-image(src) = html.elem("img", attrs:(src: src))
 
   show: show-target(paged: doc => {
     set page(

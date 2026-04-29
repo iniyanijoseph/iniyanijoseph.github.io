@@ -2,13 +2,15 @@
 #import "../../cv.typ": *
 
 #show: cv.with(subpage: true, root: "../../", fancylist: false)
+#let linked-image(src) = html.elem("img", attrs:(src: src))
+
 = Amtrak Rail Pass
-#figure([#image("amtrak.qr.jpg")], alt: "", caption: [QR Cde])
+#figure([#linked-image("amtrak.qr.jpg")], alt: "", caption: [QR Cde])
 This summer, I plan to use the Amtrak Rail Pass to travel for 1 month. This blog will contain my plans for the journey, and my thoughts on each day's experiences. 
 
 The following map gives an overview of the approximate Amtrak routes across the U.S. Chicago is the center of the rail network.
 
-#figure([#image("AmtrakRoutes.png")], alt: "Amtrak Route Map", caption: [Amtrak Route Map @caliberal2023amtrak])
+#figure([#linked-image("AmtrakRoutes.png")], alt: "Amtrak Route Map", caption: [Amtrak Route Map @caliberal2023amtrak])
 
 == Itinerary
 Currently, the itinerary of cities is
@@ -41,6 +43,7 @@ Currently, the itinerary of cities is
 |                    | Mid-Morning | Park Street Church              | FREE  | Along trail                              |
 |                    | Mid-Morning | Granary Burying Ground          | FREE  | Along trail                              |
 |                    | Mid-Morning | King's Chapel                   | FREE  | Along trail                              |
+|                    | Mid-Morning | Galleria Umberto                | $2.50 | Along trail                              |
 |                    | Lunch       | Faneuil Hall & Quincy Market    | FREE  | Browse & eat                             |
 |                    | Afternoon   | Paul Revere House               | $5.50 |                                          |
 |                    | Afternoon   | Old North Church                | $5    |                                          |
@@ -49,10 +52,15 @@ Currently, the itinerary of cities is
 | **Day 2 – Apr 29** | Morning     | Isabella Stewart Gardner Museum | $15   | 2–3 hours (Fenway)                       |
 |                    | Afternoon   | Harvard Art Museums             | FREE  | Student ID; take T from Fenway           |
 |                    | Afternoon   | Harvard Square + Harvard Yard   | FREE  | Walk around after museums                |
+|                    | Afternoon   | Arnold Arboretum                | FREE  | Walk around after museums                |
+|                    | Afternoon   | Museum of Bad Art               | FREE  | Walk around after museums                |
+|                    | Afternoon   | Dorchester Heights              | FREE  | Walk around after museums                |
+|                    | Afternoon   | Marine Heights                  | FREE  | Walk around after museums                |
 | **Day 3 – Apr 30** | Morning     | Newbury Street                  | FREE  | Shopping/dining                          |
 |                    | Morning     | Trinity Church                  | FREE  | Back Bay, 30 min                         |
 |                    | Morning     | Boston Public Library           | FREE  | Back Bay, 30 min                         |
-|                    | Afternoon   | Seaport District                | FREE  | Restaurants & browsing                   |
+|                    | Morning     | Regina Pizzeria                 | FREE  |                                          |
+|                    | Afternoon   | Seaport District                | FREE  | Museum of Ice Cream?                     |
 |                    | **3:15 PM** | **Depart South Station**        | —     | Seaport is a short walk to South Station |
 
 ```
@@ -94,7 +102,7 @@ Currently, the itinerary of cities is
 
 == Philadelphia - May 5th-May 8th
 
-#figure([#image("philadelphiamurals.jpg")], alt: "Map of Philadelphia's Murals", caption: [Map of Philadelphia's Murals])
+#figure([#linked-image("philadelphiamurals.jpg")], alt: "Map of Philadelphia's Murals", caption: [Map of Philadelphia's Murals])
 ```table
 | Day                                            | Time        | Stop                       | Cost          | Notes                                                     |
 |-----                                           |------       |------                      |------         |-------                                                    |
@@ -261,22 +269,22 @@ The most iconic pizzas from each city are:
 
 == Daily Updates
 === Day 1 - April 25 (Sat)
-#figure([#image("AmtrakPhotos/1.Swig.jpg")], caption: [Swig Soda Shop])
-#figure([#image("AmtrakPhotos/1.Station.jpg")], caption: [Marshall Texas Amtrak Station])
+#figure([#linked-image("AmtrakPhotos/1.Swig.jpg")], caption: [Swig Soda Shop])
+#figure([#linked-image("AmtrakPhotos/1.Station.jpg")], caption: [Marshall Texas Amtrak Station])
 Today was a surprisingly relaxed day. I fell asleep around midnight and woke up around 7 (a little shorter than I would have liked, but restful nontheless). I got ready and picked up Rina from UTD, and we got cookies from Hug Cafe in downtown McKinney. I probably never would have heard about it if it weren't from a coupon I received in the mail, but honestly it may be worth revisiting. The food was good, but more compellingly the restaurant provides employment to primarily people with intellectual disabilities. I came home and had paneer fried rice with Rina, then went to Swig for a small treat. We lost track of time a little, but made it home by 4 to leave for Marshall. I tried Chili's for the first time on the drive over, and Rina and I both ordered the veggies burger. It was alright, although there was nothing exemplary about it. I am excited for her move towards flex/veg-itarianism. It definitely will be challenging for her, but I also think it will be very rewarding. Overall, it was just nice being able to spend time with my family and one of my best friends, and I am looking forward to more days of just time to spend idly with Rina and Rino over the summer. I hope Rina has time when I go to D.C., but I am not holding my breath since its finals season. This does feel like the right time to travel though. Logically, I have the most time now, but I am also reminded of Ibn Batuta's words as well: "travelling - it gives you home in a thousand strange places, then leaves you a stranger in your own land". I hope this journey gives me a new lens on America, and I hope I come to appreciate my friends and family and home here even more. Until I got onto the train, I hadn't really contemplated the magnitude of the trip, but 30 days of constat travel is a long time, and more intense than even my 3 weeks of travel in India in December '24. I am a bit nervous, but also very excited. But first, as I write this, its probably time to sleep. The seats seem reasonably comfortable, and definitely more than I was expecting. Overall, today was a great start to what is hopefully a great trip.
 
 Song of the Day: Freight Train, Peter Paul and Mary
 
 === Day 2 - April 26 (Sun)
-#figure([#image("AmtrakPhotos/2.MOScenery.jpg")], caption: [Missouri's Forest Scenery])
-#figure([#image("AmtrakPhotos/2.MOMississippi.jpg")], caption: [Mississippi River 1-2 hour's ride south of St. Louis])
-#figure([#image("AmtrakPhotos/2.StLouisArch.jpg")], caption: [The St. Louis Arch from the train window])
-#figure([#image("AmtrakPhotos/2.ILScenery.jpg")], caption: [Cornfields a la Illinois])
-#figure([#image("AmtrakPhotos/2.StPatrickChurch.jpg")], caption: [St. Patrick's Church is interesting not only for its Celtic Revival art style, but also for having survived the Chicago Fire, thus becoming one of the oldest buildings in the city. The choir was rehearsing when I went inside, so I was able to listen to some singing as well.])
-#figure([#image("AmtrakPhotos/2.SearsTower.jpg")], caption: [Sears Tower from far enough away to be fully seen])
-#figure([#image("AmtrakPhotos/2.OldPostOffice.jpg")], caption: [The Old Post Office building - the building was closed when I visited, but I was able to get a picture of the entrance area])
-#figure([#image("AmtrakPhotos/2.ChicagoRiver.jpg")], caption: [Picture of the the Chicago River from near The Old Post Office])
-#figure([#image("AmtrakPhotos/2.ChicagoUnionStation.jpg")], caption: [Chicago's Union Station])
+#figure([#linked-image("AmtrakPhotos/2.MOScenery.jpg")], caption: [Missouri's Forest Scenery])
+#figure([#linked-image("AmtrakPhotos/2.MOMississippi.jpg")], caption: [Mississippi River 1-2 hour's ride south of St. Louis])
+#figure([#linked-image("AmtrakPhotos/2.StLouisArch.jpg")], caption: [The St. Louis Arch from the train window])
+#figure([#linked-image("AmtrakPhotos/2.ILScenery.jpg")], caption: [Cornfields a la Illinois])
+#figure([#linked-image("AmtrakPhotos/2.StPatrickChurch.jpg")], caption: [St. Patrick's Church is interesting not only for its Celtic Revival art style, but also for having survived the Chicago Fire, thus becoming one of the oldest buildings in the city. The choir was rehearsing when I went inside, so I was able to listen to some singing as well.])
+#figure([#linked-image("AmtrakPhotos/2.SearsTower.jpg")], caption: [Sears Tower from far enough away to be fully seen])
+#figure([#linked-image("AmtrakPhotos/2.OldPostOffice.jpg")], caption: [The Old Post Office building - the building was closed when I visited, but I was able to get a picture of the entrance area])
+#figure([#linked-image("AmtrakPhotos/2.ChicagoRiver.jpg")], caption: [Picture of the the Chicago River from near The Old Post Office])
+#figure([#linked-image("AmtrakPhotos/2.ChicagoUnionStation.jpg")], caption: [Chicago's Union Station])
 I woke up today morning in rural Missouri. I was expecting primarily cornfields on the train north to Chicago, so to see the woods south of St. Louis was a pleasant and unexpected surprise. I am reminded that people rarely see the things in their own city. In the same way, people rarely have the chance to fully see their own country, despite it being the easiest and cheapest to travel within. Given the scale of the U.S. there is the simultaneous problem of inaccessability between costs (where cost may be uncomfortably, if not prohibitively high to visit), and accessibility, with the easy of modern transit. After all, the best place to hide a needle is in a stack of other needles. I have heard similar stories of people from Singapore never seeking out the other side of the island since its relatively close, yet making the trip to sightsee in Malaysia. There is a degree of intentionality it takes to see the places you feel are home, and as a result we can all be left somewhat clueless about the places closest we are most comfortable in. Today morning's journey took me through Missouri and Illinois. I had passed over the cornfields in the fall when flying to Champaign, but with state lines more clearly indicated by train stops, I am realizing partially how different the two states are geographically. Along the line, I felt that Missouri had relatively humid woods along the Mississippi River contrasting with the cornfields almost immediately after leaving Saint Louis and entering Illinois. I am also seeing more clearly how much effort must have gone into building the Amtrak. America has a long way to go with trains, make no mistake. Compared to European, and especially to East Asian rail networks, the slow speed and limited reach of Amtrak is pretty sad. But the sheer distance and diversity of geography the train goes through and the scenery it has (in what is essentially a glass moving cafe) are still stunning, compared especially to what is possible to see and experience on my wn (or with a hourse, as it would have been 200 years ago).  No wonder people barely left the towns they were in for so much of history.
 
 On the stretch between St. Louis and Chicago,I met someone named Rafiq. He reminded me a lot of Rina, and was talking about the U.S. needed just one high speed rail built between cities for coach-class passengers, and that it would spread across the U.S. quickly, and how it needs more metro rail, and less cars. The high speed rail projects between SF/LA and Dallas/Houston/Austin may soon lead to a more connected country, and leave the older Amtrak trains second fiddle. It seems like America lost a part of itself in WWII when it destroyed the rail networks to get steel for creating machines of war. The national priority seemed to shift from developing internally to external intervention, and its retroactive justification of war has shaped american culture to be more focused on violently disarming potential threats than building opportunities for better futures. And to me, this loses sight of the dream of pregress and freedom, and the hope of a better society.
@@ -295,15 +303,15 @@ Overall, today was slower paced, but I had some interesting conversations, and I
 
 Song of the Day: Draft Dodger's Rag, Phil Ochs
 === Day 3 - April 27 (Mon)
- #figure([#image("AmtrakPhotos/3.Ohio.jpg")], caption: [Ohio in the morning along the line])
- #figure([#image("AmtrakPhotos/3.PAFarm.jpg")], caption: [Farmland in PA])
- #figure([#image("AmtrakPhotos/3.PAErie.jpg")], caption: [Pennsylvania past Erie, overlooking the lake])
- #figure([#image("AmtrakPhotos/3.NYUpstate.jpg")], caption: [New York Upstate Scenery])
- #figure([#image("AmtrakPhotos/3.MA.jpg")], caption: [Massachusets Scenery])
- #figure([#image("AmtrakPhotos/3.LakeshoreLimitedTrain.jpg")], caption: [Picture of the Lakeshore Limited Train (while stopped in Syracuse)])
- #figure([#image("AmtrakPhotos/3.BackBayStation.jpg")], caption: [Historic Buildings outside Back Bay Station (where I arrived in Boston)])
- #figure([#image("AmtrakPhotos/3.BostonChinatown.jpg")], caption: [Durgesh and I in front of the entrance to Boston's Chinatown])
- #figure([#image("AmtrakPhotos/3.BostonBay.jpg")], caption: [A cool building with an arch overlooking Boston's Harbor])
+ #figure([#linked-image("AmtrakPhotos/3.Ohio.jpg")], caption: [Ohio in the morning along the line])
+ #figure([#linked-image("AmtrakPhotos/3.PAFarm.jpg")], caption: [Farmland in PA])
+ #figure([#linked-image("AmtrakPhotos/3.PAErie.jpg")], caption: [Pennsylvania past Erie, overlooking the lake])
+ #figure([#linked-image("AmtrakPhotos/3.NYUpstate.jpg")], caption: [New York Upstate Scenery])
+ #figure([#linked-image("AmtrakPhotos/3.MA.jpg")], caption: [Massachusets Scenery])
+ #figure([#linked-image("AmtrakPhotos/3.LakeshoreLimitedTrain.jpg")], caption: [Picture of the Lakeshore Limited Train (while stopped in Syracuse)])
+ #figure([#linked-image("AmtrakPhotos/3.BackBayStation.jpg")], caption: [Historic Buildings outside Back Bay Station (where I arrived in Boston)])
+ #figure([#linked-image("AmtrakPhotos/3.BostonChinatown.jpg")], caption: [Durgesh and I in front of the entrance to Boston's Chinatown])
+ #figure([#linked-image("AmtrakPhotos/3.BostonBay.jpg")], caption: [A cool building with an arch overlooking Boston's Harbor])
 
 Last night's sleep was far worse. Partly, this is because the overhead lighting on the Lakeshore Limited didn't turn off all night, but I also think I need to start using my mouth guard on the trains as well. Thank god I brought it on the trip, I wasn't sure for a while, although it might be a bit annoying to wash on the train.
 
@@ -325,7 +333,51 @@ Today was slower paced, but it was nice to see the scenery, finally take a showe
 
 Song of the Day: Piano Concerto no. 5 "Emperor", Beethoven
 === Day 4 - April 28 (Tue)
+#figure([#linked-image("AmtrakPhotos/4.Steinway.jpg")], caption: [Steinert Steinway Hall])
+#figure([#linked-image("AmtrakPhotos/4.BostonCommon.jpg")], caption: [Boston Common Pond])
+#figure([#linked-image("AmtrakPhotos/4.BeaconHillMeetingHouse.jpg")], caption: [Beacon Hill Meeting House])
+#figure([#linked-image("AmtrakPhotos/4.MassachusettsStateHouseExterior.jpg")], caption: [Massachusetts State House Exterior])
+#figure([#linked-image("AmtrakPhotos/4.MassachusettsStateHouseInterior.jpg")], caption: [Massachusetts State House Interior])
+#figure([#linked-image("AmtrakPhotos/4.FuneilHall.jpg")], caption: [Funeil Hall])
+#figure([#linked-image("AmtrakPhotos/4.GalleriaUmberto.jpg")], caption: [Galleria Umberto Slice])
+#figure([#linked-image("AmtrakPhotos/4.PaulRevereHouse.jpg")], caption: [Paul Revere House])
+#figure([#linked-image("AmtrakPhotos/4.OldNorthChurch.jpg")], caption: [Old North Church])
+#figure([#linked-image("AmtrakPhotos/4.BunkerHillMemorial.jpg")], caption: [Bunker Hill Memorial])
+#figure([#linked-image("AmtrakPhotos/4.RoseKennedyGreenway.jpg")], caption: [Rose Kennedy Greenway])
+#figure([#linked-image("AmtrakPhotos/4.AcornStreet.jpg")], caption: [Acorn Street])
+#figure([#linked-image("AmtrakPhotos/4.CharlesRiverEsplenade.jpg")], caption: [Charles River Esplenade])
+#figure([#linked-image("AmtrakPhotos/4.BeaconHill.jpg")], caption: [Beacon Hill (one tiny portion, just to give an idea of how nice it is)])
+#figure([#linked-image("AmtrakPhotos/4.LindtShop.jpg")], caption: [Lindt Shop (apparently they have over 20 flavors? I tried carrot cake flavor, and it was pretty nice)])
+#figure([#linked-image("AmtrakPhotos/4.BostonPublicLibrary.jpg")], caption: [Boston Public Library])
+#figure([#linked-image("AmtrakPhotos/4.OldSouthChurchExterior.jpg")], caption: [Old South Church Exterior])
+#figure([#linked-image("AmtrakPhotos/4.OldSouthChurchInterior.jpg")], caption: [Old South Church Interior])
+#figure([#linked-image("AmtrakPhotos/4.ChristianSciencePool.jpg")], caption: [Christian Science Reflecting Pool])
+#figure([#linked-image("AmtrakPhotos/4.Berklee.jpg")], caption: [A theater at Berklee])
+Today was really fun. I did everything on my list (although slightly out of order), and ended up walking 34,734 steps all told. Boston common is definitely one of the best public gardens I have seen. I didn't spend too much time there, but it felt like I could walk and talk there for hours given the chance. The weather was chillier than yesterday, but with the amount of activity I think that was preferable. It was realyl peaceful, especially by the pond and the river. I didn't get into the friends meeting-understandable since 21 people live there as part of a Quaker community project. But I am glad I went into Beacon hill and looked around. 
 
+I went from there to the state house to pee and fill my water bottle, but it ended up being really cool inside. It is not only smaller and much prettier than the Texas capital, it also feels much more like a capitol building than a tourism site, since the senator's offices are not separated from the rest of the building. The buliding is actually covered in 23 karat gold, just to give an idea of the kind of money that went into building it.
+
+Boston as a whole has a huge preservation movement, so walking through the freedom trail twice was nice. I could do without the militarism and propogandization, but the philosophical background and seeing where people from the 17th and 18th century lived hteir lives was really neat.
+
+I stopped for lunh at Galleria Umberto along the way. It was surprisingly cheap, and definitely worth it. It was \$2.25 for a slice, and it was crispy and airy and flaky. My personal preference is with less oil and more of a fresh tomato flavor rather than cheese, but it was hard to deny that it was a good slice. The North End/Little Italy area was really cool. I am looking forward to comparing it to the one in Manhattan/Brooklyn.
+
+I also really enjoyed the Paul Revere house. It isn't that I have any particular fondness for his war-hawkishness, but the docents seemed fully aware of the irony of american secession. The house itself was also a really interesting example of life from that time. I spoke to one of the docents about the American Bread. This is something I want to look into. Apparently the early bread was made from milled corn, which lead to dense bread (since corn doesn't have much gluten). Despite this, bread was the backbone of the meal. In the 20th century, the convenience movement traded quality for cost, and led to the ultra-refined wonder-bread style bread of today. Apparently we are going through one of the largest land transfers in history as well, the transfer of land from individual farmers to large corporations, but its hard to say how this will turn out. Regulation may be neccessary. It was also nice being able to compare it to the 1920's house in Coppell, Texas. Very little changed in the way people built houses for the first 200 years, except maybe with slightly better heating systems.
+
+The Old North Church was interesting, but probably not worth the \$10. It did have the first organ fully manufactured in the US, which I found quite interesting. If I lived in Boston, it would warrant a visit to the service I am sure. The Old South Church on the other hand was absolutely beautiful, if not as historic. It's organ is also much larger, but being a Tuesday afternoon I didn't get to hear it.
+
+I had oranges from a market in Beacon Hill (the best orange I have had in a long time), which really scratched the itch from yesterday, and went to the Charles River Esplanade. I think its clear that Boston has put a lot of thought into creating public spaces. The Esplanade was probably my favorite walkway. Boston also seems to have a lot of indoor markets. Quincy Market was my favorite of the three I visited and although the prices were ridiculous (I would not pay \$20 for ice cream unless my life depended on it), it was pretty good.
+
+I stopped by the Boston Public Library, although I didn't look around much since I will go there on Thursday anyways, but it felt less like a library and more like an art museum. It was a really cool stop, which I was not expecting, and I am excited to see more. I actually got back around 5:30, since my phone was about to die, and texted with Rino and Rina a little before going on a walk to Berklee and the Christian Science Reflecting pool. 
+
+Although Boston is a little too into itself for being around for the revolutionary war, it is by far one of the most beautiful and interesting cities I have visited.
+
+I'm absolutely craving cheese today, I am looking forward to eating lots of Paneer, hummus, and Challah when I get back. I am also developing a craving for feta and the Greek Tortellini Salad (recipe by Delish). Maybe I should try to make Paneer Piccatta when I get back as well. I passed by a few fancy restaurants on the way back. I bet I could make some pretty solid Beet Gnocchi, like what was on their menu. 
+
+Action Items:
+Purchase Keychain from CVS
+History of American Bread
+
+Song of the Day: 'Tis The Gift to Be Simple
 === Day 5 - April 29 (Wed)
 
 === Day 6 - April 30 (Thu)
