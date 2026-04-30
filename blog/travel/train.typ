@@ -396,7 +396,7 @@ I went to Harvard for lunch, and tried Banh Mi for the first time. I really shou
 
 At the end, I visited the Museum of Bad Art. It wasn't very big, but it also undersells itself. Some of the art was pretty funny, even if it wasn't as technically impressive as the Harvard Art Museum. When given the chance, I think when traveling it makes more sense to try to see art museums than natural history without a compelling reason, since art is unique by nature, and natural history museums all often have similar information. The Field Museum in Chicago was worth visiting in particular, and I have heard similar things about the Smithsonian in NYC, but other than that I am not sure I should keep spending time in those. Walking through Dorchester, I saw the oldest house in Boston still standing, which was a pleasant surprise. Dorchester felt more like a "normal" more affordable neighborhood (Beacon Hill is unbelievably posh, and the North End is pretty wealthy too), but it still had a lot of character. In some ways, it reminded me of San Francisco, although more stately and with wider, less walkable roadways. I guess that would make San Francisco is sort of the average between Dorchester and Beacon Hill.
 
-Unless South Boston and the seaport district really impress me, I think North End was my favorite neighborhood to explore, not only because it is beautiful, but it also has affordable food, lots of history, and a dense feeling. That being said, if I had infinite money, I would probably live in Beacon Hill. In fact, if I ever move to Boston, if I could live with the Beacon Hill Friends Meeting, I could get a pretty great deal along with participating in that community and the amazing location. 
+Unless South Boston and the Seaport District really impress me, I think North End was my favorite neighborhood to explore, not only because it is beautiful, but it also has affordable food, lots of history, and a dense feeling. That being said, if I had infinite money, I would probably live in Beacon Hill. In fact, if I ever move to Boston, if I could live with the Beacon Hill Friends Meeting, I could get a pretty great deal along with participating in that community and the amazing location. 
 
 I think I packed well for this trip. Everything is lightweight and convenient. I do think I should buy an industrial/camping carabiner though, since I seem to be using my small one a lot, but I am not sure if it can hold up. As for tomorrow, I think I will have a slightly easier day since I have to get to the station by 2:15pm, even though there is a lot of walking with the rather heavy backpack slowing it down.
 https://maps.app.goo.gl/X8ARkc91uLJ6zYYv5
@@ -406,8 +406,7 @@ I am looking forward to NYC. I need to make sure to try Pizza, Bagels, Falafal S
 Song of the Day: Shipping up to Boston
 === Day 6 - April 30 (Thu)
 
-Song of the Day: 
-
+Song of the Day: New York, New York - Frank Sinatra 
 === Day 7 - May 1 (Fri)
 
 === Day 8 - May 2 (Sat)
@@ -460,9 +459,17 @@ Song of the Day:
 
 == QR Code
 #figure([#linked-image("amtrak.qr.jpg")], alt: "", caption: [QR])
-== Thing to Cook Later:
+== Thing to Cook/Eat after the Trip
+```
 Paneer Banh Mi
 Beet Gnocchi w/ Pine Nut, Goat Cheese, Fava Bean, Apple, Basil
 Tortellini Salad
 Paneer/Mushroom/Spinach Panuozzo Napolitano
 Ice Cream (from scratch)
+Really nice bread
+Feta Cheese
+Pretzels
+Bagels
+Boureka w/ Farmer Cheese/Paneer
+Falafel
+```
