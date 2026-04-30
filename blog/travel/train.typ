@@ -379,7 +379,7 @@ Song of the Day: 'Tis The Gift to Be Simple
 #figure([#linked-image("AmtrakPhotos/5.HarvardYard.jpg")], caption: [Harvard Yard])
 #figure([#linked-image("AmtrakPhotos/5.BanhMi.jpg")], caption: [Tofu Banh Mi])
 #figure([#linked-image("AmtrakPhotos/5.FrenchFries.jpg")], caption: [French Fries])
-#figure([#linked-image("AmtrakPhotos/5.HarvardArtMuseumBeach") #linked-image("AmtrakPhotos/5.HarvardArtMuseumTrain")], caption: [Painting of the beach in the Harvard Art Museum. It actually reminded me a lot of the cornfields in the Midwest as well. For some reason, I really liked this painting. I also have a train painting from the Harvard Art Museum (because it feels appropriate)])
+#figure([#linked-image("AmtrakPhotos/5.HarvardArtMuseumBeach.jpg") #linked-image("AmtrakPhotos/5.HarvardArtMuseumTrain.jpg")], caption: [Painting of the beach in the Harvard Art Museum. It actually reminded me a lot of the cornfields in the Midwest as well. For some reason, I really liked this painting. I also have a train painting from the Harvard Art Museum (because it feels appropriate)])
 #figure([#linked-image("AmtrakPhotos/5.HarvardScientificInstrumentsGallery.jpg")], caption: [Harvard Scientific Instruments Gallery])
 #figure([#linked-image("AmtrakPhotos/5.HarvardNaturalHistoryMuseumGlassFlowers.jpg")], caption: [Glass flowers at the Harvard Natural History Museum])
 #figure([#linked-image("AmtrakPhotos/5.Dorchester.jpg")], caption: [Dorchester])
