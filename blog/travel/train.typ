@@ -472,4 +472,6 @@ Pretzels
 Bagels
 Boureka w/ Farmer Cheese/Paneer
 Falafel
+Chico's Tacos
+CCCP Market
 ```
