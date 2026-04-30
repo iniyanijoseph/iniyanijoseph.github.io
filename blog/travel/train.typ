@@ -48,16 +48,12 @@ Currently, the itinerary of cities is
 |                    | Afternoon   | Old North Church                | $5    |                                          |
 |                    | Evening     | Rose Kennedy Greenway           | FREE  | Neighborhood stroll                      |
 |                    | Evening     | Beacon Hill                     | FREE  | End near South Station                   |
-| **Day 2 – Apr 29** | Morning     | Isabella Stewart Gardner Museum | $15   | 2–3 hours (Fenway)                       |
-|                    | Afternoon   | Harvard Art Museums             | FREE  | Student ID; take T from Fenway           |
+| **Day 2 – Apr 29** | Morning     | Massachusetts State House       | FREE  | 2–3 hours (Fenway)                       |
+|                    | Morning     | Isabella Stewart Gardner Museum | $15   | 2–3 hours (Fenway)                       |
+|                    | Afternoon   | Harvard Museums                 | $10   | Student ID; take T from Fenway           |
 |                    | Afternoon   | Harvard Square + Harvard Yard   | FREE  | Walk around after museums                |
-|                    | Afternoon   | Arnold Arboretum                | FREE  | Walk around after museums                |
-|                    | Afternoon   | Museum of Bad Art               | FREE  | Walk around after museums                |
-|                    | Afternoon   | Dorchester Heights              | FREE  | Walk around after museums                |
-|                    | Afternoon   | Marine Heights                  | FREE  | Walk around after museums                |
-| **Day 3 – Apr 30** | Morning     | Newbury Street                  | FREE  | Shopping/dining                          |
-|                    | Morning     | Trinity Church                  | FREE  | Back Bay, 30 min                         |
-|                    | Morning     | Boston Public Library           | FREE  | Back Bay, 30 min                         |
+|                    | Afternoon   | Museum of Bad Art/Dorchester    | FREE  | Walk around after museums                |
+| **Day 3 – Apr 30** | Morning     | Boston Public Library           | FREE  | Back Bay, 30 min                         |
 |                    | Morning     | Regina Pizzeria                 | FREE  |                                          |
 |                    | Afternoon   | Seaport District                | FREE  | Museum of Ice Cream?                     |
 |                    | **3:15 PM** | **Depart South Station**        | —     | Seaport is a short walk to South Station |
@@ -308,8 +304,7 @@ Song of the Day: Draft Dodger's Rag, Phil Ochs
  #figure([#linked-image("AmtrakPhotos/3.NYUpstate.jpg")], caption: [New York Upstate Scenery])
  #figure([#linked-image("AmtrakPhotos/3.MA.jpg")], caption: [Massachusets Scenery])
  #figure([#linked-image("AmtrakPhotos/3.LakeshoreLimitedTrain.jpg")], caption: [Picture of the Lakeshore Limited Train (while stopped in Syracuse)])
- #figure([#linked-image("AmtrakPhotos/3.BackBayStation.jpg")], caption: [Historic Buildings outside Back Bay Station (where I arrived in Boston)])
- #figure([#linked-image("AmtrakPhotos/3.BostonChinatown.jpg")], caption: [Durgesh and I in front of the entrance to Boston's Chinatown])
+ #figure([#linked-image("AmtrakPhotos/3.BackBayStation.jpg")], caption: [Historic Buildings outside Back Bay Station (where I arrived in Boston)]), #figure([#linked-image("AmtrakPhotos/3.BostonChinatown.jpg")], caption: [Durgesh and I in front of the entrance to Boston's Chinatown])
  #figure([#linked-image("AmtrakPhotos/3.BostonBay.jpg")], caption: [A cool building with an arch overlooking Boston's Harbor])
 
 Last night's sleep was far worse. Partly, this is because the overhead lighting on the Lakeshore Limited didn't turn off all night, but I also think I need to start using my mouth guard on the trains as well. Thank god I brought it on the trip, I wasn't sure for a while, although it might be a bit annoying to wash on the train.
@@ -378,8 +373,40 @@ History of American Bread
 
 Song of the Day: 'Tis The Gift to Be Simple
 === Day 5 - April 29 (Wed)
+#figure([#linked-image("AmtrakPhotos/5.FenwayRoseGarden.jpg") #linked-image("AmtrakPhotos/5.FenwayGarden.jpg")], caption: [Fenway Rose Garden and Rose Garden])
+#figure([#linked-image("AmtrakPhotos/5.DeclarationOfIndependenceDunlapPrinting.jpg")], caption: [Dunlap printing of the Declaration of Independence as the Massachusetts Historical Society])
+#figure([#linked-image("AmtrakPhotos/5.IsabellaStewartMuseumGarden.jpg")], caption: [Garden in the middle of the Isabella Stewart Gardner Museum])
+#figure([#linked-image("AmtrakPhotos/5.HarvardYard.jpg")], caption: [Harvard Yard])
+#figure([#linked-image("AmtrakPhotos/5.BanhMi.jpg")], caption: [Tofu Banh Mi])
+#figure([#linked-image("AmtrakPhotos/5.FrenchFries.jpg")], caption: [French Fries])
+#figure([#linked-image("AmtrakPhotos/5.HarvardArtMuseumBeach") #linked-image("AmtrakPhotos/5.HarvardArtMuseumTrain")], caption: [Painting of the beach in the Harvard Art Museum. It actually reminded me a lot of the cornfields in the Midwest as well. For some reason, I really liked this painting. I also have a train painting from the Harvard Art Museum (because it feels appropriate)])
+#figure([#linked-image("AmtrakPhotos/5.HarvardScientificInstrumentsGallery.jpg")], caption: [Harvard Scientific Instruments Gallery])
+#figure([#linked-image("AmtrakPhotos/5.HarvardNaturalHistoryMuseumGlassFlowers.jpg")], caption: [Glass flowers at the Harvard Natural History Museum])
+#figure([#linked-image("AmtrakPhotos/5.Dorchester.jpg")], caption: [Dorchester])
+#figure([#linked-image("AmtrakPhotos/5.OldestHouseinBoston.jpg")], caption: [The oldest house in Boston])
+#figure([#linked-image("AmtrakPhotos/5.MuseumofBadArt.jpg")], caption: [A small section of the Museum of Bad Art])
 
+Today was one of the more thought provoking days, as it was all museums. Yesterday was more physically demanding, and today was more mentally demanding. Tomorrow might be somewhere in between. I still did plenty of walking, about 25k steps, but there was a lot of standing as well. I woke up early, so I headed to the Isabella Stewart Gardner Museum.
+
+I got some coffee and bought the keychain in the Medical Academic Area. I walked around the Fenway garden (again, really pretty, but not super unique) and went to their visitor center. I also went to the Massachussetts Historical Society. The docents were very helpful, especially Amelia (I think she was going to a meeting, but stopped to explain the exhibits). They had multiple original prints of the Declaration of Independence, which was nice to see completely unexpectedly. Amelia also showed me George Washington's epaulets, which he gave up immediately after the Treaty of Paris was signed, ending the war for American secession. Although I disagree with the militarism, I think it was really fascinating that he gave up several of his posts willingly. I think it requires humility, and means the president has a keen eye on the vision of democracy. I am not sure that the United States would even exist as it does today had he not resignd, not just in the sense that other presidents may not have, but also since countries, like people "that live by the sword, die by the sword." They had a beautiful space, and it was suprisingly old. Apparently the building was built in the mid 1800s, but the society was founded in the 1790s. They also had the _Remember the Women_ letter on display there written from Abigail Adams to John Adams.
+
+The Isabella Steward Gardner Museum was really nice. It was unlike any art museum I had been to before. The second and third floors were all right, but the first floor, new wing, and special exhibit, were probably my favorite. They were thought provoking, since the objects in the room were not actually connected by any history or style, but essentially on vibes. And together, these created some themes that could be interpreted as an argument. For example, the special exhibit was a commentary about identity - the gap between what identities are assumed and the identities that are enforced, and the various ways people live up to and challenge these identities. I've never seen these sorts of blended displays, so I am glad I went. My favorite room was probably the MacKnight room, since it was so lively. It isn't that the room itself was brightly lit, but the paintings themselves were bright and animated.
+
+I went to Harvard for lunch, and tried Banh Mi for the first time. I really should learn to make it at home. It was one of the best sandwiches I have had in a long time. I am not sure it will be good for every meal, but it may be good to make occasionally to add to my repertoire. I also had some fries that were pretty good, although probably not worth the price. That area seems pretty expensive in general, but the food was also really good. Harvard Yard reminded me of UIUC in layout, with its big green spaces with diagonal lanes, but with the tall brick buildings of Purdue. I visited the Art Museum, which was free to the public, the Scientific Instruments Museum, and the Natural History Museum, which was \$10 with the student discount. It was definitely nice, but I was most excited to see the glass flowers, of which this collection is the only one like it in the world. I was expecting artworks, but these glass flowers were almost indistinguishable from real life, which was mind-boggling. They also had a glass sea creature collection and rock collection which was super cool. The rest of the natural history museum was good, although it was nothing too new.
+
+At the end, I visited the Museum of Bad Art. It wasn't very big, but it also undersells itself. Some of the art was pretty funny, even if it wasn't as technically impressive as the Harvard Art Museum. When given the chance, I think when traveling it makes more sense to try to see art museums than natural history without a compelling reason, since art is unique by nature, and natural history museums all often have similar information. The Field Museum in Chicago was worth visiting in particular, and I have heard similar things about the Smithsonian in NYC, but other than that I am not sure I should keep spending time in those. Walking through Dorchester, I saw the oldest house in Boston still standing, which was a pleasant surprise. Dorchester felt more like a "normal" more affordable neighborhood (Beacon Hill is unbelievably posh, and the North End is pretty wealthy too), but it still had a lot of character. In some ways, it reminded me of San Francisco, although more stately and with wider, less walkable roadways. I guess that would make San Francisco is sort of the average between Dorchester and Beacon Hill.
+
+Unless South Boston and the seaport district really impress me, I think North End was my favorite neighborhood to explore, not only because it is beautiful, but it also has affordable food, lots of history, and a dense feeling. That being said, if I had infinite money, I would probably live in Beacon Hill. In fact, if I ever move to Boston, if I could live with the Beacon Hill Friends Meeting, I could get a pretty great deal along with participating in that community and the amazing location. 
+
+I think I packed well for this trip. Everything is lightweight and convenient. I do think I should buy an industrial/camping carabiner though, since I seem to be using my small one a lot, but I am not sure if it can hold up. As for tomorrow, I think I will have a slightly easier day since I have to get to the station by 2:15pm, even though there is a lot of walking with the rather heavy backpack slowing it down.
+https://maps.app.goo.gl/X8ARkc91uLJ6zYYv5
+
+I am looking forward to NYC. I need to make sure to try Pizza, Bagels, Falafal Sandwich, Cronut, Babka, and Cheesecake when I get there (although tomorrow I will just get to Queens and eat and sleep).  
+
+Song of the Day: Shipping up to Boston
 === Day 6 - April 30 (Thu)
+
+Song of the Day: 
 
 === Day 7 - May 1 (Fri)
 
@@ -433,3 +460,9 @@ Song of the Day: 'Tis The Gift to Be Simple
 
 == QR Code
 #figure([#linked-image("amtrak.qr.jpg")], alt: "", caption: [QR])
+== Thing to Cook Later:
+Paneer Banh Mi
+Beet Gnocchi w/ Pine Nut, Goat Cheese, Fava Bean, Apple, Basil
+Tortellini Salad
+Paneer/Mushroom/Spinach Panuozzo Napolitano
+Ice Cream (from scratch)
