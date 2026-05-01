@@ -399,12 +399,33 @@ At the end, I visited the Museum of Bad Art. It wasn't very big, but it also und
 Unless South Boston and the Seaport District really impress me, I think North End was my favorite neighborhood to explore, not only because it is beautiful, but it also has affordable food, lots of history, and a dense feeling. That being said, if I had infinite money, I would probably live in Beacon Hill. In fact, if I ever move to Boston, if I could live with the Beacon Hill Friends Meeting, I could get a pretty great deal along with participating in that community and the amazing location. 
 
 I think I packed well for this trip. Everything is lightweight and convenient. I do think I should buy an industrial/camping carabiner though, since I seem to be using my small one a lot, but I am not sure if it can hold up. As for tomorrow, I think I will have a slightly easier day since I have to get to the station by 2:15pm, even though there is a lot of walking with the rather heavy backpack slowing it down.
-https://maps.app.goo.gl/X8ARkc91uLJ6zYYv5
 
-I am looking forward to NYC. I need to make sure to try Pizza, Bagels, Falafal Sandwich, Cronut, Babka, and Cheesecake when I get there (although tomorrow I will just get to Queens and eat and sleep).  
+I am looking forward to NYC. I need to make sure to try Pizza, Bagels, Cronut, Babka, and Cheesecake when I get there (although tomorrow I will just get to Queens and eat and sleep).  
 
 Song of the Day: Shipping up to Boston
 === Day 6 - April 30 (Thu)
+ #figure([#linked-image("AmtrakPhotos/6.BostonPublicLibrary.jpg")], caption: [Boston Public Library])
+ #figure([#linked-image("AmtrakPhotos/6.ReginaPizzeriaSlices.jpg.")], caption: [Regina Pizzeria])
+ #figure([#linked-image("AmtrakPhotos/6.BostonFederalReserve.jpg")], caption: [Boston Federal Reserve (At this rate, I may collect them all!)])
+ #figure([#linked-image("AmtrakPhotos/6.MuseumofIceCream.jpg")], caption: [Museum of Ice Cream])
+ #figure([#linked-image("AmtrakPhotos/6.SeaportDistrict.jpg")], caption: [Seaport District])
+ #figure([#linked-image("AmtrakPhotos/6.MAScenery.jpg")], caption: [Scenery of Massachusetts, just south of Boston])
+ #figure([#linked-image("AmtrakPhotos/6.RIScenery.jpg")], caption: [Rhode Island scenery])
+ #figure([#linked-image("AmtrakPhotos/6.CTScenery.jpg")], caption: [CT scenery along the coast])
+ #figure([#linked-image("AmtrakPhotos/6.NYCScenery.jpg")], caption: [NYC scenery at sunset coming into the city (I believe this is a view across the river from Brooklyn)])
+ #figure([#linked-image("AmtrakPhotos/6.PennStation.jpg")], caption: [Penn Station (on the LIRR level)])
+
+ I woke up today early-ish in the morning. I slept pretty poorly on the floor, but I moved to the coach and had much better sleep. I think the quality was good, but overall I still have a sleep debt. The coffee I had helped a lot.
+
+ I went to the Boston Public Library again as well, and had time to really see all the murals. I didn't get to see their copy of the Declaration of Independence, but maybe some other time. I wonder how they financed all of this publicly. The Great Hall was especially lovely. If I lived in downtown Boston, it would probably be one of my, if not the, go-to-spot for studying and getting work done. They had an advice column payphone setup in the library, where you could either ask for advice from an advice columnist or listen to other people's advice. It was pretty charming, even if I doubt many calls are truly taken. I wonder what life as an advice columnist would be like. It started raining around the same time I left the library, but my hiking bag has a rainproof hood (the yellow in the background of the Seaport District picture), so not much was affected. 
+
+ I ended up in the South Station a little before Regina's opened. I was hoping to eat lunch with Durgesh, but he had his final so I just said bye to him at the station and we split ways. I got two slices, as pictured. One cheese, and the other melanzane (ricotta, onion, and eggplant). The crust was absolutely incredible. I thought Galleria Umberto was good, and for the price it still is, but Regina's was on another level. The crust was like a Pringle chip on the bottom, completely crispy, but with the dough above, just soft enough to have a chewy, dense, bite. The sauce and cheese were also more to my taste than Umberto, but I have had better of those elements. Now the melanzane changed that. It was genuinely one of the best slices of pizza I have ever had. It was lightly sweet from the caramelized onion, but just enough to bring out the natural sweetness of the tomatoes and complement the richness of the ricotta and mix with the flavor of the eggplant. This was within the top 5 pizzas I have had in my life.
+
+ I explored the Seaport area a bit, but I lost interest. Part of it was the rainy weather, which made it less appealing to be out and about. In better weather I might have walked around more. But it also didn't stand out to me as as beautiful as the North End and Beacon Hill, as expected. I saw the Museum of Ice Cream, and it definitely is for kids. I think with an unlimited pass it could be worth it to spend a day there with friends, but as-is it didn't make sense for me to go. I will be making pleeeeeenty of ice cream over the summer anyways. I also passed by the Boston Federal Reserve Bank, although they don't have a museum. I ended up sitting in the station for a while, but I was able to get printed tickets for all the journey so I don't need to be as worried about my phone running out of charge.
+
+ Tomorrow I think I will eat at H&H Bagels, \$1.50 Fresh Pizza, and a Cronut. It is a lot of carbs, but I can probably offset it with walking, and will be eating much healthier the other days and probably packing food from home. I met Malli Athai and co. again today after a few years. We spoke for a bit, and I think the conversation was pretty interesting. It is mind boggling to me how far New York stretches. It isn't all high rises and tiny apartments like you see in the movies, which logically makes sense, but is also not what you think about. It really feels like a collection of cities (which it really is, thats how the Borough system came to be). I will buy Babka on the last day and bring it to Shilpa Auntie, and eat at the Cheesecake Factory when I go to Brooklyn on Monday. 
+
+ I am glad my beard isn't bothering that much. The speed at which it grows must have increased a good amount over the past couple years or something. I am glad though, as Forrest Gump says "Thats good. One less thing." Overall today was a solid day of travel. It was not the most exciting day, but I got my steps in and am in a good place to see NYC. 
 
 Song of the Day: New York, New York - Frank Sinatra 
 === Day 7 - May 1 (Fri)
@@ -474,4 +495,5 @@ Boureka w/ Farmer Cheese/Paneer
 Falafel
 Chico's Tacos
 CCCP Market
+Melanzane Pizza
 ```
