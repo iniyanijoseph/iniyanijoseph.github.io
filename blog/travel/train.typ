@@ -405,7 +405,7 @@ I am looking forward to NYC. I need to make sure to try Pizza, Bagels, Cronut, B
 Song of the Day: Shipping up to Boston
 === Day 6 - April 30 (Thu)
  #figure([#linked-image("AmtrakPhotos/6.BostonPublicLibrary.jpg")], caption: [Boston Public Library])
- #figure([#linked-image("AmtrakPhotos/6.ReginaPizzeriaSlices.jpg.")], caption: [Regina Pizzeria])
+ #figure([#linked-image("AmtrakPhotos/6.ReginaPizzeriaSlices.jpg")], caption: [Regina Pizzeria])
  #figure([#linked-image("AmtrakPhotos/6.BostonFederalReserve.jpg")], caption: [Boston Federal Reserve (At this rate, I may collect them all!)])
  #figure([#linked-image("AmtrakPhotos/6.MuseumofIceCream.jpg")], caption: [Museum of Ice Cream])
  #figure([#linked-image("AmtrakPhotos/6.SeaportDistrict.jpg")], caption: [Seaport District])
