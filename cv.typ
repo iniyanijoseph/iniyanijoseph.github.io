@@ -252,6 +252,13 @@
 
     ==== Performance
     #performance(
+      name: "Cedar Creek Lake Concert Chorale Spring Performance",
+      location: "Cedar Creek Lake United Methodist Church/Cedar Creek Lake United Church of Christ",
+      date: dt(2025, 4),
+      musicians: "Seth Thomas, Cedar Creek Concert Chorale, Iniyan Joseph",
+      details: "",
+    )
+    #performance(
       name: "This Christmastide",
       location: "Cedar Creek Lake United Methodist Church",
       date: dt(2025, 12),
