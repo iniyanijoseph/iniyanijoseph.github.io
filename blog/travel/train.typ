@@ -69,18 +69,19 @@ Currently, the itinerary of cities is
 | **Day 1 – May 1 (Manhattan)** | Morning     | Times Square                                            | FREE              | Less crowded early                     |
 | **Day 1 – May 1 (Manhattan)** | Morning     | $ 1.50 Fresh Pizza                                      | $1.50 (Duh)       | Ask for "regular, not cheese"          |
 |                               | Morning     | New York Public Library                                 | FREE              |                                        |
+|                               | Morning     | 5th Avenue + St. Patrick's Cathedral                    | FREE              | Start midtown, walk north              |
 |                               | Mid-Morning | Grand Central Station                                   | FREE              |                                        |
 |                               | Mid-Morning | Rockefeller Center                                      | FREE              | Exterior                               |
 |                               | Afternoon   | AMNH                                                    | Pay-what-you-wish | Can pay $1 w/ student ID               |
 |                               | Afternoon   | Central Park                                            | FREE              | Walk through after AMNH                |
 |                               | Evening     | Greenwich Village                                       | FREE              | Dinner & wander                        |
-| **Day 2 – May 2 (Manhattan)** | Morning     | 5th Avenue + St. Patrick's Cathedral                    | FREE              | Start midtown, walk north              |
-|                               | Mid-Morning | Museum Mile (82nd–105th St)                             | —                 | All on 5th Ave                         |
+| **Day 2 – May 2 (Manhattan)** | Mid-Morning | Museum Mile (82nd–105th St)                             | —                 | All on 5th Ave                         |
+|                               | Mid-Morning | El Museo del Barrio                                     | Pay-what-you-wish | Can pay $1 w/ student ID               |
 |                               | Mid-Morning | The Met                                                 | Pay-what-you-wish | Can pay $1 w/ student ID               |
-|                               | Mid-Morning | El Museo del Barrio                                     | **FREE**          | Students free                          |
-|                               | Mid-Morning | Museum of the City of New York                          | **FREE**          | Students free                          |
-|                               | Afternoon   | Guggenheim                                              | **$18**           | Student ID                             |
-|                               | Evening     | MoMA                                                    | **FREE**          | Free every Fri 5:30–9pm                |
+|                               | Mid-Morning | Museum of the City of New York                          | **$14**           | Students free                          |
+|                               | Mid-Morning | Jewish Museum                                           | **FREE**          | Students free                          |
+|                               | Afternoon   | MoMA                                                    | **FREE**          | Free every Fri 5:30–9pm                |
+|                               | Evening     | 9/11 Memorial                                           | **FREE**          |                                        |
 | **Day 3 – May 3 (Queens)**    | Morning     | Flushing Chinatown                                      | FREE              | Best cheap food in NYC                 |
 |                               | Afternoon   | Flushing Meadows-Corona Park                            | FREE              | USTA, Queens Museum nearby             |
 |                               | Evening     | Jackson Heights                                         | FREE              | Little India — great cheap eats        |
@@ -449,7 +450,7 @@ One cool thing about NYC is the amount of street music. In the scale of peaceful
 
 So far, my favorite part of Manhattan were Little Italy (even if its small) and Central Park.
  
-Note: I will upload pictures tomorrow or Sunday because I have a LOT to sort through.Tomorrow I will essentially walk from 105th St/South Harlem to 6th St/Lower Manhattan and see the museum and sightsee along the way. It will be exhausting, but very fun.
+Note: I will upload pictures tomorrow or Sunday because I have a LOT to sort through. Tomorrow I will essentially walk from 105th St/South Harlem to 6th St/Lower Manhattan and see the museum and sightsee along the way. It will be exhausting, but very fun. I am also going to skip the Guggenheim because of time, and opt to focus on seeing the Met more thoroughly, and the MoMA if I have time, and that gives me the freedom to choose. 
 
 Song of the Day: Always Look at the Bright Side of Life, Monty Python
 === Day 8 - May 2 (Sat)
