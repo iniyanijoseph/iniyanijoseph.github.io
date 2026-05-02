@@ -369,7 +369,7 @@ I'm absolutely craving cheese today, I am looking forward to eating lots of Pane
 
 Action Items:
 Purchase Keychain from CVS
-History of American Bread
+#link("https://www.saveur.com/article/Kitchen/Bread-History-America/")[History of American Bread]
 
 Song of the Day: 'Tis The Gift to Be Simple
 === Day 5 - April 29 (Wed)
@@ -429,7 +429,29 @@ Song of the Day: Shipping up to Boston
 
 Song of the Day: New York, New York - Frank Sinatra 
 === Day 7 - May 1 (Fri)
+Whoa. That's really the best way to start. Today was the 7th day, marking 1 week of travel. I am glad to say that it is all going well so far. The first day in New York City was wild. I started the morning with some crazy dreams, but a very very restful street. The public transit so far has actually all been really nice and navigable. I was promised unintelligible conductor announcements. Is this Mamdani's NYC!? This is UN-AC-CEPTABLE. In all seriousness, the transit in New York City, if you get used to it, is basically teleportation inside Manhattan or within a single borough. Malli Athai gave me some fruits, which I ate throughout the day. There really is quite a bit of "suburb" in NYC.
 
+I think Appa would be fine in Queens or New Jersey honestly. It has most of teh convenience of the city like late closings, good food, and public transit. while still having the more relaxed culture of the suburbs. The suburbs are also very pretty. The suburbs have more nature than Dallas in some places, but Midtown and Times Square feel unlivably utilitarian. There are barely any green spaces, and it feels almost stressful for that to be so much of the norm, especially compared to a city like Boston which is littered with them.
+
+Everything in Midtown was insanity though. The things to see were very cool, especially Saint Patrick's Catherdral, which was very pretty. It would be hard to do this every day, but to have it accessible is very nice. It makes a lot of sense that Midtown is more a business district than a residential one.
+
+Grand Central Station was very cool. The Grand Hall in Chicago's Amtrak station was nice, but this was really on another level. The dining area reminded me of Fenueil Market in Boston, but also connected to every train and built underground. 
+
+I had the \$1.50 Fresh Pizza. I think my pizza that I make at home was better, but I did like the sauce and cheese more than the New England Style. The crust was good, but I think I like a crispier crust. I also had Black Street Bagels from the Metlife building. It was good, but I wasn't impressed to the point I believed it was an icon, the same way that I could believe in the pizza being truly iconic. There was a lot of cream cheese and it was lighter than a lot of cream cheese I have had. It was also slightly more sour than I expected, but not bad. The best bagel I have had was probably the one at Suju's Coffee, with an Italian Soda on the side (sparkling water with flavor syrup). 
+
+Overall, I think I understand better what people say when they mean its "fast paced". Simply put, to describe Manhattan, in other cities where you can wander, in NYC and Chicago you explore. And this is good and bad. It means there is  alot to do, and always something new to see, but at the same time it is inelegant and messy and not beautiful. And in other cities like Boston, San Francisco, and D.C. (which are also huge major cities) you have more breathing room stop and smell the roses, since the city is designed to be both grand and beautiful rather than a big machine. I don't think I would want to live in Manhattan, especially not close to midtown (maybe little Italy wouldn't be terrible), but living in Queens certainly seems nice, and having NYC and that sort of city to explore. 
+
+On the way to the American Museum of Natural History from Midtown, I walked through the south half of Central Park (East to West along Sheep Meadow, then West to East around the lake, then to the AMNH). As I was walking, I was thinking - I shouldn't let worries about futures with inconcrete steps to achieve them weigh me down. I should focus on the more immediate things that ultimately serve to these end goals without having to think about the end goals themself. So in other words, don't let the good life pass you by.
+
+The AMNH building was fascinating. It is one of the biggest buildings in terms of area that I have seen here. The exhibits felt slightly outdated, but it was still overall competing with the Fieldd Museum in Chicago. I think Chicgao has a better space and dinosaur exhibits, but the shadowbox presentation and organization was clearer here. I may still slightly prefer Chicago, but it was still very very nice overall. I especially liked the primates and human origins exhibit (although this is a soft spot of mine). I liked how they made it clear what was "filled in" information and what was real in the fossils and remains using only wire outlines. I went to Tribeca afterwards, then through Chinatown and Little Italy in Manhattan. I had some noodles there for \$3.50 that were pretty good for the price.
+
+One cool thing about NYC is the amount of street music. In the scale of peacefulness, I think NYC is the most high-intensity city, then Chicago, then (with a bit of a gap here) Boston, then DC, then SF. I haven't been to Seattle and Philly before, so I am looking forward to seeing how that compares. Lower Manhattan is definitely nicer to live in that downtown. I also saw City Hall in passing in Tribeca waiting for the Bus to arrive to take me back to Queens.
+
+So far, my favorite part of Manhattan were Little Italy (even if its small) and Central Park.
+ 
+Note: I will upload pictures tomorrow or Sunday because I have a LOT to sort through.Tomorrow I will essentially walk from 105th St/South Harlem to 6th St/Lower Manhattan and see the museum and sightsee along the way. It will be exhausting, but very fun.
+
+Song of the Day: Always Look at the Bright Side of Life, Monty Python
 === Day 8 - May 2 (Sat)
 
 === Day 9 - May 3 (Sun)
