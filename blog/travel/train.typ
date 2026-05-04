@@ -430,6 +430,25 @@ Song of the Day: Shipping up to Boston
 
 Song of the Day: New York, New York - Frank Sinatra 
 === Day 7 - May 1 (Fri)
+ #figure([#linked-image("AmtrakPhotos/7.RockefellerCenter.jpg")], caption: [Rockefeller Center])
+ #figure([#linked-image("AmtrakPhotos/7.StPatricksCathedralExterior.jpg")], caption: [St. Patrick's Cathedral Exterior])
+ #figure([#linked-image("AmtrakPhotos/7.StPatricksCathedralInterior.jpg")], caption: [St. Patrack's Cathedral Interior])
+ #figure([#linked-image("AmtrakPhotos/7.NYTimesSquare.jpg")], caption: [Times Square])
+ #figure([#linked-image("AmtrakPhotos/7.TimesSquareNeighborhood.jpg")], caption: [Times Square Neighborhood (south part of midtown)])
+ #figure([#linked-image("AmtrakPhotos/7.1.50FreshPizza.jpg")], caption: [\$1.50 Fresh Pizza])
+ #figure([#linked-image("AmtrakPhotos/7.BryantPark.jpg")], caption: [Bryant Park])
+ #figure([#linked-image("AmtrakPhotos/7.NYCLibrary.jpg")], caption: [NYC Library])
+ #figure([#linked-image("AmtrakPhotos/7.GrandCentralStationExterior.jpg")], caption: [Grand Central Station Exterior])
+ #figure([#linked-image("AmtrakPhotos/7.GrandCentralStationInterior.jpg")], caption: [Grand Central Station Interior])
+ #figure([#linked-image("AmtrakPhotos/7.CentralPark")], caption: [Central Park (towards the South East side)])
+ #figure([#linked-image("AmtrakPhotos/7.AMNH.jpg")], caption: [American Museum of Natural History])
+ #figure([#linked-image("AmtrakPhotos/7.UndergroundMarket.jpg")], caption: [Underground Market])
+ #figure([#linked-image("AmtrakPhotos/7.Chinatown.jpg")], caption: [Chinatown])
+ #figure([#linked-image("AmtrakPhotos/7.PeanutButterNoodle.jpg")], caption: [Fujian Peanut Noodles])
+ #figure([#linked-image("AmtrakPhotos/7.LittleItaly.jpg")], caption: [Little Italy])
+ #figure([#linked-image("AmtrakPhotos/7.LombardisPizzeria.jpg")], caption: [Lombardi's Pizza (The first pizza shop in the U.S.)])
+ #figure([#linked-image("AmtrakPhotos/7.NYCTownHall.jpg")], caption: [NYC Town Hall])
+ #figure([#linked-image("AmtrakPhotos/7.BrooklynBridgeView.jpg")], caption: [view of the Brooklyn Bridge and East River from the QM8 bus])
 Whoa. That's really the best way to start. Today was the 7th day, marking 1 week of travel. I am glad to say that it is all going well so far. The first day in New York City was wild. I started the morning with some crazy dreams, but a very very restful street. The public transit so far has actually all been really nice and navigable. I was promised unintelligible conductor announcements. Is this Mamdani's NYC!? This is UN-AC-CEPTABLE. In all seriousness, the transit in New York City, if you get used to it, is basically teleportation inside Manhattan or within a single borough. Malli Athai gave me some fruits, which I ate throughout the day. There really is quite a bit of "suburb" in NYC.
 
 I think Appa would be fine in Queens or New Jersey honestly. It has most of teh convenience of the city like late closings, good food, and public transit. while still having the more relaxed culture of the suburbs. The suburbs are also very pretty. The suburbs have more nature than Dallas in some places, but Midtown and Times Square feel unlivably utilitarian. There are barely any green spaces, and it feels almost stressful for that to be so much of the norm, especially compared to a city like Boston which is littered with them.
@@ -454,6 +473,20 @@ Note: I will upload pictures tomorrow or Sunday because I have a LOT to sort thr
 
 Song of the Day: Always Look at the Bright Side of Life, Monty Python
 === Day 8 - May 2 (Sat)
+ #figure([#linked-image("AmtrakPhotos/8.CentralParkGarden.jpg")], caption: [Central Park's Garden])
+ #figure([#linked-image("AmtrakPhotos/8.MuseumOfNYC.jpg") #linked-image("AmtrakPhotos/8.MuseumOfNYCMiniature.jpg")], caption: [Museum of the City of New York])
+ #figure([#linked-image("AmtrakPhotos/8.ElMuseoDelBarrio.jpg")], caption: [El Museo Del Barrio])
+ #figure([#linked-image("AmtrakPhotos/8.JewishMuseum.jpg")], caption: [Jewish Museum])
+ #figure([#linked-image("AmtrakPhotos/8.Guggenheim.jpg")], caption: [Guggenheim (from the exterior)])
+ #figure([#linked-image("AmtrakPhotos/8.Signac.jpg")], caption: [Two of Signac's most famous paintings])
+ #figure([#linked-image("AmtrakPhotos/8.LePetitPrince.jpg")], caption: [Statue of Le Petit Prince near where Antoine Saint-Exupery wrote the book in NYC])
+ #figure([#linked-image("AmtrakPhotos/8.EmpireStateBuilding.jpg")], caption: [EmpireStateBuilding])
+ #figure([#linked-image("AmtrakPhotos/8.MadisonGarden.jpg")], caption: [Madison Square])
+ #figure([#linked-image("AmtrakPhotos/8.Flatiron.jpg")], caption: [Flatiron Neighborhood])
+ #figure([#linked-image("AmtrakPhotos/8.NOHO.jpg")], caption: [NOHO Neighborhood])
+ #figure([#linked-image("AmtrakPhotos/8.Soho.jpg")], caption: [SOHO Neighborhood])
+ #figure([#linked-image("AmtrakPhotos/8.Tribeca.jpg")], caption: [Tribeca Neighborhood])
+ #figure([#linked-image("AmtrakPhotos/8.WTC")], caption: [World Trade Center])
 It really is crazy to think that it's been a week already. I slept really well again, once I get back I may need to invest in a better pillow. The one that I am using here is Living Lux Cooling Gel/Memory Foam, which honestly would be nice. I think the investment would be worth it. Normally I sleep face-down, but here I barely roll over, so maybe my posture is a result of poor neck support. I pretty much followed the plan today. I saw more of Central Park (the gardens), then went to the City of the Museum of New York, then El Museo del Barrio, then the Jewish Museum, and finally the Met. After that, I walked from the Met to the 9/11 Memorial (about a 2 hour walk), and finished seeing (most of) Manhattan. I was on my feet a lot, but surprisingly didn't get as many steps as yesterday, only 30380. It isn't the end of the world, just a bit surprising. I think having a borrowed charging block on hand was very useful, I may need to try to buy one at some point if I get a chance. Wired earbuds similarly may be a good idea. Some of the subways were a bit confusing on the way back, since the train switched from a local to express train suddenly and without warning, but I was able to get back all right without a large delay. I did learn though that Subway Surfers is based on a real game, and is extremely dangerous. I feel bad for those peopel, it's so dangerous, I am skeptical the adrenaline rush is worth it.
 
 The City Museum was very cool and the miniature especially was fantastic. Overall, I learned a lot from it. I think Jacob Riis's and Upton Sinclair's work is really interesting. I should look into it when I get back. Tomorrow I am going to visit the Flushing Friends meeting, which is over 300 years old. New York began as a trade port connecting Lake Erie and the Midwest with the Atlantic since the Hudson River is a great harbor, then an immigration hub as a result of the multiple moving populationa, which then made it an industrial center. From there the reforms of the early 19th century pushed it towards becoming more focused on other things like large companies and less manufacturing and developing suburban neighborhoods. Now it is sort of going through the reverse of the Tenement phase, where quality of life and affordability are needing to be balanced and the whole city is too expensive for many, causing migration to New Jersey. New York is also trying to start preserving and restoring it's older neighborhoods rather than turn the whole city into high rises, much like how Botson once did. I think you get a sense looking at the history of NYC and it's surrounding areas of being a canary in the colemines in a sense of the cultural moments of the U.S., similar to SF and Chicago.
@@ -471,6 +504,36 @@ Again, I will not post pictures today, but I will soon once I relabel everything
 Song of the Day: I Got Rhythm, George Gershwin
 
 === Day 9 - May 3 (Sun)
+ #figure([#linked-image("AmtrakPhotos/9.LuciaPizza.jpg")], caption: [Lucia's Pizza])
+ #figure([#linked-image("AmtrakPhotos/9.FlushingFriendsMeeting.jpg")], caption: [Flushing Friends Meeting])
+ #figure([#linked-image("AmtrakPhotos/9.FlushingChinatown.jpg")], caption: [Flushing Chinatown])
+ #figure([#linked-image("AmtrakPhotos/9.ColdNoodles.jpg")], caption: [Nood Pics])
+ #figure([#linked-image("AmtrakPhotos/9.WorldsFair.jpg")], caption: [World's Fair Globe])
+ #figure([#linked-image("AmtrakPhotos/9.CoronaPark.jpg")], caption: [Corona Park])
+ #figure([#linked-image("AmtrakPhotos/9.Corona.jpg")], caption: [Corona Neighborhood])
+ #figure([#linked-image("AmtrakPhotos/9.QueensbridgeDistrictandRooseveltIsland.jpg.jpg")], caption: [The Queensbridge Project Housing's view of the Ed Koch Bridge, Roosevelt Island, and Manhattan])
+ #figure([#linked-image("AmtrakPhotos/9.SingasFamous.jpg")], caption: [Singa's Pizza])
+
+ As predicted, today was a more slow-paced day. I slept very well, but not very much, so I was still really tired by the end, even though I only did around 22000 steps. I also ate a lot, like probably three days worth of food, which didn't help. No wonder everyone I spoke to said Queens has the best food. It was by far some of the best food I have had on this trip on average.
+
+ In a lot of ways, Queens, especially east of Astoria, overall reminds me of Fremont (California) culturally. It is more hostile and intense than North Texas, where people definitely lean more towards giving you the time of day, but still more of a middle to upper-middle class suburban pace of life and attractions. I began and ended the day with pizza. I started in Flushing, in my opinion the best Chinatown in NYC. Rino, having visited both, put it perfectly. Chinatown feels like an advertisement for China. Flushing feels like China. To be more precise, the ethnic majority neighborhoods in Manhattan feel like a pastiche, but in Flushing (and from what I have heard, parts of Brooklyn) felt genuinely like stepping into China. In Flushing, I ate at a pizza by the slice place called Lucia's which was meant to be some of the best pizza in Queens. It was good, definitely much better than \$1.50 Fresh and probably marginally better objecitively than I could make, atlhough I still may prefer my own. I don't think it the best pizza I have had on the trip, that award still goes to the New England Style at Regina Pizzeria, but it was very good. The crust had the same mild sweetness that was almost reminded me of a chinese bakery (appropriate, because it is Flushing). I also had a coffee cake a la Seinfeld. It was good gas station food. Generic, but interesting, since I hadn't had it before.
+
+ I then went to the Flushing Friends Meeting, the second-oldest continually (except for 2 years in the 1770s because of the America War of Secession) operated house of worship in the United States (with a meeting house in Maryland predating it by about a decade). It was built in the 1680s at the same time that Quakerism was coming into fruition, and was just a really cool historic space. It was also the home of the first school in Queens, hosted George Washington twice (although he probably didn't sleep there), was extremely ironically given the BSA's military association where the creaters of the Boy Scouts of America and the Campfire Girls went to worship growing up, hosted George Fox and William Penn, and was involved in the early Hicksite splite. It also was a good example of the kind of old growth wood available at that time, and medieval style wooden braces. I attended the meeting for worship and met the other congregants. One was a historian at CUNY, and another was a theatre in Long Island and at Cornell. I learned a lot there about Quakers and their origins in the Americas, which was really cool.
+
+ After meeting for worship and getting the tour of the space, I went to a noodle place to have the best cold noodles I have ever had. They were peppery and fresh and spicy, and tasted even better than they looked. After that, I walked to and around Corona Park. It was not great overall compared to Central Park and those huge beautiful and well designed spaces. The lakes were certainly cool, but it felt like too much of it had been bulldozed and turned into a highway. The World's Fair globe was cool, but overall the glory days are over. That being said, it seems to serve a different function. Rather than being a park truly for wandering and enjoying, as a community space for birthday parties and soccer games it seems to do just fine. Because of how much space is there (again likely due to the initial World's Fair construction). I walked from Corona through the neighborhood, had a Bialy (which was nice, although not too different from a Bagel), and took the F train to Queensbridge. It was probably a mistake, but ended up pretty well, since I got an amazing view over the East River. I was trying to get to Astoria, not Long Island City, but it was still beautiful. Queensbridge is actually the largest project housing in North America, and it was definitely poorer than East Queens and Corona. By the end, I was dead tired, so I came back and took a nap, then had pizza from a restaurant called Singa's Famous Pizza. Those leftovers are going to be really good on Tuesday when I am walking around and on the Staten Island Ferry.
+
+ Tomorrow is mostly just walking through Brooklyn's various neighborhoods. I have planned about a 11 mile walk through northern Brooklyn, but that assumes no stops. I will start at Moore Market, go to Prospect Park, then eat at Luigi's, then walk north to explore DUMBO, eat a slice at L&P Spumoni Gardens, and then go over the Brooklyn Bridge. It will be a long day, but very fun. I was thinking today about the different types of days that you can have when exploring a city. Parks and Mark(et)s. Neighborhood/Rino days, where you walk forever, and Museum Days. And choosing how to manage that and keeping it consistent leads to most enjoyment.
+ Building healthy relationships is very difficult. I think it takes a lot of time to feel close to me in a sustainable way. It isn't that you can't feel close after only a very short period of time, but I think that it becomes unsustainable since it isn't very fulfilling. In contrast, the relationships which are built slowly and intentionally with the knowledge and intention of there being more time are more likely to succeed because the people are working together to create the relationship in the way that is the best for close friendships. I am looking forward to this summer with Rino and Rina. I don't know how much time all three of us but just spending time with my closest friends before I go is very important to me.
+ 
+ The Corona Park neighborhood is very pleasant. It feels more like Rich suburbs again but in a more dense way then Little Neck, sort of like DC. I am still skeptical that there is a HOA since there is no uniformity but still the houses all have a certain charm and there are lots of trees and lots of green and front yards. I think having big well-maintained trees and even an attempt at keeping me the sidewalks and roads clean the and graffiti-free automatically make a neighborhood look more nice and appealing to live in. I think Manhattanites are performative, and Queens people are the kind of ppl to hang out at a local park and play basketball or something, but not really wander - very Fremont-esque.
+
+ My biggest critique on NYC is suprisingly the noise pollution. There is a constant wooshing sound from traffic which is really unpleasant. 
+
+ So far, the highlights of of the trip have been the Charles River Esplanade, Beacon Hill, Freedom Trail, Regina's Pizzeria the Met, Central Park, and Flushing Chinatown's food. I am really looking forward to Brooklyn. I've heard a lot about it and suspect it may be my favorit district, but who's to say how it will turn out. 
+
+ I also have a lot to look forward to coming back. Getting new glasses, returning to my yummy paneer/hummus diet. Learning to make new foods too. 
+
+ Song of the Day: You've Got a Friend in Me, Randy Newman
 
 === Day 10 - May 4 (Mon)
 
