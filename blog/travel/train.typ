@@ -564,6 +564,11 @@ Song of the Day: Chopin Scherzo no. 2, Seong-Jin Cho
  #figure([#linked-image("AmtrakPhotos/11.MoynihanHall.jpg")], caption: [Moynihan Hall])
  #figure([#linked-image("AmtrakPhotos/11.NJ.jpg")], caption: [New Jersey])
  #figure([#linked-image("AmtrakPhotos/11.30thStreetStation.jpg")], caption: [30th Street Station])
+ I took the express bus to Manhattan today and spent some time in Battery Park. On the way, I bought some cheesecake babka for Shilpa Auntie and co, which ended up being quite good. I then took the Staten Island ferry and walked around St. George. It was about as peaceful as Brooklyn, but it didn't have any of the same benefits and felt very boring and dull. One of the things about eating so much pizza on this trip is that my cravings for light food and dairy protein especially have skyrocketed. Just eating paneer and a salad sound amazing. I don't know if I will continue to have pizza after D.C
+
+I walked around Penn Station and Downtown Manhattan after coming back from the ferry, and texted Rino. It was a very laid back day, and I only got around 15k steps overall. I am glad though, I think that I would have not had energy to travel otherwise on future days. Tomorrow I will have Tomato Pie and go through the planned itinerary. I didn't realize how small the central part of Philadelphia is. I will also probably walk to the river. Rino says theres not much to do there so despite tighter time restrictions I don't think I will be missing anything.
+
+The Vermonter train to Philadelphia is about the same as the Northeast Regional. I think after I leave D.C. all the trains will be comfortabl New York was overall very interesting. It feels hostil to religion, but much easier to be cultural. In the same way americans are encouraged to only discuss and live religion on Sundays (what I call "Sunday Christians"), New York somehow (partially due to its fast pace) fells especially antagonistic towards the reflection that faith deserves. At the same time, the speed and diversity encourage you to not only learn about other cultures but to have a specific identity so that you can quickly find a community. Maybe thats why faith easier in India as well, just the sheer diversity of faiths and the search for connection. I am curious about the differences between African-American culture and the culture I grew up with. It is really interesting being around a lot of black people for the first time, and being around the comparatively looser culture. The intensity of NYC might come partially from people being unwilling to share about themselves and trust other people easily without a good reason. Conversation exists, but it generally has a specific goal, and is never just free to breathe, similar to California. I was also randomly wondering what the world would look like if all 8 billion+ people (minus the people who need to work in agriculture). It would certainly be very interesting, there would be a very different sociopolitical environment. I also wonder why tobacco usage in the East Coast is so much more normalized than in other places I have been to. Philadelphia and NYC seem to be the worst about it, even young people are using tobacco.
 
 Song of the Day: Weightless, Marconi Union
 === Day 12 - May 6 (Wed)
@@ -597,6 +602,7 @@ Culturally, the city feels a bit like the Midwest. The co-occurence with Amish p
 
 Tomorrow, if I have time, I am considering of going to King of Peoria in addition to the rest of the schedule to see their shopping mall, since it is the fourth-largest shopping mall in the United States. 
 
+Song of the Day: If I Had a Hammer, Peter Paul and Mary
 === Day 13 - May 7 (Thu)
 
 === Day 14 - May 8 (Fri)
