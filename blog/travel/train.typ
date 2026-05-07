@@ -511,7 +511,7 @@ Song of the Day: I Got Rhythm, George Gershwin
  #figure([#linked-image("AmtrakPhotos/9.WorldsFair.jpg")], caption: [World's Fair Globe])
  #figure([#linked-image("AmtrakPhotos/9.CoronaPark.jpg")], caption: [Corona Park])
  #figure([#linked-image("AmtrakPhotos/9.Corona.jpg")], caption: [Corona Neighborhood])
- #figure([#linked-image("AmtrakPhotos/9.QueensbridgeDistrictandRooseveltIsland.jpg.jpg")], caption: [The Queensbridge Project Housing's view of the Ed Koch Bridge, Roosevelt Island, and Manhattan])
+ #figure([#linked-image("AmtrakPhotos/9.QueensbridgeDistrictandRooseveltIsland.jpg")], caption: [The Queensbridge Project Housing's view of the Ed Koch Bridge, Roosevelt Island, and Manhattan])
  #figure([#linked-image("AmtrakPhotos/9.SingasFamous.jpg")], caption: [Singa's Pizza])
 
  As predicted, today was a more slow-paced day. I slept very well, but not very much, so I was still really tired by the end, even though I only did around 22000 steps. I also ate a lot, like probably three days worth of food, which didn't help. No wonder everyone I spoke to said Queens has the best food. It was by far some of the best food I have had on this trip on average.
@@ -535,6 +535,15 @@ Song of the Day: I Got Rhythm, George Gershwin
 
  Song of the Day: You've Got a Friend in Me, Randy Newman
 === Day 10 - May 4 (Mon)
+ #figure([#linked-image("AmtrakPhotos/10.ClintonHeights.jpg")], caption: [Clinton Heights])
+ #figure([#linked-image("AmtrakPhotos/10.ProspectPark.jpg")], caption: [Prospect Park])
+ #figure([#linked-image("AmtrakPhotos/10.LandBSpumoniGardens.jpg")], caption: [L\&B Spumoni Gardens])
+ #figure([#linked-image("AmtrakPhotos/10.Luigis.jpg")], caption: [Luigi's Pizzeria])
+ #figure([#linked-image("AmtrakPhotos/10.DowntownBrooklyn.jpg")], caption: [Downtown Brooklyn])
+ #figure([#linked-image("AmtrakPhotos/10.BrooklynHeights.jpg")], caption: [Brooklyn Heights])
+ #figure([#linked-image("AmtrakPhotos/10.DUMBO.jpg")], caption: [DUMBO])
+ #figure([#linked-image("AmtrakPhotos/10.VinegarHill.jpg")], caption: [Vinegar Hill])
+ #figure([#linked-image("AmtrakPhotos/10.BrooklynBridge.jpg")], caption: [Brooklyn Bridge])
 Today was a lot of fun, maybe one of the most fun days of the trip. I started the morning by going to the Avenue of Purto Rico and Moore Street market, however most of the shops were closed. From what I saw and smelled though, the food seemed absolutely delicious. I think if I had stayed longer it would have been really cool, but I spend to go through the neighborhoods and didn't get to see it. Today was mostly seen through the clarity of beautiful weather, and the haze of tree pollen allergies. One of the nice things about moving to the midwest is that tree pollen basically doesn't exist, only grass pollen, which is much better for me. I started in Williamsburg, and unlike Manhattan and Flushing, none of Queens save for the downtown area seemed too crowded. While walking, I saw Hasidic Jews for the first time. New York has such a diversity of accents. Between the ethnic neighborhoods and borough-to-borough differences, it feels like I have heard dozens of accents just within this small area.
 
 I overall really liked Brooklyn. It felt diverse, but definitely not as poor and unmaintained as some of the neighborhoods. Even the "rougher" neighborhoods I had to pass through like Bedford-Stuyvesant were really quite nice. Brooklyn really does feel like the best of both worlds. It has the calmer suburban neighborhood feel of Queens, while still having dense housing and walkability and character and things to do and downtown area that Manhattan had. The houses were tall and skinny, and were probably the ones used for filming. It felt like you could go around the corner and find any shop you could want, and yet could still feel like you were in a normal neigbhorhood. The houses were brownstone, and there were green spaces and parkways everywhere. I even saw neighbors talking to each other, which feels impossible in Manhattan. If I were to move to New York, I would definitely try to live in Brooklyn. From Williamsburg, I walked to Prospect Park. After Central Park, Prospect Park would easily be next. It felt like the Ramble and Sheep Meadows sections of Central Park, but with hardly any crowd.
@@ -547,8 +556,46 @@ I overall really liked Brooklyn. It felt diverse, but definitely not as poor and
 
 Song of the Day: Chopin Scherzo no. 2, Seong-Jin Cho
 === Day 11 - May 5 (Tue)
+ #figure([#linked-image("AmtrakPhotos/11.MalliAthaiFamily.jpg")], caption: [Malli Athai Family])
+ #figure([#linked-image("AmtrakPhotos/11.WallStreet.jpg")], caption: [Wall Street])
+ #figure([#linked-image("AmtrakPhotos/11.BatteryPark.jpg")], caption: [Battery Park])
+ #figure([#linked-image("AmtrakPhotos/11.StatueOfLiberty.jpg")], caption: [Statue of Liberty])
+ #figure([#linked-image("AmtrakPhotos/11.StatenIsland.jpg")], caption: [Staten Island])
+ #figure([#linked-image("AmtrakPhotos/11.MoynihanHall.jpg")], caption: [Moynihan Hall])
+ #figure([#linked-image("AmtrakPhotos/11.NJ.jpg")], caption: [New Jersey])
+ #figure([#linked-image("AmtrakPhotos/11.30thStreetStation.jpg")], caption: [30th Street Station])
 
+Song of the Day: Weightless, Marconi Union
 === Day 12 - May 6 (Wed)
+ #figure([#linked-image("AmtrakPhotos/12.ReadingMarket.jpg")], caption: [Reading Market])
+ #figure([#linked-image("AmtrakPhotos/12.Chinatown.jpg")], caption: [Chinatown])
+ #figure([#linked-image("AmtrakPhotos/12.LibertyBell.jpg")], caption: [Liberty Bell])
+ #figure([#linked-image("AmtrakPhotos/12.WashingtonSquare.jpg")], caption: [Washington Square])
+ #figure([#linked-image("AmtrakPhotos/12.IndependenceHall.jpg")], caption: [Independence Hall])
+ #figure([#linked-image("AmtrakPhotos/12.KaesGrumbeer.jpg")], caption: [Kaes Grumbeer])
+ #figure([#linked-image("AmtrakPhotos/12.Santucci.jpg")], caption: [Santucci])
+ #figure([#linked-image("AmtrakPhotos/12.USMint.jpg")], caption: [USMint])
+ #figure([#linked-image("AmtrakPhotos/12.BenFranklinGrave.jpg")], caption: [Benjamin Franklin Grave])
+ #figure([#linked-image("AmtrakPhotos/12.ArchStreetMeetingHouse.jpg")], caption: [Arch Street Meeting House])
+ #figure([#linked-image("AmtrakPhotos/12.ElfrethAlley.jpg")], caption: [Elfreth Alley])
+ #figure([#linked-image("AmtrakPhotos/12.SchuylkillRiver.jpg")], caption: [Schulkill River])
+I arrived to Philadelphia without knowing what to expect. Having recieved mixed reviews, I didn't have super high hopes, although I was curious about the Quaker history in that area. When I arrived in the morning, I had to wait for the Septa train. The frequencies are really terrible, its only one train every hour. There was hardly anyone at that time tho whole trip into downtown, so I suppose it is justified, but it is still annoying. The subway is good, but it has weird acceleration and is not very clean and clearly very old. Philly as a whole does seem more reliant on cars, even when the city is naturally walkable inear the downtown areas. I ended up seeing a lot and still coming back early. The nature of the things to see in Philadelphia are all "drive by", where it is simply sufficient to walk past rather than spend time doing an activity.
+
+I started the morning at Chinatown. Honestly, it was nice. I don't think it was on the level of Flushing, but in some ways it reminded me of San Francisco's Chinatown. It didn't have big buildings or anything, but it had a similar amount of "chinese-ness", probably because both were constructed and settled within two decades of each other. Reading Terminal Market. It was really cool. I think if I lived here I would hang out more. I met an Amish person and we spoke briefly, and she told me about the Greman word "grumbeer". It literally translates to "ground bulbs", and apparently it is derived from the western part of Germany, where the Lancaster Amish must have come from. Different Germanic languages and dialects have different words for potato, like grumbeer, brambor, kartoffel, patata, peruna, aardappel, etc. The French (and Dutch) are pretty funny, the "earth-apple", although "ground-bulb" just sounds wholesome. Everything in the market smelled incredible, even if it was expensive. I had some "kaes grumbeere", which were very nice. 
+
+I think Philadelphia is a bit worse than Boston, in that it glorifies the revolutionary war without acknowledging the hypocricy. It is interesting, since having a historically large Quaker population I would have expected it to be more strongly anti-war. I learned about the "Free Quakers", who seemed rather stupid to me and not very Quakerly at all. I felt that Boston was more aware of the inconsistencies, at least the docents who I spoke to. Apparently New York and Philadelphia were both the capital of the country. The Betsy Ross Museum was interesting in furniture, but I felt that the docents were less interesting, and less in touch with Quaker culture (despite talking so much about it). 
+
+Philly definitely doesn't have the same vibe as New York and Boston. It feels a bit more broken down, and definitely doesn't feel as developed. It definitely has cultural areas like Chinatown and Little Italy, but these feel a bit more small. In another half century, I feel it could become either 1980s Detroit, or as great as Boston, and very little in between. 
+
+I then went to the Liberty Bell and the Independence hall, which where kind of forgettable. The history of Independence Hall (where the constitutional conventions for the Declaration of Independence met) was definitely interesting, but the Liberty Bell felt unimportant to me as a monument. 
+
+I tried Santucci's Pizza today, and I was overall not impressed. It wasn't bad, it was definitely unique, and it had the tomato sauce on top as promised, but it wasn't nearly as good as L&B Spumoni gardens. It tasted a bit like a classy version of 7/11 pizza. Good, but nothing incredible. It is surprising how many chinese and african-american people are in Philadelphia. Elfreth's Alley was really really cool. It is the oldest continuously inhabited street in the U.S., and felt really historic, alot like Acorn Street. 
+
+After that, I went to the U.S. Mint. I liked that exhibit a lot, even if we weren't able to take pictures. What was special was to see the factory in action, even if the collected display was not too large.
+
+Culturally, the city feels a bit like the Midwest. The co-occurence with Amish people in both places makes me wonder if they have influenced each other overall. 
+
+Tomorrow, if I have time, I am considering of going to King of Peoria in addition to the rest of the schedule to see their shopping mall, since it is the fourth-largest shopping mall in the United States. 
 
 === Day 13 - May 7 (Thu)
 
@@ -606,4 +653,5 @@ Falafel
 Chico's Tacos
 CCCP Market
 Melanzane Pizza
+Paneer Capreze Wraps
 ```
