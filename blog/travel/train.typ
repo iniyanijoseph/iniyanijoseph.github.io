@@ -604,7 +604,20 @@ Tomorrow, if I have time, I am considering of going to King of Peoria in additio
 
 Song of the Day: If I Had a Hammer, Peter Paul and Mary
 === Day 13 - May 7 (Thu)
+ #figure([#linked-image("AmtrakPhotos/13.ItalianMarket.jpg")], caption: [Italian Market])
+ #figure([#linked-image("AmtrakPhotos/13.ItalianSoda.jpg")], caption: [Italian Soda])
+ #figure([#linked-image("AmtrakPhotos/13.MagicGardens.jpg")], caption: [Magic Gardens])
+ #figure([#linked-image("AmtrakPhotos/13.NationalRoseGarden.jpg")], caption: [National Rose Garden])
+ #figure([#linked-image("AmtrakPhotos/13.CarpentersHall.jpg")], caption: [Carpenter's Hall, where the first Constitutional Convention was held])
+ #figure([#linked-image("AmtrakPhotos/13.BigKahunaDonut.jpg")], caption: [Massive donut (and some normal donuts for comparison)])
 
+Today I saw much more of Philadelphia, and I think it is a more interesting city than I initially assumed. I started at Jefferson Station, and walked to the Little Saigon area. It wasn't a great start, it felt like a small vietnamese strip mall that happened to be in Philadelphia than a true cultural district. It feels like a lot of Philadelphia's markers are a bit outdated, since the population has changed over time. But when I went to the Italian Market it was even better than promised. It wasn't strictly italian, there were other stalls too, but the open-air market was vibrant and really fun to walk around. I bought an italian soda there (gingerbread flavor) which took me right back to the italian soda and bagels at Suju's Coffee as a kid, and had some awesome samples of cheese and some sweets at the stores. After that, I headed to Magic Gardens, a huge "art space" where everything from the floor to the ceiling was part of a mosaic. I don't know that it was worth \$12, but it was definitely nice to see. I think if I appreciated folk art more I would have liked it more, but it probably didn't reach me like it was meant to. I can appreciate the idea of not needing form, but I don't find it as visually appealing as some other people do. Walking around the downtown area and the high rise buildings and local neighborhoods was also very nice. It seems like in some places it could be a really pleasant place to live. It felt almost like a more spaced out version of Brooklyn or Boston's North End, which was very pleasant. I also saw lots of construction while walking, so I genuinely think that in the future Philadelphia will catch up to Boston and have its population growth (as long as people don't go too far out in the suburbs). I also went to Aldi and bought Cheese and Crackers that were sealed which I can bring to D.C. and on the train. I am most excited by their "snacking parmesan", which is both vacuum sealed and hard, and is extremely protein/fat dense, then called Amma at the Schulkill River Walk. I was considering buying apple dumplings at Reading Market, but ultimately didn't. It seems interesting to make at home, but probably too much sugar to buy outside. Next to the train station, I found a huge donut, the likes of which I have never seen before, if I lived here it would be cool. With all the walking this trip, my shoes are definitely taking a beating. Once I get back, it may be a good idea to take it to a shoe repair shop to get it "tuned up" so to speak, and to buy any hiking shoes if I decide to get into that later on.
+
+As for hobbies, I think once I finish a Language Transfer cousre, thats about the time when I will invest in individual tutoring. If I finish the German course in particular, I will probably start Yiddish tutoring rather than German, because it sounds more fun and can be really funny (especially as its the ashkenazic language of daily life). 
+
+Tomorrow I only have one item on the itinerary (for the morning): Benjamin Franklin Parkway. I actually need to buy the keychain too. 
+
+Song of the Day: Little Boxes, Peter Seeger
 === Day 14 - May 8 (Fri)
 
 === Day 15 - May 9 (Sat)
@@ -660,4 +673,5 @@ Chico's Tacos
 CCCP Market
 Melanzane Pizza
 Paneer Capreze Wraps
+Grisi Torinesi
 ```
