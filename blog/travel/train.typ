@@ -619,14 +619,14 @@ Tomorrow I only have one item on the itinerary (for the morning): Benjamin Frank
 
 Song of the Day: Little Boxes, Peter Seeger
 === Day 14 - May 8 (Fri)
-#figure([#linked-image("14.BenjaminFranklinParkway.jpg")], caption: [Rocky Movie Steps])
-#figure([#linked-image("14.RockySteps.jpg")], caption: [Rocky Movie Steps])
-#figure([#linked-image("14.BostonCreamDonut.jpg")], caption: [Boston Cream Donut])
-#figure([#linked-image("14.DupontCircle.jpg")], caption: [Dupont Circle])
-#figure([#linked-image("14.EmbassyRow.jpg")], caption: [Nelson Mandela Statue on Embassy Row])
-#figure([#linked-image("14.KhalilGibran.jpg")], caption: [Khalil Gibran Quote])
-#figure([#linked-image("14.WashingtonCathedralForest.jpg")], caption: [Old Growth Forest near Washington National Cathedral])
-#figure([#linked-image("14.WashingtonCathedral.jpg")], caption: [Washington National Cathedral])
+#figure([#linked-image("AmtrakPhotos/14.BenjaminFranklinParkway.jpg")], caption: [Rocky Movie Steps])
+#figure([#linked-image("AmtrakPhotos/14.RockySteps.jpg")], caption: [Rocky Movie Steps])
+#figure([#linked-image("AmtrakPhotos/14.BostonCreamDonut.jpg")], caption: [Boston Cream Donut])
+#figure([#linked-image("AmtrakPhotos/14.DupontCircle.jpg")], caption: [Dupont Circle])
+#figure([#linked-image("AmtrakPhotos/14.EmbassyRow.jpg")], caption: [Nelson Mandela Statue on Embassy Row])
+#figure([#linked-image("AmtrakPhotos/14.KhalilGibran.jpg")], caption: [Khalil Gibran Quote])
+#figure([#linked-image("AmtrakPhotos/14.WashingtonCathedralForest.jpg")], caption: [Old Growth Forest near Washington National Cathedral])
+#figure([#linked-image("AmtrakPhotos/14.WashingtonCathedral.jpg")], caption: [Washington National Cathedral])
 
 I've been able to eat a lot more dairy the past few days. I had 4 yogurts, and the cheese and crackers which I bought. I think that is most likely what I will end up packing for the long travel, in addition to the food from the Y.
 
@@ -638,36 +638,42 @@ One of the nice things about D.C. is how spread out things are. The wider roads,
 
 I saw a tiny baby squirrel running around the old growth forest near Washington's Cathedral, which was also very beautiful. I think I will get the most exercise in D.C. because of the hilliness, second only to San Fransisco. I think these days when I have to walk with my backpack are part of the challenge. I think I am getting more comfortable knowing what to pack, likely a lot of cheese and crackers. 
 
+ Song of the Day: I've Got Rythm, George Gershwin
 === Day 15 - May 9 (Sat)
-#figure([#linked-image("15.ArlingtonCemetaryGarden.jpg")], caption: [Arlington Cemetary Garden])
-#figure([#linked-image("15.ArlingtonBridge.jpg")], caption: [Arlington Bridge])
-#figure([#linked-image("15.LincolnMemorial.jpg")], caption: [Lincoln Memorial])
-#figure([#linked-image("15.WashingtonMemorial.jpg")], caption: [Washington Memorial])
-#figure([#linked-image("15.AfricanAmericanHistoryMuseum.jpg")], caption: [African American History Muesum])
-#figure([#linked-image("15.WaldorfAstoria.jpg")], caption: [Waldorf Astoria])
-#figure([#linked-image("15.AsianArtMuseum.jpg")], caption: [National Asian Art Museum])
-#figure([#linked-image("15.NationalHistoryMuseum.jpg")], caption: [National History Museum])
-#figure([#linked-image("15.NationalSculptureGarden.jpg")], caption: [National Sculpture Garden])
-#figure([#linked-image("15.FiredogMonument.jpg")], caption: [Firedog Monument])
-#figure([#linked-image("15.FriedTofu.jpg")], caption: [Fried Tofu])
-#figure([#linked-image("15.DCCourtOfAppeals.jpg")], caption: [DC Court of Appeals])
-#figure([#linked-image("15.JapaneseAmericanMemorial.jpg")], caption: [Japanese American Memorial])
-#figure([#linked-image("15.SummerHouse.jpg")], caption: [Summer House])
-#figure([#linked-image("15.TaftCarillon.jpg")], caption: [Taft Memorial Carrilon])
-#figure([#linked-image("15.CapitolBuilding.jpg")], caption: [Capitol Building])
-#figure([#linked-image("15.LibraryOfCongress.jpg")], caption: [Library of Congress])
+#figure([#linked-image("AmtrakPhotos/15.ArlingtonCemetaryGarden.jpg")], caption: [Arlington Cemetary Garden])
+#figure([#linked-image("AmtrakPhotos/15.ArlingtonBridge.jpg")], caption: [Arlington Bridge])
+#figure([#linked-image("AmtrakPhotos/15.LincolnMemorial.jpg")], caption: [Lincoln Memorial])
+#figure([#linked-image("AmtrakPhotos/15.WashingtonMemorial.jpg")], caption: [Washington Memorial])
+#figure([#linked-image("AmtrakPhotos/15.AfricanAmericanHistoryMuseum.jpg")], caption: [African American History Muesum])
+#figure([#linked-image("AmtrakPhotos/15.WaldorfAstoria.jpg")], caption: [Waldorf Astoria])
+#figure([#linked-image("AmtrakPhotos/15.AsianArtMuseum.jpg")], caption: [National Asian Art Museum])
+#figure([#linked-image("AmtrakPhotos/15.NationalHistoryMuseum.jpg")], caption: [National History Museum])
+#figure([#linked-image("AmtrakPhotos/15.NationalSculptureGarden.jpg")], caption: [National Sculpture Garden])
+#figure([#linked-image("AmtrakPhotos/15.FiredogMonument.jpg")], caption: [Firedog Monument])
+#figure([#linked-image("AmtrakPhotos/15.FriedTofu.jpg")], caption: [Fried Tofu])
+#figure([#linked-image("AmtrakPhotos/15.DCCourtOfAppeals.jpg")], caption: [DC Court of Appeals])
+#figure([#linked-image("AmtrakPhotos/15.JapaneseAmericanMemorial.jpg")], caption: [Japanese American Memorial])
+#figure([#linked-image("AmtrakPhotos/15.SummerHouse.jpg")], caption: [Summer House])
+#figure([#linked-image("AmtrakPhotos/15.TaftCarillon.jpg")], caption: [Taft Memorial Carrilon])
+#figure([#linked-image("AmtrakPhotos/15.CapitolBuilding.jpg")], caption: [Capitol Building])
+#figure([#linked-image("AmtrakPhotos/15.LibraryOfCongress.jpg")], caption: [Library of Congress])
 
 I guess today is the halfway point for the journey, which is crazy to think about. It was probably the most emotionally draining day of the trip so far. I did also walk a lot, but that wasn't what got to me. I didn't realize there was so much militarism in Arlington national cemetery. I can intellectually appreciate the idea of martyrdom, but in a lot of ways, with soldiers and the military specifically, it feels like celebrating killing and violence and keeping them in an honored place. In general, there were a lot of references to war today, in the Library of Congress, which was hard to be around, I felt very sad for a lot of the day.
 
 And after all of this celebration of death, not a single one commemorates protest and activism and conscientious objection. It isn't that I have to be personally honored, in fact I definitely shoulnd't be, but it feels like the country simply doesn't recognize the value of acting peacefully beyond the most superficial notions of peace. I pray one day for a change in conscience of humanity, and a global recognition of the value of life. I don't think people as a whole don't value peace, but people are scared and prideful, and respond to this with violence. They believe that the ends justify the means, no matter what it may be, which just breaks my heart, since it is the collective lack of conscience that causes these problems.
 
-I visited the African American National History Museum. It was really well done, and was very interesting. I thought about it, and I think that museums that curate (so nearly every museum) are in a lot of ways reflective of a moment in history, much like any art. In a very explicit way, it explains how the current society looks at the past. I think a logical step then, would be to have a museum of museums. I need to do more research on the Nation of Islam. I tried to learn about them once, but I don't understand the black supremacy movement for the same reason I don't understand white supremacy movements. I also visited the Museum of Asian Art. I really like Japanese wood block printing and Illuminated Manuscripts, although I am not sure why. I find them very comforting. The Library of Congress was honestly not that interesting as a whole to me, but a lot was also closed. The building itself was really really beautiful, even if the exhibits were only alright. I especially liked the George Gershwin Exhibit, where they had his actual piano on display.
+I visited the African American National History Museum. It was really well done, and was very interesting. I thought about it, and I think that museums that curate (so nearly every museum) are in a lot of ways reflective of a moment in history, much like any art. In a very explicit way, it explains how the current society looks at the past. I think a logical step then, would be to have a museum of museums. I need to do more research on the Nation of Islam. I tried to learn about them once, but I don't understand the black supremacy movement for the same reason I don't understand white supremacy movements. I also visited the Museum of Asian Art. I really like Japanese woodblock printing and Illuminated Manuscripts, although I am not sure why. I find them very comforting. The Library of Congress was honestly not that interesting as a whole to me, but a lot was also closed. The building itself was really beautiful, even if the exhibits were only alright. I especially liked the George Gershwin Exhibit, where they had his actual piano on display.
 
-I learned a few interesting facts. In 1884, the Washington Monument was the tallest building in the world. And apparently beez buzz at Middle C to shake excess pollen from what they pick up.  
+I learned a few interesting facts. In 1884, the Washington Monument was the tallest building in the world. And apparently bees buzz at Middle C to shake excess pollen from what they pick up.
 
-Tomorrow I am planning to visit the Adams Morgan, Crystal City (and the mall), and Ballston Neighborhoods, then visit S.C. and explore Takoma. 
+Tomorrow I am planning to visit the Adams Morgan, Crystal City (and the mall), and Ballston Neighborhoods, then visit S.C. and explore Takoma/Takoma Park. 
+
+Song of the Day: Tomorrow, Annie
 === Day 16 - May 10 (Sun)
+#figure([#linked-image("AmtrakPhotos/16.AdamsMorgan.jpg")])
+Disclaimer: Today I didn't take many photos. There really wasn't any need. I essentially followed the plan to a T, although I did slightly less walking than anticipated so I could visit S.C. on time. I walked between Pentagon City -> Crystal City -> Ballston Quarter, then took the train to Adams Morgan and walked north to Takoma to meet with S.C. and A.U. It was overall a pretty fun today, very relaxing, although a decent amount of exercise. It was cool getting to catch up, especially since the last time I saw them I was only in seventh grade. I thought Ballston was nice, but I really liked Adams Morgan, if I had infinite money, I would probably live there (although maybe the nightlife could discourage me if there are lots of drunk college kids in practice). It also had a lot of pacifist/anti-war signage , which I very much appreciated. I think just from exposure to things, I came up with a few things I want to do. I should watch Porgy and Bess with Rina (and Rino, although I am not sure if it will be his thing), and to learn some Gershwin. I also think I should watch Smoky and the Bandit when I get back. That one might be better with Rino. There's really not much to say, but I think it was a solid day of D.C. overall, and a great way to spend it before heading on the long road back. Tomorrow morning I will take care of shopping and packing for the trip. I have most of the things I will be eating, but I will buy an extra box of crackers and snacking parmesan just in case. I still haven't picked up face wash and a battery pack either, so I will try to find those. If I have time, I will visit Alexandria, and then I will say goodbye to Rino and head to the train station. G.U. offered to pick me up after the first day in Seattle, so I think that will make it easier, since the transit to the suburbs will take a while. Overall, I am really excited for a few days to recharge and meet cool new people on the train.
 
+Song of the Day: An American in Paris, George Gershwin
 === Day 17 - May 11 (Mon)
 
 === Day 18 - May 12 (Tue)
@@ -718,4 +724,11 @@ CCCP Market
 Melanzane Pizza
 Paneer Capreze Wraps
 Grisi Torinesi
+Farmer's Cheese
+Paneer Piccatta
+Frittata
+Breadsticks
+Cannelloni
+Eggplant Parmigiana
+Taco with Mushroom, Goat Cheese, Red Pickled Onion
 ```
