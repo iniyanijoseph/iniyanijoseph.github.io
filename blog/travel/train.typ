@@ -671,20 +671,20 @@ Tomorrow I am planning to visit the Adams Morgan, Crystal City (and the mall), a
 Song of the Day: Tomorrow, Annie
 === Day 16 - May 10 (Sun)
 #figure([#linked-image("AmtrakPhotos/16.AdamsMorgan.jpg")], caption: [Adams Morgan Neighborhood])
-#figure([#linked-image("16.ShilpaChithiFamily.jpg")], caption: [Shilpa Chithi Family])
+#figure([#linked-image("AmtrakPhotos/16.ShilpaChithiFamily.jpg")], caption: [Shilpa Chithi Family])
 Disclaimer: Today I didn't take many photos. There really wasn't any need. I essentially followed the plan to a T, although I did slightly less walking than anticipated so I could visit S.C. on time. I walked between Pentagon City -> Crystal City -> Ballston Quarter, then took the train to Adams Morgan and walked north to Takoma to meet with S.C. and A.U. It was overall a pretty fun today, very relaxing, although a decent amount of exercise. It was cool getting to catch up, especially since the last time I saw them I was only in seventh grade. I thought Ballston was nice, but I really liked Adams Morgan, if I had infinite money, I would probably live there (although maybe the nightlife could discourage me if there are lots of drunk college kids in practice). It also had a lot of pacifist/anti-war signage , which I very much appreciated. I think just from exposure to things, I came up with a few things I want to do. I should watch Porgy and Bess with Rina (and Rino, although I am not sure if it will be his thing), and to learn some Gershwin. I also think I should watch Smoky and the Bandit when I get back. That one might be better with Rino. There's really not much to say, but I think it was a solid day of D.C. overall, and a great way to spend it before heading on the long road back. Tomorrow morning I will take care of shopping and packing for the trip. I have most of the things I will be eating, but I will buy an extra box of crackers and snacking parmesan just in case. I still haven't picked up face wash and a battery pack either, so I will try to find those. If I have time, I will visit Alexandria, and then I will say goodbye to Rino and head to the train station. G.U. offered to pick me up after the first day in Seattle, so I think that will make it easier, since the transit to the suburbs will take a while. Overall, I am really excited for a few days to recharge and meet cool new people on the train.
 
 Song of the Day: An American in Paris, George Gershwin
 === Day 17 - May 11 (Mon)
-#figure([#linked-image("17.Bean.jpg")], caption: [Bean])
-#figure([#linked-image("17.Howard.jpg")], caption: [Howard University Clocktower])
-#figure([#linked-image("17.MNPrairie.jpg")], caption: [MN Prairies])
-#figure([#linked-image("17.WV.jpg")], caption: [West Virginia (Harper's Ferry)])
+#figure([#linked-image("AmtrakPhotos/17.Bean.jpg")], caption: [Bean])
+#figure([#linked-image("AmtrakPhotos/17.Howard.jpg")], caption: [Howard University Clocktower])
+#figure([#linked-image("AmtrakPhotos/17.MNPrairie.jpg")], caption: [MN Prairies])
+#figure([#linked-image("AmtrakPhotos/17.WV.jpg")], caption: [West Virginia (Harper's Ferry)])
 Today was a very chill day. It was shaped mostly by preperation for the train travel. I woke up and got ready around 8, but Rina was still asleep so I went to Aldi to do groceries. I bought olives and crackers, and when I came back I waited for Rino to wake up and then went to the Y. I ate quite a bit, and packed two sandwiches and some naan and hummus, all of which I ate for dinner. I ate quite a few calories, so I felt quilty. I think it set me back a decent amount, so I will have to work it off in Seattle. I had forgotten my bottle at S.C's house, so I ended up meeting her at Howard to retrieve it. I walked around for a while, and it was a nice train station, even if it was small and very empty (school was over). I didn't see anything too special about the campus, but the area around it was definitely a bit rough. I called Rina for about a half-hour while waiting for the train since it was a bit delaweyd, but the journey started easily enough. I had a few consversations passing through Pennsylvania/West Virginia on the future of how AI and how it was invigorating a few fields like formal verification, and the need for world governance to maintain the peace. I get the feeling that the people associated in military afil to recognize the humanity in other people who have different ideals than them sometimes. It would make sense then to kill, since it is no different than shooting a gun at a target, which is quite sad. I think reading "Eserhaddon, King of Assyria" by Tolstoy would be productive for them. I went to sleep around 10, but the train was completely full and my seat didn't have a window, which made it hard to et comfortable.  
 
 === Day 18 - May 12 (Tue)
-#figure([#linked-image("18.NDPond.jpg")], caption: [ND Ponds])
-#figure([#linked-image("18.NDRocky.jpg")], caption: [ND Rocky Hill/Butte])
+#figure([#linked-image("AmtrakPhotos/18.NDPond.jpg")], caption: [ND Ponds])
+#figure([#linked-image("AmtrakPhotos/18.NDRocky.jpg")], caption: [ND Rocky Hill/Butte])
 I slept poorly last night. It was the same problem as the train to Boston, where the lights didn't turn off and the seats were a bit smaller. Once I get to Chicago though, the rest of the trains should be nice, like the Texas Eagle. I lost my eye mask, but my beanie is slouchy enough that I acn pull it over my eyes (which is convenient since it can get cold enuogh to justify having the beanie on anyways). I finished the rice crackers, and met a NASA fuel researcher. We talked about NASA's space operations, and some of the problems within NASA. Apparently there is a decent amount of nepotism that goes on with promotions internally, and Ayush told me about the unstable project for less outwardly interesting missions, even if they are useful. I personally also wonder why the Artemis missions exist, when the same money could be used to do many more productive things like managing the national debt, or otherwise just creating sattelites which are useful for the public and the world at large. The research and geodata work at NASA is great, but I wish they received more funding. The other stuff feels more like a way for politicians to serve their egos and appeal to a less forward-thinking masses.
 
 Today I went to the Bean/Millenium Park, have lunch, then come back to the station. I had a sandwich from Panera Bread, even if I felt a bit bloated from the large lunch/dinner yesterday. I think I overpacked food again, but that is probbaly the better problem to have than not having enough food. I am looking forward to cracking open the olives. I think the next stretch back to Dallas I can pack a bit lighter (or honestly, just bring a couple filling items, and then purchase the remaining meals in the cafe).
@@ -701,11 +701,11 @@ Overall, these train days are very interesting. I always feel like I learn somet
 
 Musik: "If I Were Free", Peter Paul and Mary
 === Day 19 - May 13 (Wed)
-#figure([#linked-image("19.MTLightning.mp4")], caption:[MT Lightning])
-#figure([#linked-image("19.MTOldestSteamCar.jpg")], caption: [MT Oldest Steam Car])
-#figure([#linked-image("19.MTRainbow.jpg")], caption:[MT Rainbow])
-#figure([#linked-image("19.MTSunset.jpg")], caption:[MT Sunset])
-#figure([#linked-image("19.MTRedSunset.jpg")], caption:[MT Red Sunset])
+#figure([#linked-image("AmtrakPhotos/19.MTLightning.mp4")], caption:[MT Lightning])
+#figure([#linked-image("AmtrakPhotos/19.MTOldestSteamCar.jpg")], caption: [MT Oldest Steam Car])
+#figure([#linked-image("AmtrakPhotos/19.MTRainbow.jpg")], caption:[MT Rainbow])
+#figure([#linked-image("AmtrakPhotos/19.MTSunset.jpg")], caption:[MT Sunset])
+#figure([#linked-image("AmtrakPhotos/19.MTRedSunset.jpg")], caption:[MT Red Sunset])
 I woke up today IN rural North Dakota (if there is an urban North Dakota to compaer to), where we will spend most of our day. Save for some small patches of trees in the distance, the land is mostly flat. There were quite a few ponds we saw as we rode past, and so there are lots of ducks and geese, which was a surprise to me. It is similar to the midwest, in that it has a vast expansive beauty. The data has been surprisingly good on this stretch, although I don't know if it will stay this way (I know it will not). There is a guy sitting next to me vaping, so I ended up moving to the observation car until he left the train. It is really annoying when people are super incosiderate. He looks like a teenager too, which makes it a little sad.
 
 As we moved into Montana, we began to see the foothills of the rockies and cornfields. I met two older women named Lois and Dale, and they taught me to play Rummy and Golf, talked about life, and travel, and shared interesting facts. Dale was from a farming community in Oregon, so she told me about the different restrictions of agriculture and methods they used to grow wheat. She also shared the idea of a "4H", where the children on the community are able to practice certain useful skills. I think it would be really interesting if a similar program existed for cities. I will read more on that once I get back from the travel.
@@ -718,18 +718,18 @@ These granny-types always ask me if I have a girlfriend. I think its very flatte
 
 Musik: "Bolero", Ravel
 === Day 20 - May 14 (Thu)
-#figure([#linked-image("20.WAEast.jpg")], caption: [Eastern WA])
-#figure([#linked-image("20.WACenter.jpg")], caption: [Central WA])
-#figure([#linked-image("20.WAWest.jpg")], caption: [Western WA])
-#figure([#linked-image("20.PugetSound.jpg")], caption: [Puget Sound])
-#figure([#linked-image("20.SeattleKingStreetStation.jpg")], caption: [Seattle King Street Station])
-#figure([#linked-image("20.PioneerSquare.jpg")], caption: [Pioneer Square])
-#figure([#linked-image("20.SeattleLibrary.jpg")], caption: [Seattle Central Library])
-#figure([#linked-image("20.Pier57.jpg")], caption: [Pier 57])
-#figure([#linked-image("20.Pier62.jpg")], caption: [Pier 62 Floating Dock])
-#figure([#linked-image("20.PikePlace.jpg")], caption: [Pike Place Market])
-#figure([#linked-image("20.CosmicCrisps.jpg")], caption: [Cosmic Crisp Apples])
-#figure([#linked-image("20.CapitolHill.jpg")], caption: [Capitol Hill])
+#figure([#linked-image("AmtrakPhotos/20.WAEast.jpg")], caption: [Eastern WA])
+#figure([#linked-image("AmtrakPhotos/20.WACenter.jpg")], caption: [Central WA])
+#figure([#linked-image("AmtrakPhotos/20.WAWest.jpg")], caption: [Western WA])
+#figure([#linked-image("AmtrakPhotos/20.PugetSound.jpg")], caption: [Puget Sound])
+#figure([#linked-image("AmtrakPhotos/20.SeattleKingStreetStation.jpg")], caption: [Seattle King Street Station])
+#figure([#linked-image("AmtrakPhotos/20.PioneerSquare.jpg")], caption: [Pioneer Square])
+#figure([#linked-image("AmtrakPhotos/20.SeattleLibrary.jpg")], caption: [Seattle Central Library])
+#figure([#linked-image("AmtrakPhotos/20.Pier57.jpg")], caption: [Pier 57])
+#figure([#linked-image("AmtrakPhotos/20.Pier62.jpg")], caption: [Pier 62 Floating Dock])
+#figure([#linked-image("AmtrakPhotos/20.PikePlace.jpg")], caption: [Pike Place Market])
+#figure([#linked-image("AmtrakPhotos/20.CosmicCrisps.jpg")], caption: [Cosmic Crisp Apples])
+#figure([#linked-image("AmtrakPhotos/20.CapitolHill.jpg")], caption: [Capitol Hill])
 I woke up just east of Spokane, and saw the cars seperate. My trimmer broke last night, so I will have to buy a new one when I get back. During this final push to Seattle, I wasn't be able to use an observation car, but it was beautiful either way. We passed through eastern Washington and the Cascades, and saw the snow capped peaks and older growth forest. There were lots of ferns and scattered wildflowers in patches. I even saw some bluebonnets. Most people I met initially were headed to Portland, so today should be a more quiet day.
 
 I suspect based on this journey that I will take the Amtrak to West Lafayette when I move, since the luggage allowance is higher and is overall cheaper than any flying for that volume of stuff (plus, points!). I would arrive around 10pm, so hopefully my new roommate or Aeltha/Jill/Liz or someone from the meeting can help me move my stuff from the station. My bed, clothes, cookware, and miscellaneous items should perfectly fill up four bags. When I get back, I am going to get back into cooking with some ingredient pre-preperation like making pesto, spinach, and cutting mushrooms. I have been feeling very snacky while on the train, which I really hate. What I have packed isn't quite balanced enough. There was a ton of salt and carbs, but I don't know what I can do better. Maybe the nut bars is what I should start with, and I should try to eat salad before leaving, and to pack naan instead of crackers. I think this trip has been hard food-wise since I finally found what works and makes me feel good for me prior to leaving, and had to give it up very suddenly. I am prety sure I am not losing fat and bad weight either, especially around my waist. Getting protein is tough, but I think the nut bars will get me through. When I get back, I will need to get a haircut and a proper trime.
