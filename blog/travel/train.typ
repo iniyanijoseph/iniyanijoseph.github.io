@@ -744,7 +744,33 @@ The public transitis very new, and the 0 emission trams were fascinating. The ci
 
 Musik: Symphony no. 3, Rachmaninoff
 === Day 21 - May 15 (Fri)
+#figure(linked-image("AmtrakPhotos/21.SeattleChinatown.jpg"), caption: [Seattle Chinatown])
+#figure(linked-image("AmtrakPhotos/21.GumWall.jpg"), caption: [Gum Wall])
+#figure(linked-image("AmtrakPhotos/21.Chihuly.jpg"), caption: [Chihuly Garden and Glass])
+#figure(linked-image("AmtrakPhotos/21.InternationalFountain.jpg"), caption: [International Fountain])
+#figure(linked-image("AmtrakPhotos/21.KerryPark.jpg"), caption: [Kerry Park])
+#figure(linked-image("AmtrakPhotos/21.QueenAnne.jpg"), caption: [Queen Anne Neighborhood])
+#figure(linked-image("AmtrakPhotos/21.FremontBridge.jpg"), caption: [Fremont Bridge])
+#figure(linked-image("AmtrakPhotos/21.FremontTroll.jpg"), caption: [Fremont Troll])
+#figure(linked-image("AmtrakPhotos/21.FremontHallofGiants.jpg"), caption: [Fremont Hall of Giants])
+#figure(linked-image("AmtrakPhotos/21.GasworksPark.jpg"), caption: [Gasworks Park])
+#figure(linked-image("AmtrakPhotos/21.BeauxArtVillage.jpg"), caption: [Beaux-Art Villag])
+#figure(linked-image("AmtrakPhotos/21.DowntownBellvue.jpg"), caption: [Downtown Bellvue])
+Being able to use a car again is very nice. The drive around Redmond is really beautiful. One observation is that the suburbs, especially Redmond, has a lot of traffic circles. It fits with the theme of Seattle overall - modern, new, and with a clear set of priorities. I finished the rest of my granola bars and the other apple, and the Beecher's cheese that is made here. It was all very good. The smells walking around Seattle are insanely good. Maybe its because the weather is cold that it smells so appealing, but I stayed strong.
 
+I think for the Zephyr, I am just going to finish my crackers and the dried fruit, and then manage with what is on the train, since they have salad. Seattle is probably my favorite city so far. It is between SF and Boston conceptually, but seems to preserve all the nature, even out to the suburbs, and is trying to build densely. This is definitely going to make the CoL problems worse in the long run without more development of single-family homes, but it is still really cool and nice to walk around for now. Seattle's Chinatown was definitely worth visiting. It was cool, but was not The gum wall in Pike Place Market was interesting to look at, and also mildly (extremely) disturbing. Chihuly was really fascinating. The glass atrium was probably my favorite room, although I also really liked the Chandeliers. It probably wasn't worth 40\$, but with the glass blowing exhibition it was still overall really cool.
+
+The view from Kerry Park was great, I think within Seattle proper, Queen Anne was my favorite neighborhood (although I would need infinite money to live there), and although it wasn't really a "park" other than in the sense that it was run by the parks department, it was really worth visiting for the views. I walked to the Fremont area, which was cool but not something super unique. I did meet someone who worked in a Harp and Dulcimer shop, which was really cool. I learned a lot about the two instruments, and lever harps/zithers/lyres/dulcimers and modality.
+
+I also went to Beaux-Art Village, since I had extra time. It was really cool, and definitely my favorite neighborhood in the Seattle area. It feels carved into the woods, like a small town that in practice is insanely wealthy. I also walked to Downtown Bellvue, which was really cool.
+
+One thing I don't understand is why Cannoli is so expensive. It seems so simple to make, I have added it to the list of things I will make when I get back.
+
+I need to deal with this fear that the people who I meet are military and/or don't have a strong moral compass/principles. It is definitely not good, I need to figure it out. I am still very much missing my friends, it is a bit unfortunate they won't be back when I am. We need to do the trip to the big boyie knife. Rina especially has been a bit lately, and since she is going to Prague she will be busier.
+
+I still felt pretty bloated, but dinner was really really good. I think I still maintained the correct calorie balance overall.
+
+Musik: "La Fille aux Chevaux de Lin", Debussy
 === Day 22 - May 16 (Sat)
 
 === Day 23 - May 17 (Sun)
@@ -793,4 +819,5 @@ Cannelloni
 Eggplant Parmigiana
 Taco with Mushroom, Goat Cheese, Red Pickled Onion
 Pesto
+Cannoli
 ```
