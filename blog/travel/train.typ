@@ -269,7 +269,7 @@ The most iconic pizzas from each city are:
 #figure([#linked-image("AmtrakPhotos/1.Station.jpg")], caption: [Marshall Texas Amtrak Station])
 Today was a surprisingly relaxed day. I fell asleep around midnight and woke up around 7 (a little shorter than I would have liked, but restful nontheless). I got ready and picked up Rina from UTD, and we got cookies from Hug Cafe in downtown McKinney. I probably never would have heard about it if it weren't from a coupon I received in the mail, but honestly it may be worth revisiting. The food was good, but more compellingly the restaurant provides employment to primarily people with intellectual disabilities. I came home and had paneer fried rice with Rina, then went to Swig for a small treat. We lost track of time a little, but made it home by 4 to leave for Marshall. I tried Chili's for the first time on the drive over, and Rina and I both ordered the veggies burger. It was alright, although there was nothing exemplary about it. I am excited for her move towards flex/veg-itarianism. It definitely will be challenging for her, but I also think it will be very rewarding. Overall, it was just nice being able to spend time with my family and one of my best friends, and I am looking forward to more days of just time to spend idly with Rina and Rino over the summer. I hope Rina has time when I go to D.C., but I am not holding my breath since its finals season. This does feel like the right time to travel though. Logically, I have the most time now, but I am also reminded of Ibn Batuta's words as well: "travelling - it gives you home in a thousand strange places, then leaves you a stranger in your own land". I hope this journey gives me a new lens on America, and I hope I come to appreciate my friends and family and home here even more. Until I got onto the train, I hadn't really contemplated the magnitude of the trip, but 30 days of constat travel is a long time, and more intense than even my 3 weeks of travel in India in December '24. I am a bit nervous, but also very excited. But first, as I write this, its probably time to sleep. The seats seem reasonably comfortable, and definitely more than I was expecting. Overall, today was a great start to what is hopefully a great trip.
 
-Song of the Day: Freight Train, Peter Paul and Mary
+Musik: Freight Train, Peter Paul and Mary
 
 === Day 2 - April 26 (Sun)
 #figure([#linked-image("AmtrakPhotos/2.MOScenery.jpg")], caption: [Missouri's Forest Scenery])
@@ -297,7 +297,7 @@ I am skeptical if I will be able to attend a meeting for worship in this upcomin
 
 Overall, today was slower paced, but I had some interesting conversations, and I am looking forward to meeting people on the train ride tomorrow and seeing Boston's Chinatown.
 
-Song of the Day: Draft Dodger's Rag, Phil Ochs
+Musik: Draft Dodger's Rag, Phil Ochs
 === Day 3 - April 27 (Mon)
  #figure([#linked-image("AmtrakPhotos/3.Ohio.jpg")], caption: [Ohio in the morning along the line])
  #figure([#linked-image("AmtrakPhotos/3.PAFarm.jpg")], caption: [Farmland in PA])
@@ -326,7 +326,7 @@ It was also cool catching up with Durgesh, we talked a bit about The Republic an
 
 Today was slower paced, but it was nice to see the scenery, finally take a shower, and see Boston.
 
-Song of the Day: Piano Concerto no. 5 "Emperor", Beethoven
+Musik: Piano Concerto no. 5 "Emperor", Beethoven
 === Day 4 - April 28 (Tue)
 #figure([#linked-image("AmtrakPhotos/4.Steinway.jpg")], caption: [Steinert Steinway Hall])
 #figure([#linked-image("AmtrakPhotos/4.BostonCommon.jpg")], caption: [Boston Common Pond])
@@ -372,7 +372,7 @@ Action Items:
 Purchase Keychain from CVS
 #link("https://www.saveur.com/article/Kitchen/Bread-History-America/")[History of American Bread]
 
-Song of the Day: 'Tis The Gift to Be Simple
+Musik: 'Tis The Gift to Be Simple
 === Day 5 - April 29 (Wed)
 #figure([#linked-image("AmtrakPhotos/5.FenwayRoseGarden.jpg") #linked-image("AmtrakPhotos/5.FenwayGarden.jpg")], caption: [Fenway Rose Garden and Rose Garden])
 #figure([#linked-image("AmtrakPhotos/5.DeclarationOfIndependenceDunlapPrinting.jpg")], caption: [Dunlap printing of the Declaration of Independence as the Massachusetts Historical Society])
@@ -403,7 +403,7 @@ I think I packed well for this trip. Everything is lightweight and convenient. I
 
 I am looking forward to NYC. I need to make sure to try Pizza, Bagels, Cronut, Babka, and Cheesecake when I get there (although tomorrow I will just get to Queens and eat and sleep).  
 
-Song of the Day: Shipping up to Boston
+Musik: Shipping up to Boston
 === Day 6 - April 30 (Thu)
  #figure([#linked-image("AmtrakPhotos/6.BostonPublicLibrary.jpg")], caption: [Boston Public Library])
  #figure([#linked-image("AmtrakPhotos/6.ReginaPizzeriaSlices.jpg")], caption: [Regina Pizzeria])
@@ -424,11 +424,11 @@ Song of the Day: Shipping up to Boston
 
  I explored the Seaport area a bit, but I lost interest. Part of it was the rainy weather, which made it less appealing to be out and about. In better weather I might have walked around more. But it also didn't stand out to me as as beautiful as the North End and Beacon Hill, as expected. I saw the Museum of Ice Cream, and it definitely is for kids. I think with an unlimited pass it could be worth it to spend a day there with friends, but as-is it didn't make sense for me to go. I will be making pleeeeeenty of ice cream over the summer anyways. I also passed by the Boston Federal Reserve Bank, although they don't have a museum. I ended up sitting in the station for a while, but I was able to get printed tickets for all the journey so I don't need to be as worried about my phone running out of charge.
 
- Tomorrow I think I will eat at H&H Bagels, \$1.50 Fresh Pizza, and a Cronut. It is a lot of carbs, but I can probably offset it with walking, and will be eating much healthier the other days and probably packing food from home. I met Malli Athai and co. again today after a few years. We spoke for a bit, and I think the conversation was pretty interesting. It is mind boggling to me how far New York stretches. It isn't all high rises and tiny apartments like you see in the movies, which logically makes sense, but is also not what you think about. It really feels like a collection of cities (which it really is, thats how the Borough system came to be). I will buy Babka on the last day and bring it to Shilpa Auntie, and eat at the Panera when I go to Brooklyn on Monday to use up that card, since there is one in Downtown (unless I am not hungry, in which case I will use it in Seattle, or another such city). 
+ Tomorrow I think I will eat at H&H Bagels, \$1.50 Fresh Pizza, and a Cronut. It is a lot of carbs, but I can probably offset it with walking, and will be eating much healthier the other days and probably packing food from home. I met M.A. and co. again today after a few years. We spoke for a bit, and I think the conversation was pretty interesting. It is mind boggling to me how far New York stretches. It isn't all high rises and tiny apartments like you see in the movies, which logically makes sense, but is also not what you think about. It really feels like a collection of cities (which it really is, thats how the Borough system came to be). I will buy Babka on the last day and bring it to Shilpa Auntie, and eat at the Panera when I go to Brooklyn on Monday to use up that card, since there is one in Downtown (unless I am not hungry, in which case I will use it in Seattle, or another such city). 
 
  I am glad my beard isn't bothering that much. The speed at which it grows must have increased a good amount over the past couple years or something. I am glad though, as Forrest Gump says "Thats good. One less thing." Overall today was a solid day of travel. It was not the most exciting day, but I got my steps in and am in a good place to see NYC. 
 
-Song of the Day: New York, New York - Frank Sinatra 
+Musik: New York, New York - Frank Sinatra 
 === Day 7 - May 1 (Fri)
  #figure([#linked-image("AmtrakPhotos/7.RockefellerCenter.jpg")], caption: [Rockefeller Center])
  #figure([#linked-image("AmtrakPhotos/7.StPatricksCathedralExterior.jpg")], caption: [St. Patrick's Cathedral Exterior])
@@ -449,7 +449,7 @@ Song of the Day: New York, New York - Frank Sinatra
  #figure([#linked-image("AmtrakPhotos/7.LombardisPizzeria.jpg")], caption: [Lombardi's Pizza (The first pizza shop in the U.S.)])
  #figure([#linked-image("AmtrakPhotos/7.NYCTownHall.jpg")], caption: [NYC Town Hall])
  #figure([#linked-image("AmtrakPhotos/7.BrooklynBridgeView.jpg")], caption: [view of the Brooklyn Bridge and East River from the QM8 bus])
-Whoa. That's really the best way to start. Today was the 7th day, marking 1 week of travel. I am glad to say that it is all going well so far. The first day in New York City was wild. I started the morning with some crazy dreams, but a very very restful street. The public transit so far has actually all been really nice and navigable. I was promised unintelligible conductor announcements. Is this Mamdani's NYC!? This is UN-AC-CEPTABLE. In all seriousness, the transit in New York City, if you get used to it, is basically teleportation inside Manhattan or within a single borough. Malli Athai gave me some fruits, which I ate throughout the day. There really is quite a bit of "suburb" in NYC.
+Whoa. That's really the best way to start. Today was the 7th day, marking 1 week of travel. I am glad to say that it is all going well so far. The first day in New York City was wild. I started the morning with some crazy dreams, but a very very restful street. The public transit so far has actually all been really nice and navigable. I was promised unintelligible conductor announcements. Is this Mamdani's NYC!? This is UN-AC-CEPTABLE. In all seriousness, the transit in New York City, if you get used to it, is basically teleportation inside Manhattan or within a single borough. M.A. gave me some fruits, which I ate throughout the day. There really is quite a bit of "suburb" in NYC.
 
 I think Appa would be fine in Queens or New Jersey honestly. It has most of teh convenience of the city like late closings, good food, and public transit. while still having the more relaxed culture of the suburbs. The suburbs are also very pretty. The suburbs have more nature than Dallas in some places, but Midtown and Times Square feel unlivably utilitarian. There are barely any green spaces, and it feels almost stressful for that to be so much of the norm, especially compared to a city like Boston which is littered with them.
 
@@ -471,7 +471,7 @@ So far, my favorite part of Manhattan were Little Italy (even if its small) and 
  
 Note: I will upload pictures tomorrow or Sunday because I have a LOT to sort through. Tomorrow I will essentially walk from 105th St/South Harlem to 6th St/Lower Manhattan and see the museum and sightsee along the way. It will be exhausting, but very fun. I am also going to skip the Guggenheim because of time, and opt to focus on seeing the Met more thoroughly, and the MoMA if I have time, and that gives me the freedom to choose. 
 
-Song of the Day: Always Look at the Bright Side of Life, Monty Python
+Musik: Always Look at the Bright Side of Life, Monty Python
 === Day 8 - May 2 (Sat)
  #figure([#linked-image("AmtrakPhotos/8.CentralParkGarden.jpg")], caption: [Central Park's Garden])
  #figure([#linked-image("AmtrakPhotos/8.MuseumOfNYC.jpg") #linked-image("AmtrakPhotos/8.MuseumOfNYCMiniature.jpg")], caption: [Museum of the City of New York])
@@ -501,7 +501,7 @@ On the walk south from the Met, I saw most of the boroughs. I also unexpectedly 
 
 Again, I will not post pictures today, but I will soon once I relabel everything. I will briefly visit Manhattan again on the last day, but I will mostly be focused on the Staten Island Ferry, and walking across the Brooklyn Bridge from Williamsburg. I am glad tomorrow is a little more low-key, it will be nice to have a break. I just wish my friends were with me to see it all. There is a very unusual kind of lonliness that come from traveling alone. It isn't the same as isolation, and I feel more mentally stimulated in some sense than I have in months, just because of being around people all the time. But at the same time, not being able to put down roots and have real connections is difficult. And in a lot of ways, thats why I couldn't live in Manhattan. It isn't the constant annoying noise, or the price, or the intensity. It is just by far one of the lonliest places I have been, in some sense even more so than Rapid City, South Dakota (which is surrounded for hundreds of miles by nothing but vast unending beautiful virtually uninhabited flatlands). Manhattan feels like a machine geared towards productivity, but in a lot of ways it is missing the consideration for the human element that makes living somewhere like San Francisco or Boston so ideal. It is impossible to wander and admire the beauty (excepting certain areas), but only rather to explore and to try to know the nooks and crannies. But for today, I am glad that I was able to see so much. Exploring has its time and place, and I hope to explore West Lafayette and Lafayette extremely thoroughly as a student. But an environment with no room to stop and smell the roses is just hard to live around.
 
-Song of the Day: I Got Rhythm, George Gershwin
+Musik: I Got Rhythm, George Gershwin
 
 === Day 9 - May 3 (Sun)
  #figure([#linked-image("AmtrakPhotos/9.LuciaPizza.jpg")], caption: [Lucia's Pizza])
@@ -533,7 +533,7 @@ Song of the Day: I Got Rhythm, George Gershwin
 
  I also have a lot to look forward to coming back. Getting new glasses, returning to my yummy paneer/hummus diet. Learning to make new foods too. 
 
- Song of the Day: You've Got a Friend in Me, Randy Newman
+ Musik: You've Got a Friend in Me, Randy Newman
 === Day 10 - May 4 (Mon)
  #figure([#linked-image("AmtrakPhotos/10.ClintonHeights.jpg")], caption: [Clinton Heights])
  #figure([#linked-image("AmtrakPhotos/10.ProspectPark.jpg")], caption: [Prospect Park])
@@ -554,9 +554,9 @@ I overall really liked Brooklyn. It felt diverse, but definitely not as poor and
 
  I did not coordinate well for arriving to PA, but I think it should all work out. Since now I am going to be going from the suburbs, I will have to be a bit more intentional with timings towards the end of the day. I will try to get onto Septa Transit to Colmar Station by 5 each day and uber part of the day. It is good that the interesting parts of PA are so small, since otherwise this would be much harder to do. I will need to leave home by 7:30am for sure every day to catch the 8:09 Septa, so that means waking up at 6:30am,and I can start heading back at the 5:30 Septa from center station. I am not planning on trying any new foods in PA so lunch will be easy. Downtown PA is also very walkable and very small, which also makes things easy. Pictures will be posted tomorrow, since I need to rest today. 
 
-Song of the Day: Chopin Scherzo no. 2, Seong-Jin Cho
+Musik: Chopin Scherzo no. 2, Seong-Jin Cho
 === Day 11 - May 5 (Tue)
- #figure([#linked-image("AmtrakPhotos/11.MalliAthaiFamily.jpg")], caption: [Malli Athai Family])
+ #figure([#linked-image("AmtrakPhotos/11.MalliAthaiFamily.jpg")], caption: [M.A. Family])
  #figure([#linked-image("AmtrakPhotos/11.WallStreet.jpg")], caption: [Wall Street])
  #figure([#linked-image("AmtrakPhotos/11.BatteryPark.jpg")], caption: [Battery Park])
  #figure([#linked-image("AmtrakPhotos/11.StatueOfLiberty.jpg")], caption: [Statue of Liberty])
@@ -570,7 +570,7 @@ I walked around Penn Station and Downtown Manhattan after coming back from the f
 
 The Vermonter train to Philadelphia is about the same as the Northeast Regional. I think after I leave D.C. all the trains will be comfortabl New York was overall very interesting. It feels hostil to religion, but much easier to be cultural. In the same way americans are encouraged to only discuss and live religion on Sundays (what I call "Sunday Christians"), New York somehow (partially due to its fast pace) fells especially antagonistic towards the reflection that faith deserves. At the same time, the speed and diversity encourage you to not only learn about other cultures but to have a specific identity so that you can quickly find a community. Maybe thats why faith easier in India as well, just the sheer diversity of faiths and the search for connection. I am curious about the differences between African-American culture and the culture I grew up with. It is really interesting being around a lot of black people for the first time, and being around the comparatively looser culture. The intensity of NYC might come partially from people being unwilling to share about themselves and trust other people easily without a good reason. Conversation exists, but it generally has a specific goal, and is never just free to breathe, similar to California. I was also randomly wondering what the world would look like if all 8 billion+ people (minus the people who need to work in agriculture). It would certainly be very interesting, there would be a very different sociopolitical environment. I also wonder why tobacco usage in the East Coast is so much more normalized than in other places I have been to. Philadelphia and NYC seem to be the worst about it, even young people are using tobacco.
 
-Song of the Day: Weightless, Marconi Union
+Musik: Weightless, Marconi Union
 === Day 12 - May 6 (Wed)
  #figure([#linked-image("AmtrakPhotos/12.ReadingMarket.jpg")], caption: [Reading Market])
  #figure([#linked-image("AmtrakPhotos/12.Chinatown.jpg")], caption: [Chinatown])
@@ -602,7 +602,7 @@ Culturally, the city feels a bit like the Midwest. The co-occurence with Amish p
 
 Tomorrow, if I have time, I am considering of going to King of Peoria in addition to the rest of the schedule to see their shopping mall, since it is the fourth-largest shopping mall in the United States. 
 
-Song of the Day: If I Had a Hammer, Peter Paul and Mary
+Musik: If I Had a Hammer, Peter Paul and Mary
 === Day 13 - May 7 (Thu)
  #figure([#linked-image("AmtrakPhotos/13.ItalianMarket.jpg")], caption: [Italian Market])
  #figure([#linked-image("AmtrakPhotos/13.ItalianSoda.jpg")], caption: [Italian Soda])
@@ -617,7 +617,7 @@ As for hobbies, I think once I finish a Language Transfer cousre, thats about th
 
 Tomorrow I only have one item on the itinerary (for the morning): Benjamin Franklin Parkway. I actually need to buy the keychain too. 
 
-Song of the Day: Little Boxes, Peter Seeger
+Musik: Little Boxes, Peter Seeger
 === Day 14 - May 8 (Fri)
 #figure([#linked-image("AmtrakPhotos/14.BenjaminFranklinParkway.jpg")], caption: [Rocky Movie Steps])
 #figure([#linked-image("AmtrakPhotos/14.RockySteps.jpg")], caption: [Rocky Movie Steps])
@@ -638,7 +638,7 @@ One of the nice things about D.C. is how spread out things are. The wider roads,
 
 I saw a tiny baby squirrel running around the old growth forest near Washington's Cathedral, which was also very beautiful. I think I will get the most exercise in D.C. because of the hilliness, second only to San Fransisco. I think these days when I have to walk with my backpack are part of the challenge. I think I am getting more comfortable knowing what to pack, likely a lot of cheese and crackers. 
 
- Song of the Day: I've Got Rythm, George Gershwin
+ Musik: I've Got Rythm, George Gershwin
 === Day 15 - May 9 (Sat)
 #figure([#linked-image("AmtrakPhotos/15.ArlingtonCemetaryGarden.jpg")], caption: [Arlington Cemetary Garden])
 #figure([#linked-image("AmtrakPhotos/15.ArlingtonBridge.jpg")], caption: [Arlington Bridge])
@@ -668,13 +668,13 @@ I learned a few interesting facts. In 1884, the Washington Monument was the tall
 
 Tomorrow I am planning to visit the Adams Morgan, Crystal City (and the mall), and Ballston Neighborhoods, then visit S.C. and explore Takoma/Takoma Park. 
 
-Song of the Day: Tomorrow, Annie
+Musik: Tomorrow, Annie
 === Day 16 - May 10 (Sun)
 #figure([#linked-image("AmtrakPhotos/16.AdamsMorgan.jpg")], caption: [Adams Morgan Neighborhood])
 #figure([#linked-image("AmtrakPhotos/16.ShilpaChithiFamily.jpg")], caption: [Shilpa Chithi Family])
 Disclaimer: Today I didn't take many photos. There really wasn't any need. I essentially followed the plan to a T, although I did slightly less walking than anticipated so I could visit S.C. on time. I walked between Pentagon City -> Crystal City -> Ballston Quarter, then took the train to Adams Morgan and walked north to Takoma to meet with S.C. and A.U. It was overall a pretty fun today, very relaxing, although a decent amount of exercise. It was cool getting to catch up, especially since the last time I saw them I was only in seventh grade. I thought Ballston was nice, but I really liked Adams Morgan, if I had infinite money, I would probably live there (although maybe the nightlife could discourage me if there are lots of drunk college kids in practice). It also had a lot of pacifist/anti-war signage , which I very much appreciated. I think just from exposure to things, I came up with a few things I want to do. I should watch Porgy and Bess with Rina (and Rino, although I am not sure if it will be his thing), and to learn some Gershwin. I also think I should watch Smoky and the Bandit when I get back. That one might be better with Rino. There's really not much to say, but I think it was a solid day of D.C. overall, and a great way to spend it before heading on the long road back. Tomorrow morning I will take care of shopping and packing for the trip. I have most of the things I will be eating, but I will buy an extra box of crackers and snacking parmesan just in case. I still haven't picked up face wash and a battery pack either, so I will try to find those. If I have time, I will visit Alexandria, and then I will say goodbye to Rino and head to the train station. G.U. offered to pick me up after the first day in Seattle, so I think that will make it easier, since the transit to the suburbs will take a while. Overall, I am really excited for a few days to recharge and meet cool new people on the train.
 
-Song of the Day: An American in Paris, George Gershwin
+Musik: An American in Paris, George Gershwin
 === Day 17 - May 11 (Mon)
 #figure([#linked-image("AmtrakPhotos/17.Bean.jpg")], caption: [Bean])
 #figure([#linked-image("AmtrakPhotos/17.Howard.jpg")], caption: [Howard University Clocktower])
@@ -796,12 +796,173 @@ I need to call Ibrahim and coordinate my coming to Chicago. I had kind of a huge
 
 Tomorrow I have some sourdough and phool makhana and palak paneer to eat. I probably will try to save the crackers and dried fruit or share for the long long haul, as long as things aren't going bad. 
 === Day 23 - May 17 (Sun)
+#figure(linked-image("AmtrakPhotos/23.WA.jpg"), caption: [An Industrial Town in Southern Washington])
+#figure(linked-image("AmtrakPhotos/23.OR.jpg"), caption: [Oregon Farms])
+#figure([
+#linked-image("AmtrakPhotos/23.Cascades1.jpg")
+#linked-image("AmtrakPhotos/23.Cascades2.jpg")
+#linked-image("AmtrakPhotos/23.Cascades3.mp4")
+#linked-image("AmtrakPhotos/23.Cascades4.jpg")
+#linked-image("AmtrakPhotos/23.Cascades5.jpg")
+#linked-image("AmtrakPhotos/23.Cascades6.jpg")
+#linked-image("AmtrakPhotos/23.Cascades7.jpg")
+#linked-image("AmtrakPhotos/23.Cascades8.jpg")
+#linked-image("AmtrakPhotos/23.Jam.jpg")], caption: [I am getting a bit greedy here, but the views of the Cascades were genuinely so amazing I couldn't pick a favorite (hopefully it is clear why)])
+I had a pretty slow start today. i woke up around 7, packed, and talked with G.U. and A.A. until 8:30. G.U. dropped me off, and I got onto the train. They did something interesting where they assigned the seats before sending us onto the train rather than checking after we had boarded and chosen seats freely. Maybe too many people tried going straight from Seattle to Tacoma for free. The weather is pleasant, and bound to get better as we got through S.F. and get the amazing views of the Pacific Northwest. In a weird way, the stretch around Seattle reminds me of I20.
 
+I missed Rina's call because my Whatsapp has been broken, but I told her that Discord will work (more or less). I hope she has a really fun time in Prague and takes notes on what she does.
+
+I started reading Cannery Row. I want to give it its due dilligence, since it seems really interesting. Steinbeck's work is definitely shaped by his perspective on the time and place, but seems to hearken back to the California countryside in a very realistic way for the time (despite him writing these works long after he had moved away). It is also written in a very simple and readable style, which I always enjoy. In some ways its almost Dahlian.
+
+I saw two people on the train who I had also ridden with on the Empire Builder. She is an agro-chemical engineer (to hopefuly not make an Agent Orange \#2). I think there is a sense of comraderie shared by Rail Pass users, since everyone has collectively decided to go through these extremely long journies together. The problem in the train is ultimately that you can very very rarely deeply emotionally connect with the people you meet, since there is a shared awareness of it all being temporary in the scale of days. Some people thrive on it, I imagine New Yorkers would be fine, but I think I personally prefer the slower pace, the sharing of values, and being in it for the long haul.And my values (and the resultant politics) are hard to share sometimes beacuse of how controversial they are. I guess I take a while to warm up to people. I guess my take "killing people is inherently bad" is too hot of a take. I related well to the people going into Chicago and Boston, and with the woman I met who was going to Kalamath Falls, but in general there are so many military people in the train it becomes hard. People my age (or within 10 years of it) are generally fun to talk to, although rail pass users are often older. People my age often don't seem to be able to engage, which is a bit sad.
+
+Overall from the train ride into and out of Seattle and the city itself, I have come to really appreciate Washington's conservation movement. The whole state is genuinely beautiful.  On the ride down, there were some volunteers from the national park service between Seattle and Portland who gave some information on the different things along the way. Apparently there is something called squirrel bridges, which are tiny bridges for squirrels, which also sounds absolutely adorable. They also showed some ash from Mount Saint Helens, and we assed through miles of agricultural land that was apparently all shaped by the ash from the eruption as well.
+
+I finished the crackers lotus seeds, bread, and palak paneer, so tomorrow morning I can just have the dried fruits and get food in the city. On the way to Dallas I will just buy some Sourdough in S.F. and jarred things and pickles. I ate a lot today, so I feel very quilty and a bit fat. Maybe I do need to weigh myself. In some ways my attitude towards food has gotten both better and worse. 
+
+Going through the fiels of grass, I am reminded of Neruda's poem "and beacuse love battles". It peaks of the burning agricultures in the minds of men and women. I thin the purpose of the poems is to be a comfort, to tell the reader to take strength in what is true for the individual regardless of external appearances. I think this year has been very educational in that regard. In other words, to use a Quaker-ism: "No storm can shake my inmost calm". Today moved by really quickly. I don't know why, I feel like I almost lost time. It is lovely to stare out the window and just admire the beauty and listen to music. I found the northern part of Oregon prior to entering the cascades very flat.
+
+I wonder why Alex picked me of all people, it is something that I think will confuse me a bit, I wonder if he will tell me at some point. 
+
+I will never not be struck by how muc hthe culture of military people is not only consistent across groups, but very self-justifying, coars, ungental, shallow, brutish. This, I cannot relate to. I think the soft touch has guided me more, even if I myself struggle to do the same at times. I don't know how to guide with complete calmness, but I think I am growing closer as I get older, and that it can be done. Maybe I will learn it through my Ph.D. That does seem more Alex's style, which I am glad about. I don't think I respond the best to threats and threatening guidance. As the sun sets, we went through the Cascade mountains. It was definitely my favorite part of the trip, and I still remember it from when I was a yung'n on the train as well.
+
+A problem I have had in the past with relationships is that I give my time an denergy and care very fully, withotu ever feeling the same effort reciprocated. I don't give them a chance to choose to make an active effort to spend time with me. This is not an easy thing to do, to ease of and to receive love. And I do have faith in my closest friends to step up, but maybe less than I should. I'm fairly certain that the person who truly does this for me, I will fall head over heels with in a heartbeat. I may be the Jesus of reaching out accoridng to Rina, but this is also a problem in sustaining relationships long-term. After all, my desire to maintain the friendship only means something if they want the same.
+
+On the travel from Kalamath Falls, I met a woman, an ex-mormon, who was really interesting. We talked about faith a bit, and our politics, and she taught me a bit about Mormons (endowment ceremony and their recursive-Jesus view of the afterlife), the Pacific Northwest, and managing forest fires. She had taken the train several times, so knew quite a bit about the area and where the most scenic moments were in the Cascades. The more I learn about the C.O.J.C.O.L.D.S., the more I feel that it is heretical, even if I have no dog in the fight. I don't really think it matters if they are christian or not, but it certainly seems to not actually have an understanding of the New Testament without serious cherry-picking (at least from my lens). To be completely fair to them, the Mormons I have met are genuinely great people, very friendly, and they posess a deep faith that I admire greatly. They are certainly abrahamic, but I don't know that I would naturally classify them as Christians as an outsider simply because they almost view Jesus like how Muslims do (as an individual to be revered whom you can become), although they are free to disagree with me, and I have a very limited perspective and a lot to learn. She told me I would be a good professor, which I thought was kind of funny. I think it would be a lot of fun if I went about that track, as long as I found the thing I was teaching to be interesting. If I like West Lafayette a lot and enjoy teaching, I could also just stay in that area if Purdue hires me, but that is far in the future. Before she got down at Kalamath, she gave me some Huckleberry Jam, which I will save for the trip back home to eat with my sourdoughs. The houthern part of Oregon through the cascades is absolutely beautiful. I pointed out reading the bible it's extremely interesting to look at who Jesus was. I think he was deeply frustrated with the other people around him, and was trying to tell everyone to a certain message, even if he himself got outwardly annoyed sometimes. It's a very humanizing view, but it fits with the women and the well for example, and with the view of him as a historical figure. Chel asked how much of it was planned, and how much was on the fly. And she hypothesized that Jesus likely knew his basic points for the sermon on the mount, and that he did the sermon itself impromptu. Overall, today was a solid day on the train, I enjoyed it a lot. 
+
+Musik: "Lucy in the Sky with Diamonds", the Beatles
 === Day 24 - May 18 (Mon)
+#figure(linked-image("AmtrakPhotos/24.DowntownSF.jpg"), caption: [Downtown San Francisco])
+#figure(linked-image("AmtrakPhotos/24.Ferry.jpg"), caption: [Ferry Building])
+#figure(linked-image("AmtrakPhotos/24.BayBridge.jpg"), caption: [Bay Bridge from Embarcadero])
+#figure(linked-image("AmtrakPhotos/24.WoodenPier.jpg"), caption: [Wooden Pier])
+#figure(linked-image("AmtrakPhotos/24.SeaLionsPier39.jpg"), caption: [Sea Lions at Pier 39])
+#figure(linked-image("AmtrakPhotos/24.FishermansWharf.jpg"), caption: [Fisherman's Wharf])
+#figure(linked-image("AmtrakPhotos/24.CandyStore.jpg"), caption: [Candy Store])
+#figure(linked-image("AmtrakPhotos/24.MartimeMuseum.jpg"), caption: [Maritime Museum])
+#figure(linked-image("AmtrakPhotos/24.Trolley.jpg"), caption: [Old Fashioned Cable Car])
+#figure(linked-image("AmtrakPhotos/24.GhiradelliSquare.jpg"), caption: [GhiradelliSquare])
+#figure(linked-image("AmtrakPhotos/24.LombardStreet.jpg"), caption: [Lombard Street])
+#figure(linked-image("AmtrakPhotos/24.StPetersCathedral.jpg"), caption: [StPetersCathedral])
+#figure(linked-image("AmtrakPhotos/24.StPetersCathedralExterior.jpg"), caption: [StPetersCathedralExterior])
+#figure(linked-image("AmtrakPhotos/24.CoitTowerPark.jpg"), caption: [Coit Tower Park view of S.F.])
+#figure(linked-image("AmtrakPhotos/24.CoitTower.jpg"), caption: [Coit Tower])
+#figure(linked-image("AmtrakPhotos/24.TonysPizza.jpg"), caption: [Tony's Pizza Napoletana])
+#figure(linked-image("AmtrakPhotos/24.Chinatown.jpg"), caption: [Chinatown])
+#figure(linked-image("AmtrakPhotos/24.ChinatownGate.jpg"), caption: [Chinatown Gate])
+#figure(linked-image("AmtrakPhotos/24.UnionSquare.jpg"), caption: [Union Square])
+#figure(linked-image("AmtrakPhotos/24.UNPlaza.jpg"), caption: [U.N. Plaza])
+#figure(linked-image("AmtrakPhotos/24.SFFriendsMeeting.jpg"), caption: [S.F. Friends Meeting])
+#figure(linked-image("AmtrakPhotos/24.RaviMamaMissionDistrict.jpg"), caption: [R.M. in Mission District Mural Alley])
+#figure(linked-image("AmtrakPhotos/24.SuperBurrito.jpg"), caption: [Super Burrito at Taqueria Cancun])
+I woke up about an hour north of Sacramento, with the comforting thought "On Halde" (stay on). It is really a lovely morning, and I saw the sun rise over the hills. I woke up fairly early at 5, but I feel extremely calm.
 
+I tend to be pretty forgetful about time consuming/tedious things, so for when I go home, I should print and laminate a morning and evening checklist.
+Make Bed
+Select Clothes
+Trim Beard/Shave
+Shower
+Lotion
+Brush Hair
+Brush Teeth
+Floss
+Water Floss
+Tongue
+Clean Glasses
+Trim Nails
+Hand Cream
+Sunscreen/Moisturizer 
+Clothes
+Laundry
+Eat Fruit/Cheese/Hummus/Bread/Spinach
+Coffee
+Wash Plate
+Socks
+Phone/Wallet/Keys?
+
+And for the nighttime: 
+Cook
+Wash Plate
+Knead Dough/Grind Hummus
+Face Wash
+Face Cream
+Paint/Bandage Nails
+Foot Cream
+Wash Clothes
+Tidy Room
+Clean Kitchen/Dining Table
+
+I met George, the army NASA guy from the Empire Builder train. I told him about my pacifism and we talked a little bit about the problems with the Vietnam war and the draft, and also the treatment of veterans. I shared my perspective on why veterans were treated poorly (indeed, this is something I struggle with and have to try actively to overcome), and shared the Edna St. Vincent Millay poem. I keep running into him everywhere. I saw him again in a Bart Station as well, which is even crazier.
+
+The weather in S.F. is so nice, you can just forget about it. That's really what it is, you just forget that the weather is good until it's not. You forget that weather exists because you just have the climate.That being said, although you can the weather is great, the city itself is not as lush as Seattle. The hills surrounding the bay are just brown and ugly year for most of the year, even if Marin County and the redwoods are beautiful.
+
+I am taking the J Transbay to Salesforce Center and then starting the walk. I am basically going according to plan today, nothing too crazy. I will let the North Beach neighborhood be the flex time, and just wander the piers and ferry building. I don't have much food, except the Jam and Fruits, so I don't need to be worried about carrying weight since my pack is so light. Tony's Pizza is right in North Beach, so it was a good lunch. It was just underneath Luigi's in quality, but still one of the best pizzas I have had. It's chewier and denser and thinner, definitely better than Lucia's, not as good as Spumoni Gardens, and still incredible. 
+
+the ferry building is just like I remembered. Apparently the Embarcadero view was cut off by a freeway, but after the Loma Prietta earthquake, they tore it down since it was already half destroyed and extremely unpopular. It wasn't crowded, maybe because it was a morning on a weekday. Same for Pier 39, where I bought my bread for the trip. The seals and sea lions on the pier are very cute. Watching them is super relaxing, I think Pier 39 would be a great place to take a date. Boudin smells so good. and it's right across from the candy department store, that area is just heaven for the nose. I forgot the warm smell associated with California's nature in the spring, the redwoods, the grasses. It is super unique. Seattle has a different, more piney smell, but I haven't smelled quite the same kind of things in other cities.
+
+I need to look up Victorian, Queen Anne style, and Beaux Art style architecture when I get back. San Francisco is very hard to walk around in some parts. It is so insanely steep . The walk up to Lombard Street especially was difficult. I think my legs barely have any fat now around my calves and feel just mostly like muscle. I can also visibly see definition, even though the dryness of my skin from this trip is making it hard to see. I'm going to have Rino legs after this trip, especially after San Francisco. I think I finally started losing my belly fat.
+
+S.F. Chinatown is the Chinese version of Boston's little Italy. It is overall really vibrant even though it's just a random Monday's afternoon. like Seattle, the buildings all feel normal San Francisco as well , which is very cool. I think I am returning at a good point though, I keep forgetting what city I am in. North Beach was probably my favorite, it has the Victorian feel without the poverty or drugs, even if it's insanely hilly.
+
+It's so sad how many people are tweaking in S.F. I feel like the number of homeless people is not different from any city, but the ones here are visibly doing drugs/have meth sores/and are collapsed tweaking on the side of the road. And no one can stop it, and the cops seem not to care either. It's a really great city, especially north towards the wharf and around the St. Peters Cathedral. but it's also clearly got a drug problem that needs resolution. I will say, I feel much more relaxed in cities now and with travel in general, although I still think that I prefer the slower pace of life of smaller towns.
+
+I saw a guy snorting crack, and another doing heroin, which was certainly interesting and very memorable.
+
+I had a lot of fun hanging out with R.M. and meeting A. We had a pretty tasty Mission Burrito, which was very filling, and delicious Salty Kaya ice cream. It was a very fun evening. We also rode in a Waymo, which was a very new experience. I didn't realize it could see so much, it is a bit unnerving at first but it clearly drives better than a lot of humans. In fact, Waymo sees substantially more than your average driver. It tends to brake a little harder than me, but is still better overall.
+
+Musik: "Yesterday", Beatles
 === Day 25 - May 19 (Tue)
+#figure(linked-image("AmtrakPhotos/25.PaintedLadies.jpg"), caption: [Painted Ladies Houses])
+#figure(linked-image("AmtrakPhotos/25.WesterfieldHouse.jpg"), caption: [Westerfield House])
+#figure(linked-image("AmtrakPhotos/25.FreeGoldWatchArcade.jpg"), caption: [Free Gold Watch Arcade])
+#figure(linked-image("AmtrakPhotos/25.GoldenGateParkTrees.jpg"), caption: [Golden Gate Park])
+#figure(linked-image("AmtrakPhotos/25.GoldenGateParkBunnyMeadow.jpg"), caption: [Bunny Meadow at Golden Gate Bark])
+#figure(linked-image("AmtrakPhotos/25.GoldenGateParkDogmanRabbitWoman.jpg"), caption: [Dogman and Rabbit Woman Sculpture])
+#figure(linked-image("AmtrakPhotos/25.GoldeGateParkFountain.jpg"), caption: [Golden Gate Park Fountain (with the California Academy of Sciences in the Background)])
+#figure(linked-image("AmtrakPhotos/25.DeYoungView.jpg"), caption: [View of S.F. from the DeYoung Museum])
+#figure(linked-image("AmtrakPhotos/25.DeYoungWeShallNotBeMoved.jpg"), caption: [We Shall Not be Moved portrait of slaves being attacked from the DeYoung Museum])
+#figure(linked-image("AmtrakPhotos/25.DeYoungVenus.jpg"), caption: [Venus Modernist Painting from the DeYoung Mesum])
+#figure(linked-image("AmtrakPhotos/25.GoldenGateParkTeaGarden.jpg"), caption: [Golden Gate Park Japanese Tea Garden])
+#figure(linked-image("AmtrakPhotos/25.GoldenGateParkHeronLake.jpg"), caption: [Golden Gate Park Heron Lake])
+#figure(linked-image("AmtrakPhotos/25.BakerBeach.jpg"), caption: [Baker Beach])
+#figure(linked-image("AmtrakPhotos/25.PresidioTrail.jpg"), caption: [Trail in the Presidio from Bakers Beach to the Golden Gate Bridge])
+#figure(linked-image("AmtrakPhotos/25.GoldenGate.jpg"), caption: [Golden Gate Bridge View])
+#figure(linked-image("AmtrakPhotos/25.SFFromGoldenGate.jpg"), caption: [San Francisco from the Golden Gate Bridge])
+#figure(linked-image("AmtrakPhotos/25.MarinFromGoldenGate.jpg"), caption: [Marin from the Golden Gate Bridge])
+#figure(linked-image("AmtrakPhotos/25.SFSunset.jpg"), caption: [Sunset in S.F.])
+It feels like everything in S.F. is owned by Amazon or Google or some other big tech company. For example (and this is a small example), Whole Foods is everywhere. It highlights the Gilded Age moment we are in historically, with its ever-present monopolies.
 
+In some ways, a lot of S.F. feels like a huge historical district because of its Victorian era buildings. It is really gorgeous overall, since the buildings are not only colorful and architecturally interesting, but also have a lot of the exterior ornamentation which makes even ordinary houses look more upscale. There was a very similar style in Dorchester in Boston as well, but here it feels more like a city than Dorchester since the walls are all attached. Dorchester had separated houses and felt comparatively suburban (because it is), but was still very nice, and would be great to live in. The houses are all very vibrant colors, but aren't as jarring as an India because they sort of form tapestry in their consistent architecture, and the colors on a single house tend to be well-chosen. It also has random historical shops scattered throughout, since the city hasn't really expanded its borders, so I saw the pinball collection at Free Gold Watch, which was very cool.
+
+ San Francisco definitely is greener than New York and infinitely greener than Manhattan, but at the same time still often has a manufactured feeling throughout the city compared to the natural "city in the forest" feeling of Seattle. San Francisco is much much quieter though. I can barely hear the sound of the cars inside the Golden Gate Park. Golden Gate Park is very pretty. I think I like it more than Central Park, since it feels so much more natural. There's more flowers and it's just a much calmer and relaxing place overall. It is also slightly bigger. Both parks are great, but I feel more genuinely in a forest than in a curation of a forest.
+
+ The De Young Museum is nice too. It isn't on the same level as the Met, but it's on the same level as the Harvard Museums, which is still really fun to explore. I especially appreciated their explanations of the time periods and movements in the exhibits rather than assuming prior knowledge. I particularly liked the story around Greek Slave by Hiram Powers.
+
+  I walked from Golden Gate Park to Baker Beach though Central Richmond. Central Richmond is actually really nice. there are less Victorians, but it still is colorful and had an idyllic calm. When I went to Baker Beach, I was not expecting nude ppl, so it was pretty amusing. The views of the ocean, Marin County, and the Golden Gate Bridge were really lovely though, as was the hike to the bridge. The weather was great, so there was a decent amount of people, all wearing bikinis and sunbathing and playing sports.
+
+  The Golden Gate Bridge was much cooler in person, I didn't realize how much it had been retrofitted, or that it's style was Art Deco. It is kind of funny to me that after living in San Francisco for 10 years, I never once went across the bidge.I'm really glad I did it all.
+
+  I'm taking the bus to R.M.'s place back, but overall this part of SF is super beautiful. I wish we visited here more, we could have just used Bart when I was younger.
+
+ A funny older man got on the bus, and I offered my seat, and he said that's fine, he's only 27. I told him he didn't look a day over 25 and he said that it's over when ppl start calling you "Mr.", which I found really funny. 
+
+ It was a good day, I think SF is really unique and can actually rival Chicago and Manhattan, even if they have slightly different vibes.
+
+ It is definitely a friendly place to live in, even if the cost of living is comparable to Manhattan. If they fix the cost of living, reduce the monopolies, and are able to manage the drug problem a bit better, it would easily be one of, if not the best city in the United States.
+
+I did shopping and had some great Turkish food with R.M. It was similar to Mediterranean food, but was slightly different. I bought my groceries (Sauerkraut, Jam, Bread, Protein bars, Dried Fruit) so I should be ready to go for the trip.
+
+Musik: "I Wanna Hold Your Hand", the Beatles
 === Day 26 - May 20 (Wed)
+I didn't sleep super well last night since the pillow fell from the cot. I think that this trip has taught me that the majority of my issues with sleep are not from weight like I previously thought, but my pillow. I overall prefer a firmer cooling pillow, like the one I mentioned with M.A. Apparently this pillow is pretty solid, and is adjustable #link("https://tinyurl.com/3tkbec9h"). I also need to invest in good moisturizer and make sure I use it every day. My skin has been drying out so fast on this trip, my legs and elbows especially. It is becoming uncomfortable, like how it once was on my hands. O'Keefe's is still the best brand, and it heals so so quickly. It is expensive, but the cult following is completely reasonable. I myself will join this cult. I think I will start with their Skin Repair lotion and then once I use the first bottle, switch to the normal body lotion.
+
+Ravi Mama told me about an interesting coffee product called an Aero Press, which may be the easiest way for me to make coffee if the Meeting House doesn't have a coffee maker.
+
+ After seeing so many cities, although I do like them all in their own way, I don't think I am cut out for the impersonality of the city, even if visiting it is probably really really fun. And in a way knowing that, having seen everything, I am looking forward to experiencing life in Lafayette. It will be a different pace, but I think it will suit me well.
+
+I am closer to my fitness goals than when I started, even if I am not all the way there yet, so once I get into my normal diet and start working out upper body I should be golden. I am so close, if I just work out consistently and alternate between HIIT/a targeted upper body section, I could get very close to a six-pack by the time I start Ph.D. My calves are definitely quite strong now, I can see and feel a strong difference in my legs between when I started. I have also gotten a much stronger appreciation for salad, which I think I will start eating daily with dinner (at least when I cook at home). As long as I am able to make Feta, between that and Paneer I have a good source of protein (yogurt and cheese), micronutrients (spinach and veggies), fat (olive oil), fruit, carbs (bread), fiber (hummus), all tied together with Balsamic Vinegar of Modena. It is a very fresh, very healthy diet (if I can maintain it). 
+
+One thing I have noticed about people who live in small places and in cities (A.M., R.M., etc.) is that because of the limited number of posessions they can reasonably fit in their space, the better those things become, and there is a sense of consciousness about the things you buy rather than typical suburban impulsive decisionmaking, which I think is something I will adopt in life. It is already something I have a natural inclination towards, but I have more evidence of its efficacy and the pressures that may cause such thinking now.
 
 === Day 27 - May 21 (Thu)
 
@@ -842,4 +1003,5 @@ Eggplant Parmigiana
 Taco with Mushroom, Goat Cheese, Red Pickled Onion
 Pesto
 Cannoli
+Mexiterranian Food?
 ```
