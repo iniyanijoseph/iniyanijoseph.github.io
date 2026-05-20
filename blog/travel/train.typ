@@ -3,6 +3,7 @@
 
 #show: cv.with(subpage: true, root: "../../", fancylist: false)
 #let linked-image(src) = html.elem("img", attrs:(src: src))
+#let linked-video(src) = html.elem("video",  attrs: (src: src, controls:"true"))[Your browser doesn't support video]
 
 = Amtrak Rail Pass
 This summer, I plan to use the Amtrak Rail Pass to travel for 1 month. This blog will contain my plans for the journey, and my thoughts on each day's experiences. 
@@ -701,7 +702,7 @@ Overall, these train days are very interesting. I always feel like I learn somet
 
 Musik: "If I Were Free", Peter Paul and Mary
 === Day 19 - May 13 (Wed)
-#figure([#linked-image("AmtrakPhotos/19.MTLightning.mp4")], caption:[MT Lightning])
+#figure([#linked-video("AmtrakPhotos/19.MTLightning.mp4")], caption:[MT Lightning])
 #figure([#linked-image("AmtrakPhotos/19.MTOldestSteamCar.jpg")], caption: [MT Oldest Steam Car])
 #figure([#linked-image("AmtrakPhotos/19.MTRainbow.jpg")], caption:[MT Rainbow])
 #figure([#linked-image("AmtrakPhotos/19.MTSunset.jpg")], caption:[MT Sunset])
@@ -754,7 +755,7 @@ Musik: Symphony no. 3, Rachmaninoff
 #figure(linked-image("AmtrakPhotos/21.FremontTroll.jpg"), caption: [Fremont Troll])
 #figure(linked-image("AmtrakPhotos/21.FremontHallofGiants.jpg"), caption: [Fremont Hall of Giants])
 #figure(linked-image("AmtrakPhotos/21.GasworksPark.jpg"), caption: [Gasworks Park])
-#figure(linked-image("AmtrakPhotos/21.BeauxArtVillage.jpg"), caption: [Beaux-Art Villag])
+#figure(linked-image("AmtrakPhotos/21.BeauxArtVillage.jpg"), caption: [Beaux-Art Village])
 #figure(linked-image("AmtrakPhotos/21.DowntownBellvue.jpg"), caption: [Downtown Bellvue])
 Being able to use a car again is very nice. The drive around Redmond is really beautiful. One observation is that the suburbs, especially Redmond, has a lot of traffic circles. It fits with the theme of Seattle overall - modern, new, and with a clear set of priorities. I finished the rest of my granola bars and the other apple, and the Beecher's cheese that is made here. It was all very good. The smells walking around Seattle are insanely good. Maybe its because the weather is cold that it smells so appealing, but I stayed strong.
 
@@ -801,7 +802,7 @@ Tomorrow I have some sourdough and phool makhana and palak paneer to eat. I prob
 #figure([
 #linked-image("AmtrakPhotos/23.Cascades1.jpg")
 #linked-image("AmtrakPhotos/23.Cascades2.jpg")
-#linked-image("AmtrakPhotos/23.Cascades3.mp4")
+#linked-video("AmtrakPhotos/23.Cascades3.mp4")
 #linked-image("AmtrakPhotos/23.Cascades4.jpg")
 #linked-image("AmtrakPhotos/23.Cascades5.jpg")
 #linked-image("AmtrakPhotos/23.Cascades6.jpg")
@@ -841,10 +842,10 @@ Musik: "Lucy in the Sky with Diamonds", the Beatles
 #figure(linked-image("AmtrakPhotos/24.CandyStore.jpg"), caption: [Candy Store])
 #figure(linked-image("AmtrakPhotos/24.MartimeMuseum.jpg"), caption: [Maritime Museum])
 #figure(linked-image("AmtrakPhotos/24.Trolley.jpg"), caption: [Old Fashioned Cable Car])
-#figure(linked-image("AmtrakPhotos/24.GhiradelliSquare.jpg"), caption: [GhiradelliSquare])
+#figure(linked-image("AmtrakPhotos/24.GhiradelliSquare.jpg"), caption: [Ghiradelli Square])
 #figure(linked-image("AmtrakPhotos/24.LombardStreet.jpg"), caption: [Lombard Street])
-#figure(linked-image("AmtrakPhotos/24.StPetersCathedral.jpg"), caption: [StPetersCathedral])
-#figure(linked-image("AmtrakPhotos/24.StPetersCathedralExterior.jpg"), caption: [StPetersCathedralExterior])
+#figure(linked-image("AmtrakPhotos/24.StPetersCathedralInterior.jpg"), caption: [St. Peter's Cathedral])
+#figure(linked-image("AmtrakPhotos/24.StPetersCathedralExterior.jpg"), caption: [St. Peter's Cathedral Exterior])
 #figure(linked-image("AmtrakPhotos/24.CoitTowerPark.jpg"), caption: [Coit Tower Park view of S.F.])
 #figure(linked-image("AmtrakPhotos/24.CoitTower.jpg"), caption: [Coit Tower])
 #figure(linked-image("AmtrakPhotos/24.TonysPizza.jpg"), caption: [Tony's Pizza Napoletana])
