@@ -866,6 +866,7 @@ Shower
 Lotion
 Brush Hair
 Brush Teeth
+Mouth Wash
 Floss
 Water Floss
 Tongue
@@ -955,15 +956,15 @@ I did shopping and had some great Turkish food with R.M. It was similar to Medit
 
 Musik: "I Wanna Hold Your Hand", the Beatles
 === Day 26 - May 20 (Wed)
-#figure(linked-image("26.CABayFoothills.jpg"), caption: [Foothills surrounding the Bay and going into the Central Valley])
-#figure(linked-image("26.CASierraNevadaFoothills.jpg"), caption: [Foothills of the Sierra Nevada Range])
-#figure(linked-image("26.CAShrubbery.jpg"), caption: [A Shrubbery!])
-#figure(linked-image("26.CATrucee.jpg"), caption: [California near the Trucee River])
-#figure(linked-image("26.CADescendingFoothills.jpg"), caption: [Foothills on the far side of the Sierra Nevada range])
-#figure(linked-image("26.NVSaltFlats.jpg"), caption: [Salt flats in Nevada])
-#figure(linked-image("26.NVHighDesert.jpg"), caption: [The high desert in Nevada])
-#figure(linked-image("26.NVSunsetDesert.jpg"), caption: [Sunset around the high desert])
-#figure(linked-image("26.NVEastSunset.jpg"), caption: [Dusk in the high desert])
+#figure(linked-image("AmtrakPhotos/26.CABayFoothills.jpg"), caption: [Foothills surrounding the Bay and going into the Central Valley])
+#figure(linked-image("AmtrakPhotos/26.CASierraNevadaFoothills.jpg"), caption: [Foothills of the Sierra Nevada Range])
+#figure(linked-image("AmtrakPhotos/26.CAShrubbery.jpg"), caption: [A Shrubbery!])
+#figure(linked-image("AmtrakPhotos/26.CATrucee.jpg"), caption: [California near the Trucee River])
+#figure(linked-image("AmtrakPhotos/26.CADescendingFoothills.jpg"), caption: [Foothills on the far side of the Sierra Nevada range])
+#figure(linked-image("AmtrakPhotos/26.NVSaltFlats.jpg"), caption: [Salt flats in Nevada])
+#figure(linked-image("AmtrakPhotos/26.NVHighDesert.jpg"), caption: [The high desert in Nevada])
+#figure(linked-image("AmtrakPhotos/26.NVSunsetDesert.jpg"), caption: [Sunset around the high desert])
+#figure(linked-image("AmtrakPhotos/26.NVEastSunset.jpg"), caption: [Dusk in the high desert])
 I didn't sleep super well last night since the pillow fell from the cot. I think that this trip has taught me that the majority of my issues with sleep are not from weight like I previously thought, but my pillow. I overall prefer a firmer cooling pillow, like the one I mentioned with M.A. Apparently this pillow is pretty solid, and is adjustable #link("https://tinyurl.com/3tkbec9h"). I also need to invest in good moisturizer and make sure I use it every day. My skin has been drying out so fast on this trip, my legs and elbows especially. It is becoming uncomfortable, like how it once was on my hands. O'Keefe's is still the best brand, and it heals so so quickly. It is expensive, but the cult following is completely reasonable. I myself will join this cult. I think I will start with their Skin Repair lotion and then once I use the first bottle, switch to the normal body lotion.
 
 Ravi Mama told me about an interesting coffee product called an Aero Press, which may be the easiest way for me to make coffee if the Meeting House doesn't have a coffee maker.
