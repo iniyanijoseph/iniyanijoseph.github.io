@@ -2,8 +2,8 @@
 #import "../../cv.typ": *
 
 #show: cv.with(subpage: true, root: "../../", fancylist: false)
-#let linked-image(src) = html.elem("img", attrs:(src: src))
-#let linked-video(src) = html.elem("video",  attrs: (src: src, controls:"true"))[Your browser doesn't support video]
+#let linked-image(src) = context if target() == "html" {html.elem("img", attrs:(src: src))}
+#let linked-video(src) = context if target() == "html" {html.elem("video",  attrs: (src: src, controls:"true"))[Your browser doesn't support video]}
 
 = Amtrak Rail Pass
 This summer, I plan to use the Amtrak Rail Pass to travel for 1 month. This blog will contain my plans for the journey, and my thoughts on each day's experiences. 
@@ -12,7 +12,7 @@ The following map gives an overview of the approximate Amtrak routes across the 
 
 #figure([#linked-image("AmtrakRoutes.png")], alt: "Amtrak Route Map", caption: [Amtrak Route Map @caliberal2023amtrak])
 
-== Itinerary
+== Itinerary 
 Currently, the itinerary of cities is
 - #link("AmtrakTickets/1-marshall-boston.pdf")[Marshall, Texas -> Chicago (Texas Eagle) April 25\@9:30pm-26\@4:15pm]
 - #link("AmtrakTickets/1-marshall-boston.pdf")[Chicago -> Boston (Lakeshore Limited) April 26\@9:30pm-27\@8:30pm]
@@ -987,12 +987,50 @@ I wasn't able to update the blog website today because of the internet, so hopef
 
 Musik: Big Rock Candy Mountain
 === Day 27 - May 21 (Thu)
+#figure(linked-image("AmtrakPhotos/27.UTHills.jpg"), caption: [Hills and Rock Formations in Central Utah])
+#figure(linked-image("AmtrakPhotos/27.UTDesert.jpg"), caption: [Desert in Eastern Utah])
+#figure(linked-image("AmtrakPhotos/27.SnakeRiver.jpg"), caption: [Snake River (a.k.a Moon River)])
+#figure(linked-image("AmtrakPhotos/27.RubyCanyon1.jpg"), caption: [Ruby Canyon])
+#figure(linked-image("AmtrakPhotos/27.RubyCanyon2.jpg"), caption: [Ruby Canyon])
+#figure(linked-image("AmtrakPhotos/27.GlenwoodSprings.jpg"), caption: [Glenwood Springs, a natural hot springs near Denver in the Rockies])
+#figure(linked-image("AmtrakPhotos/27.RockFormation.jpg"), caption: [Example of a rock formation in the mountain])
+#figure(linked-image("AmtrakPhotos/27.LowerRockies.mp4"), caption: [Lower Rocky Mountains])
+#figure(linked-image("AmtrakPhotos/27.FlatInRockies.jpg"), caption: [A flat area of the Rockies which kayakers use to launch their boats into the lower gore valley])
+#figure(linked-image("AmtrakPhotos/27.ValleyInRockies.jpg"), caption: [Valley in the Rocky Mountains])
+#figure(linked-image("AmtrakPhotos/27.COAfterContinentalDivide.jpg"), caption: [Colorado after the Continental Divide])
+#figure(linked-image("AmtrakPhotos/27.RockiesAtDistance.jpg"), caption: [Rockies viewed from a distance while on a fresh air break])
+#figure(linked-image("AmtrakPhotos/27.RockiesNearDenver.jpg"), caption: [Rocky Mountains at high elevation approaching Denver])
+#figure(linked-image("AmtrakPhotos/27.DenverUnionStation.jpg"), caption: [Denver Union Station])
+#figure(linked-image("AmtrakPhotos/27.COPrairieSunset.jpg"), caption: [Sunset on the Colorado Prairies])
 I went to sleep around 10, and kept waking up and going back to sleep throughout the night. The periods of sleep were restful, but the overall sleep was somewhat disturbed. I did get a chance to wish Emery when I was in Utah though, which was pretty funny. When I get back, I should do HIIT workout to try to increase my baseline metabolism/improve my heart alongside upper body strength training. I have gotten stronger overall, but I have also been in a calorie deficit simply because it would be hard not to be for a while, which means I am going to have to do some effort to restore my metabolic rate. I still haven't cleared out, so I will play it safe diet-wise. I am looking forward to getting back to my normal portion-controlled mediterranean diet. 
 
 I haven't done this on the previous train journies, but I switched to my shorts and just my black t-shirt. I look much less professional, but I am travel-weary enough to not only not care, but to dress like it. People definitely seem much more surprised that I am a grad student. 
 
 Utah feels like a hillier, rockier version of the high desert. It is very beautiful, since you can see the different layers of the rocks in the hills.
+
+I met a guy named Brian from Denver who was heading back home from vacation who was one of the most "groovy" people I have met. He is a musician & guitarist and is an A/V technician. We talked about the commonality of recreational drugs in controlled settings in Denver for PTSD research and such, choosing careers based on passion, and the music scene. He reccomended a movie, "Once Upon a Time in the West". It was super interesting, I don't know if its really my scene, but I definitely think this type of people are fun to be around. When I walked by him on the train, he gave me the rad sign. He overall seemed very grounded and reasonable too. The car he is sitting in (the one in front of mine), has a broken aircon. It is freezing cold in these mountains, and was an oven in the high desert.
+
+I also met an ex-mormon woman (although she left the faith when she was a child) who was heading into Chicago as well.
+
+I have met someone from rural Maryland, much like the group from the Empire Builder/Coast Starlight. They are surprisingly conservative, but very fun to talk to. I think they remind me that even though we have completely different views on a lot of things, like on LGBTQ folk, I realize that as individuals they want the same thing for society first and foremost. They want people to have livelihoods, to live good lives, to be at peace. And everyone on the train is anti-monopoly, which is ironic given the monopolistic history of the railroads. I met an older lady from Goleta who traveled on the train regularly, and shared her views on how banning books was dumb and lamenting the apparent weakness of the conservation movement in the United States (which I agree with).
+
+This train seems to have a lot of international tourism too. I met someone from Nova Scotia/Alberta who rode the entire VIA rail a few years ago. Apparently there, they make much more rural stops, and will also allow you to request stops anywhere along the rail (in some areas). He told me he once saw a family cross a lake in a canoe to enter the train to a random spot in northern Ontario. They also don't immediately give righ of way to passenger traffic. I don't know how safe it is, but it is still phenomenal. He told me a little bit about canadian politeness, and apparently although they are politer when spoken to, they tend to be much more reserved. Canadian culture seems very similar to midwestern culture in many ways. I also met someone from China, who taught me a few commmon phrases, and someone from Johannesberg (I thought it was a bit funny, he seemed quite taken by my age and education). He was a psychiatrist who had attended a conference before going on vacation. That being said, I haven't met a single rail pass user here.
+
+We passed through Ruby Canyon and the Snake River, and apparently the river rafters which are common in the area have a big history of mooning trains. 
+
+It was around then that we passed through the Gore Canyon. That was amazing. The rock formations became much less red, and we began to see mostly granite which had been carved by the rivers. It was almost surreal. Unlike the Cascades, where you mostly look down and out, in the Zephyr you tend to look out up towards the mountains, and to have less mountains towards you which gives a certain sense of peacefulness, since it also serves to highlight the slow motion of the clouds. The scenery also shifted very quickly to fresh newer growth after the Gore Canyon, so I imagine the dirt on top of the granite soil is more hospitable to trees than the clay/iron soil. We also began to see snow capped peaks for a while. 
+
+We passed through the MOFFAT tunnel past winter peak and crossed the continental divide, which is one of the longest tunnels in the world. It is completely pitch black, and it feels like we are moving moderately slowly. They locked the cars because of how noxious the diesel fumes are over the course of the 6.2 miles, and the accumulation of dust over time. It's also over a 100 years old. I can see why the hobo from yesterday was wary of them, it would be terrifying to be outside of a well lit train going through this.
+
+I think today has the most consistently beautiful and interesting scenery I have seen, even if I doubt that the best of the Zephyr rivals the view through the Cascades. They are different types of beauty, but both give a sense of scale, and make you feel almost small. It is incredibly dry in the air this high up, I am constantly using my hand cream. The bloated feeling hasn't gone away, but I think once I get on a lower-carb diet when I get back, it should be much better. Highly processed carbs like the sourdough I packed are not generally the best for bloating, even if they fill you up and travel well. I love mediterranean food, so I think I will begin making much more mediterranean style dishes with eggplant in addition to my usual diet.
+
+
+I have noticed that this route mostly follows small streams. I think that part of it has to do with the water carving out the mountain slowly over time making flat regions that were very convenient for building railroads, and part of it having to do with the amount of water needed to carry use steam powered trains. Denver seems to have a lot of freight traffic, so after the fresh air break, I will likely wait before trying to get some sleep. I am still not hungry, the bread and jam combination seems to be filling enough. I wil also probably be done with my jam by tomorrow, but I am not too concerned because I will only really have one meal on the train before I am back home, and I will also eat the tavern style pizza in Chicago with I. I actually only ended up eating one of the loaves, so I will try not to eat them unless I am actually hungry so that I can bring them to Amma and Appa. But for now it doesn't look that way. Once we get past Denver, I believe we will descend quite a bit into the midwest, where I will see plenty of the great plains. I am not super concerned about seeing it all, since I am going to see it on the Texas Eagle as well, and it is fairly repetitive (even if it has its beauty). I am tired though, today dragged on. Part of it is that I woke up quite early, but I also think these days without movement can be quite difficult. I am looking forward to finally coming home and getting some rest and eating real food.
+
+I had a cool moment in Denver at Union Station. I had a solid few minutes of people who I had met walking by me and wishing me well. I think that even though I didn't have many prolonged conversations like on the Empire Builder, it still feels like I connected to people and like we mutually affected the other's trip, which is the purpose of these sort of conversations anyways.
+
 === Day 28 - May 22 (Fri)
+I slept poorly, but this time it wasn't posture. The whole train is freezing cold, I don't know why. I had to wake up in the middle of the night to put on a jacket and my long sleeved shirt. I had already swithed to pants from shorts in the morning in Utah, since it was probably thirty degrees outside, and passing through the car with the broken A.C. was uncomfortable. Maybe the conductor runs warm and is taking it out on the rest of us.
 
 === Day 29 - May 23 (Sat)
 
