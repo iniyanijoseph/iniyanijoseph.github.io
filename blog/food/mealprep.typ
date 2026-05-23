@@ -6,502 +6,482 @@
 // #set page(margin: 1.5cm)
 #set heading(numbering: none)
 
-= Weekly Meal Prep Components
+= Weekly Meal Prep System
 
-This system creates:
+This system is designed around:
 
-- 7 lunches
-- 7 dinners
-- interchangeable meal components
-- ~1500 calories/day before snacks
+- ~750 calorie meals
+- high protein
+- high fiber
+- freezer-friendly prep
+- minimal weekday cooking
+- reusable components
+- minimal ingredient sprawl
 
-#line(length: 100%)
+Daily structure:
 
-= Component 1 — Challah Loaf
+- 1 lunch meal
+- 1 dinner meal
+- optional fruit and mozzarella sticks for additional hunger
 
-*Makes 14 servings*
+== Weekly Component Prep
 
-== Ingredients
+=== Component 1 — Homemade Paneer
+
+Makes approximately 10 portions.
+
+=== Ingredients
+
+- 3 gallons whole milk
+- 180g lemon juice or white vinegar
+- 10g salt
+
+==== Method
+
++ Heat milk to 90C.
++ Stir occasionally to prevent scorching.
++ Remove from heat.
++ Slowly add lemon juice or vinegar while stirring gently.
++ Rest 10 minutes.
++ Strain through cheesecloth.
++ Rinse lightly with cold water.
++ Press under weight for 60–90 minutes.
++ Refrigerate fully.
++ Cube paneer.
+
+==== Portioning
+
+- 10 containers of 160g paneer
+
+Freeze most portions.
+
+=== Component 2 — Challah
+
+==== Ingredients
 
 - 180g warm water
 - 50g sugar
-- 7g instant yeast
-- 500g bread flour
+- 7g active dry yeast
+- 480–540g all-purpose flour
 - 80g vegetable oil
 - 2 eggs
 - 1 egg yolk
 - 6g salt
 
-_Optional:_ sesame seeds
+Optional:
 
-== Method
+- sesame seeds
+- poppy seeds
 
-+ Combine water, sugar, yeast.
-+ Rest 5 min.
-+ Add flour, oil, eggs, yolk, salt.
-+ Knead 8–10 min.
-+ Rise 90 min.
+==== Method
+
++ Combine warm water, sugar, and yeast.
++ Rest 5 minutes until foamy.
++ Add flour, oil, eggs, egg yolk, and salt.
++ Knead 8–10 minutes.
++ Rise 1–2 hours.
++ Divide into 6 strands.
 + Braid loaf.
-+ Rise 45 min.
++ Rise 30–60 minutes.
 + Brush with egg white.
-+ Bake at 175C for 25 min.
++ Bake at 175C for 20–25 minutes.
 
-== Portioning
+==== Portioning
 
-Slice into 14 portions of 90g. Freeze slices individually.
+- 10 slices of 90g
 
-#line(length: 100%)
+Freeze individually.
 
-= Component 2 — Roasted Vegetable Mix
+=== Component 3 — Roasted Vegetable Mix
 
-*Makes 10 portions*
+==== Ingredients
 
-== Ingredients
-
-- 1200g mushrooms
-- 800g onion
-- 800g bell pepper
+- 1000g mushrooms
+- 700g onion
+- 700g bell pepper
 - 40g olive oil
 - 10g salt
 
-== Method
+==== Method
 
 + Slice vegetables.
-+ Toss with oil + salt.
-+ Roast at 220C for 30–35 min.
++ Toss with olive oil and salt.
++ Roast at 220C for 30–35 minutes.
 + Stir halfway through.
 + Cool completely.
 
-== Portioning
+==== Portioning
 
-Portion into 10 containers of 280g. Freeze.
+- 8 containers of 280g
 
-#line(length: 100%)
+Freeze.
 
-= Component 3 — Spinach Base
+=== Component 4 — Spinach Base
 
-*Makes 10 portions*
+==== Ingredients
 
-== Ingredients
-
-- 2000g frozen spinach
+- 1600g frozen spinach
 - 25g garlic
 - 15g olive oil
 - 8g salt
 
-== Method
+==== Method
 
-1. Heat oil.
-2. Cook garlic 1 min.
-3. Add spinach.
-4. Cook until excess moisture evaporates.
++ Heat olive oil.
++ Cook garlic 1 minute.
++ Add spinach.
++ Cook until excess moisture evaporates.
 
-== Portioning
+==== Portioning
 
-Portion into 10 containers of 180g. Freeze.
+- 8 containers of 180g
 
-#line(length: 100%)
+Freeze.
 
-= Component 4 — Tomato Lentil Base
+=== Component 5 — Pinto Beans
 
-*Makes 8 portions*
+==== Ingredients
 
-== Ingredients
+- 3 cans pinto beans (15.5 oz / 439g each)
 
-- 350g dry lentils
-- 1000g canned tomatoes
-- 300g onion
-- 20g garlic
+==== Method
+
++ Drain.
++ Rinse thoroughly.
++ Portion.
+
+==== Portioning
+
+- 6 containers of 120g drained beans
+
+Freeze.
+
+=== Component 6 — Chickpeas
+
+==== Ingredients
+
+- 3 cans chickpeas (15.5 oz / 439g each)
+
+==== Method
+
++ Drain.
++ Rinse thoroughly.
++ Portion.
+
+==== Portioning
+
+- 6 containers of 120g drained chickpeas
+
+Freeze.
+
+=== Component 7 — Hummus
+
+==== Ingredients
+
+- 1 can chickpeas (15.5 oz / 439g each)
+- 25g sesame seeds
+- 40g lemon juice
 - 15g olive oil
-- 8g salt
+- 10g garlic
+- 6g salt
+- 60–120g cold water
 
-== Method
+==== Method
 
-+ Cook lentils until tender.
-+ Sauté onion in oil.
-+ Add garlic.
-+ Add tomatoes.
-+ Simmer 15 min.
-+ Stir in lentils.
++ Toast sesame seeds lightly.
++ Add sesame seeds to blender.
++ Blend until mostly smooth.
++ Add chickpeas, lemon juice, garlic, salt, and olive oil.
++ Blend while gradually adding cold water.
++ Blend until smooth and creamy.
 
-== Portioning
+==== Portioning
 
-Portion into 8 containers of 250g. Freeze.
+- 5 containers of 90g
 
-#line(length: 100%)
+Refrigerate or freeze.
 
-= Component 5 — Cooked Chickpeas
+=== Component 8 — Pizza Dough Balls
 
-*Makes 8 portions*
-
-== Ingredients
-
-- 500g dry chickpeas
-- water
-- salt
-
-== Method
-
-+ Soak overnight.
-+ Simmer 60–90 min until tender.
-+ Cool completely.
-
-== Portioning
-
-Portion into 8 containers of 160g cooked chickpeas. Freeze.
-
-#line(length: 100%)
-
-= Component 6 — Cooked Pinto Beans
-
-*Makes 8 portions*
-
-== Ingredients
-
-- 500g dry pinto beans
-- water
-- salt
-
-== Method
-
-+ Soak overnight.
-+ Simmer 60–90 min until tender.
-+ Cool completely.
-
-== Portioning
-
-Portion into 8 containers of 160g cooked beans. Freeze.
-
-#line(length: 100%)
-
-= Component 7 — Paneer Cubes (2500 grams)
-
-*Makes 14 portions*
-
-== Ingredients
-
-- 3¼ gallons (12.5 liters) whole milk (full-fat, non-ultra-pasteurized preferred)
-- ¾ cup lemon juice (or distilled white vinegar)
-- Salt to taste
-
-== Method
-
-=== Stage 1: Heat Milk
-
-+ Pour milk into pot.
-+ Heat slowly to 86°F (30°C), stirring occasionally to ensure even heating.
-+ Once at temperature, maintain steady heat for 30 minutes.
-+ Slowly add lemon juice while stirring continuously with circular motions.
-+ Line colander with double layer of cheesecloth.
-+ Pour curds and whey through cheesecloth.
-+ Gather cheesecloth and squeeze out excess whey.
-+ Place bundle in mold lined with muslin cloth.
-+ Fold muslin over top.
-+ Place weight on top (5–10 lbs).
-+ Press for 30–45 minutes at room temperature.
-+ Unwrap and cut into cubes or desired shape.
-
-== Portioning
-
-Portion into 14 containers of 180g. Freeze.
-
-#line(length: 100%)
-
-= Component 8 — Pizza Dough Balls
-
-*Makes 6 pizzas*
-
-== Ingredients
+==== Ingredients
 
 - 630g bread flour
 - 15g sugar
-- 10g salt
+- 10g kosher salt
 - 10g instant yeast
 - 32g olive oil
-- 420g water
+- 420g lukewarm water
 
-== Method
+==== Method
 
 + Combine dry ingredients.
-+ Add water + oil.
-+ Knead until smooth.
-+ Divide into 6 dough balls (~185g).
-+ Refrigerate 1–5 days.
++ Add water and olive oil.
++ Knead until smooth and elastic.
++ Divide into 6 dough balls.
++ Cold ferment 1–5 days.
 
-Can also freeze after 24h fermentation.
+==== Portioning
 
-#line(length: 100%)
+- 6 dough balls of approximately 185g each
 
-= Meal Assembly Cards
+Freeze after at least 24 hours of fermentation if desired.
 
-#line(length: 100%)
+=== Pizza Equipment Recommendation
 
-= Meal 1 — Challah Lunch Plate
+Ideal size:
 
-*750 calories*
+- 23–25cm pizza
+- 9–10 inch pizza
 
-== Ingredients
+Best surfaces:
 
-- 90g challah
-- 140g paneer
-- 280g roasted vegetable mix
-- 180g spinach base
-- 70g hummus
++ Pizza steel
++ Cast iron pan
++ Pizza stone
+
+== Meal Recipes
+
+=== Meal 1 — Challah Lunch Plate
+
+Approximately 750 calories.
+
+==== Components
+
+- 1 challah portion
+- 1 paneer portion
+- 1 roasted vegetable portion
+- 1 spinach portion
+- 1 hummus portion
+
+==== Additional Ingredients
+
 - 20g balsamic vinegar
 
-== Method
+==== Method
 
-+ Reheat vegetables + spinach.
++ Reheat roasted vegetables and spinach.
 + Add balsamic vinegar.
 + Warm challah.
-+ Plate with paneer + hummus.
++ Plate with paneer and hummus.
 
-== Nutrition
+==== Approximate Nutrition
 
-#table(
-  columns: 5,
-  [*Protein*], [*Fat*], [*Carbs*], [*Fiber*], [*Calories*],
-  [42g], [34g], [62g], [12g], [750],
-)
+- 750 calories
+- 44g protein
+- 12g fiber
 
-#line(length: 100%)
+=== Meal 2 — Palak Paneer Plate
 
-= Meal 2 — Palak Paneer Plate
+Approximately 750 calories.
 
-*750 calories*
+==== Components
 
-== Ingredients
+- 1 paneer portion
+- 2 spinach portions
+- 1 challah portion
 
-- 180g paneer
-- 360g spinach base
-- 90g challah
+==== Additional Ingredients
+
 - 80g Greek yogurt
 
-== Method
+==== Method
 
-+ Reheat spinach base.
-+ Stir in yogurt.
-+ Add paneer cubes.
-+ Warm challah.
-
-== Nutrition
-
-#table(
-  columns: 5,
-  [*Protein*], [*Fat*], [*Carbs*], [*Fiber*], [*Calories*],
-  [50g], [30g], [60g], [13g], [750],
-)
-
-#line(length: 100%)
-
-= Meal 3 — Paneer Piccata Pasta
-
-*750 calories*
-
-== Ingredients
-
-- 90g dry pasta
-- 180g paneer
-- 280g roasted vegetable mix
-- 120g spinach base
-- 20g lemon juice
-- 15g capers
-
-== Method
-
-+ Cook pasta.
-+ Reheat vegetables + spinach.
-+ Add lemon + capers.
-+ Toss with pasta + paneer.
-
-== Nutrition
-
-#table(
-  columns: 5,
-  [*Protein*], [*Fat*], [*Carbs*], [*Fiber*], [*Calories*],
-  [48g], [28g], [70g], [11g], [750],
-)
-
-#line(length: 100%)
-
-= Meal 4 — Tomato Lentil Paneer Bowl
-
-*750 calories*
-
-== Ingredients
-
-- 250g tomato lentil base
-- 180g paneer
-- 180g spinach base
-- 90g challah
-
-== Method
-
-+ Reheat tomato lentil base.
-+ Reheat spinach.
++ Reheat spinach portions.
++ Stir in Greek yogurt.
 + Add paneer.
 + Serve with challah.
 
-== Nutrition
+==== Approximate Nutrition
 
-#table(
-  columns: 5,
-  [*Protein*], [*Fat*], [*Carbs*], [*Fiber*], [*Calories*],
-  [52g], [24g], [72g], [20g], [750],
-)
+- 740 calories
+- 50g protein
+- 14g fiber
 
-#line(length: 100%)
+=== Meal 3 — Paneer Piccata Pasta
 
-= Meal 5 — High Protein Pizza
+Approximately 750 calories.
 
-*750 calories*
+==== Components
 
-== Ingredients
+- 1 paneer portion
+- 1 roasted vegetable portion
+- 1 spinach portion
+
+==== Additional Ingredients
+
+- 90g dry pasta
+- 20g lemon juice
+- 15g capers
+
+==== Method
+
+- Cook pasta.
+- Reheat roasted vegetables and spinach.
+- Add lemon juice and capers.
+- Toss with pasta and paneer.
+
+==== Approximate Nutrition
+
+- 760 calories
+- 48g protein
+- 11g fiber
+
+=== Meal 4 — Greek Salad Plate
+
+Approximately 750 calories.
+
+==== Components
+
+- 1 paneer portion
+- 1 chickpea portion
+- 1 hummus portion
+- 1 challah portion
+
+==== Additional Ingredients
+
+- 200g cucumber
+- 150g tomato
+- 15g olive oil
+- 20g lemon juice
+- 20g balsamic vinegar
+- oregano
+- salt
+- pepper
+
+==== Method
+
++ Chop cucumber and tomato.
++ Combine with chickpeas.
++ Add paneer.
++ Dress with olive oil, lemon juice, balsamic vinegar, oregano, salt, and pepper.
++ Serve with hummus and challah.
+
+==== Approximate Nutrition
+
+- 760 calories
+- 43g protein
+- 15g fiber
+
+=== Meal 5 — Personal Pizza
+
+Approximately 760 calories.
+
+==== Components
 
 - 1 pizza dough ball
+- 1 roasted vegetable portion
+- 1/2 paneer portion
+
+==== Additional Ingredients
+
 - 120g tomato sauce
-- 80g mozzarella
-- 100g paneer
-- 280g roasted vegetable mix
+- 50g mozzarella
 
-== Method
+==== Method
 
-+ Stretch dough.
-+ Add sauce.
-+ Add mozzarella lightly.
-+ Add paneer + vegetables.
++ Stretch dough into a 23–25cm round.
++ Add tomato sauce.
++ Add mozzarella.
++ Add paneer and roasted vegetables.
 + Bake at maximum oven temperature.
 
-== Nutrition
+==== Approximate Nutrition
 
-#table(
-  columns: 5,
-  [*Protein*], [*Fat*], [*Carbs*], [*Fiber*], [*Calories*],
-  [49g], [27g], [73g], [10g], [750],
-)
+- 760 calories
+- 40g protein
+- 10g fiber
 
-#line(length: 100%)
+=== Meal 6 — Bean Burrito
 
-= Meal 6 — Bean Burrito
+Approximately 750 calories.
 
-*750 calories*
+==== Components
 
-== Ingredients
+- 1 pinto bean portion
+- 1 roasted vegetable portion
+- 1/2 paneer portion
+
+==== Additional Ingredients
 
 - 1 high-fiber tortilla (~90g)
 - 250g egg whites
-- 160g cooked pinto beans
-- 100g paneer
-- 180g roasted vegetable mix
 - 80g Greek yogurt
 
-== Method
+==== Method
 
-+ Cook egg whites.
-+ Reheat vegetables + beans.
-+ Crisp paneer cubes.
-+ Assemble burrito.
+- Cook egg whites.
+- Reheat beans and vegetables.
+- Crisp paneer.
+- Assemble burrito.
 
-== Nutrition
+==== Approximate Nutrition
 
-#table(
-  columns: 5,
-  [*Protein*], [*Fat*], [*Carbs*], [*Fiber*], [*Calories*],
-  [63g], [22g], [65g], [18g], [750],
-)
+- 750 calories
+- 62g protein
+- 18g fiber
 
-#line(length: 100%)
+=== Meal 7 — Pasta Salad
 
-= Meal 7 — Stuffed Peppers
+Approximately 750 calories.
 
-*750 calories*
+==== Components
 
-== Ingredients
+- 1 pinto bean portion
+- 1 roasted vegetable portion
+- 1 spinach portion
+- 1 paneer portion
 
-- 2 bell peppers (~300g)
-- 180g paneer
-- 160g cooked chickpeas
-- 250g tomato lentil base
-- 50g mozzarella
-
-== Method
-
-+ Halve peppers.
-+ Fill with chickpeas, paneer, tomato lentil base.
-+ Top with mozzarella.
-+ Bake at 200C for 30 min.
-
-== Nutrition
-
-#table(
-  columns: 5,
-  [*Protein*], [*Fat*], [*Carbs*], [*Fiber*], [*Calories*],
-  [50g], [25g], [70g], [20g], [750],
-)
-Good catch — that *is* one of your core rotation meals and should be part of the system.
-
-I’ll add it properly as a **fully portioned 750 kcal freezer-friendly pasta salad system meal** using only your existing prep components.
-
-#line(length: 100%)
-
-= Meal 8 — High-Protein Pasta Salad (Meal Prep Version)
-
-*750 calories | cold or warm | very high satiety*
-
-This is your:
-
-- “no effort dinner”
-- “backup meal”
-- “easy lunch swap”
-
-#line(length: 100%)
-
-== Ingredients (1 serving)
+==== Additional Ingredients
 
 - 90g dry pasta
-- 160g cooked pinto beans
-- 140g paneer
-- 200g roasted vegetable mix
-- 120g spinach base
 - 15g olive oil
 - 20g balsamic vinegar
-- 10g salt (to taste)
 
-Optional:
+==== Method
 
-- chili flakes
-- garlic powder
-- lemon juice (5–10g)
+- Cook pasta.
+- Combine all ingredients.
+- Toss thoroughly.
+- Serve warm or cold.
 
-#line(length: 100%)
+==== Approximate Nutrition
 
-== Method (Assembly Only)
+- 750 calories
+- 46g protein
+- 16g fiber
 
-+ Cook pasta (or batch cook and refrigerate).
-+ Reheat roasted vegetables + spinach base (optional, also fine cold).
-+ Add:
-  - pasta
-  - beans
-  - paneer
-  - vegetables
-+ Toss with:
-  - olive oil
-  - balsamic vinegar
-+ Season and mix well.
+== Weekly Quantity Notes
 
-#line(length: 100%)
+This system is designed around approximately 10 total meals per week:
 
-== Texture Options
+- 5 lunch meals
+- 5 dinner meals
 
-* **Cold (pasta salad style):** higher convenience, slightly firmer texture
-* **Warm bowl:** higher satiety, more aromatic
+Additional meals can be filled with:
 
-#line(length: 100%)
+- leftovers
+- fruit
+- mozzarella sticks
+- eating out
 
-== Nutrition (Per Serving)
+Most components are intentionally slightly under-portioned so freezer space and ingredient waste stay manageable.
 
-#table(
-  columns: 5,
-  [*Protein*], [*Fat*], [*Carbs*], [*Fiber*], [*Calories*],
-  [46g], [26g], [82g], [16g], [750],
-)
+== Recommended Weekly Rotation
+
+Lunch:
+
+- Challah Lunch Plate every day
+
+Dinner rotation:
+
++ Palak Paneer Plate
++ Paneer Piccata Pasta
++ Personal Pizza
++ Greek Salad Plate
++ Bean Burrito
++ Pasta Salad
+
+Optional additional hunger management:
+
+- fruit
+- mozzarella sticks
