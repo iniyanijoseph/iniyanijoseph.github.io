@@ -859,6 +859,8 @@ Musik: "Lucy in the Sky with Diamonds", the Beatles
 I woke up about an hour north of Sacramento, with the comforting thought "On Halde" (stay on). It is really a lovely morning, and I saw the sun rise over the hills. I woke up fairly early at 5, but I feel extremely calm.
 
 I tend to be pretty forgetful about time consuming/tedious things, so for when I go home, I should print and laminate a morning and evening checklist.
+
+```
 Make Bed
 Select Clothes
 Trim Beard/Shave
@@ -881,8 +883,10 @@ Coffee
 Wash Plate
 Socks
 Phone/Wallet/Keys?
+```
 
 And for the nighttime: 
+```
 Cook
 Wash Plate
 Knead Dough/Grind Hummus
@@ -893,7 +897,7 @@ Foot Cream
 Wash Clothes
 Tidy Room
 Clean Kitchen/Dining Table
-
+```
 I met George, the army NASA guy from the Empire Builder train. I told him about my pacifism and we talked a little bit about the problems with the Vietnam war and the draft, and also the treatment of veterans. I shared my perspective on why veterans were treated poorly (indeed, this is something I struggle with and have to try actively to overcome), and shared the Edna St. Vincent Millay poem. I keep running into him everywhere. I saw him again in a Bart Station as well, which is even crazier.
 
 The weather in S.F. is so nice, you can just forget about it. That's really what it is, you just forget that the weather is good until it's not. You forget that weather exists because you just have the climate.That being said, although you can the weather is great, the city itself is not as lush as Seattle. The hills surrounding the bay are just brown and ugly year for most of the year, even if Marin County and the redwoods are beautiful.
@@ -1030,7 +1034,49 @@ I have noticed that this route mostly follows small streams. I think that part o
 I had a cool moment in Denver at Union Station. I had a solid few minutes of people who I had met walking by me and wishing me well. I think that even though I didn't have many prolonged conversations like on the Empire Builder, it still feels like I connected to people and like we mutually affected the other's trip, which is the purpose of these sort of conversations anyways.
 
 === Day 28 - May 22 (Fri)
+#figure(link("AmtrakPhotos/28.IA.jpg"), caption: [Iowa Forests])
+#figure(link("AmtrakPhotos/28.IL.jpg"), caption: [Illinois River Boundary])
+#figure(link("AmtrakPhotos/28.IbrahimGroupPhoto.jpg"), caption: [Photo with I.T. outside Millenium Park])
+#figure(link("AmtrakPhotos/28.MilleniumPark.jpg"), caption: [Parrot Display at Millenium Park])
+#figure(link("AmtrakPhotos/28.TavernPizza.jpg"), caption: [Tavern Style Pizza])
+
 I slept poorly, but this time it wasn't posture. The whole train is freezing cold, I don't know why. I had to wake up in the middle of the night to put on a jacket and my long sleeved shirt. I had already swithed to pants from shorts in the morning in Utah, since it was probably thirty degrees outside, and passing through the car with the broken A.C. was uncomfortable. Maybe the conductor runs warm and is taking it out on the rest of us.
+
+A woman from Omaha ended up sitting next to me at the middle of the night. I went to the observation car for a bit, and by the time I came back she was awake. She was a very fun person to talk to, she is a zookeeper in the Omaha Zoo, and has traveled a decent amount. She also was really into Snoopy, which was cool. She got me thinking about animal intelligence again. Specifically birds. She said she was afraid of how intelligent the Great Apes were. She explained how they were using tools and could recognize people, and how they had a social structure. I think she found it uncanny. They are such empathetic creatures to me. They are fascinating to watch, I wonder how much they feel and how much other intelligent animals understand humans intuitively, as we understand them. The great apes especially.
+
+Other than that though, it was a quiet morning. I didn't end up talking to anyone else though.
+
+Once I disboarded at Union Station, I walked to Quincy, had a sandwich, and met with Ibrahim. We walked around to a few stores to find a keychain, and eventually bought one for a novelty shop. It seems like good keychains are always \$7, regardless of city (with the exception of NYC, where competition can push them under a dollar). Then we went to Millenium Park. We couldn't see the bean because I had so much metal in my backpack, and they had security for the weekend, but overall it wasn't a problem. I brought pepper spray on the trip, but I think it was completely redundant, since I wouldn't have used it.
+
+The fact that I want to go home now makes me wonder if I will be homesick when I leave. I think the big difference is that grad school will have some sense of routine and normalcy, so I doubt it. That being said, I think it will not bother me as much as for some people.
+
+Quakers in many ways are very close to humanists, as Rina once said about me. Meeting Ibrahim and being here for his evening prayers, I can't help but think about something I thought about last year, the idea of "making time" for things. I think the value of shared meals, timed prayers, gathering sessions, going to church, are ways of making time for our community and family. In the same way, prayer and silence can be a way of making time for the divine. The abrahamic in particular stand out to me as being very good at this. Between family times, weekly gathering times, etc. I think no matter what you believe, there is a lot to learn from this, since community is one of the most important things. As a student, I want to gather people each week to break bread, a common meal. 
+
+When I get home I need to do a bunch of stuff:
+```
+Haircut
+Print Routine Cards and Laminate?
+Recipe Cards
+Dentist Appointment/Ask about new extra flouride toothpaste/Hydroxyaptite
+Talk to H.C.
+Cook
+Organize Files
+Repair Shoes
+Moisturize
+Purchase Pumice Stone
+Purchase Gauze
+Clear Polish
+Piano
+Pack away useless things
+Purchase Comforter
+Organize Clothes
+Read Research Paper
+Meal Prep Components
+Clean Phone
+Replace (some) toiletries
+Clean up Google Drive/Files
+Wash Travel Gear
+```
 
 === Day 29 - May 23 (Sat)
 
