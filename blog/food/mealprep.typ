@@ -1,4 +1,9 @@
-#set page(margin: 1.5cm)
+#import "@preview/bullseye:0.1.0": *
+#import "../../cv.typ": *
+
+#show: cv.with(subpage: true, root: "../../", fancylist: false)
+
+// #set page(margin: 1.5cm)
 #set heading(numbering: none)
 
 = Weekly Meal Prep Components
@@ -10,7 +15,7 @@ This system creates:
 - interchangeable meal components
 - ~1500 calories/day before snacks
 
----
+#line(length: 100%)
 
 = Component 1 — Challah Loaf
 
@@ -45,7 +50,7 @@ _Optional:_ sesame seeds
 
 Slice into 14 portions of 90g. Freeze slices individually.
 
----
+#line(length: 100%)
 
 = Component 2 — Roasted Vegetable Mix
 
@@ -71,7 +76,7 @@ Slice into 14 portions of 90g. Freeze slices individually.
 
 Portion into 10 containers of 280g. Freeze.
 
----
+#line(length: 100%)
 
 = Component 3 — Spinach Base
 
@@ -95,7 +100,7 @@ Portion into 10 containers of 280g. Freeze.
 
 Portion into 10 containers of 180g. Freeze.
 
----
+#line(length: 100%)
 
 = Component 4 — Tomato Lentil Base
 
@@ -123,7 +128,7 @@ Portion into 10 containers of 180g. Freeze.
 
 Portion into 8 containers of 250g. Freeze.
 
----
+#line(length: 100%)
 
 = Component 5 — Cooked Chickpeas
 
@@ -145,7 +150,7 @@ Portion into 8 containers of 250g. Freeze.
 
 Portion into 8 containers of 160g cooked chickpeas. Freeze.
 
----
+#line(length: 100%)
 
 = Component 6 — Cooked Pinto Beans
 
@@ -167,7 +172,7 @@ Portion into 8 containers of 160g cooked chickpeas. Freeze.
 
 Portion into 8 containers of 160g cooked beans. Freeze.
 
----
+#line(length: 100%)
 
 = Component 7 — Paneer Cubes (2500 grams)
 
@@ -200,7 +205,7 @@ Portion into 8 containers of 160g cooked beans. Freeze.
 
 Portion into 14 containers of 180g. Freeze.
 
----
+#line(length: 100%)
 
 = Component 8 — Pizza Dough Balls
 
@@ -225,11 +230,11 @@ Portion into 14 containers of 180g. Freeze.
 
 Can also freeze after 24h fermentation.
 
----
+#line(length: 100%)
 
 = Meal Assembly Cards
 
----
+#line(length: 100%)
 
 = Meal 1 — Challah Lunch Plate
 
@@ -259,7 +264,7 @@ Can also freeze after 24h fermentation.
   [42g], [34g], [62g], [12g], [750],
 )
 
----
+#line(length: 100%)
 
 = Meal 2 — Palak Paneer Plate
 
@@ -287,7 +292,7 @@ Can also freeze after 24h fermentation.
   [50g], [30g], [60g], [13g], [750],
 )
 
----
+#line(length: 100%)
 
 = Meal 3 — Paneer Piccata Pasta
 
@@ -317,7 +322,7 @@ Can also freeze after 24h fermentation.
   [48g], [28g], [70g], [11g], [750],
 )
 
----
+#line(length: 100%)
 
 = Meal 4 — Tomato Lentil Paneer Bowl
 
@@ -345,7 +350,7 @@ Can also freeze after 24h fermentation.
   [52g], [24g], [72g], [20g], [750],
 )
 
----
+#line(length: 100%)
 
 = Meal 5 — High Protein Pizza
 
@@ -375,7 +380,7 @@ Can also freeze after 24h fermentation.
   [49g], [27g], [73g], [10g], [750],
 )
 
----
+#line(length: 100%)
 
 = Meal 6 — Bean Burrito
 
@@ -405,7 +410,7 @@ Can also freeze after 24h fermentation.
   [63g], [22g], [65g], [18g], [750],
 )
 
----
+#line(length: 100%)
 
 = Meal 7 — Stuffed Peppers
 
@@ -432,4 +437,71 @@ Can also freeze after 24h fermentation.
   columns: 5,
   [*Protein*], [*Fat*], [*Carbs*], [*Fiber*], [*Calories*],
   [50g], [25g], [70g], [20g], [750],
+)
+Good catch — that *is* one of your core rotation meals and should be part of the system.
+
+I’ll add it properly as a **fully portioned 750 kcal freezer-friendly pasta salad system meal** using only your existing prep components.
+
+#line(length: 100%)
+
+= Meal 8 — High-Protein Pasta Salad (Meal Prep Version)
+
+*750 calories | cold or warm | very high satiety*
+
+This is your:
+
+- “no effort dinner”
+- “backup meal”
+- “easy lunch swap”
+
+#line(length: 100%)
+
+== Ingredients (1 serving)
+
+- 90g dry pasta
+- 160g cooked pinto beans
+- 140g paneer
+- 200g roasted vegetable mix
+- 120g spinach base
+- 15g olive oil
+- 20g balsamic vinegar
+- 10g salt (to taste)
+
+Optional:
+
+- chili flakes
+- garlic powder
+- lemon juice (5–10g)
+
+#line(length: 100%)
+
+== Method (Assembly Only)
+
++ Cook pasta (or batch cook and refrigerate).
++ Reheat roasted vegetables + spinach base (optional, also fine cold).
++ Add:
+  - pasta
+  - beans
+  - paneer
+  - vegetables
++ Toss with:
+  - olive oil
+  - balsamic vinegar
++ Season and mix well.
+
+#line(length: 100%)
+
+== Texture Options
+
+* **Cold (pasta salad style):** higher convenience, slightly firmer texture
+* **Warm bowl:** higher satiety, more aromatic
+
+#line(length: 100%)
+
+== Nutrition (Per Serving)
+
+#table(
+  columns: 5,
+  [*Protein*], [*Fat*], [*Carbs*], [*Fiber*], [*Calories*],
+  [46g], [26g], [82g], [16g], [750],
 )
