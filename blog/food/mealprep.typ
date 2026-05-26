@@ -10,7 +10,7 @@
 
 This system is designed around:
 
-- ~750 calorie meals
+- ~700–800 calorie meals
 - high protein
 - high fiber
 - freezer-friendly prep
@@ -28,7 +28,7 @@ Daily structure:
 
 === Component 1 — Homemade Paneer
 
-Makes approximately 10 portions.
+Makes approximately 12 portions.
 
 === Ingredients
 
@@ -51,7 +51,7 @@ Makes approximately 10 portions.
 
 ==== Portioning
 
-- 10 containers of 160g paneer
+- 12 containers of 130–135g paneer
 
 Freeze most portions.
 
@@ -88,7 +88,7 @@ Optional:
 
 ==== Portioning
 
-- 10 slices of 90g
+- 12 slices of 75g
 
 Freeze individually.
 
@@ -101,6 +101,10 @@ Freeze individually.
 - 700g bell pepper
 - 40g olive oil
 - 10g salt
+- 6g black pepper
+- 5g smoked paprika
+- 4g garlic powder
+- 3g cumin
 
 ==== Method
 
@@ -112,7 +116,7 @@ Freeze individually.
 
 ==== Portioning
 
-- 8 containers of 280g
+- 12 containers of 185–190g
 
 Freeze.
 
@@ -124,6 +128,11 @@ Freeze.
 - 25g garlic
 - 15g olive oil
 - 8g salt
+- 5g cumin
+- 4g coriander
+- 3g turmeric
+- 2g fenugreek leaves (kasuri methi)
+- 2g chili flakes
 
 ==== Method
 
@@ -134,7 +143,7 @@ Freeze.
 
 ==== Portioning
 
-- 8 containers of 180g
+- 12 containers of 120g
 
 Freeze.
 
@@ -143,6 +152,11 @@ Freeze.
 ==== Ingredients
 
 - 3 cans pinto beans (15.5 oz / 439g each)
+- 5g cumin
+- 4g chili powder
+- 3g smoked paprika
+- 2g garlic powder
+- salt to taste
 
 ==== Method
 
@@ -152,7 +166,7 @@ Freeze.
 
 ==== Portioning
 
-- 6 containers of 120g drained beans
+- 8 containers of 90g drained beans
 
 Freeze.
 
@@ -170,7 +184,7 @@ Freeze.
 
 ==== Portioning
 
-- 6 containers of 120g drained chickpeas
+- 8 containers of 90g drained chickpeas
 
 Freeze.
 
@@ -184,6 +198,7 @@ Freeze.
 - 15g olive oil
 - 10g garlic
 - 6g salt
+- 3g cumin
 - 60–120g cold water
 
 ==== Method
@@ -197,7 +212,7 @@ Freeze.
 
 ==== Portioning
 
-- 5 containers of 90g
+- 6 containers of 70–75g
 
 Refrigerate or freeze.
 
@@ -217,14 +232,28 @@ Refrigerate or freeze.
 + Combine dry ingredients.
 + Add water and olive oil.
 + Knead until smooth and elastic.
-+ Divide into 6 dough balls.
++ Divide into 8 dough balls.
 + Cold ferment 1–5 days.
 
 ==== Portioning
 
-- 6 dough balls of approximately 185g each
+- 8 dough balls of approximately 140g each
 
 Freeze after at least 24 hours of fermentation if desired.
+
+
+== Approximate Component Nutrition
+
+Per prepared portion:
+
+- Paneer portion (130–135g): ~430 calories, ~26g protein
+- Challah slice (75g): ~240 calories, ~7g protein
+- Roasted vegetable portion: ~60 calories, ~3g protein
+- Spinach portion: ~35 calories, ~4g protein
+- Pinto bean portion: ~105 calories, ~7g protein
+- Chickpea portion: ~110 calories, ~5g protein
+- Hummus portion: ~110 calories, ~4g protein
+- Pizza dough ball: ~345 calories, ~10g protein
 
 === Pizza Equipment Recommendation
 
@@ -243,19 +272,19 @@ Best surfaces:
 
 === Meal 1 — Challah Lunch Plate
 
-Approximately 750 calories.
-
 ==== Components
 
 - 1 challah portion
 - 1 paneer portion
 - 1 roasted vegetable portion
 - 1 spinach portion
-- 1 hummus portion
+- 1/2 hummus portion
 
 ==== Additional Ingredients
 
 - 20g balsamic vinegar
+- black pepper
+- flaky salt
 
 ==== Method
 
@@ -266,13 +295,11 @@ Approximately 750 calories.
 
 ==== Approximate Nutrition
 
-- 750 calories
-- 44g protein
-- 12g fiber
+- ~760 calories
+- ~44g protein
+- ~15g fiber
 
 === Meal 2 — Palak Paneer Plate
-
-Approximately 750 calories.
 
 ==== Components
 
@@ -283,6 +310,10 @@ Approximately 750 calories.
 ==== Additional Ingredients
 
 - 80g Greek yogurt
+- 2g fenugreek leaves (kasuri methi)
+- cumin
+- garam masala
+- black pepper
 
 ==== Method
 
@@ -293,13 +324,11 @@ Approximately 750 calories.
 
 ==== Approximate Nutrition
 
-- 740 calories
-- 50g protein
-- 14g fiber
+- ~740 calories
+- ~42g protein
+- ~16g fiber
 
 === Meal 3 — Paneer Piccata Pasta
-
-Approximately 750 calories.
 
 ==== Components
 
@@ -309,9 +338,12 @@ Approximately 750 calories.
 
 ==== Additional Ingredients
 
-- 90g dry pasta
-- 20g lemon juice
-- 15g capers
+- 70g dry pasta
+- 15g lemon juice
+- 10g capers
+- black pepper
+- oregano
+- chili flakes
 
 ==== Method
 
@@ -322,26 +354,24 @@ Approximately 750 calories.
 
 ==== Approximate Nutrition
 
-- 760 calories
-- 48g protein
-- 11g fiber
+- ~760 calories
+- ~43g protein
+- ~14g fiber
 
 === Meal 4 — Greek Salad Plate
-
-Approximately 750 calories.
 
 ==== Components
 
 - 1 paneer portion
 - 1 chickpea portion
-- 1 hummus portion
+- 1/2 hummus portion
 - 1 challah portion
 
 ==== Additional Ingredients
 
 - 200g cucumber
 - 150g tomato
-- 15g olive oil
+- 5g olive oil
 - 20g lemon juice
 - 20g balsamic vinegar
 - oregano
@@ -358,13 +388,11 @@ Approximately 750 calories.
 
 ==== Approximate Nutrition
 
-- 760 calories
-- 43g protein
-- 15g fiber
+- ~790 calories
+- ~42g protein
+- ~18g fiber
 
 === Meal 5 — Personal Pizza
-
-Approximately 760 calories.
 
 ==== Components
 
@@ -374,8 +402,8 @@ Approximately 760 calories.
 
 ==== Additional Ingredients
 
-- 120g tomato sauce
-- 50g mozzarella
+- 90g tomato sauce
+- 40g mozzarella
 
 ==== Method
 
@@ -387,13 +415,11 @@ Approximately 760 calories.
 
 ==== Approximate Nutrition
 
-- 760 calories
-- 40g protein
-- 10g fiber
+- ~730 calories
+- ~36g protein
+- ~10g fiber
 
-=== Meal 6 — Bean Burrito
-
-Approximately 750 calories.
+=== Meal 6 — Pinto Bean Torta
 
 ==== Components
 
@@ -403,26 +429,29 @@ Approximately 750 calories.
 
 ==== Additional Ingredients
 
-- 1 high-fiber tortilla (~90g)
-- 250g egg whites
-- 80g Greek yogurt
+- 1 challah slice
+- 200g egg whites
+- 60g Greek yogurt
+- cumin
+- chili powder
+- smoked paprika
+- hot sauce or salsa
 
 ==== Method
 
 - Cook egg whites.
 - Reheat beans and vegetables.
 - Crisp paneer.
-- Assemble burrito.
+- Toast challah lightly.
+- Assemble sandwich/torta.
 
 ==== Approximate Nutrition
 
-- 750 calories
-- 62g protein
-- 18g fiber
+- ~710 calories
+- ~49g protein
+- ~15g fiber
 
 === Meal 7 — Pasta Salad
-
-Approximately 750 calories.
 
 ==== Components
 
@@ -433,9 +462,9 @@ Approximately 750 calories.
 
 ==== Additional Ingredients
 
-- 90g dry pasta
-- 15g olive oil
-- 20g balsamic vinegar
+- 70g dry pasta
+- 10g olive oil
+- 15g balsamic vinegar
 
 ==== Method
 
@@ -446,16 +475,11 @@ Approximately 750 calories.
 
 ==== Approximate Nutrition
 
-- 750 calories
-- 46g protein
-- 16g fiber
+- ~780 calories
+- ~42g protein
+- ~17g fiber
 
 == Weekly Quantity Notes
-
-This system is designed around approximately 10 total meals per week:
-
-- 5 lunch meals
-- 5 dinner meals
 
 Additional meals can be filled with:
 
@@ -464,24 +488,10 @@ Additional meals can be filled with:
 - mozzarella sticks
 - eating out
 
-Most components are intentionally slightly under-portioned so freezer space and ingredient waste stay manageable.
-
 == Recommended Weekly Rotation
-
-Lunch:
-
-- Challah Lunch Plate every day
-
-Dinner rotation:
-
-+ Palak Paneer Plate
-+ Paneer Piccata Pasta
-+ Personal Pizza
-+ Greek Salad Plate
-+ Bean Burrito
-+ Pasta Salad
 
 Optional additional hunger management:
 
 - fruit
 - mozzarella sticks
+

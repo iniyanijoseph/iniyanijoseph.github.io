@@ -1000,7 +1000,7 @@ Musik: Big Rock Candy Mountain
 #figure(linked-image("AmtrakPhotos/27.RubyCanyon2.jpg"), caption: [Ruby Canyon])
 #figure(linked-image("AmtrakPhotos/27.GlenwoodSprings.jpg"), caption: [Glenwood Springs, a natural hot springs near Denver in the Rockies])
 #figure(linked-image("AmtrakPhotos/27.RockFormation.jpg"), caption: [Example of a rock formation in the mountain])
-#figure(linked-image("AmtrakPhotos/27.LowerRockies.mp4"), caption: [Lower Rocky Mountains])
+#figure(linked-video("AmtrakPhotos/27.LowerRockies.mp4"), caption: [Lower Rocky Mountains])
 #figure(linked-image("AmtrakPhotos/27.FlatInRockies.jpg"), caption: [A flat area of the Rockies which kayakers use to launch their boats into the lower gore valley])
 #figure(linked-image("AmtrakPhotos/27.ValleyInRockies.jpg"), caption: [Valley in the Rocky Mountains])
 #figure(linked-image("AmtrakPhotos/27.COAfterContinentalDivide.jpg"), caption: [Colorado after the Continental Divide])
@@ -1036,11 +1036,11 @@ I have noticed that this route mostly follows small streams. I think that part o
 I had a cool moment in Denver at Union Station. I had a solid few minutes of people who I had met walking by me and wishing me well. I think that even though I didn't have many prolonged conversations like on the Empire Builder, it still feels like I connected to people and like we mutually affected the other's trip, which is the purpose of these sort of conversations anyways.
 
 === Day 28 - May 22 (Fri)
-#figure(link("AmtrakPhotos/28.IA.jpg"), caption: [Iowa Forests])
-#figure(link("AmtrakPhotos/28.IL.jpg"), caption: [Illinois River Boundary])
-#figure(link("AmtrakPhotos/28.IbrahimGroupPhoto.jpg"), caption: [Photo with I.T. outside Millenium Park])
-#figure(link("AmtrakPhotos/28.MilleniumPark.jpg"), caption: [Parrot Display at Millenium Park])
-#figure(link("AmtrakPhotos/28.TavernPizza.jpg"), caption: [Tavern Style Pizza])
+#figure(linked-image("AmtrakPhotos/28.IA.jpg"), caption: [Iowa Forests])
+#figure(linked-image("AmtrakPhotos/28.IL.jpg"), caption: [Illinois River Boundary])
+#figure(linked-image("AmtrakPhotos/28.IbrahimGroupPhoto.jpg"), caption: [Photo with I.T. outside Millenium Park])
+#figure(linked-image("AmtrakPhotos/28.MilleniumPark.jpg"), caption: [Parrot Display at Millenium Park])
+#figure(linked-image("AmtrakPhotos/28.TavernPizza.jpg"), caption: [Tavern Style Pizza])
 
 I slept poorly, but this time it wasn't posture. The whole train is freezing cold, I don't know why. I had to wake up in the middle of the night to put on a jacket and my long sleeved shirt. I had already swithed to pants from shorts in the morning in Utah, since it was probably thirty degrees outside, and passing through the car with the broken A.C. was uncomfortable. Maybe the conductor runs warm and is taking it out on the rest of us.
 
@@ -1081,10 +1081,31 @@ Wash Travel Gear
 ```
 
 === Day 29 - May 23 (Sat)
+#figure(linked-image("AmtrakPhotos/29.OHaraWoods.jpg"), caption: [O'Hara Woods])
+I think as I come towards the end of this trip, I have a better sense of what this country is all about, at least, a segment of america.
+
+There is something very american about trains, especially hopping freights, and about a reverence for work and for community. Acceptance is idealized as a virtue, no matter the extent to which it is actually done, and there is a certain universal desire for appreciating beauty.The same for activism and faith. And throughout it, there is also a compassion for one another that moves one to action. Americans want to be principled, and friendly, and active for what they believe in.
+
+There are lots of ugly things which are very american too. For example, war, violence, anger, and pride are just as integrated into the American psyche.
+
+I don't know if I learned a lot about myself on this trip, although maybe I do go with the flow a bit more, but I definitely learned a lot about this country and what it believes in. I think what I'm struck by is more the dream, and fire for justice, and feeling of collective unity that everyone fundamentally wants the same things for themselves and for their community, and that in that pursuit, there is a special place in our hearts for our friends.
+
+I personally think that measuredness with a calm and principled outlook can guide us through the ills and bring us closer to our dream.
+
+I'm some way, I think I have become a better listener on this trip.and possibly a better conversationalist. I know what better what I want in life from my relationships though. I want a moderate pace, and some element of peace. I want friends who will support me, and have their own passions in life, as I have mine, and for them each to impact the world in their own ways, and understand my emotions, and will challenge me so that I grow, while at the same time accepting me as I am. I want to learn constantly, and to be active in learning and growing. I want to make an impact where I can, and to accept my shortcomings where I cannot. Like Whittier said, "and we will feed the hungry and clothe the poor, and all shall bless us who come round door". If I had all that I think I would probably not regret anything. 
+
+It is interesting how much my attitude towards food changes situationally. Every time I am away from it, it is easy to tell myself what will happen, and then every time I sit down in front of food I feel a sense of anxiety and have to force myself to eat more. 
+
+I don't know why the cornfields are so calming. As I go past Illinois, and as I do think of the hymn, "all things bright and beautiful, all creatures great and small". The sceneries make me wonder what it would be like to live in that place and to lead that life, which is a lot of what cities themselves make me think of. 
+
+In line to get into the train, I met a girl someone about my age who was really cool. She was taking the train to visit a friend in Saint Louis, and worked at a nonprofit at the Center for Tech and Civic Life and in election reform. When I got on the train, I met two people who asked me if I had gotten her number, which I thought was pretty funny. She was definitely a cool person, but I feel weird walking up to someone and askint their number, since it makes the conversation feel like a pretense for asking a question, not as taking a genuine interest in the other person. If I see her again, I would, but I probably never will, which is part of the fun.
 
 === Day 30 - May 24 (Sun)
-
-#bibliography("references.bib")
+#figure(linked-image("AmtrakPhotos/30.AR.jpg"), caption: [Arkansas Woods])
+#figure(linked-image("AmtrakPhotos/30.Home.jpg"), caption: [Train Station with Appa])
+#figure(linked-image("AmtrakPhotos/30.Before.jpg"), caption: [Before Haircut])
+#figure(linked-image("AmtrakPhotos/30.After.jpg"), caption: [After Haircut])
+Today is the last day. I finally met a pacifist. He was a Jehovah's witness whose father had converted after WW2 and realizing how terrible it was to kill. He was super well-travelled, and had done multiple rail passes, both on Amtrak and VIA, and even met his wife (sort of) through the rail pass. He definitely had the gift of the gab, but was really interesting to listen to. He worked on the railroad, and then in PennDOT. We comiscerated on some of the challenges of travelling, and then exchanged contacts after. When I made it to the train station, Appa picked me up, and we went to get a haircut and beard trim, and bought some sandals. I have also definitely lost weight, I lost about 8lbs and gained a lot of muscle in my legs and shoulders and back (although I lost some in my chest and arms), and this has given me a good platform to work out more over the summer. I think overall, this trip turned out well. I spent the rest of the day cooking and meal prepping according to the new system #link("../food/mealprep.html"), although I still haven't made the pizza dough. It was relaxed, it was complete. At this point, finishing this trip, I guess I feel a sense of conclusion with the past acadmeic year. It feels like a clean slate of this very long and isolating and educational year, and I am looking forward to spending my last ten weeks with my friends, and then starting the next adventure. 
 
 == QR Code
 #figure([#linked-image("amtrak.qr.jpg")], alt: "", caption: [QR])
@@ -1117,3 +1138,5 @@ Pesto
 Cannoli
 Mexiterranian Food?
 ```
+
+#bibliography("references.bib")
