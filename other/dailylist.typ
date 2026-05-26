@@ -1,3 +1,7 @@
+#import "../src/template/cv_template.typ": *
+#import "../src/template/fields.typ": *
+
+#show: cv.with(subpage: true, root: "../")
 #set text(size: 15pt)
 = Morning Routine
 + Select Clothes
