@@ -875,11 +875,11 @@ Tongue
 Clean Glasses
 Trim Nails
 Hand Cream
+Face Cleanse
 Sunscreen/Moisturizer 
 Clothes
 Laundry
 Eat Fruit/Cheese/Hummus/Bread/Spinach
-Coffee
 Wash Plate
 Socks
 Phone/Wallet/Keys?
@@ -888,6 +888,7 @@ Phone/Wallet/Keys?
 And for the nighttime: 
 ```
 Cook
+Eat
 Wash Plate
 Knead Dough/Grind Hummus
 Face Wash
@@ -898,6 +899,7 @@ Wash Clothes
 Tidy Room
 Clean Kitchen/Dining Table
 ```
+
 I met George, the army NASA guy from the Empire Builder train. I told him about my pacifism and we talked a little bit about the problems with the Vietnam war and the draft, and also the treatment of veterans. I shared my perspective on why veterans were treated poorly (indeed, this is something I struggle with and have to try actively to overcome), and shared the Edna St. Vincent Millay poem. I keep running into him everywhere. I saw him again in a Bart Station as well, which is even crazier.
 
 The weather in S.F. is so nice, you can just forget about it. That's really what it is, you just forget that the weather is good until it's not. You forget that weather exists because you just have the climate.That being said, although you can the weather is great, the city itself is not as lush as Seattle. The hills surrounding the bay are just brown and ugly year for most of the year, even if Marin County and the redwoods are beautiful.
