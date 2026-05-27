@@ -802,7 +802,6 @@ Tomorrow I have some sourdough and phool makhana and palak paneer to eat. I prob
 #linked-image("AmtrakPhotos/23.Cascades2.jpg")
 #linked-video("AmtrakPhotos/23.Cascades3.mp4")
 #linked-image("AmtrakPhotos/23.Cascades4.jpg")
-#linked-image("AmtrakPhotos/23.Cascades5.jpg")
 #linked-image("AmtrakPhotos/23.Cascades6.jpg")
 #linked-image("AmtrakPhotos/23.Cascades7.jpg")
 #linked-image("AmtrakPhotos/23.Cascades8.jpg")
