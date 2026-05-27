@@ -13,12 +13,12 @@ The following map gives an overview of the approximate Amtrak routes across the 
 #figure([#linked-image("AmtrakRoutes.png")], alt: "Amtrak Route Map", caption: [Amtrak Route Map @caliberal2023amtrak])
 
 == Itinerary 
-Currently, the itinerary of cities is
+Currently, the itinerary is:
 - #link("AmtrakTickets/1-marshall-boston.pdf")[Marshall, Texas -> Chicago (Texas Eagle) April 25\@9:30pm-26\@4:15pm]
 - #link("AmtrakTickets/1-marshall-boston.pdf")[Chicago -> Boston (Lakeshore Limited) April 26\@9:30pm-27\@8:30pm]
 - #link("AmtrakTickets/2-boston-nyc.pdf")[Boston -> New York City (Lakeshore Limited) April 30\@3:15pm-7:45pm]
 - #link("AmtrakTickets/3-nyc-philadelphia.pdf")[New York City -> Philadelphia (Vermonter) May 5\@6:45pm-8:15pm]
-- #link("AmtrakTickets/4-philadelphia-washington.pdf")[Philadelpha -> Washington D.C. (Northeast Regional) May 8\@1:47pm-3:45pm]
+- #link("AmtrakTickets/4-philadelphia-washington.pdf")[Philadelphia -> Washington D.C. (Northeast Regional) May 8\@1:47pm-3:45pm]
 - #link("AmtrakTickets/5-washington-seattle.pdf")[Washington D.C. -> Chicago (Floridian) May 11th\@3:57pm-May 12\@8:45am]
 - #link("AmtrakTickets/5-washington-seattle.pdf")[Chicago -> Seattle (Empire Builder) May 12\@3pm-May 14\@11:30am]
 - #link("AmtrakTickets/6-seattle-emeryville.pdf")[Seattle -> Emeryville (Coast Starlight) May 17\@9:45am-May 18\@8:30pm]
@@ -26,9 +26,7 @@ Currently, the itinerary of cities is
 - #link("AmtrakTickets/8-chicago-dallas.pdf")[Chicago -> Dallas (Texas Eagle) May 23\@2pm-May 24\@12pm]
 
 
-// **Book in Advance:**
-// - **Independence Hall** — free timed tickets at recreation.gov, these fill up fast
-// - **Brooklyn Botanic Garden** — check if advance tickets needed on their site
+The highlights are all below, but I have also compiled a #link("https://photos.app.goo.gl/rPHpY963bBFVTxpR6")[complete album of photos.]
 
 == Boston - April 27th-30th
 
@@ -1082,9 +1080,9 @@ Wash Travel Gear
 
 === Day 29 - May 23 (Sat)
 #figure(linked-image("AmtrakPhotos/29.OHaraWoods.jpg"), caption: [O'Hara Woods])
-I think as I come towards the end of this trip, I have a better sense of what this country is all about, at least, a segment of america.
+I think as I come towards the end of this trip, I have a better sense of what this country is all about, at least, a segment of America.
 
-There is something very american about trains, especially hopping freights, and about a reverence for work and for community. Acceptance is idealized as a virtue, no matter the extent to which it is actually done, and there is a certain universal desire for appreciating beauty.The same for activism and faith. And throughout it, there is also a compassion for one another that moves one to action. Americans want to be principled, and friendly, and active for what they believe in.
+There is something very american about trains, especially hopping freights, and about a reverence for work and for community. Acceptance is idealized as a virtue, no matter the extent to which it is actually done, and there is a certain universal desire for appreciating beauty. The same for activism and faith. And throughout it, there is also a compassion for one another that moves one to action. Americans want to be principled, and friendly, and active for what they believe in.
 
 There are lots of ugly things which are very american too. For example, war, violence, anger, and pride are just as integrated into the American psyche.
 
@@ -1092,24 +1090,24 @@ I don't know if I learned a lot about myself on this trip, although maybe I do g
 
 I personally think that measuredness with a calm and principled outlook can guide us through the ills and bring us closer to our dream.
 
-I'm some way, I think I have become a better listener on this trip.and possibly a better conversationalist. I know what better what I want in life from my relationships though. I want a moderate pace, and some element of peace. I want friends who will support me, and have their own passions in life, as I have mine, and for them each to impact the world in their own ways, and understand my emotions, and will challenge me so that I grow, while at the same time accepting me as I am. I want to learn constantly, and to be active in learning and growing. I want to make an impact where I can, and to accept my shortcomings where I cannot. Like Whittier said, "and we will feed the hungry and clothe the poor, and all shall bless us who come round door". If I had all that I think I would probably not regret anything. 
+In some way, I think I have become a better listener on this trip.and possibly a better conversationalist. I know better what I want in life from my relationships though. I want a moderate pace, and some element of peace. I want friends who will support me, and have their own passions in life, as I have mine, and for them each to impact the world in their own ways, and understand my emotions, and will challenge me so that I grow, while at the same time accepting me as I am. I want to learn constantly, and to be active in learning and growing. I want to make an impact where I can, and to accept my shortcomings where I cannot. Like Whittier said, "and we will feed the hungry and clothe the poor, and all shall bless us who come round door". If I had all that I think I would probably not regret anything. 
 
 It is interesting how much my attitude towards food changes situationally. Every time I am away from it, it is easy to tell myself what will happen, and then every time I sit down in front of food I feel a sense of anxiety and have to force myself to eat more. 
 
 I don't know why the cornfields are so calming. As I go past Illinois, and as I do think of the hymn, "all things bright and beautiful, all creatures great and small". The sceneries make me wonder what it would be like to live in that place and to lead that life, which is a lot of what cities themselves make me think of. 
 
-In line to get into the train, I met a girl someone about my age who was really cool. She was taking the train to visit a friend in Saint Louis, and worked at a nonprofit at the Center for Tech and Civic Life and in election reform. When I got on the train, I met two people who asked me if I had gotten her number, which I thought was pretty funny. She was definitely a cool person, but I feel weird walking up to someone and askint their number, since it makes the conversation feel like a pretense for asking a question, not as taking a genuine interest in the other person. If I see her again, I would, but I probably never will, which is part of the fun.
+In line to get into the train, I met a girl someone about my age who was really cool. She was taking the train to visit a friend in Saint Louis, and worked at a nonprofit at the Center for Tech and Civic Life and in election reform. When I got on the train, I met two people who asked me if I had gotten her number, which I thought was pretty funny. She was definitely a cool person, but I feel weird walking up to someone and asking their number, since it makes the conversation feel like a pretense for asking a question, not as taking a genuine interest in the other person. If I see her again, I would, but I probably never will, which is part of the fun.
 
 === Day 30 - May 24 (Sun)
 #figure(linked-image("AmtrakPhotos/30.AR.jpg"), caption: [Arkansas Woods])
 #figure(linked-image("AmtrakPhotos/30.Home.jpg"), caption: [Train Station with Appa])
 #figure(linked-image("AmtrakPhotos/30.Before.jpg"), caption: [Before Haircut])
 #figure(linked-image("AmtrakPhotos/30.After.jpg"), caption: [After Haircut])
-Today is the last day. I finally met a pacifist. He was a Jehovah's witness whose father had converted after WW2 and realizing how terrible it was to kill. He was super well-travelled, and had done multiple rail passes, both on Amtrak and VIA, and even met his wife (sort of) through the rail pass. He definitely had the gift of the gab, but was really interesting to listen to. He worked on the railroad, and then in PennDOT. We comiscerated on some of the challenges of travelling, and then exchanged contacts after. When I made it to the train station, Appa picked me up, and we went to get a haircut and beard trim, and bought some sandals. I have also definitely lost weight, I lost about 8lbs and gained a lot of muscle in my legs and shoulders and back (although I lost some in my chest and arms), and this has given me a good platform to work out more over the summer. I think overall, this trip turned out well. I spent the rest of the day cooking and meal prepping according to the new system #link("../food/mealprep.html"), although I still haven't made the pizza dough. It was relaxed, it was complete. At this point, finishing this trip, I guess I feel a sense of conclusion with the past acadmeic year. It feels like a clean slate of this very long and isolating and educational year, and I am looking forward to spending my last ten weeks with my friends, and then starting the next adventure. 
+Today is the last day. I finally met a pacifist. He was a Jehovah's witness whose father had converted after WW2 and realizing how terrible it was to kill. He was super well-travelled, and had done multiple rail passes, both on Amtrak and VIA, and even met his wife (sort of) through the rail pass. He definitely had the gift of the gab, but was really interesting to listen to. He worked on the railroad, and then in PennDOT. We comisserated on some of the challenges of travelling, and then exchanged contacts after. When I made it to the train station, Appa picked me up, and we went to get a haircut and beard trim, and bought some sandals. I have also definitely lost weight, I lost about 8lbs and gained a lot of muscle in my legs and shoulders and back (although I lost some in my chest and arms), and this has given me a good platform to work out more over the summer. I think overall, this trip turned out well. I spent the rest of the day cooking and meal prepping according to the new system #link("../food/mealprep.html"), although I still haven't made the pizza dough. It was relaxed, it was complete. At this point, finishing this trip, I guess I feel a sense of conclusion with the past academic year. It feels like a clean slate of this very long and isolating and educational year, and I am looking forward to spending my last ten weeks with my friends, and then starting the next adventure. 
 
 == QR Code
 #figure([#linked-image("amtrak.qr.jpg")], alt: "", caption: [QR])
-== Thing to Cook/Eat after the Trip
+== Things to Cook/Eat after the Trip
 ```
 Paneer Banh Mi
 Beet Gnocchi w/ Pine Nut, Goat Cheese, Fava Bean, Apple, Basil
