@@ -10,7 +10,7 @@
 
 This system is designed around:
 
-- ~700–800 calorie meals
+- ~750 calorie meals
 - high protein
 - high fiber
 - freezer-friendly prep
@@ -24,13 +24,67 @@ Daily structure:
 - 1 dinner meal
 - optional fruit and mozzarella sticks for additional hunger
 
+== Grocery List (Aldi)
+
+=== Produce
+
+- Garlic — 1 head
+- Onion — 1 × 3 lb bag (need ~475g; leftover usable)
+- Bell peppers — 3 (need ~475g)
+- Cucumber — 1 per Meal 4 serving (~200g each)
+- Tomatoes — 1–2 Roma per Meal 4 serving (~150g each)
+
+=== Dairy & Eggs
+
+- Whole milk — 3 gallons
+- Eggs — 1 dozen
+- Greek yogurt — 1 × 32 oz tub
+- Mozzarella — 1 × 8 oz block (covers ~5 pizzas)
+
+=== Frozen
+
+- Mushrooms — 3 × 8 oz containers (680g)
+- Frozen spinach — 2 × 32 oz bags (1814g; need 1600g)
+
+=== Canned & Dry
+
+- Pinto beans — 3 × 15.5 oz cans
+- Chickpeas — 4 × 15.5 oz cans (3 for portions + 1 for hummus)
+- Tomato sauce — 1 × 14 oz can (covers ~4 pizzas)
+- Capers — 1 jar
+- Dry pasta — 1 × 1 lb box (need ~240g across both pasta meals)
+- All-purpose flour — 1 × 5 lb bag (covers both challah and pizza dough)
+- Active dry / instant yeast — 1 strip 3-pack (need ~17g across both recipes)
+- Sugar — pantry staple or 1 bag
+- Sesame seeds — 1 small bag
+
+=== Pantry / Condiments
+
+- Olive oil — 1 bottle (pantry staple)
+- Vegetable oil — 1 bottle (pantry staple)
+- Balsamic vinegar — 1 bottle
+- Lemon juice — 1 × 32 oz bottle (need ~235g total)
+- Hot sauce or salsa — 1 bottle
+
+=== Spices #footnote[Buy only what you do not already have.]
+
+- Salt (table + kosher), black pepper
+- Smoked paprika, cumin, garlic powder, chili powder
+- Coriander, turmeric, chili flakes, garam masala, oregano
+- Fenugreek leaves (kasuri methi) — *not at Aldi; buy at an Indian grocery store*
+
+=== Optional
+
+- Fruit (seasonal)
+- Mozzarella sticks
+
 == Weekly Component Prep
 
 === Component 1 — Homemade Paneer
 
-Makes approximately 12 portions.
+Makes approximately 16 portions. #footnote[3 gallons (~11.4 kg) whole milk at ~19% yield produces roughly 2160g paneer. Divided into 16 portions gives ~135g each, which is consistent with real paneer density (~255 cal/100g). The original 12-portion split overstated per-portion calories.]
 
-=== Ingredients
+==== Ingredients
 
 - 3 gallons whole milk
 - 180g lemon juice or white vinegar
@@ -51,7 +105,7 @@ Makes approximately 12 portions.
 
 ==== Portioning
 
-- 12 containers of 130–135g paneer
+- 16 containers of ~135g paneer
 
 Freeze most portions.
 
@@ -96,15 +150,15 @@ Freeze individually.
 
 ==== Ingredients
 
-- 1000g mushrooms
-- 700g onion
-- 700g bell pepper
-- 40g olive oil
-- 10g salt
-- 6g black pepper
-- 5g smoked paprika
-- 4g garlic powder
-- 3g cumin
+- 680g mushrooms
+- 475g onion
+- 475g bell pepper
+- 27g olive oil
+- 7g salt
+- 4g black pepper
+- 3g smoked paprika
+- 3g garlic powder
+- 2g cumin
 
 ==== Method
 
@@ -116,7 +170,7 @@ Freeze individually.
 
 ==== Portioning
 
-- 12 containers of 185–190g
+- 12 containers of ~82g #footnote[1630g raw loses ~40% water when roasted, yielding ~980g cooked / 12 portions = ~82g each.]
 
 Freeze.
 
@@ -220,7 +274,7 @@ Refrigerate or freeze.
 
 ==== Ingredients
 
-- 630g bread flour
+- 630g bread flour #footnote[Aldi may not carry bread flour; all-purpose flour works and is available in a 5 lb bag that also covers the challah.]
 - 15g sugar
 - 10g kosher salt
 - 10g instant yeast
@@ -246,14 +300,14 @@ Freeze after at least 24 hours of fermentation if desired.
 
 Per prepared portion:
 
-- Paneer portion (130–135g): ~430 calories, ~26g protein
+- Paneer portion (~135g): ~345 calories, ~24g protein
 - Challah slice (75g): ~240 calories, ~7g protein
-- Roasted vegetable portion: ~60 calories, ~3g protein
-- Spinach portion: ~35 calories, ~4g protein
-- Pinto bean portion: ~105 calories, ~7g protein
-- Chickpea portion: ~110 calories, ~5g protein
-- Hummus portion: ~110 calories, ~4g protein
-- Pizza dough ball: ~345 calories, ~10g protein
+- Roasted vegetable portion (~82g): ~51 calories, ~2g protein
+- Spinach portion (120g): ~35 calories, ~4g protein
+- Pinto bean portion (90g): ~105 calories, ~7g protein
+- Chickpea portion (90g): ~110 calories, ~5g protein
+- Hummus portion (70g): ~110 calories, ~4g protein
+- Pizza dough ball (140g raw): ~310 calories, ~10g protein
 
 === Pizza Equipment Recommendation
 
@@ -295,9 +349,9 @@ Best surfaces:
 
 ==== Approximate Nutrition
 
-- ~760 calories
-- ~44g protein
-- ~15g fiber
+- ~775 calories
+- ~40g protein
+- ~14g fiber
 
 === Meal 2 — Palak Paneer Plate
 
@@ -324,9 +378,9 @@ Best surfaces:
 
 ==== Approximate Nutrition
 
-- ~740 calories
+- ~700 calories
 - ~42g protein
-- ~16g fiber
+- ~15g fiber
 
 === Meal 3 — Paneer Piccata Pasta
 
@@ -338,7 +392,7 @@ Best surfaces:
 
 ==== Additional Ingredients
 
-- 70g dry pasta
+- 75g dry pasta
 - 15g lemon juice
 - 10g capers
 - black pepper
@@ -354,9 +408,9 @@ Best surfaces:
 
 ==== Approximate Nutrition
 
-- ~760 calories
-- ~43g protein
-- ~14g fiber
+- ~700 calories
+- ~41g protein
+- ~13g fiber
 
 === Meal 4 — Greek Salad Plate
 
@@ -371,7 +425,6 @@ Best surfaces:
 
 - 200g cucumber
 - 150g tomato
-- 5g olive oil
 - 20g lemon juice
 - 20g balsamic vinegar
 - oregano
@@ -383,14 +436,14 @@ Best surfaces:
 + Chop cucumber and tomato.
 + Combine with chickpeas.
 + Add paneer.
-+ Dress with olive oil, lemon juice, balsamic vinegar, oregano, salt, and pepper.
++ Dress with lemon juice, balsamic vinegar, oregano, salt, and pepper.
 + Serve with hummus and challah.
 
 ==== Approximate Nutrition
 
-- ~790 calories
+- ~785 calories
 - ~42g protein
-- ~18g fiber
+- ~17g fiber
 
 === Meal 5 — Personal Pizza
 
@@ -403,7 +456,7 @@ Best surfaces:
 ==== Additional Ingredients
 
 - 90g tomato sauce
-- 40g mozzarella
+- 50g mozzarella
 
 ==== Method
 
@@ -415,9 +468,9 @@ Best surfaces:
 
 ==== Approximate Nutrition
 
-- ~730 calories
-- ~36g protein
-- ~10g fiber
+- ~725 calories
+- ~35g protein
+- ~7g fiber
 
 === Meal 6 — Pinto Bean Torta
 
@@ -447,9 +500,9 @@ Best surfaces:
 
 ==== Approximate Nutrition
 
-- ~710 calories
-- ~49g protein
-- ~15g fiber
+- ~703 calories
+- ~55g protein
+- ~12g fiber
 
 === Meal 7 — Pasta Salad
 
@@ -462,8 +515,8 @@ Best surfaces:
 
 ==== Additional Ingredients
 
-- 70g dry pasta
-- 10g olive oil
+- 50g dry pasta #footnote[Reduced from 70g. This meal has more components than Meal 3, and 70g pushed total calories well above target.]
+- 5g olive oil
 - 15g balsamic vinegar
 
 ==== Method
@@ -475,9 +528,9 @@ Best surfaces:
 
 ==== Approximate Nutrition
 
-- ~780 calories
-- ~42g protein
-- ~17g fiber
+- ~770 calories
+- ~40g protein
+- ~15g fiber
 
 == Weekly Quantity Notes
 
@@ -494,4 +547,3 @@ Optional additional hunger management:
 
 - fruit
 - mozzarella sticks
-
