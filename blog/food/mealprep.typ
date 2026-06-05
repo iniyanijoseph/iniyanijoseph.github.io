@@ -63,9 +63,12 @@
 - 1 lb mozzarella cheese
 
 ==== Method 
- 1. Combine all dry ingredients (flour, sugar, salt, yeast) 2. Add oil and lukewarm water, mix until shaggy 3. Knead until dough passes the windowpane test (\~10 min by hand, \~6 min by machine) 4. Divide into 8 equal portions (\~142g each) 5. Shape into balls, place in oiled containers, and ferment in the fridge 24–72 hours 6. Freeze individually in zip bags; thaw in fridge overnight before use
-
-#strong[Note:] This plan uses 150g per pizza day (just over 1 portion). The toppings listed above are for a traditional pizza — this plan substitutes paneer, roasted veg, spinach, and pesto instead.
++ Combine all dry ingredients (flour, sugar, salt, yeast)
++ Add oil and lukewarm water, mix until shaggy
++ Knead until dough passes the windowpane test (\~10 min by hand, \~6 min by machine)
++ Divide into 8 equal portions (\~142g each)
++ Shape into balls, place in oiled containers, and ferment in the fridge 24–72 hours
++ Freeze individually in zip bags; thaw in fridge overnight before use
 
 #horizontalrule
 
@@ -80,10 +83,8 @@ Use half a 12oz frozen bag daily. Sauté straight from frozen or thaw overnight.
 Always includes #strong[Kirkland whey shake] (\~160 cal | 25g protein | 5g carbs | 3g fat) + optionally one of:
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Option], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Low fat Greek yogurt 200g], [\~110], [20g], [12g], [2g], [Cheese stick x1], [\~80], [6g], [1g], [6g], [Cheese stick x2], [\~160], [12g], [2g], [11g], [Seasonal fruit (medium piece)], [\~80], [1g], [20g], [0g], [Unsalted peanuts 30g], [\~170], [7g], [5g], [15g],
+  [#table(
+      columns: 5,  table.header([Option], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Low fat Greek yogurt 200g], [\~110], [20g], [12g], [2g], [Cheese stick x1], [\~80], [6g], [1g], [6g], [Cheese stick x2], [\~160], [12g], [2g], [11g], [Seasonal fruit (medium piece)], [\~80], [1g], [20g], [0g], [Unsalted peanuts 30g], [\~170], [7g], [5g], [15g],
     )], kind: table,
 )
 
@@ -111,10 +112,8 @@ All recipes use your daily base: #strong[230g paneer + 300g roasted veg + 170g s
 Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted veg, spinach, and crumbled paneer. Crack 2 eggs directly on top. Bake at 475°F for 12–15 min until crust is golden and eggs just set. Slice and split into 2 portions.
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Pizza dough 150g], [340], [11g], [53g], [6g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [2 whole eggs], [140], [12g], [0g], [10g], [Pesto 30g], [42], [1g], [1g], [4g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1482];], [#strong[\~109g];], [#strong[\~95g];], [#strong[\~68g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Pizza dough 150g], [340], [11g], [53g], [6g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [2 whole eggs], [140], [12g], [0g], [10g], [Pesto 30g], [42], [1g], [1g], [4g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1482];], [#strong[\~109g];], [#strong[\~95g];], [#strong[\~68g];],
     )], kind: table,
 )
 
@@ -137,10 +136,8 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
  Heat EVOO in a large pan. Sauté roasted veg and spinach until warmed through. Whisk egg whites and whole eggs together, pour over veg. Scatter crumbled paneer on top. Cook low and slow, folding when edges set. Slide onto a plate and cut in half for 2 meals.
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Egg whites 400g], [200], [42g], [3g], [0g], [2 whole eggs], [140], [12g], [0g], [10g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [Seasonal fruit (medium)], [80], [1g], [20g], [0g], [#strong[Total];], [#strong[\~1450];], [#strong[\~148g];], [#strong[\~74g];], [#strong[\~60g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Egg whites 400g], [200], [42g], [3g], [0g], [2 whole eggs], [140], [12g], [0g], [10g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [Seasonal fruit (medium)], [80], [1g], [20g], [0g], [#strong[Total];], [#strong[\~1450];], [#strong[\~148g];], [#strong[\~74g];], [#strong[\~60g];],
     )], kind: table,
 )
 
@@ -163,10 +160,8 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
  Heat EVOO in a deep pan. Add roasted veg and spices, cook 2 min. Add crushed tomatoes and simmer 5 min. Add spinach and stir until wilted. Add paneer cubes. Make 3 wells, crack one egg in each. Cover and cook until whites are set but yolks slightly runny, \~5–7 min. Split into 2 portions.
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Crushed tomatoes 400g], [100], [5g], [20g], [1g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Paneer 230g], [490], [38g], [10g], [28g], [3 whole eggs], [210], [18g], [0g], [15g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + 3 cheese sticks], [400], [43g], [8g], [23g], [#strong[Total];], [#strong[\~1470];], [#strong[\~114g];], [#strong[\~62g];], [#strong[\~84g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Crushed tomatoes 400g], [100], [5g], [20g], [1g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Paneer 230g], [490], [38g], [10g], [28g], [3 whole eggs], [210], [18g], [0g], [15g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + 3 cheese sticks], [400], [43g], [8g], [23g], [#strong[Total];], [#strong[\~1470];], [#strong[\~114g];], [#strong[\~62g];], [#strong[\~84g];],
     )], kind: table,
 )
 
@@ -194,10 +189,8 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
 ]
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [3 whole wheat tortillas (\~60g each)], [480], [15g], [78g], [12g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Black beans 150g drained], [150], [9g], [27g], [1g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1540];], [#strong[\~117g];], [#strong[\~156g];], [#strong[\~49g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [3 whole wheat tortillas (\~60g each)], [480], [15g], [78g], [12g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Black beans 150g drained], [150], [9g], [27g], [1g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1540];], [#strong[\~117g];], [#strong[\~156g];], [#strong[\~49g];],
     )], kind: table,
 )
 
@@ -221,10 +214,8 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
  Toast bread. Spread pesto on both slices of each sandwich. Layer spinach, paneer, roasted veg, and tomato if using. Drizzle balsamic. Close sandwich. Split veg and paneer evenly for both meals.
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [4 slices whole wheat bread], [320], [14g], [56g], [4g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Pesto 40g], [56], [2g], [2g], [5g], [Balsamic 1 tbsp], [15], [0g], [3g], [0g], [Shake + 3 cheese sticks], [400], [43g], [8g], [23g], [#strong[Total];], [#strong[\~1431];], [#strong[\~107g];], [#strong[\~103g];], [#strong[\~63g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [4 slices whole wheat bread], [320], [14g], [56g], [4g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Pesto 40g], [56], [2g], [2g], [5g], [Balsamic 1 tbsp], [15], [0g], [3g], [0g], [Shake + 3 cheese sticks], [400], [43g], [8g], [23g], [#strong[Total];], [#strong[\~1431];], [#strong[\~107g];], [#strong[\~103g];], [#strong[\~63g];],
     )], kind: table,
 )
 
@@ -249,10 +240,8 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
  Cook penne. In the same pan heat EVOO, sear paneer cubes until golden. Add roasted veg, chickpeas, and spinach, toss until wilted. Add drained pasta, pesto, balsamic, and spices. Toss together. Split into 2 portions.
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Whole wheat penne 90g dry], [310], [12g], [55g], [3g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Chickpeas 150g drained], [180], [10g], [30g], [3g], [Pesto 40g], [56], [2g], [2g], [5g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Balsamic 1 tbsp], [15], [0g], [3g], [0g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1591];], [#strong[\~117g];], [#strong[\~141g];], [#strong[\~61g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Whole wheat penne 90g dry], [310], [12g], [55g], [3g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Chickpeas 150g drained], [180], [10g], [30g], [3g], [Pesto 40g], [56], [2g], [2g], [5g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Balsamic 1 tbsp], [15], [0g], [3g], [0g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1591];], [#strong[\~117g];], [#strong[\~141g];], [#strong[\~61g];],
     )], kind: table,
 )
 
@@ -276,10 +265,8 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
  Cook orzo. Heat EVOO in a wide pan, add roasted veg, chickpeas, and spinach, toss until wilted. Add orzo, crumbled paneer, balsamic, and spices. Toss together 2–3 min. Split into 2 portions.
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Whole wheat orzo 90g dry], [310], [11g], [55g], [2g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Chickpeas 150g drained], [180], [10g], [30g], [3g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Balsamic 1 tbsp], [15], [0g], [3g], [0g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1535];], [#strong[\~114g];], [#strong[\~139g];], [#strong[\~55g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Whole wheat orzo 90g dry], [310], [11g], [55g], [2g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Chickpeas 150g drained], [180], [10g], [30g], [3g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Balsamic 1 tbsp], [15], [0g], [3g], [0g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1535];], [#strong[\~114g];], [#strong[\~139g];], [#strong[\~55g];],
     )], kind: table,
 )
 
@@ -302,10 +289,8 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
  Heat EVOO in a pan, bloom cumin and fenugreek 30 seconds. Add roasted veg and chickpeas, cook 3–4 min. Add spinach and stir until fully wilted. Add paneer cubes, toss gently, season with remaining spices. Cook 3–4 min until paneer is warmed through and coated. Split into 2 portions. Serve each with 2 slices toasted whole wheat bread.
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Chickpeas 150g drained], [180], [10g], [30g], [3g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [4 slices whole wheat bread], [320], [14g], [56g], [4g], [Shake + 1 cheese stick], [240], [31g], [6g], [9g], [#strong[Total];], [#strong[\~1500];], [#strong[\~103g];], [#strong[\~126g];], [#strong[\~61g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Chickpeas 150g drained], [180], [10g], [30g], [3g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [4 slices whole wheat bread], [320], [14g], [56g], [4g], [Shake + 1 cheese stick], [240], [31g], [6g], [9g], [#strong[Total];], [#strong[\~1500];], [#strong[\~103g];], [#strong[\~126g];], [#strong[\~61g];],
     )], kind: table,
 )
 
@@ -330,10 +315,8 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
  Heat EVOO in an oven-safe pan. Sauté veg and spinach until wilted. Whisk egg whites and whole eggs, pour over veg. Scatter paneer. Cook on stovetop until edges set, then transfer to 375°F oven for 8–10 min until puffed and set through. Slide onto a board, cut into 2 equal portions. Serve each with 1 slice toasted whole wheat bread and pesto or Frank's on the side.
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Egg whites 300g], [150], [31g], [2g], [0g], [2 whole eggs], [140], [12g], [0g], [10g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [2 slices whole wheat bread], [160], [7g], [28g], [2g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1480];], [#strong[\~143g];], [#strong[\~81g];], [#strong[\~62g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Egg whites 300g], [150], [31g], [2g], [0g], [2 whole eggs], [140], [12g], [0g], [10g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [2 slices whole wheat bread], [160], [7g], [28g], [2g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1480];], [#strong[\~143g];], [#strong[\~81g];], [#strong[\~62g];],
     )], kind: table,
 )
 
@@ -360,10 +343,8 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
  Heat pan, deglaze roasted veg with balsamic. Pour warm over raw spinach to wilt slightly. Top with crumbled paneer. Drizzle EVOO. Split into 2 portions.
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tsp], [40], [0g], [0g], [5g], [Balsamic 2 tbsp], [30], [0g], [6g], [0g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1030];], [#strong[\~85g];], [#strong[\~47g];], [#strong[\~53g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tsp], [40], [0g], [0g], [5g], [Balsamic 2 tbsp], [30], [0g], [6g], [0g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1030];], [#strong[\~85g];], [#strong[\~47g];], [#strong[\~53g];],
     )], kind: table,
 )
 
@@ -385,10 +366,8 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
  Combine all in a large bowl. Dress with balsamic and spices. Split into 2 portions. Serve cold.
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Tomato \~100g], [20], [1g], [4g], [0g], [Balsamic 2 tbsp], [30], [0g], [6g], [0g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1010];], [#strong[\~86g];], [#strong[\~51g];], [#strong[\~48g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Tomato \~100g], [20], [1g], [4g], [0g], [Balsamic 2 tbsp], [30], [0g], [6g], [0g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1010];], [#strong[\~86g];], [#strong[\~51g];], [#strong[\~48g];],
     )], kind: table,
 )
 
@@ -411,11 +390,8 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
  Toast and tear bread. Combine all ingredients. Dress with balsamic and spices. Let sit 5 min so bread absorbs juices. Split into 2 portions.
 
 #figure(
-  align(
-    center,
-    
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [2 slices whole wheat bread], [160], [7g], [28g], [2g], [Tomato \~100g], [20], [1g], [4g], [0g], [Balsamic 2 tbsp], [30], [0g], [6g], [0g], [Kirkland shake], [160], [25g], [5g], [3g], [#strong[Total];], [#strong[\~1010];], [#strong[\~81g];], [#strong[\~77g];], [#strong[\~36g];],
+    [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [2 slices whole wheat bread], [160], [7g], [28g], [2g], [Tomato \~100g], [20], [1g], [4g], [0g], [Balsamic 2 tbsp], [30], [0g], [6g], [0g], [Kirkland shake], [160], [25g], [5g], [3g], [#strong[Total];], [#strong[\~1010];], [#strong[\~81g];], [#strong[\~77g];], [#strong[\~36g];],
     )], kind: table,
 )
 
@@ -438,10 +414,8 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
 Heat EVOO in a deep pot. Add roasted veg and spices, cook 2 min. Add potato and broth, simmer 15 min until potato is very soft. Add spinach and stir until wilted. Partially blend with a hand blender — leave chunky, not smooth. Add paneer cubes and simmer 3–4 min. Split into 2 portions.
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Idaho potato 250g], [215], [5g], [50g], [0g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + 1 cheese stick], [240], [31g], [6g], [9g], [#strong[Total];], [#strong[\~1215];], [#strong[\~84g];], [#strong[\~90g];], [#strong[\~54g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Idaho potato 250g], [215], [5g], [50g], [0g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + 1 cheese stick], [240], [31g], [6g], [9g], [#strong[Total];], [#strong[\~1215];], [#strong[\~84g];], [#strong[\~90g];], [#strong[\~54g];],
     )], kind: table,
 )
 
@@ -468,10 +442,8 @@ Heat EVOO in a deep pot. Add roasted veg and spices, cook 2 min. Add potato and 
 Heat EVOO in a deep pot. Add roasted veg and spices, cook 2 min. Add crushed tomatoes and broth, simmer 8–10 min. Add spinach and partially blend with a hand blender. Add paneer cubes and simmer 5 min until warmed through. Split into 2 portions.
 
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Crushed tomatoes 400g], [100], [5g], [20g], [1g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1180];], [#strong[\~90g];], [#strong[\~61g];], [#strong[\~63g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Crushed tomatoes 400g], [100], [5g], [20g], [1g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1180];], [#strong[\~90g];], [#strong[\~61g];], [#strong[\~63g];],
     )], kind: table,
 )
 
@@ -491,10 +463,8 @@ Heat EVOO in a deep pot. Add roasted veg and spices, cook 2 min. Add crushed tom
 ==== Method
 Mix oats and protein powder in a microwave-safe bowl. Add water and stir. Microwave on high for 2–3 min, stopping once to stir. Top with berries. Add nut butter if desired.
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Rolled oats 30g], [110], [3g], [20g], [2g], [Protein powder 30g], [120], [22g], [3g], [2g], [Mixed berries 80g], [45], [1g], [11g], [0g], [Water/pea milk 180ml], [0–70], [0–8g], [0–1g], [0g], [#strong[Total];], [#strong[\~300];], [#strong[\~26g];], [#strong[\~35g];], [#strong[\~5g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Rolled oats 30g], [110], [3g], [20g], [2g], [Protein powder 30g], [120], [22g], [3g], [2g], [Mixed berries 80g], [45], [1g], [11g], [0g], [Water/pea milk 180ml], [0–70], [0–8g], [0–1g], [0g], [#strong[Total];], [#strong[\~300];], [#strong[\~26g];], [#strong[\~35g];], [#strong[\~5g];],
     )], kind: table,
 )
 
@@ -508,10 +478,8 @@ Mix oats and protein powder in a microwave-safe bowl. Add water and stir. Microw
 ==== Method
 Spoon yogurt into a bowl. Top with berries. Drizzle or dollop nut butter over the top. No cooking required.
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Greek yogurt 170g], [100], [17g], [6g], [0g], [Nut butter 15g], [95], [4g], [3g], [8g], [Mixed berries 80g], [45], [1g], [11g], [0g], [#strong[Total];], [#strong[\~270];], [#strong[\~22g];], [#strong[\~18g];], [#strong[\~8g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Greek yogurt 170g], [100], [17g], [6g], [0g], [Nut butter 15g], [95], [4g], [3g], [8g], [Mixed berries 80g], [45], [1g], [11g], [0g], [#strong[Total];], [#strong[\~270];], [#strong[\~22g];], [#strong[\~18g];], [#strong[\~8g];],
     )], kind: table,
 )
 
@@ -526,10 +494,8 @@ Spoon yogurt into a bowl. Top with berries. Drizzle or dollop nut butter over th
 ==== Method
 Mash banana in a bowl. Add egg and protein powder, mix until combined. Heat a pan over medium heat, spray with cooking spray. Pour small rounds of batter. Cook 2–3 min per side until set. Top with berries if desired.
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Protein powder 30g], [120], [22g], [3g], [2g], [Egg 1 whole], [70], [6g], [0g], [5g], [Banana 100g], [90], [1g], [23g], [0g], [Butter/spray 5g], [35], [0g], [0g], [4g], [#strong[Total];], [#strong[\~300];], [#strong[\~25g];], [#strong[\~22g];], [#strong[\~8g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Protein powder 30g], [120], [22g], [3g], [2g], [Egg 1 whole], [70], [6g], [0g], [5g], [Banana 100g], [90], [1g], [23g], [0g], [Butter/spray 5g], [35], [0g], [0g], [4g], [#strong[Total];], [#strong[\~300];], [#strong[\~25g];], [#strong[\~22g];], [#strong[\~8g];],
     )], kind: table,
 )
 
@@ -544,10 +510,8 @@ Mash banana in a bowl. Add egg and protein powder, mix until combined. Heat a pa
 ==== Method
 Mix chia seeds, milk, and vanilla in a jar or bowl. Stir well, then stir again after 5 minutes to prevent clumping. Cover and refrigerate overnight. Top with berries in the morning.
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Chia seeds 30g], [140], [5g], [12g], [9g], [Milk 240ml], [125], [8g], [12g], [5g], [Mixed berries 80g], [45], [1g], [11g], [0g], [#strong[Total];], [#strong[\~280];], [#strong[\~14g];], [#strong[\~28g];], [#strong[\~10g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Chia seeds 30g], [140], [5g], [12g], [9g], [Milk 240ml], [125], [8g], [12g], [5g], [Mixed berries 80g], [45], [1g], [11g], [0g], [#strong[Total];], [#strong[\~280];], [#strong[\~14g];], [#strong[\~28g];], [#strong[\~10g];],
     )], kind: table,
 )
 #horizontalrule
@@ -561,10 +525,8 @@ Mix chia seeds, milk, and vanilla in a jar or bowl. Stir well, then stir again a
 ==== Method
 Spoon cottage cheese into a bowl. Top with berries and nut butter. Drizzle honey if desired. No cooking required.
 #figure(
-  align(
-    center,
-  )[#table(
-      columns: 5, align: (auto, auto, auto, auto, auto,), table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Cottage cheese 200g], [140], [24g], [6g], [2g], [Mixed berries 80g], [45], [1g], [11g], [0g], [Nut butter 15g], [95], [4g], [3g], [8g], [Honey drizzle 5g], [15], [0g], [4g], [0g], [#strong[Total];], [#strong[\~260];], [#strong[\~28g];], [#strong[\~16g];], [#strong[\~6g];],
+  [#table(
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Cottage cheese 200g], [140], [24g], [6g], [2g], [Mixed berries 80g], [45], [1g], [11g], [0g], [Nut butter 15g], [95], [4g], [3g], [8g], [Honey drizzle 5g], [15], [0g], [4g], [0g], [#strong[Total];], [#strong[\~260];], [#strong[\~28g];], [#strong[\~16g];], [#strong[\~6g];],
     )], kind: table,
 )
 
