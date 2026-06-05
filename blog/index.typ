@@ -5,32 +5,9 @@
 #show: cv.with(subpage: true, root: "../")
 
 == Blog
-=== Recipes
-==== Meal
 #blog(
-  name: "Pizza",
-  url: "food/pizza.html",
-)
-#blog(
-  name: "Bread",
-  url: "food/bread.html",
-)
-#blog(
-  name: "Breakfast Burrito",
-  url: "food/breakfastburrito.html",
-)
-#blog(
-  name: "Dubu Jorim (Braised Tofu)",
-  url: "food/tofubanchan.html",
-)
-#blog(
-  name: "Tomato Soup",
-  url: "food/tomatosoup.html",
-)
-==== Pie
-#blog(
-  name: "Pie Fundamentals",
-  url: "food/pie.html",
+  name: "Meal Prep System",
+  url: "food/mealprep.html",
 )
 
 #blog(
@@ -43,10 +20,6 @@
   url: "food/custardpecanpie.html",
 )
 
-#blog(
-  name: "Savory Beet Pie",
-  url: "food/beetpie.html",
-)
 ==== Other
 #blog(
   name: "Applesauce",
@@ -59,7 +32,7 @@
   url: "travel/train.html",
 )
 
-=== Other
+=== Hobbies
 #blog(
   name: "Kiting",
   url: "hobbies/kites.html",
@@ -70,7 +43,7 @@
   url: "hobbies/sockmonkeys.html",
 )
 
-=== School
+=== Other
 #blog(
   name: "Advice for PhD Applicants",
   url: "school/phdapplications.html",
