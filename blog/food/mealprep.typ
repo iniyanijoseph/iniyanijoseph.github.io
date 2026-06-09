@@ -3,7 +3,6 @@
 
 #show: cv.with(subpage: true, root: "../../", fancylist: false)
 
-// #set page(margin: 1.5cm)
 #set heading(numbering: none)
 
 #let horizontalrule = [
@@ -32,20 +31,18 @@
 
 #horizontalrule
 
-=== Roasted Vegetable Mix (\~300g per day, 6 portions) <roasted-vegetable-mix-300g-per-day-6-portions>
-#strong[Yield:] \~1.8kg roasted veg
-
-+ Preheat oven to 425°F
+=== Roasted Vegetable Mix (\~245 per day, 6 portions) <roasted-vegetable-mix-245g-per-day-6-portions>
+#strong[Yield:] \~1.5kg roasted veg
++ Preheat oven to 425°F. Pat frozen veg dry after thawing to improve caramelization
 + Combine in a large roasting pan:
   - 3x 8oz tubs pre-cut white mushrooms
-  - 2 medium onions, roughly chopped
-  - 2 cloves garlic, smashed
-  - 3 peppers (1 yellow, 1 red, 1 orange), chopped
-+ Toss with 2 tbsp EVOO, salt, oregano, chili flakes
+  - 1x 20oz frozen pepper and onion blend, thawed and drained
+  - 3x 12oz frozen spinach
++ Toss with 2 tbsp EVOO, salt
 + Roast 50–60 minutes tossing halfway, until caramelized
 + Portion into 6 equal containers (\~300g each), refrigerate up to 6 days
 
-#strong[Macros per 300g portion:] \~110 cal | 5g protein | 18g carbs | 3g fat
+#strong[Macros per 245g portion:] \~87 cal | 9g protein | 15g carbs | 1g fat
 
 #horizontalrule
 
@@ -70,12 +67,6 @@
 + Shape into balls, place in oiled containers, and ferment in the fridge 24–72 hours
 + Freeze individually in zip bags; thaw in fridge overnight before use
 
-#horizontalrule
-
-=== Spinach (\~170g per day) <spinach-170g-per-day>
-Use half a 12oz frozen bag daily. Sauté straight from frozen or thaw overnight.
-
-#strong[Macros per 170g:] \~40 cal | 5g protein | 6g carbs | 0g fat
 
 #horizontalrule
 
@@ -91,65 +82,62 @@ Always includes #strong[Kirkland whey shake] (\~160 cal | 25g protein | 5g carbs
 #horizontalrule
 
 == Recipes <recipes>
-All recipes use your daily base: #strong[230g paneer + 300g roasted veg + 170g spinach.] Cook once, split into 2 equal portions for both meals.
+All recipes use your daily base: #strong[230g paneer + 245g veg mix (spinach, mushroom, pepper-onion).] Cook once, split into 2 equal portions for both meals.
 
 #horizontalrule
 
 === Pizza with Eggs <pizza-with-eggs>
-#strong[\~1482 cal | \~109g protein | \~95g carbs | \~68g fat]
+#strong[\~1419 cal | \~108g protein | \~86g carbs | \~66g fat]
 
 ==== Ingredients
 - 150g frozen pizza dough (1/8 recipe), thawed
 - 30g Calabrian chili pesto
 - 230g paneer, crumbled
-- 300g roasted veg
-- 170g spinach
+- 245g veg mix
 - 2 whole eggs
 - chili flakes, oregano, salt
 - Snack: Kirkland shake + 2 cheese sticks
 
 ==== Method
-Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted veg, spinach, and crumbled paneer. Crack 2 eggs directly on top. Bake at 475°F for 12–15 min until crust is golden and eggs just set. Slice and split into 2 portions.
+Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter veg mix and crumbled paneer. Crack 2 eggs directly on top. Bake at 475°F for 12–15 min until crust is golden and eggs just set. Slice and split into 2 portions.
 
 #figure(
   [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Pizza dough 150g], [340], [11g], [53g], [6g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [2 whole eggs], [140], [12g], [0g], [10g], [Pesto 30g], [42], [1g], [1g], [4g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1482];], [#strong[\~109g];], [#strong[\~95g];], [#strong[\~68g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Pizza dough 150g], [340], [11g], [53g], [6g], [Paneer 230g], [490], [38g], [10g], [28g], [Veg mix 245g], [87], [9g], [15g], [1g], [2 whole eggs], [140], [12g], [0g], [10g], [Pesto 30g], [42], [1g], [1g], [4g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1419];], [#strong[\~108g];], [#strong[\~86g];], [#strong[\~66g];],
     )], kind: table,
 )
 
 #horizontalrule
 
 === Egg White Omelette <egg-white-omelette>
-#strong[\~1450 cal | \~148g protein | \~74g carbs | \~60g fat]
+#strong[\~1387 cal | \~147g protein | \~65g carbs | \~58g fat]
 
 ==== Ingredients 
 - 400g liquid egg whites
 - 2 whole eggs
 - 230g paneer, crumbled
-- 300g roasted veg
-- 170g spinach
+- 245g veg mix
 - 1 tbsp EVOO 
 - cumin, chili flakes, paprika, salt
 - Snack: Kirkland shake + 200g Greek yogurt + seasonal fruit
 
 ==== Method 
- Heat EVOO in a large pan. Sauté roasted veg and spinach until warmed through. Whisk egg whites and whole eggs together, pour over veg. Scatter crumbled paneer on top. Cook low and slow, folding when edges set. Slide onto a plate and cut in half for 2 meals.
+ Heat EVOO in a large pan. Sauté veg mix until warmed through. Whisk egg whites and whole eggs together, pour over veg. Scatter crumbled paneer on top. Cook low and slow, folding when edges set. Slide onto a plate and cut in half for 2 meals.
 
 #figure(
   [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Egg whites 400g], [200], [42g], [3g], [0g], [2 whole eggs], [140], [12g], [0g], [10g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [Seasonal fruit (medium)], [80], [1g], [20g], [0g], [#strong[Total];], [#strong[\~1450];], [#strong[\~148g];], [#strong[\~74g];], [#strong[\~60g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Egg whites 400g], [200], [42g], [3g], [0g], [2 whole eggs], [140], [12g], [0g], [10g], [Paneer 230g], [490], [38g], [10g], [28g], [Veg mix 245g], [87], [9g], [15g], [1g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [Seasonal fruit (medium)], [80], [1g], [20g], [0g], [#strong[Total];], [#strong[\~1387];], [#strong[\~147g];], [#strong[\~65g];], [#strong[\~58g];],
     )], kind: table,
 )
 
 #horizontalrule
 
 === Shakshuka <shakshuka>
-#strong[\~1470 cal | \~114g protein | \~62g carbs | \~84g fat]
+#strong[\~1407 cal | \~113g protein | \~53g carbs | \~82g fat]
 
 ==== Ingredients 
 - 1 x 400g can crushed tomatoes
-- 300g roasted veg
-- 170g spinach
+- 245g veg mix
 - 230g paneer, cubed
 - 3 whole eggs 
 - 1 tbsp EVOO 
@@ -157,24 +145,23 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
 - Snack: Kirkland shake + 3 cheese sticks
 
 ==== Method 
- Heat EVOO in a deep pan. Add roasted veg and spices, cook 2 min. Add crushed tomatoes and simmer 5 min. Add spinach and stir until wilted. Add paneer cubes. Make 3 wells, crack one egg in each. Cover and cook until whites are set but yolks slightly runny, \~5–7 min. Split into 2 portions.
+ Heat EVOO in a deep pan. Add veg mix and spices, cook 2 min. Add crushed tomatoes and simmer 5 min. Stir to combine. Add paneer cubes. Make 3 wells, crack one egg in each. Cover and cook until whites are set but yolks slightly runny, \~5–7 min. Split into 2 portions.
 
 #figure(
   [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Crushed tomatoes 400g], [100], [5g], [20g], [1g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Paneer 230g], [490], [38g], [10g], [28g], [3 whole eggs], [210], [18g], [0g], [15g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + 3 cheese sticks], [400], [43g], [8g], [23g], [#strong[Total];], [#strong[\~1470];], [#strong[\~114g];], [#strong[\~62g];], [#strong[\~84g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Crushed tomatoes 400g], [100], [5g], [20g], [1g], [Veg mix 245g], [87], [9g], [15g], [1g], [Paneer 230g], [490], [38g], [10g], [28g], [3 whole eggs], [210], [18g], [0g], [15g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + 3 cheese sticks], [400], [43g], [8g], [23g], [#strong[Total];], [#strong[\~1407];], [#strong[\~113g];], [#strong[\~53g];], [#strong[\~82g];],
     )], kind: table,
 )
 
 #horizontalrule
 
 === Quesadillas <quesadillas>
-#strong[\~1540 cal | \~117g protein | \~156g carbs | \~49g fat]
+#strong[\~1477 cal | \~116g protein | \~147g carbs | \~47g fat]
 
 ==== Ingredients 
 - 3 large whole wheat tortillas (1.5 per meal) 
 - 230g paneer, crumbled and split evenly 
-- 300g roasted veg, split evenly 
-- 170g spinach, split evenly 
+- 245g veg mix, split evenly
 - 150g canned black beans, drained, split evenly 
 - salsa for topping
 - Frank's Red Hot
@@ -182,7 +169,7 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
 - Snack: Kirkland shake + 200g Greek yogurt (served as sour cream on the side)
 
 ==== Method 
- Heat a dry pan over medium-high. For each meal: lay 1 full tortilla flat, add half the paneer, veg, spinach, and black beans on one side, fold over and cook 3–4 min per side until crispy. Cut the half tortilla into 2 triangles and serve alongside. Top with Greek yogurt, salsa, and Frank's.
+ Heat a dry pan over medium-high. For each meal: lay 1 full tortilla flat, add half the paneer, veg mix, and black beans on one side, fold over and cook 3–4 min per side until crispy. Cut the half tortilla into 2 triangles and serve alongside. Top with Greek yogurt, salsa, and Frank's.
 
 #quote(block: true)[
   Highest carb day — best on a lifting day.
@@ -190,20 +177,19 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
 
 #figure(
   [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [3 whole wheat tortillas (\~60g each)], [480], [15g], [78g], [12g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Black beans 150g drained], [150], [9g], [27g], [1g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1540];], [#strong[\~117g];], [#strong[\~156g];], [#strong[\~49g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [3 whole wheat tortillas (\~60g each)], [480], [15g], [78g], [12g], [Paneer 230g], [490], [38g], [10g], [28g], [Veg mix 245g], [87], [9g], [15g], [1g], [Black beans 150g drained], [150], [9g], [27g], [1g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1477];], [#strong[\~116g];], [#strong[\~147g];], [#strong[\~47g];],
     )], kind: table,
 )
 
 #horizontalrule
 
 === Sandwiches <sandwiches>
-#strong[\~1431 cal | \~107g protein | \~103g carbs | \~63g fat]
+#strong[\~1368 cal | \~106g protein | \~94g carbs | \~61g fat]
 
 ==== Ingredients 
 - 4 slices whole wheat bread (2 per sandwich, 1 sandwich per meal)
 - 230g paneer, sliced
-- 300g roasted veg
-- 170g spinach
+- 245g veg mix
 - 40g pesto, spread on bread
 - 1 tbsp balsamic vinegar
 - fresh tomato if available
@@ -211,100 +197,93 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
 - Snack: Kirkland shake + 3 cheese sticks
 
 ==== Method 
- Toast bread. Spread pesto on both slices of each sandwich. Layer spinach, paneer, roasted veg, and tomato if using. Drizzle balsamic. Close sandwich. Split veg and paneer evenly for both meals.
+ Toast bread. Spread pesto on both slices of each sandwich. Layer paneer, veg mix, and tomato if using. Drizzle balsamic. Close sandwich. Split veg and paneer evenly for both meals.
 
 #figure(
   [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [4 slices whole wheat bread], [320], [14g], [56g], [4g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Pesto 40g], [56], [2g], [2g], [5g], [Balsamic 1 tbsp], [15], [0g], [3g], [0g], [Shake + 3 cheese sticks], [400], [43g], [8g], [23g], [#strong[Total];], [#strong[\~1431];], [#strong[\~107g];], [#strong[\~103g];], [#strong[\~63g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [4 slices whole wheat bread], [320], [14g], [56g], [4g], [Paneer 230g], [490], [38g], [10g], [28g], [Veg mix 245g], [87], [9g], [15g], [1g], [Pesto 40g], [56], [2g], [2g], [5g], [Balsamic 1 tbsp], [15], [0g], [3g], [0g], [Shake + 3 cheese sticks], [400], [43g], [8g], [23g], [#strong[Total];], [#strong[\~1368];], [#strong[\~106g];], [#strong[\~94g];], [#strong[\~61g];],
     )], kind: table,
 )
 
 #horizontalrule
 
 === Whole Wheat Penne <whole-wheat-penne>
-#strong[\~1591 cal | \~117g protein | \~141g carbs | \~61g fat]
+#strong[\~1456 cal | \~107g protein | \~104g carbs | \~62g fat]
 
 ==== Ingredients 
 - 90g dry whole wheat penne 
 - 230g paneer, cubed
-- 300g roasted veg 
-- 170g spinach 
-- 150g canned chickpeas, drained 
-- 40g pesto 
+- 245g veg mix
+- 60g pesto 
 - 1 tbsp EVOO 
 - 1 tbsp balsamic vinegar 
 - chili flakes, oregano, basil, salt
-- Snack: Kirkland shake + 200g Greek yogurt
+- Snack: Kirkland shake + 200g Greek yogurt + 1 cheese stick
 
 ==== Method 
- Cook penne. In the same pan heat EVOO, sear paneer cubes until golden. Add roasted veg, chickpeas, and spinach, toss until wilted. Add drained pasta, pesto, balsamic, and spices. Toss together. Split into 2 portions.
+ Cook penne. In the same pan heat EVOO, sear paneer cubes until golden. Add veg mix and toss until warmed through. Add drained pasta, pesto, balsamic, and spices. Toss together. Split into 2 portions.
 
 #figure(
   [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Whole wheat penne 90g dry], [310], [12g], [55g], [3g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Chickpeas 150g drained], [180], [10g], [30g], [3g], [Pesto 40g], [56], [2g], [2g], [5g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Balsamic 1 tbsp], [15], [0g], [3g], [0g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1591];], [#strong[\~117g];], [#strong[\~141g];], [#strong[\~61g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Whole wheat penne 90g dry], [310], [12g], [55g], [3g], [Paneer 230g], [490], [38g], [10g], [28g], [Veg mix 245g], [87], [9g], [15g], [1g], [Pesto 60g], [84], [3g], [3g], [8g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Balsamic 1 tbsp], [15], [0g], [3g], [0g], [Shake + Greek yogurt 200g + cheese stick], [350], [51g], [18g], [11g], [#strong[Total];], [#strong[\~1456];], [#strong[\~107g];], [#strong[\~104g];], [#strong[\~62g];],
     )], kind: table,
 )
 
 #horizontalrule
 
 === Orzo Skillet <orzo-skillet>
-#strong[\~1535 cal | \~114g protein | \~139g carbs | \~55g fat]
+#strong[\~1406 cal | \~104g protein | \~102g carbs | \~56g fat]
 
 ==== Ingredients 
-- 90g dry whole wheat orzo
+- 100g dry whole wheat orzo
 - 230g paneer, crumbled
-- 300g roasted veg
-- 170g spinach
-- 150g canned chickpeas, drained
+- 245g veg mix
 - 1 tbsp EVOO
 - 1 tbsp balsamic vinegar
 - cumin, paprika, chili flakes, basil, salt
-- Snack: Kirkland shake + 200g Greek yogurt
+- Snack: Kirkland shake + 200g Greek yogurt + 1 cheese stick
 
 ==== Method 
- Cook orzo. Heat EVOO in a wide pan, add roasted veg, chickpeas, and spinach, toss until wilted. Add orzo, crumbled paneer, balsamic, and spices. Toss together 2–3 min. Split into 2 portions.
+ Cook orzo. Heat EVOO in a wide pan, add veg mix and toss until warmed through. Add orzo, crumbled paneer, balsamic, and spices. Toss together 2–3 min. Split into 2 portions.
 
 #figure(
   [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Whole wheat orzo 90g dry], [310], [11g], [55g], [2g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Chickpeas 150g drained], [180], [10g], [30g], [3g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Balsamic 1 tbsp], [15], [0g], [3g], [0g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1535];], [#strong[\~114g];], [#strong[\~139g];], [#strong[\~55g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Whole wheat orzo 100g dry], [344], [12g], [61g], [2g], [Paneer 230g], [490], [38g], [10g], [28g], [Veg mix 245g], [87], [9g], [15g], [1g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Balsamic 1 tbsp], [15], [0g], [3g], [0g], [Shake + Greek yogurt 200g + cheese stick], [350], [51g], [18g], [11g], [#strong[Total];], [#strong[\~1406];], [#strong[\~104g];], [#strong[\~102g];], [#strong[\~56g];],
     )], kind: table,
 )
 
 #horizontalrule
 
 === Saag Paneer with Bread <saag-paneer-with-bread>
-#strong[\~1500 cal | \~103g protein | \~126g carbs | \~61g fat]
+#strong[\~1417 cal | \~99g protein | \~115g carbs | \~58g fat]
 
 ==== Ingredients 
 - 230g paneer, cubed
-- 300g roasted veg
-- 170g spinach
-- 150g canned chickpeas, drained
+- 245g veg mix
 - 1 tbsp EVOO
-- 4 slices whole wheat bread (2 per meal, served on the side)
+- 6 slices whole wheat bread (3 per meal, served on the side)
 - cumin, fenugreek, paprika, chili powder, chili flakes, salt
 - Snack: Kirkland shake + 1 cheese stick
 
 ==== Method 
- Heat EVOO in a pan, bloom cumin and fenugreek 30 seconds. Add roasted veg and chickpeas, cook 3–4 min. Add spinach and stir until fully wilted. Add paneer cubes, toss gently, season with remaining spices. Cook 3–4 min until paneer is warmed through and coated. Split into 2 portions. Serve each with 2 slices toasted whole wheat bread.
+ Heat EVOO in a pan, bloom cumin and fenugreek 30 seconds. Add veg mix, cook 3–4 min. Add paneer cubes, toss gently, season with remaining spices. Cook 3–4 min until paneer is warmed through and coated. Split into 2 portions. Serve each with 3 slices toasted whole wheat bread.
 
 #figure(
   [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Chickpeas 150g drained], [180], [10g], [30g], [3g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [4 slices whole wheat bread], [320], [14g], [56g], [4g], [Shake + 1 cheese stick], [240], [31g], [6g], [9g], [#strong[Total];], [#strong[\~1500];], [#strong[\~103g];], [#strong[\~126g];], [#strong[\~61g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Veg mix 245g], [87], [9g], [15g], [1g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [6 slices whole wheat bread], [480], [21g], [84g], [6g], [Shake + 1 cheese stick], [240], [31g], [6g], [9g], [#strong[Total];], [#strong[\~1417];], [#strong[\~99g];], [#strong[\~115g];], [#strong[\~58g];],
     )], kind: table,
 )
 
 #horizontalrule
 
 === Frittata Sandwich <frittata-sandwich>
-#strong[\~1480 cal | \~143g protein | \~81g carbs | \~62g fat]
+#strong[\~1417 cal | \~142g protein | \~72g carbs | \~60g fat]
 
 ==== Ingredients 
 - 300g liquid egg whites
 - 2 whole eggs
 - 230g paneer, crumbled
-- 300g roasted veg
-- 170g spinach
+- 245g veg mix
 - 1 tbsp EVOO
 - 2 slices whole wheat bread (1 per meal, served on the side) 
 - pesto or Frank's to serve
@@ -312,11 +291,11 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
 - Snack: Kirkland shake + 200g Greek yogurt
 
 ==== Method 
- Heat EVOO in an oven-safe pan. Sauté veg and spinach until wilted. Whisk egg whites and whole eggs, pour over veg. Scatter paneer. Cook on stovetop until edges set, then transfer to 375°F oven for 8–10 min until puffed and set through. Slide onto a board, cut into 2 equal portions. Serve each with 1 slice toasted whole wheat bread and pesto or Frank's on the side.
+ Heat EVOO in an oven-safe pan. Sauté veg mix until warmed through. Whisk egg whites and whole eggs, pour over veg. Scatter paneer. Cook on stovetop until edges set, then transfer to 375°F oven for 8–10 min until puffed and set through. Slide onto a board, cut into 2 equal portions. Serve each with 1 slice toasted whole wheat bread and pesto or Frank's on the side.
 
 #figure(
   [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Egg whites 300g], [150], [31g], [2g], [0g], [2 whole eggs], [140], [12g], [0g], [10g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [2 slices whole wheat bread], [160], [7g], [28g], [2g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1480];], [#strong[\~143g];], [#strong[\~81g];], [#strong[\~62g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Egg whites 300g], [150], [31g], [2g], [0g], [2 whole eggs], [140], [12g], [0g], [10g], [Paneer 230g], [490], [38g], [10g], [28g], [Veg mix 245g], [87], [9g], [15g], [1g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [2 slices whole wheat bread], [160], [7g], [28g], [2g], [Shake + Greek yogurt 200g], [270], [45g], [17g], [5g], [#strong[Total];], [#strong[\~1417];], [#strong[\~142g];], [#strong[\~72g];], [#strong[\~60g];],
     )], kind: table,
 )
 
@@ -328,35 +307,33 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
 #horizontalrule
 
 === Warm Spinach Salad <warm-spinach-salad>
-#strong[\~1030 cal | \~85g protein | \~47g carbs | \~53g fat]
+#strong[\~967 cal | \~84g protein | \~38g carbs | \~51g fat]
 
 ==== Ingredients 
 - 230g paneer, crumbled 
-- 300g roasted veg 
-- 170g spinach 
+- 245g veg mix
 - 1 tsp EVOO 
 - 2 tbsp balsamic vinegar 
 - chili flakes, oregano
 - Snack: Kirkland shake + 2 cheese sticks
 
 ==== Method 
- Heat pan, deglaze roasted veg with balsamic. Pour warm over raw spinach to wilt slightly. Top with crumbled paneer. Drizzle EVOO. Split into 2 portions.
+ Heat pan, deglaze veg mix with balsamic. Top with crumbled paneer. Drizzle EVOO. Split into 2 portions.
 
 #figure(
   [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tsp], [40], [0g], [0g], [5g], [Balsamic 2 tbsp], [30], [0g], [6g], [0g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1030];], [#strong[\~85g];], [#strong[\~47g];], [#strong[\~53g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Veg mix 245g], [87], [9g], [15g], [1g], [EVOO 1 tsp], [40], [0g], [0g], [5g], [Balsamic 2 tbsp], [30], [0g], [6g], [0g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~967];], [#strong[\~84g];], [#strong[\~38g];], [#strong[\~51g];],
     )], kind: table,
 )
 
 #horizontalrule
 
 === Greek-Inspired Cold Salad <greek-inspired-cold-salad>
-#strong[\~1010 cal | \~86g protein | \~51g carbs | \~48g fat]
+#strong[\~947 cal | \~85g protein | \~42g carbs | \~46g fat]
 
 ==== Ingredients 
 - 230g paneer, cubed
-- 300g roasted veg (served cold or room temp)
-- 170g spinach
+- 245g veg mix (served cold or room temp)
 - fresh tomato, sliced
 - 2 tbsp balsamic
 - chili flakes, oregano, dried basil
@@ -367,19 +344,18 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
 
 #figure(
   [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [Tomato \~100g], [20], [1g], [4g], [0g], [Balsamic 2 tbsp], [30], [0g], [6g], [0g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1010];], [#strong[\~86g];], [#strong[\~51g];], [#strong[\~48g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Veg mix 245g], [87], [9g], [15g], [1g], [Tomato \~100g], [20], [1g], [4g], [0g], [Balsamic 2 tbsp], [30], [0g], [6g], [0g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~947];], [#strong[\~85g];], [#strong[\~42g];], [#strong[\~46g];],
     )], kind: table,
 )
 
 #horizontalrule
 
 === Panzanella-Style Salad <panzanella-style-salad>
-#strong[\~1010 cal | \~81g protein | \~77g carbs | \~36g fat]
+#strong[\~947 cal | \~80g protein | \~68g carbs | \~34g fat]
 
 ==== Ingredients 
 - 230g paneer, cubed 
-- 300g roasted veg 
-- 170g spinach 
+- 245g veg mix
 - 2 slices whole wheat bread, toasted and torn into chunks 
 - fresh tomato if available 
 - 2 tbsp balsamic 
@@ -391,31 +367,30 @@ Stretch dough thin on a floured surface. Spread pesto as sauce. Scatter roasted 
 
 #figure(
     [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [2 slices whole wheat bread], [160], [7g], [28g], [2g], [Tomato \~100g], [20], [1g], [4g], [0g], [Balsamic 2 tbsp], [30], [0g], [6g], [0g], [Kirkland shake], [160], [25g], [5g], [3g], [#strong[Total];], [#strong[\~1010];], [#strong[\~81g];], [#strong[\~77g];], [#strong[\~36g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Paneer 230g], [490], [38g], [10g], [28g], [Veg mix 245g], [87], [9g], [15g], [1g], [2 slices whole wheat bread], [160], [7g], [28g], [2g], [Tomato \~100g], [20], [1g], [4g], [0g], [Balsamic 2 tbsp], [30], [0g], [6g], [0g], [Kirkland shake], [160], [25g], [5g], [3g], [#strong[Total];], [#strong[\~947];], [#strong[\~80g];], [#strong[\~68g];], [#strong[\~34g];],
     )], kind: table,
 )
 
 #horizontalrule
 
 === Idaho Potato and Paneer Soup <idaho-potato-and-paneer-soup>
-#strong[\~1085 cal | \~84g protein | \~95g carbs | \~40g fat]
+#strong[\~1152 cal | \~83g protein | \~81g carbs | \~52g fat]
 
 ==== Ingredients
 - 250g Idaho potato, roughly diced
 - 230g paneer, cubed
-- 300g roasted veg
-- 170g spinach
+- 245g veg mix
 - 1 tbsp EVOO
 - 2 cups vegetable broth
 - cumin, paprika, turmeric, chili flakes, salt
 - Snack: Kirkland shake + 1 cheese stick
 
 ==== Method
-Heat EVOO in a deep pot. Add roasted veg and spices, cook 2 min. Add potato and broth, simmer 15 min until potato is very soft. Add spinach and stir until wilted. Partially blend with a hand blender — leave chunky, not smooth. Add paneer cubes and simmer 3–4 min. Split into 2 portions.
+Heat EVOO in a deep pot. Add veg mix and spices, cook 2 min. Add potato and broth, simmer 15 min until potato is very soft. Partially blend with a hand blender — leave chunky, not smooth. Add paneer cubes and simmer 3–4 min. Split into 2 portions.
 
 #figure(
   [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Idaho potato 250g], [215], [5g], [50g], [0g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + 1 cheese stick], [240], [31g], [6g], [9g], [#strong[Total];], [#strong[\~1215];], [#strong[\~84g];], [#strong[\~90g];], [#strong[\~54g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Idaho potato 250g], [215], [5g], [50g], [0g], [Paneer 230g], [490], [38g], [10g], [28g], [Veg mix 245g], [87], [9g], [15g], [1g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + 1 cheese stick], [240], [31g], [6g], [9g], [#strong[Total];], [#strong[\~1152];], [#strong[\~83g];], [#strong[\~81g];], [#strong[\~52g];],
     )], kind: table,
 )
 
@@ -426,24 +401,23 @@ Heat EVOO in a deep pot. Add roasted veg and spices, cook 2 min. Add potato and 
 #horizontalrule
 
 === Shakshuka-Style Tomato Soup with Paneer <shakshuka-style-tomato-soup-with-paneer>
-#strong[\~1180 cal | \~90g protein | \~61g carbs | \~63g fat]
+#strong[\~1117 cal | \~89g protein | \~52g carbs | \~61g fat]
 
 ==== Ingredients
 - 1 x 400g can crushed tomatoes
 - 230g paneer, cubed
-- 300g roasted veg
-- 170g spinach
+- 245g veg mix
 - 1 tbsp EVOO
 - 1 cup vegetable broth
 - cumin, paprika, chili powder, chili flakes, oregano, salt
 - Snack: Kirkland shake + 2 cheese sticks
 
 ==== Method
-Heat EVOO in a deep pot. Add roasted veg and spices, cook 2 min. Add crushed tomatoes and broth, simmer 8–10 min. Add spinach and partially blend with a hand blender. Add paneer cubes and simmer 5 min until warmed through. Split into 2 portions.
+Heat EVOO in a deep pot. Add veg mix and spices, cook 2 min. Add crushed tomatoes and broth, simmer 8–10 min. Partially blend with a hand blender. Add paneer cubes and simmer 5 min until warmed through. Split into 2 portions.
 
 #figure(
   [#table(
-      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Crushed tomatoes 400g], [100], [5g], [20g], [1g], [Paneer 230g], [490], [38g], [10g], [28g], [Roasted veg 300g], [110], [5g], [18g], [3g], [Spinach 170g], [40], [5g], [6g], [0g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1180];], [#strong[\~90g];], [#strong[\~61g];], [#strong[\~63g];],
+      columns: 5,  table.header([Component], [Cal], [Protein], [Carbs], [Fat]), table.hline(), [Crushed tomatoes 400g], [100], [5g], [20g], [1g], [Paneer 230g], [490], [38g], [10g], [28g], [Veg mix 245g], [87], [9g], [15g], [1g], [EVOO 1 tbsp], [120], [0g], [0g], [14g], [Shake + 2 cheese sticks], [320], [37g], [7g], [17g], [#strong[Total];], [#strong[\~1117];], [#strong[\~89g];], [#strong[\~52g];], [#strong[\~61g];],
     )], kind: table,
 )
 
@@ -536,27 +510,11 @@ Spoon cottage cheese into a bowl. Top with berries and nut butter. Drizzle honey
 ==== Meal prep (weekly)
 - 2 gallons 2% milk + 1 gallon whole milk 
 - 3x 8oz pre-cut white mushroom tubs 
-- 2 medium onions, 2 garlic cloves, 3 peppers (yellow/red/orange) 
-- 12oz frozen spinach bag x2 
+- 20oz pepper and onion mix
+- 12oz frozen spinach bag x3 
 - Liquid egg whites (carton) 
 - Kirkland whey protein shake
-
-==== Rotating weekly based on plan
-- Whole wheat tortillas 
-- Whole wheat bread 
 - Dry whole wheat penne or orzo 
-- Frozen pizza dough (pre-portioned into 1/8ths) 
-- Canned crushed tomatoes 
-- Canned black beans 
-- Canned chickpeas 
-- Vegetable broth
-- Idaho potatoes
-- Calabrian chili pesto 
-- Low fat Greek yogurt (recipe dependent)
-- Fresh tomatoes (optional) 
-- Seasonal fruit (optional snack)
-
-==== Always in pantry
 - EVOO
 - balsamic vinegar 
 - distilled white vinegar 
@@ -566,8 +524,10 @@ Spoon cottage cheese into a bowl. Top with berries and nut butter. Drizzle honey
 - chili powder
 - fenugreek 
 - dried basil
-- oregano 
 - salt
-- Frank's Red Hot 
-- onion
-- garlic
+- Frozen pizza dough (pre-portioned into 1/8ths) 
+- Low fat Greek yogurt (recipe dependent)
+- Frozen Grapes
+- Canned crushed tomatoes
+- Canned black beans
+- Idaho potatoes
