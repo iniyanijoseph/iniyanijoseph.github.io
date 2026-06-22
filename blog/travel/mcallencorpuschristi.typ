@@ -100,10 +100,18 @@ Flag: Double-check Art Museum of South Texas hours for *Saturday* specifically �
   [\~8:30 PM], [Arrive back in McKinney],
 )
 
-== Practical Notes
+=== Practical Notes
 
 - Heat: Upper 90s°F+ daily expected. Hit outdoor activities in the morning or after 5 PM when possible. Sunscreen, hats, and water are non-negotiable.
 - Dietary heads-up: This corridor is seafood- and meat-heavy. The spots listed above all flex well across vegan / low-carb / dairy-free / soy-free, but it's worth a quick menu check ahead for anywhere not on this list.
 - Beach parking: Padre Island charges a small annual pass fee (about \$12) to drive on the sand. Street/lot parking is free.
 - Texas State Aquarium: Book tickets online — summer Saturdays fill up fast.
 - McAllen heat strategy: Day 2's outdoor hiking is front-loaded to the morning; indoor/shaded culture stops fill the hot afternoon.
+
+= Day 1 
+= Day 2
+= Day 3
+= Day 4
+= Day 5
+= Day 6
+
