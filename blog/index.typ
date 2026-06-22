@@ -31,6 +31,10 @@
   name: "Amtrak Rail Pass",
   url: "travel/train.html",
 )
+#blog(
+  name: "Visit McAllen and Corpus Christi",
+  url: "travel/mcallencorpuschristi.html",
+)
 
 === Hobbies
 #blog(
