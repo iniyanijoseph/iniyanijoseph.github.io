@@ -32,7 +32,7 @@
   url: "travel/train.html",
 )
 #blog(
-  name: "Visit McAllen and Corpus Christi",
+  name: "South Texas",
   url: "travel/mcallencorpuschristi.html",
 )
 
