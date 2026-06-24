@@ -47,18 +47,20 @@ Tip: \~7.5 hr total drive with the River Walk stop. Try La Hacienda de los Barri
 Tip: Bentsen Park is the only outdoor walk on this day — doing it first thing keeps the group out of the worst midday heat. Quinta Mazatlan and IMAS both offer shade/A.C. relief through the hottest hours.
 
 == Day 3 — Drive Day + Arrival (Thursday)
-McAllen → Corpus Christi
+McAllen → Rockport via Kingsville
 
 #table(
   columns: (auto, 1fr),
   [9:00 AM], [Depart McAllen],
-  [\~11:30 AM], [Lunch stop — Kingsville or Robstown (roughly the midpoint, \~2.5 hrs in), Tex-Mex build-your-own],
-  [\~2:30 PM], [Arrive Corpus Christi, check in],
-  [3:30 PM], [Light activity — North Beach or Peoples Street T-Head Pier walk],
-  [7:30 PM], [Dinner at home],
+  [\~10:30 AM], [King Ranch Visitor Center (Kingsville) — 90-min guided bus tour: ranching history, cattle, quarter horses, wildlife. Book ahead.],
+  [12:15 PM], [King Ranch Museum — carriages, saddles, historic ranch photography (\~45 min)],
+  [2:00 PM], [1904 Train Depot Museum — beautifully preserved depot; Kingsville was built around this rail line (\~30 min)],
+  [\~3:00 PM], [Drive to Rockport (\~1.5 hrs)],
+  [\~4:30 PM], [Fulton Mansion State Historic Site — 1877 Victorian mansion on Aransas Bay, one of the best-preserved 19th-century homes in Texas. Closes 4 PM — leave Kingsville by 2:30 to make last entry.],
+  [7:30 PM], [Dinner in Rockport],
 )
 
-Tip: \~3.5 hr drive from McAllen. Kept deliberately light to recover before the busier Corpus Christi days.
+Tip: Kingsville is the natural midpoint and far more interesting than a generic lunch stop. King Ranch is one of the most iconic sites in South Texas — bigger than Rhode Island. The Fulton Mansion is right near the hotel in Rockport; if the timing doesn't work on arrival day, it can swap with something from Days 4–5.
 
 == Day 4 — Aquarium, North Beach, T-Head Pier (Friday)
 
@@ -108,10 +110,10 @@ Flag: Double-check Art Museum of South Texas hours for *Saturday* specifically �
 - Texas State Aquarium: Book tickets online — summer Saturdays fill up fast.
 - McAllen heat strategy: Day 2's outdoor hiking is front-loaded to the morning; indoor/shaded culture stops fill the hot afternoon.
 
-= Day 1 
+= Day 1
+
 = Day 2
 = Day 3
 = Day 4
 = Day 5
 = Day 6
-
