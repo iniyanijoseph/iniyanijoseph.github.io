@@ -48,19 +48,19 @@ Tip: Bentsen Park is the only outdoor walk on this day — doing it first thing 
 
 == Day 3 — Drive Day + Arrival (Thursday)
 McAllen → Rockport via Kingsville
-
 #table(
   columns: (auto, 1fr),
-  [9:00 AM], [Depart McAllen],
-  [\~10:30 AM], [King Ranch Visitor Center (Kingsville) — 90-min guided bus tour: ranching history, cattle, quarter horses, wildlife. Book ahead.],
-  [12:15 PM], [King Ranch Museum — carriages, saddles, historic ranch photography (\~45 min)],
-  [2:00 PM], [1904 Train Depot Museum — beautifully preserved depot; Kingsville was built around this rail line (\~30 min)],
-  [\~3:00 PM], [Drive to Rockport (\~1.5 hrs)],
-  [\~4:30 PM], [Fulton Mansion State Historic Site — 1877 Victorian mansion on Aransas Bay, one of the best-preserved 19th-century homes in Texas. Closes 4 PM — leave Kingsville by 2:30 to make last entry.],
-  [7:30 PM], [Dinner in Rockport],
+  [10:00 AM], [Depart McAllen],
+  [\~11:30 AM], [*1904 Train Depot Museum* (Kingsville) — Local railroad history brought to life by volunteer docents, including an operational telegraph. Kingsville was built around this rail line. \~45 min.],
+  [12:30 PM], [Drive to Rockport (\~1.5 hrs)],
+  [\~2:00 PM], [*Fulton Mansion State Historic Site* — 1877 Victorian mansion on Aransas Bay. Last admission 3:15 PM; open until 4 PM. \~1 hr.],
+  [\~3:15 PM], [*Rockport Center for the Arts* — Four galleries + sculpture garden, one block from Aransas Bay. Free. Open until 4 PM Thu. \~45 min.],
+  [\~4:00 PM], [*Texas Maritime Museum* — Gulf Coast history from the Karankawa people through Spanish explorers, commercial fishing, and offshore oil. Free. Observation deck with bay views. Open until 4 PM Thu. \~1 hr.],
+  [\~5:00 PM], [Harbor stroll — Rockport Harbor and piers. Boats, pelicans, bay breeze.],
+  [6:30 PM], [*Dinner — Pier 77* — Top-rated Rockport waterfront spot. Seafood-forward with salads and flexible sides. Confirm menu for dietary needs before going.],
 )
 
-Tip: Kingsville is the natural midpoint and far more interesting than a generic lunch stop. King Ranch is one of the most iconic sites in South Texas — bigger than Rhode Island. The Fulton Mansion is right near the hotel in Rockport; if the timing doesn't work on arrival day, it can swap with something from Days 4–5.
+Tip: Kingsville is the natural midpoint and far more interesting than a generic lunch stop. The Fulton Mansion is right near the hotel in Rockport; if the timing doesn't work on arrival day, it can swap with something from Days 4–5.
 
 == Day 4 — Aquarium, North Beach, T-Head Pier (Friday)
 
