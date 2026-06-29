@@ -111,6 +111,7 @@ Flag: Double-check Art Museum of South Texas hours for *Saturday* specifically â
 - McAllen heat strategy: Day 2's outdoor hiking is front-loaded to the morning; indoor/shaded culture stops fill the hot afternoon.
 
 = Day 1
+Today was a pretty straightforward day. We began around 8:15. I wanted to leave earlier, but as always things got delayed. We took the slightly longer path through highway 281 through Central Texas and the hill country. It was really beautiful, even if I was the only one who appreciated it. I ate quite a bit, especially cheese and fruit, but I am hoping to burn enough calories in the next few days that it doesn't do much. I can see why eating healthy is so difficult in McAllen.
 
 = Day 2
 = Day 3
