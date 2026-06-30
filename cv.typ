@@ -14,7 +14,6 @@
 )
 #margin-note(image("photo.jpg"))
 #margin-note([My name is Iniyan Joseph. I am an incoming Ph.D. Computer Science student at Purdue, advised by #link("https://www.alexpsomas.com/home")[Alex Psomas]. I completed my undergraduate degree at the University of Texas at Dallas, where I had the honor of working with #link("https://ekfox.web.illinois.edu/")[Emily K. Fox] and #link("https://jessekim.com/")[Jin-Ryong Kim]. Broadly, I am interested in Theory CS — especially Algorithmic Game Theory and Combinatorial Optimization.])
-#margin-note(link("https://iniyanjoseph.com")[Website])
 #margin-note(link("mailto:iniyanijoseph@gmail.com")[Email])
 #margin-note(link("https://calendar.app.google/UfMqmGkxtsVEtBMN9")[Schedule a Meeting])
 

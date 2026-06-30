@@ -1,60 +1,34 @@
-#import "../src/template/cv_template.typ": *
-#import "../src/template/fields.typ": *
+#import "../cv.typ":*
 
-
-#show: cv.with(subpage: true, root: "../")
-
-== Blog
-#blog(
-  name: "Meal Prep System",
-  url: "food/mealprep.html",
+#show: tufted-web.with(
+  title: "Blog",
+  nav: (
+    ("..",  "Home"),
+    ("blog",  "Blog"),
+    ("cv.pdf",    "CV"),
+  ),
+  email: "iniyanijoseph@gmail.com",
+  website: "https://iniyanjoseph.com",
+  icon: "./photo.jpg",
+  root: "..",
 )
 
-#blog(
-  name: "Applesauce Pie",
-  url: "food/applesaucepie.html",
-)
+== Travel
+- #link("travel/train.html")[Amtrak Rail Pass]
+- #link("travel/mcallencorpuschristi.html")[South Texas]
 
-#blog(
-  name: "Custard Pecan Pie",
-  url: "food/custardpecanpie.html",
-)
+== Other
+- #link("school/phdapplications.html")[My Experience with PhD Applications]
 
-==== Other
-#blog(
-  name: "Applesauce",
-  url: "food/applesauce.html",
-)
+== File on Conscience
+- #link("letteronconscience/index.html")[Statement of Conscience]
 
-=== Travel
-#blog(
-  name: "Amtrak Rail Pass",
-  url: "travel/train.html",
-)
-#blog(
-  name: "South Texas",
-  url: "travel/mcallencorpuschristi.html",
-)
+// === Hobbies
+// name: "Kiting",
+// url: "hobbies/kites.html",
 
-=== Hobbies
-#blog(
-  name: "Kiting",
-  url: "hobbies/kites.html",
-)
 
-#blog(
-  name: "Sock Monkeys",
-  url: "hobbies/sockmonkeys.html",
-)
+// name: "Sock Monkeys",
+// ("hobbies/sockmonkeys.html",)
+// #link("hobbies/weekendlist.html",)[Weekend List]
 
-=== Other
-#blog(
-  name: "Advice for PhD Applicants",
-  url: "school/phdapplications.html",
-)
-
-=== File on Conscience
-#blog(
-  name: "Statement of Conscience",
-  url: "letteronconscience/Iniyan Joseph statement of conscience.pdf",
-)

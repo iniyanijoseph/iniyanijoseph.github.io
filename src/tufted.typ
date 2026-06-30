@@ -20,15 +20,11 @@
   title: "Tufted",
   description: [],
   lang: "en",
-  css: (
-    "https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css",
-    "src/assets/tufted.css",
-    "src/assets/custom.css",
-  ),
   nav: (),
   email: "",
   website: "",
   icon: "",
+  root: "",
   content,
 ) = context {
   if target() == "html"{
@@ -51,9 +47,9 @@
           html.title(title)
 
           // Stylesheets
-          for (css-link) in css {
-            html.link(rel: "stylesheet", href: css-link)
-          }
+          html.link(rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css")
+          html.link(rel: "stylesheet", href: root+"/src/assets/tufted.css")
+          html.link(rel: "stylesheet", href: root+"/src/assets/custom.css")
         })
         // Body
         html.body({
