@@ -10,6 +10,7 @@
 
 == Dallas
 - Opera/Symphony
+- Plano Farmstead Museum
 
 == Lafayette
 - Samara House
@@ -114,7 +115,7 @@
 - Caprese Salad
 - Lemon Cake
 - Level 10 Chocolate Chip Cookie
-
+- Meet Fresh
 
 == Music to Listen To
 - Porgy and Bess
