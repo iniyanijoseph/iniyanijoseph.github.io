@@ -2,8 +2,6 @@
 #import "src/template/cv_template.typ": *
 #import "src/template/fields.typ": *
 
-#let showpiano = false
-
 #show: cv.with(
   author: "Iniyan Joseph",
   aboutme: [Hi, I'm Iniyan! I am an incoming Ph.D Computer Science student at Purdue, and will be advised by #link("https://www.alexpsomas.com/home")[Alex Psomas]. Previously, I was an undergraduate student at the University of Texas at Dallas, working with #link("https://ekfox.web.illinois.edu/")[Emily K. Fox.] and #link("https://jessekim.com/")[Jin-Ryong Kim]. Broadly, I am interested in Theory CS, especially Algorithmic Game Theory and Combinatorial Optimization.],
@@ -17,7 +15,7 @@
 == Education
 #edu(
   start: dt(2026, 8),
-  // end: dt(2025, 8),
+  end: "Present",
   degree: "Ph.D in Computer Science",
   university: "Purdue University",
   details: none,
@@ -37,13 +35,6 @@
 )
 
 == Research
-// #other(start: dt(2026, 8), end: "", name: "Advised by Alex Psomas", description: "")
-
-// #other(start: dt(2024, 8), end: dt(2026, 8), name: "Advised by Emily K. Fox", description: "")
-
-// #other(start: dt(2023, 9), end: dt(2024, 9), name: "Advised by Jin-Ryong Kim", description: "")
-
-// === Publications
 #bibliography("papers/publications.bib", title: none, full: true)
 
 == Employment
@@ -246,7 +237,7 @@
 )
 
 #context {
-  if target() == "html" or showpiano == true [
+  if target() == "html" [
     === Piano
     #other(start: dt(2009, 5), end: "Present", name: "Piano")
 

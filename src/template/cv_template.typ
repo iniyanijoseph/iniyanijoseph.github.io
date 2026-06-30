@@ -54,33 +54,33 @@
         html.meta(charset: "utf-8")
         html.meta(name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no")
         html.title(author)
-        html.link(rel: "stylesheet", href: root+"src/styles/style.css")
-        if fancylist {
-          html.link(rel: "stylesheet", href: root+"src/styles/lists.css")
-        }
-        html.link(rel: "icon", href: "favicon.ico")
-        html.script(src: root+"src/scripts/navbar.js")
-        html.script(src: root+"src/scripts/trim.js")
-        html.script(src: root+"src/scripts/collapsible.js")
-        html.script(src: root+"src/scripts/scroll-animation.js")
-        html.script(src: root+"src/scripts/theme-toggle.js")
-        if (blog-shown) {
-          html.script(src: root+"src/scripts/blog-link.js")
-        }
-        if (not subpage) {
-          html.script(src: root+"src/scripts/cv-link.js")
-        }
-        if (subpage) {
-          html.script(src: root+"src/scripts/home-link.js")
-        }
+        // html.link(rel: "stylesheet", href: root+"src/styles/style.css")
+        // if fancylist {
+        //   html.link(rel: "stylesheet", href: root+"src/styles/lists.css")
+        // }
+        // html.link(rel: "icon", href: "favicon.ico")
+        // html.script(src: root+"src/scripts/navbar.js")
+        // html.script(src: root+"src/scripts/trim.js")
+        // html.script(src: root+"src/scripts/collapsible.js")
+        // html.script(src: root+"src/scripts/scroll-animation.js")
+        // html.script(src: root+"src/scripts/theme-toggle.js")
+        // if (blog-shown) {
+        //   html.script(src: root+"src/scripts/blog-link.js")
+        // }
+        // if (not subpage) {
+        //   html.script(src: root+"src/scripts/cv-link.js")
+        // }
+        // if (subpage) {
+        //   html.script(src: root+"src/scripts/home-link.js")
+        // }
       })
 
-      let pictureStyling = "border-radius: 50%; aspect-ratio: 1/1; object-fit: cover; height: 33vh !important; width: auto !important; transition: all 0.3s ease;"
+      // let pictureStyling = "border-radius: 50%; aspect-ratio: 1/1; object-fit: cover; height: 33vh !important; width: auto !important; transition: all 0.3s ease;"
       html.article({
-        if (not subpage) {
-          html.elem("img", attrs:(src: photo, style: pictureStyling)) 
-          heading(html.elem("a", attrs:(href: "cv.pdf", style: ""), author), level: 1)
-        }
+        // if (not subpage) {
+        //   html.elem("img", attrs:(src: photo, style: pictureStyling)) 
+        //   heading(html.elem("a", attrs:(href: "cv.pdf", style: ""), author), level: 1)
+        // }
         if aboutme != "" {
            html.elem("p", attrs:(class: "aboutme"), aboutme)
         }
