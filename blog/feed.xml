@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
+  <atom:link href="https://iniyanjoseph.com/blog/feed.xml" rel="self" type="application/rss+xml" />
+  <title>My Blog</title>
+  <link>https://iniyanjoseph.com/blog/</link>
+  <description>My feed</description>
+  <item>
+    <title>Weekend List</title>
+    <link>https://iniyanjoseph.com/blog/weekendlist</link>
+    <guid>https://iniyanjoseph.com/blog/weekendlist</guid>
+    <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Sock Monkeys</title>
+    <link>https://iniyanjoseph.com/blog/sockmonkeys</link>
+    <guid>https://iniyanjoseph.com/blog/sockmonkeys</guid>
+    <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Kites</title>
+    <link>https://iniyanjoseph.com/blog/kites</link>
+    <guid>https://iniyanjoseph.com/blog/kites</guid>
+    <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Statement of Conscience</title>
+    <link>https://iniyanjoseph.com/blog/letteronconscience</link>
+    <guid>https://iniyanjoseph.com/blog/letteronconscience</guid>
+    <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>My Experience with PhD Applications</title>
+    <link>https://iniyanjoseph.com/blog/phdapplications</link>
+    <guid>https://iniyanjoseph.com/blog/phdapplications</guid>
+    <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Guide to Greater Lafayette</title>
+    <link>https://iniyanjoseph.com/blog/guidetolafayette</link>
+    <guid>https://iniyanjoseph.com/blog/guidetolafayette</guid>
+    <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>South Texas</title>
+    <link>https://iniyanjoseph.com/blog/southtexas</link>
+    <guid>https://iniyanjoseph.com/blog/southtexas</guid>
+    <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Amtrak Rail Pass</title>
+    <link>https://iniyanjoseph.com/blog/train</link>
+    <guid>https://iniyanjoseph.com/blog/train</guid>
+    <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+  </item>
+</channel></rss>

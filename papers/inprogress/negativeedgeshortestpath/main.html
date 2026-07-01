@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h2>Understanding Hop Reduction</h2>
+    <p>In the single source shortest paths problem (SSSP), given a directed graph G = (V, E), a length function</p>
+    <p>, and a source vertex</p>
+    <p>, you need to find either the distance from</p>
+    <p>to every other vertex, or a negative cycle. Let the length of the shortest</p>
+    <p>path be</p>
+    <p>.</p>
+    <p>The idea behind Ford’s algorithm is to maintain the length of the shortest path between</p>
+    <p>and</p>
+    <p>using at most</p>
+    <p>edges. We call this distance</p>
+    <p>. In Ford’s algorithm, for vertices</p>
+    <p>,</p>
+    <p>. In round</p>
+    <p>for vertices</p>
+    <p>, if</p>
+    <p>, then set</p>
+    <p>. This operation is called relaxation, and perform</p>
+    <p>rounds (since the length of the shortest path is at most</p>
+    <p>if no negative cycles exist. The correctness of this algorithm can be shown easily using induction. This takes</p>
+    <p>time.</p>
+    <p>Implicitly, this relies on the fact that any</p>
+    <p>subpath within the shortest</p>
+    <p>path is also minimum (cut-and-paste argument). Because</p>
+    <p>, one can compute a function</p>
+    <p>which induces edge lengths</p>
+    <p>and distance function</p>
+    <p>. If</p>
+    <p>, then we call the edge</p>
+    <p><em>neutralized</em>. For this distance function,</p>
+    <p>. If</p>
+    <p>induces no new negative edges, it is called <em>valid</em>.</p>
+    <p>Johnson observed that setting</p>
+    <p>neutralizes all edges. Note here that</p>
+    <p>, so</p>
+    <p>must be</p>
+    <p>.Assume for contradiction that an edge</p>
+    <p>is not neutralized. This implies that</p>
+    <p>. Rearranging, we get</p>
+    <p>, however this contradicts that</p>
+    <p>is the shortest path, since the shortest path from some vertex to</p>
+    <p>plus the edge</p>
+    <p>is less than</p>
+    <p>. Note that</p>
+    <p>is not used in this path if there are no negative cycles in the graph.</p>
+    <p>Now, the SSSP problem can be simplified. Rather than compute all paths from</p>
+    <p>to</p>
+    <p>for fixed</p>
+    <p>, we can instead compute the shortest path from any vertex to</p>
+    <p>.</p>
+    <p>If a vertex</p>
+    <p>can be reached using a negative length path, we call it negatively reachable, and</p>
+    <p>. Similarly, if vertex</p>
+    <p>is not negatively reachable, we call it negatively unreachable. One case where this is trivially true is if</p>
+    <p>. In this case, running Dijkstra’s algorithm is enough to compute all edge lengths.</p>
+    <p>In general, we can think of the graph as sets of negatively reachable vertices connected by positive paths through negatively unreachable vertices. Since the negatively unreachable vertices have</p>
+    <p>, we only need to find and neutralize negatively reachable vertices. By doing so, we neutralize a vertex faster than</p>
+    <p>.</p>
+    <p>In the shortest path, there can be at most</p>
+    <p>negative edges if there are no negative cycles.</p>
+    <p>To do this, we compute a set of valid potentials, then Dijkstra’s algorithm once on the reweighted edges.</p>
+    <p>From this point on, the recent improvements of Bellman-Ford focus on finding valid potentials efficiently.</p>
+    <h3>LLRZ</h3>
+    <p>On a high level, this algorithm works by first sparsifying the graph such that shortest paths are preserved with high probability and then recursively removing the number of negative weight edges along shortest paths. To do this, the algorithm starts at a negative vertex</p>
+    <p>and computes Dijkstra’s in both direction to find all negative weight paths, where the only negative vertex reached is</p>
+    <p>. What is more important for the runtime is that</p>
+    <p>. This achieves</p>
+    <p>Here, we can do something similar to hopefully remove the</p>
+    <p>factor. It also helps reveal some of the structure of negative weight shortest paths with real edges.</p>
+    <ol>
+      <li>
+        <p>Compute 1-hop negative reach from all negative vertices. +For a negative vertex</p>
+        <p>, this returns the distance to a vertex within the one-hop negative reach called</p>
+        <p>with value</p>
+      </li>
+      <li>
+        <p>Make a vertex</p>
+        <p>and create an edge</p>
+        <p>for all</p>
+        <p>in the one-hop negative reach, and an edge</p>
+      </li>
+      <li>
+        <p>Let</p>
+        <p>. Then set all edges</p>
+        <p>to</p>
+        <p>. This creates a directed tree which overlaps.</p>
+      </li>
+    </ol>
+    <p>Stitching this together needs to be done more carefully to preserve the other shortest paths while still shrinking the graph by</p>
+    <p>The time complexity of doing this is</p>
+    <p>Dijkstra computations. With each Dijkstra computation, the graph shrinks by</p>
+    <p>, so you get</p>
+    <p>Now, collect all vertices not covered by a tree and contract them into a single vertex. All negative cycles will alternate between negative and positive regions. The depth of any negative region is at most</p>
+    <p>.</p>
+  </body>
+</html>

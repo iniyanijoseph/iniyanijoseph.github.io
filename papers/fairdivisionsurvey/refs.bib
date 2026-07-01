@@ -1,0 +1,668 @@
+@article{UnreasonableFairnessOfMNW,
+title = {The Unreasonable Fairness of Maximum Nash Welfare},
+author = {Caragiannis, Ioannis and Kurokawa, David and Moulin, Herv\'{e} and Procaccia, Ariel D. and Shah, Nisarg and Wang, Junxing},
+year = {2019},
+issue_date = {August 2019},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {7},
+number = {3},
+issn = {2167-8375},
+url = {https://doi.org/10.1145/3355902},
+doi = {10.1145/3355902},
+journal = {ACM Trans. Econ. Comput.},
+month = sep,
+articleno = {12},
+numpages = {32},
+keywords = {Fair division, Nash welfare, resource allocation},
+abstract = {The maximum Nash welfare (MNW) solution—which selects an allocation that maximizes the product of utilities—is known to provide outstanding fairness guarantees when allocating divisible goods. And while it seems to lose its luster when applied to indivisible goods, we show that, in fact, the MNW solution is strikingly fair even in that setting. In particular, we prove that it selects allocations that are envy-free up to one good—a compelling notion that is quite elusive when coupled with economic efficiency. We also establish that the MNW solution provides a good approximation to another popular (yet possibly infeasible) fairness property, the maximin share guarantee, in theory and—even more so—in practice. While finding the MNW solution is computationally hard, we develop a nontrivial implementation and demonstrate that it scales well on real data. These results establish MNW as a compelling solution for allocating indivisible goods and underlie its deployment on a popular fair-division website.},
+}
+
+@inproceedings{dupuis2009empirical,
+title={An empirical evaluation of fair-division algorithms},
+author={Dupuis-Roy, Nicolas and Gosselin, Fr{\'e}d{\'e}ric},
+booktitle={Proceedings of the annual meeting of the cognitive science society},
+volume={31},
+number={31},
+year={2009}
+}
+
+
+
+@article{MNWAndOtherStoriesAboutEFX,
+	title = {Maximum Nash welfare and other stories about EFX},
+	journal = {Theoretical Computer Science},
+	volume = {863},
+	pages = {69-85},
+	year = {2021},
+	issn = {0304-3975},
+	doi = {https://doi.org/10.1016/j.tcs.2021.02.020},
+	url = {https://www.sciencedirect.com/science/article/pii/S0304397521000931},
+	author = {Georgios Amanatidis and Georgios Birmpas and Aris Filos-Ratsikas and Alexandros Hollender and Alexandros A. Voudouris},
+	keywords = {Fair division, Nash welfare, EFX, Approximation},
+	abstract = {We consider the classic problem of fairly allocating indivisible goods among agents with additive valuation functions and explore the connection between two prominent fairness notions: maximum Nash welfare (MNW) and envy-freeness up to any good (EFX). We establish that an MNW allocation is always EFX as long as there are at most two possible values for the goods, whereas this implication is no longer true for three or more distinct values. As a notable consequence, this proves the existence of EFX allocations for these restricted valuation functions. While the efficient computation of an MNW allocation for two possible values remains an open problem, we present a novel algorithm for directly constructing EFX allocations in this setting. Finally, we study the question of whether an MNW allocation implies any EFX guarantee for general additive valuation functions under a natural new interpretation of approximate EFX allocations.}
+}
+
+@article{EFXExistsFor3,
+	author = {Chaudhury, Bhaskar Ray and Garg, Jugal and Mehlhorn, Kurt},
+	title = {EFX Exists for Three Agents},
+	year = {2024},
+	issue_date = {February 2024},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	volume = {71},
+	number = {1},
+	issn = {0004-5411},
+	url = {https://doi.org/10.1145/3616009},
+	doi = {10.1145/3616009},
+	abstract = {We study the problem of distributing a set of indivisible goods among agents with additive valuations in a fair manner. The fairness notion under consideration is envy-freeness up to any good (EFX). Despite significant efforts by many researchers for several years, the existence of EFX allocations has not been settled beyond the simple case of two agents. In this article, we show constructively that an EFX allocation always exists for three agents. Furthermore, we falsify the conjecture of Caragiannis et&nbsp;al. by showing an instance with three agents for which there is a partial EFX allocation (some goods are not allocated) with higher Nash welfare than that of any complete EFX allocation.},
+	journal = {J. ACM},
+	month = feb,
+	articleno = {4},
+	numpages = {27},
+	keywords = {Discrete fair division, EFX allocations, Nash welfare}
+}
+
+@article{EFXSimplificationsAndImprovements,
+	title={EFX allocations: Simplifications and improvements},
+	author={Akrami, Hannaneh and Alon, Noga and Chaudhury, Bhaskar Ray and Garg, Jugal and Mehlhorn, Kurt and Mehta, Ruta},
+	journal={arXiv preprint arXiv:2205.07638},
+	year={2022}
+}
+
+@article{BudishCombinatorialAssignment,
+	author = {Budish, Eric},
+	title = {The Combinatorial Assignment Problem: Approximate Competitive Equilibrium from Equal Incomes},
+	journal = {Journal of Political Economy},
+	volume = {119},
+	number = {6},
+	pages = {1061-1103},
+	year = {2011},
+	doi = {10.1086/664613},
+	URL = {
+
+			https://doi.org/10.1086/664613
+
+
+
+		},
+	eprint = {
+
+			https://doi.org/10.1086/664613
+
+
+
+		}
+	,
+	abstract = { This paper proposes a new mechanism for combinatorial assignment—for example, assigning schedules of courses to students—based on an approximation to competitive equilibrium from equal incomes (CEEI) in which incomes are unequal but arbitrarily close together. The main technical result is an existence theorem for approximate CEEI. The mechanism is approximately efficient, satisfies two new criteria of outcome fairness, and is strategyproof in large markets. Its performance is explored on real data, and it is compared to alternatives from theory and practice: all other known mechanisms are either unfair ex post or manipulable even in large markets, and most are both manipulable and unfair. }
+}
+
+@article{WhenDoesTheMaximinShareExistProcaccia, title={When Can the Maximin Share Guarantee Be Guaranteed?}, volume={30}, url={https://ojs.aaai.org/index.php/AAAI/article/view/10041}, DOI={10.1609/aaai.v30i1.10041}, abstractNote={ &lt;p&gt; The fairness notion of maximin share (MMS) guarantee underlies a deployed algorithm for allocating indivisible goods under additive valuations. Our goal is to understand when we can expect to be able to give each player his MMS guarantee. Previous work has shown that such an MMS allocation may not exist, but the counterexample requires a number of goods that is exponential in the number of players; we give a new construction that uses only a linear number of goods. On the positive side, we formalize the intuition that these counterexamples are very delicate by designing an algorithm that provably finds an MMS allocation with high probability when valuations are drawn at random. &lt;/p&gt; }, number={1}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, author={Kurokawa, David and Procaccia, Ariel and Wang, Junxing}, year={2016}, month={Feb.} }
+
+@InProceedings{GargApproximatingMMS,
+	author =	{Garg, Jugal and McGlaughlin, Peter and Taki, Setareh},
+	title =	{{Approximating Maximin Share Allocations}},
+	booktitle =	{2nd Symposium on Simplicity in Algorithms (SOSA 2019)},
+	pages =	{20:1--20:11},
+	series =	{Open Access Series in Informatics (OASIcs)},
+	ISBN =	{978-3-95977-099-6},
+	ISSN =	{2190-6807},
+	year =	{2019},
+	volume =	{69},
+	editor =	{Fineman, Jeremy T. and Mitzenmacher, Michael},
+	publisher =	{Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+	address =	{Dagstuhl, Germany},
+	URL =		{https://drops.dagstuhl.de/entities/document/10.4230/OASIcs.SOSA.2019.20},
+	URN =		{urn:nbn:de:0030-drops-100465},
+	doi =		{10.4230/OASIcs.SOSA.2019.20},
+	annote =	{Keywords: Fair division, Maximin share, Approximation algorithm}
+}
+
+@inproceedings{akrami2024breaking,
+  title={Breaking the 3/4 barrier for approximate maximin share},
+  author={Akrami, Hannaneh and Garg, Jugal},
+  booktitle={Proceedings of the 2024 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},
+  pages={74--91},
+  year={2024},
+  organization={SIAM}
+}
+
+
+@InProceedings{FeigeMMSUpperBound,
+author="Feige, Uriel
+and Sapir, Ariel
+and Tauber, Laliv",
+editor="Feldman, Michal
+and Fu, Hu
+and Talgam-Cohen, Inbal",
+title="A Tight Negative Example for MMS Fair Allocations",
+booktitle="Web and Internet Economics",
+year="2022",
+publisher="Springer International Publishing",
+address="Cham",
+pages="355--372",
+abstract="We consider the problem of allocating indivisible goods to agents with additive valuation functions. Kurokawa, Procaccia and Wang [JACM, 2018] present instances for which every allocation gives some agent less than her maximin share. We present such examples with larger gaps. For three agents and nine items, we design an instance in which at least one agent does not get more than a {\$}{\$}{\backslash}frac{\{}39{\}}{\{}40{\}}{\$}{\$}3940fraction of her maximin share. Moreover, we show that there is no negative example in which the difference between the number of items and the number of agents is smaller than six, and that the gap (of {\$}{\$}{\backslash}frac{\{}1{\}}{\{}40{\}}{\$}{\$}140) of our example is worst possible among all instances with nine items.",
+isbn="978-3-030-94676-0"
+}
+
+@inproceedings{ProcacciaFairEnough,
+	author = {Procaccia, Ariel D. and Wang, Junxing},
+	title = {Fair enough: guaranteeing approximate maximin shares},
+	year = {2014},
+	isbn = {9781450325653},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/2600057.2602835},
+	doi = {10.1145/2600057.2602835},
+	abstract = {We consider the problem of fairly allocating indivisible goods, focusing on a recently-introduced notion of fairness called maximin share guarantee: Each player's value for his allocation should be at least as high as what he can guarantee by dividing the items into as many bundles as there are players and receiving his least desirable bundle. Assuming additive valuation functions, we show that such allocations may not exist, but allocations guaranteeing each player 2/3 of the above value always exist, and can be computed in polynomial time when the number of players is constant. These theoretical results have direct practical implications.},
+	booktitle = {Proceedings of the Fifteenth ACM Conference on Economics and Computation},
+	pages = {675–692},
+	numpages = {18},
+	keywords = {fair division, computational social choice},
+	location = {Palo Alto, California, USA},
+	series = {EC '14}
+}
+
+@misc{amanatidis2024pushingfrontierapproximateefx,
+	title={Pushing the Frontier on Approximate EFX Allocations},
+	author={Georgios Amanatidis and Aris Filos-Ratsikas and Alkmini Sgouritsa},
+	year={2024},
+	eprint={2406.12413},
+	archivePrefix={arXiv},
+	primaryClass={cs.GT},
+	url={https://arxiv.org/abs/2406.12413},
+}
+
+@article{AmanatidisBeating12EFX,
+	title = {Multiple birds with one stone: Beating 1/2 for EFX and GMMS via envy cycle elimination},
+	journal = {Theoretical Computer Science},
+	volume = {841},
+	pages = {94-109},
+	year = {2020},
+	issn = {0304-3975},
+	doi = {https://doi.org/10.1016/j.tcs.2020.07.006},
+	url = {https://www.sciencedirect.com/science/article/pii/S0304397520303790},
+	author = {Georgios Amanatidis and Evangelos Markakis and Apostolos Ntokos},
+	keywords = {Fair division, Envy-freeness up to any good, Groupwise maximin share fairness, Envy cycle elimination},
+	abstract = {Several relaxations of envy-freeness, tailored to fair division in settings with indivisible goods, have been introduced within the last decade. Due to the lack of general existence results for most of these concepts, great attention has been paid to establishing approximation guarantees. In this work, we propose a simple algorithm that is universally fair in the sense that it returns allocations that have good approximation guarantees with respect to four such fairness notions at once. In particular, this is the first algorithm achieving a (ϕ−1)-approximation of envy-freeness up to any good (Image 1) and a 2ϕ+2-approximation of groupwise maximin share fairness (Image 2), where ϕ is the golden ratio (ϕ≈1.618). The best known approximation factor, in polynomial time, for either one of these fairness notions prior to this work was 1/2. Moreover, the returned allocation achieves envy-freeness up to one good (Image 3) and a 2/3-approximation of pairwise maximin share fairness (Image 4). While Image 1 is our primary focus, we also exhibit how to fine-tune our algorithm and further improve the guarantees for Image 2 or Image 4. Finally, we show that Image 2—and thus Image 4 and Image 1—allocations always exist when the number of goods does not exceed the number of agents by more than two.}
+}
+
+@misc{chaudhury2020littlecharityguaranteesenvyfreeness,
+	title={A Little Charity Guarantees Almost Envy-Freeness},
+	author={Bhaskar Ray Chaudhury and Tellikepalli Kavitha and Kurt Mehlhorn and Alkmini Sgouritsa},
+	year={2020},
+	eprint={1907.04596},
+	archivePrefix={arXiv},
+	primaryClass={cs.GT},
+	url={https://arxiv.org/abs/1907.04596},
+}
+
+@misc{chan2019maximinawareallocationsindivisiblegoods,
+	title={Maximin-Aware Allocations of Indivisible Goods},
+	author={Hau Chan and Jing Chen and Bo Li and Xiaowei Wu},
+	year={2019},
+	eprint={1905.09969},
+	archivePrefix={arXiv},
+	primaryClass={cs.GT},
+	url={https://arxiv.org/abs/1905.09969},
+}
+
+@inproceedings{EpistemicEF,
+title={Knowledge, fairness, and social constraints},
+author={Aziz, Haris and Bouveret, Sylvain and Caragiannis, Ioannis and Giagkousi, Ira and Lang, J{\'e}r{\^o}me},
+booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+volume={32},
+number={1},
+year={2018}
+}
+
+@inproceedings{CaragiannisEEFX,
+	title={New Fairness Concepts for Allocating Indivisible Items},
+	author={Caragiannis, Ioannis and Garg, Jugal and Rathi, Nidhi and Sharma, Eklavya and Varricchio, Giovanna},
+	year={2023},
+	organization={International Joint Conferences on Artificial Intelligence Organization}
+}
+
+@misc{akrami2024epistemicefxallocationsexist,
+	title={Epistemic EFX Allocations Exist for Monotone Valuations},
+	author={Hannaneh Akrami and Nidhi Rathi},
+	year={2024},
+	eprint={2405.14463},
+	archivePrefix={arXiv},
+	primaryClass={cs.GT},
+	url={https://arxiv.org/abs/2405.14463},
+}
+
+@inproceedings{farhadi2021almost,
+	title={Almost envy-freeness, envy-rank, and nash social welfare matchings},
+	author={Farhadi, Alireza and Hajiaghayi, MohammadTaghi and Latifian, Mohamad and Seddighin, Masoud and Yami, Hadi},
+	booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+	volume={35},
+	number={6},
+	pages={5355--5362},
+	year={2021}
+}
+
+@inproceedings{barman2018groupwise,
+	title={Groupwise maximin fair allocation of indivisible goods},
+	author={Barman, Siddharth and Biswas, Arpita and Krishnamurthy, Sanath and Narahari, Yadati},
+	booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+	volume={32},
+	number={1},
+	year={2018}
+}
+
+@article{chaudhury2021little,
+	title={A little charity guarantees almost envy-freeness},
+	author={Chaudhury, Bhaskar Ray and Kavitha, Telikepalli and Mehlhorn, Kurt and Sgouritsa, Alkmini},
+	journal={SIAM Journal on Computing},
+	volume={50},
+	number={4},
+	pages={1336--1358},
+	year={2021},
+	publisher={SIAM}
+}
+@article{plaut2020almost,
+  title={Almost envy-freeness with general valuations},
+  author={Plaut, Benjamin and Roughgarden, Tim},
+  journal={SIAM Journal on Discrete Mathematics},
+  volume={34},
+  number={2},
+  pages={1039--1068},
+  year={2020},
+  publisher={SIAM}
+}
+
+
+@article{amanatidis2020multiple,
+	title={Multiple birds with one stone: Beating 1/2 for EFX and GMMS via envy cycle elimination},
+	author={Amanatidis, Georgios and Markakis, Evangelos and Ntokos, Apostolos},
+	journal={Theoretical Computer Science},
+	volume={841},
+	pages={94--109},
+	year={2020},
+	publisher={Elsevier}
+}
+
+@article{amanatidis2021MNWAndStories,
+	title = {Maximum Nash welfare and other stories about EFX},
+	journal = {Theoretical Computer Science},
+	volume = {863},
+	pages = {69-85},
+	year = {2021},
+	issn = {0304-3975},
+	doi = {https://doi.org/10.1016/j.tcs.2021.02.020},
+	url = {https://www.sciencedirect.com/science/article/pii/S0304397521000931},
+	author = {Georgios Amanatidis and Georgios Birmpas and Aris Filos-Ratsikas and Alexandros Hollender and Alexandros A. Voudouris},
+	keywords = {Fair division, Nash welfare, EFX, Approximation},
+	abstract = {We consider the classic problem of fairly allocating indivisible goods among agents with additive valuation functions and explore the connection between two prominent fairness notions: maximum Nash welfare (MNW) and envy-freeness up to any good (EFX). We establish that an MNW allocation is always EFX as long as there are at most two possible values for the goods, whereas this implication is no longer true for three or more distinct values. As a notable consequence, this proves the existence of EFX allocations for these restricted valuation functions. While the efficient computation of an MNW allocation for two possible values remains an open problem, we present a novel algorithm for directly constructing EFX allocations in this setting. Finally, we study the question of whether an MNW allocation implies any EFX guarantee for general additive valuation functions under a natural new interpretation of approximate EFX allocations.}
+}
+
+@inproceedings{lipton2004approximately,
+	title={On approximately fair allocations of indivisible goods},
+	author={Lipton, Richard J and Markakis, Evangelos and Mossel, Elchanan and Saberi, Amin},
+	booktitle={Proceedings of the 5th ACM Conference on Electronic Commerce},
+	pages={125--131},
+	year={2004}
+}
+@misc{halpern2020fairdivisionbinaryvaluations,
+	title={Fair Division with Binary Valuations: One Rule to Rule Them All},
+	author={Daniel Halpern and Ariel D. Procaccia and Alexandros Psomas and Nisarg Shah},
+	year={2020},
+	eprint={2007.06073},
+	archivePrefix={arXiv},
+	primaryClass={cs.GT},
+	url={https://arxiv.org/abs/2007.06073},
+}
+
+@article{aziz2020polynomial,
+	title={A polynomial-time algorithm for computing a Pareto optimal and almost proportional allocation},
+	author={Aziz, Haris and Moulin, Herv{\'e} and Sandomirskiy, Fedor},
+	journal={Operations Research Letters},
+	volume={48},
+	number={5},
+	pages={573--578},
+	year={2020},
+	publisher={Elsevier}
+}
+
+@inproceedings{conitzer2017fair,
+	title={Fair public decision making},
+	author={Conitzer, Vincent and Freeman, Rupert and Shah, Nisarg},
+	booktitle={Proceedings of the 2017 ACM Conference on Economics and Computation},
+	pages={629--646},
+	year={2017}
+}
+
+@article{akrami2023fair,
+	title={Fair and efficient allocation of indivisible chores with surplus},
+	author={Akrami, Hannaneh and Chaudhury, Bhaskar Ray and Garg, Jugal and Mehlhorn, Kurt and Mehta, Ruta},
+	journal={arXiv preprint arXiv:2305.04788},
+	year={2023}}
+
+@inproceedings{boodaghians2022polynomial,
+	title={Polynomial Time Algorithms to Find an Approximate Competitive Equilibrium for Chores},
+	author={Boodaghians, Shant and Chaudhury, Bhaskar Ray and Mehta, Ruta},
+	booktitle={Proceedings of the 2022 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},
+	pages={2285--2302},
+	year={2022},
+	organization={SIAM}
+}
+
+@inproceedings{chaudhury2022existence,
+	title={On the existence of competitive equilibrium with chores},
+	author={Chaudhury, Bhaskar Ray and Garg, Jugal and McGlaughlin, Peter and Mehta, Ruta},
+	booktitle={13th Innovations in Theoretical Computer Science Conference (ITCS 2022)},
+	year={2022}
+}
+@article{barman2018greedy,
+	title={Greedy algorithms for maximizing Nash social welfare},
+	author={Barman, Siddharth and Krishnamurthy, Sanath Kumar and Vaish, Rohit},
+	journal={arXiv preprint arXiv:1801.09046},
+	year={2018}
+}
+
+@inproceedings{barman2024nearly,
+	title={Nearly Equitable Allocations beyond Additivity and Monotonicity},
+	author={Barman, Siddharth and Bhaskar, Umang and Pandit, Yeshwant and Pyne, Soumyajit},
+	booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+	volume={38},
+	number={9},
+	pages={9494--9501},
+	year={2024}
+}
+
+@inproceedings{aleksandrov2020online,
+	title={Online fair division: A survey},
+	author={Aleksandrov, Martin and Walsh, Toby},
+	booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+	volume={34},
+	number={09},
+	pages={13557--13562},
+	year={2020}
+}
+
+@article{baklanov2021propm,
+	title={PROPm allocations of indivisible goods to multiple agents},
+	author={Baklanov, Artem and Garimidi, Pranav and Gkatzelis, Vasilis and Schoepflin, Daniel},
+	journal={arXiv preprint arXiv:2105.11348},
+	year={2021}
+}
+
+@article{steinhaus1948problem,
+	title={The problem of fair division},
+	author={Steinhaus, Hugo},
+	journal={Econometrica},
+	volume={16},
+	pages={101--104},
+	year={1948}
+}
+@misc{aziz2017discreteboundedenvyfreecake,
+	title={A Discrete and Bounded Envy-Free Cake Cutting Protocol for Any Number of Agents},
+	author={Haris Aziz and Simon Mackenzie},
+	year={2017},
+	eprint={1604.03655},
+	archivePrefix={arXiv},
+	primaryClass={cs.DS},
+	url={https://arxiv.org/abs/1604.03655},
+}
+
+@inproceedings{roos2010complexity,
+	title={Complexity of social welfare optimization in multiagent resource allocation},
+	author={Roos, Magnus and Rothe, J{\"o}rg},
+	booktitle={Proceedings of the 9th International Conference on Autonomous Agents and Multiagent Systems: volume 1-Volume 1},
+	pages={641--648},
+	year={2010}
+}
+
+@article{freeman2019equitable,
+	title={Equitable allocations of indivisible goods},
+	author={Freeman, Rupert and Sikdar, Sujoy and Vaish, Rohit and Xia, Lirong},
+	journal={arXiv preprint arXiv:1905.10656},
+	year={2019}
+}
+@inproceedings{caragiannis2009low,
+	title={On low-envy truthful allocations},
+	author={Caragiannis, Ioannis and Kaklamanis, Christos and Kanellopoulos, Panagiotis and Kyropoulou, Maria},
+	booktitle={Algorithmic Decision Theory: First International Conference, ADT 2009, Venice, Italy, October 20-23, 2009. Proceedings 1},
+	pages={111--119},
+	year={2009},
+	organization={Springer}
+}
+
+@article{amanatidis2016truthful,
+	title={On truthful mechanisms for maximin share allocations},
+	author={Amanatidis, Georgios and Birmpas, Georgios and Markakis, Evangelos},
+	journal={arXiv preprint arXiv:1605.04026},
+	year={2016}
+}
+
+@inproceedings{amanatidis2017truthful,
+	title={Truthful allocation mechanisms without payments: Characterization and implications on fairness},
+	author={Amanatidis, Georgios and Birmpas, Georgios and Christodoulou, George and Markakis, Evangelos},
+	booktitle={Proceedings of the 2017 ACM Conference on Economics and Computation},
+	pages={545--562},
+	year={2017}
+}
+
+@inproceedings{babaioff2021fair,
+	title={Fair and truthful mechanisms for dichotomous valuations},
+	author={Babaioff, Moshe and Ezra, Tomer and Feige, Uriel},
+	booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+	volume={35},
+	number={6},
+	pages={5119--5126},
+	year={2021}
+}
+
+@inproceedings{benade2018make,
+	title={How to make envy vanish over time},
+	author={Benade, Gerdus and Kazachkov, Aleksandr M and Procaccia, Ariel D and Psomas, Christos-Alexandros},
+	booktitle={Proceedings of the 2018 ACM Conference on Economics and Computation},
+	pages={593--610},
+	year={2018}
+}
+
+
+@inproceedings{aleksandrov2019strategy,
+	title={Strategy-proofness, envy-freeness and pareto efficiency in online fair division with additive utilities},
+	author={Aleksandrov, Martin and Walsh, Toby},
+	booktitle={PRICAI 2019: Trends in Artificial Intelligence: 16th Pacific Rim International Conference on Artificial Intelligence, Cuvu, Yanuca Island, Fiji, August 26--30, 2019, Proceedings, Part I 16},
+	pages={527--541},
+	year={2019},
+	organization={Springer}
+}
+
+@misc{berger2021almostfullefxexists,
+	title={(Almost Full) EFX Exists for Four Agents (and Beyond)},
+	author={Ben Berger and Avi Cohen and Michal Feldman and Amos Fiat},
+	year={2021},
+	eprint={2102.10654},
+	archivePrefix={arXiv},
+	primaryClass={cs.GT},
+	url={https://arxiv.org/abs/2102.10654},
+}
+
+@article{akrami2022ef2x,
+	title={An EF2X allocation protocol for restricted additive valuations},
+	author={Akrami, Hannaneh and Rezvan, Rojin and Seddighin, Masoud},
+	journal={arXiv preprint arXiv:2202.13676},
+	year={2022}
+}
+
+@incollection{brams2019disputeresolution,
+	author = {Brams, Steven J.},
+	isbn = {9780190469733},
+	title = {Fair Division in Dispute Resolution},
+	booktitle = {The Oxford Handbook of Public Choice, Volume 1},
+	publisher = {Oxford University Press},
+	year = {2019},
+	month = {02},
+	abstract = {This chapter describes a mechanism, applicable to two-party disputes, for dividing divisible items fairly. The mechanism, called adjusted winner, provides a way to determine which contested items, which may be either goods or issues, each party wins entirely, and which single good or issue must be divided, to satisfy three properties of fair division: envy-freeness, efficiency, and equitability. The mechanism has been applied to disputes ranging from interpersonal to international. This chapter applies it to the dispute between Israel and Egypt that was settled, under the auspices of US President Jimmy Carter, at Camp David in 1978.},
+	doi = {10.1093/oxfordhb/9780190469733.013.44},
+	url = {https://doi.org/10.1093/oxfordhb/9780190469733.013.44},
+	eprint = {https://academic.oup.com/book/0/chapter/347396140/chapter-ag-pdf/44434032/book\_40414\_section\_347396140.ag.pdf},
+}
+
+@misc{aleksandrov2015onlinefairdivisionanalysing,
+	title={Online Fair Division: analysing a Food Bank problem},
+	author={Martin Aleksandrov and Haris Aziz and Serge Gaspers and Toby Walsh},
+	year={2015},
+	eprint={1502.07571},
+	archivePrefix={arXiv},
+	primaryClass={cs.GT},
+	url={https://arxiv.org/abs/1502.07571},
+}
+
+@misc{mertzanidis2024automatingfooddroppower,
+	title={Automating Food Drop: The Power of Two Choices for Dynamic and Fair Food Allocation},
+	author={Marios Mertzanidis and Alexandros Psomas and Paritosh Verma},
+	year={2024},
+	eprint={2406.06363},
+	archivePrefix={arXiv},
+	primaryClass={cs.GT},
+	url={https://arxiv.org/abs/2406.06363},
+}
+
+@article{bezakova2005allocating,
+author = {Bez\'{a}kov\'{a}, Ivona and Dani, Varsha},
+title = {Allocating indivisible goods},
+year = {2005},
+issue_date = {April 2005},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {5},
+number = {3},
+url = {https://doi.org/10.1145/1120680.1120683},
+doi = {10.1145/1120680.1120683},
+abstract = {The problem of allocating divisible goods has enjoyed a lot of attention in both mathematics (e.g. the cake-cutting problem) and economics (e.g. market equilibria). On the other hand, the natural requirement of indivisible goods has been somewhat neglected, perhaps because of its more complicated nature. In this work we study a fairness criterion, called the Max-Min Fairness problem, for k players who want to allocate among themselves m indivisible goods. Each player has a specified valuation function on the subsets of the goods and the goal is to split the goods between the players so as to maximize the minimum valuation. Viewing the problem from a game theoretic perspective, we show that for two players and additive valuations the expected minimum of the (randomized) cut-and-choose mechanism is a 1/2-approximation of the optimum. To complement this result we show that no truthful mechanism can compute the exact optimum.We also consider the algorithmic perspective when the (true) additive valuation functions are part of the input. We present a simple 1/(m - k + 1) approximation algorithm which allocates to every player at least 1/k fraction of the value of all but the k - 1 heaviest items. We also give an algorithm with additive error against the fractional optimum bounded by the value of the largest item. The two approximation algorithms are incomparable in the sense that there exist instances when one outperforms the other.},
+journal = {SIGecom Exch.},
+month = apr,
+pages = {11–18},
+numpages = {8},
+keywords = {algorithms, approximation algorithms, cake-cutting, economics, fairness, game theory, theory, truthfulness}
+}
+
+@inproceedings{bouveret2005allocation,
+author = {Bouveret, Sylvain and Lema\^{\i}tre, Michel and Fargier, H\'{e}l\`{e}ne and Lang, J\'{e}r\^{o}me},
+title = {Allocation of indivisible goods: a general model and some complexity results},
+year = {2005},
+isbn = {1595930930},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1082473.1082747},
+doi = {10.1145/1082473.1082747},
+abstract = {Many industrial or research activities are so expensive that it is often benefitable for the involved agents to cofund the construction or the purchase of a common required resource. This resource will then be exploited in common, therefore in a shared way. The rules for resource sharing should take account of the possibly antagonistic preferences: each agent wants to maximize its own satisfaction, whereas, from the collective point of view, decisions which both are equitable and exploit the resource in an optimal way are looked for. We give in this article a formal model for indivisible goods resource sharing without monetary compensations and with arbitrary feasability constraints. We also give some complexity results about this model. The model is applied to a real-world case, namely satellite resource sharing.},
+booktitle = {Proceedings of the Fourth International Joint Conference on Autonomous Agents and Multiagent Systems},
+pages = {1309–1310},
+numpages = {2},
+keywords = {resource sharing, preference aggregation, logic, fair allocation, computational compexity},
+location = {The Netherlands},
+series = {AAMAS '05}
+}
+
+@misc{hosseini2023hideseekperceivedfairness,
+	title={Hide, Not Seek: Perceived Fairness in Envy-Free Allocations of Indivisible Goods},
+	author={Hadi Hosseini and Joshua Kavner and Sujoy Sikdar and Rohit Vaish and Lirong Xia},
+	year={2023},
+	eprint={2212.04574},
+	archivePrefix={arXiv},
+	primaryClass={cs.GT},
+	url={https://arxiv.org/abs/2212.04574},
+}
+
+@article{basteck2023strategy,
+	title={Strategy-proof and envy-free random assignment},
+	author={Basteck, Christian and Ehlers, Lars},
+	journal={Journal of Economic Theory},
+	volume={209},
+	pages={105618},
+	year={2023},
+	publisher={Elsevier}
+}
+
+@inproceedings{barman2018finding,
+	title={Finding fair and efficient allocations},
+	author={Barman, Siddharth and Krishnamurthy, Sanath Kumar and Vaish, Rohit},
+	booktitle={Proceedings of the 2018 ACM Conference on Economics and Computation},
+	pages={557--574},
+	year={2018}
+}
+
+@misc{christoforidis2024pursuitefxchoresnonexistence,
+	title={On The Pursuit of EFX for Chores: Non-Existence and Approximations},
+	author={Vasilis Christoforidis and Christodoulos Santorinaios},
+	year={2024},
+	eprint={2406.10752},
+	archivePrefix={arXiv},
+	primaryClass={cs.GT},
+	url={https://arxiv.org/abs/2406.10752},
+}
+
+@article{ebadian2021fairly,
+  title={How to fairly allocate easy and difficult chores},
+  author={Ebadian, Soroush and Peters, Dominik and Shah, Nisarg},
+  journal={arXiv preprint arXiv:2110.11285},
+  year={2021}
+}
+
+@article{branzei2019algorithms,
+  title={Algorithms for competitive division of chores},
+  author={Br{\^a}nzei, Simina and Sandomirskiy, Fedor},
+  journal={arXiv preprint arXiv:1907.01766},
+  year={2019}
+}
+
+@misc{barman2023fairchoredivisionbinary,
+      title={Fair Chore Division under Binary Supermodular Costs},
+      author={Siddharth Barman and Vishnu V. Narayan and Paritosh Verma},
+      year={2023},
+      eprint={2302.11530},
+      archivePrefix={arXiv},
+      primaryClass={cs.GT},
+      url={https://arxiv.org/abs/2302.11530},
+}
+
+@article{woeginger1997polynomial,
+  title={A polynomial-time approximation scheme for maximizing the minimum machine completion time},
+  author={Woeginger, Gerhard J},
+  journal={Operations Research Letters},
+  volume={20},
+  number={4},
+  pages={149--154},
+  year={1997},
+  publisher={Elsevier}
+}
+
+@article{akrami2023simplification,
+  title={Simplification and improvement of MMS approximation},
+  author={Akrami, Hannaneh and Garg, Jugal and Sharma, Eklavya and Taki, Setareh},
+  journal={arXiv preprint arXiv:2303.16788},
+  year={2023}
+}
+
+@inproceedings{garg2020improved,
+  title={An improved approximation algorithm for maximin shares},
+  author={Garg, Jugal and Taki, Setareh},
+  booktitle={Proceedings of the 21st ACM Conference on Economics and Computation},
+  pages={379--380},
+  year={2020}
+}
+
+@phdthesis{kurokawa2017fair,
+  title={Fair division in game theoretic settings},
+  author={Kurokawa, David},
+  year={2017},
+  school={PhD thesis, Carnegie Mellon University}
+}
+
+@book{mas1995microeconomic,
+  title={Microeconomic Theory},
+  author={Mas-Colell, A. and Whinston, M.D. and Green, J.R.},
+  isbn={9780195073409},
+  lccn={95018128},
+  series={Microeconomic Theory},
+  url={https://books.google.com/books?id=KGtegVXqD8wC},
+  year={1995},
+  publisher={Oxford University Press}
+}

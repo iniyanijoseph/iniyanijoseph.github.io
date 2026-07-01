@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <p>Unfortunately, naively adapting Karger’s algorithm (i.e. by selecting vertices uniformly at random and merging them) does not give a reasonable probability of success for correctly selecting a specific subset.</p>
+    <p>Let</p>
+    <p>be the set minimizing the symmetric submodular function</p>
+    <p>. Let</p>
+    <p>. Since we do not know</p>
+    <p>or have any reason to suspect a specific cardinality of a beyond restricting</p>
+    <p>(because of symmetry).</p>
+    <p>The probability of selecting an element which is in</p>
+    <p>is</p>
+    <p>, since we must select</p>
+    <p>other elements for the optimal set out of</p>
+    <p>elements. Taking this repeatedly, we get</p>
+    <p>In the best case (when</p>
+    <p>), the probability of correctly selecting a subset is</p>
+    <p>, but in the worst case (when</p>
+    <p>) we get,</p>
+    <p>, the inverse of the</p>
+    <p>nd central binomial coefficient. This is in turn equal to</p>
+    <p>, where</p>
+    <p>is the</p>
+    <p>th Catalan number. In other words, we find that the probability of success using this method can be exponentially small for some values of</p>
+    <p>. (although our time complexity remains only</p>
+    <p>, since unlike graphs we can contract much faster)</p>
+    <p>Amplification? The probability of failure is</p>
+    <p>Using amplification</p>
+    <p>times, we find that to get a high probability of success, we need</p>
+    <p>, which is clearly exponential in</p>
+    <p>.</p>
+    <p>The problem we find is that we do not have enough information in each contraction, and are forced to blindly guess, while for hypergraphs we can choose the edge proportional to how many edges it can contract at once.</p>
+    <p>xhis is the same process as here: <span style="text-decoration: underline"><a href="https://jeffe.cs.illinois.edu/teaching/algorithms/notes/08-mincut.pdf">https://jeffe.cs.illinois.edu/teaching/algorithms/notes/08-mincut.pdf</a></span></p>
+    <p>😔</p>
+    <p>Try to form a group where you select each element with probability</p>
+    <p>But what if you had a set which “stemmed” from a smaller set that had the same pattern of decreases.</p>
+    <p>Is it true that the optimal solution</p>
+    <p>Symmetric submodularity is closed under union. For elements of size 1, it is trivial</p>
+    <p>In other words, that we want to show that</p>
+    <p>Assumptions:</p>
+    <p>—</p>
+    <p>Suppose</p>
+    <p>and let</p>
+    <p>. We must show that</p>
+    <p>For V=2,</p>
+    <p>and</p>
+    <p>, so the statement holds for the basis.</p>
+    <p>Assume that for</p>
+    <p>, the statement holds. Then we want to show for</p>
+    <p>, that</p>
+    <p>Take some arbitrary</p>
+    <p>since by the definition,</p>
+    <p>is positive</p>
+    <p>Handshake Lemma for Symmetric Submodular Functions</p>
+    <p>// Can be shown inductively</p>
+    <p>For hypergraphs</p>
+    <p>Let</p>
+    <p>Let</p>
+    <p>We are trying to contract a star. Select the center of the star</p>
+    <p>with probability</p>
+    <p>Then, contract vertex</p>
+    <p>from</p>
+    <p>with probability</p>
+    <p>For the pairs</p>
+    <p>crossing the cut with</p>
+    <p>as the center of the star,</p>
+    <p>, since the weight of any hyperedge crossing the cut is at most</p>
+    <p>, and we double count 2-edges.</p>
+    <p>Also observe that</p>
+    <p>.</p>
+    <p>By the handshake lemma,</p>
+    <p>Putting it all together, the probabilty of contracting any edge (given that we chose</p>
+    <p>as the center of the star) crossing the minimum cut is</p>
+    <p>The maximum number of vertices in</p>
+    <p>with the pair</p>
+    <p>crossing the cut is at most</p>
+    <p>, so the probability of crossing the cut given we chose</p>
+    <p>as the center of the star is at most</p>
+    <p>. There are at most</p>
+    <p>vertices in the minimum cut, so the probability of crossing the cut from a vertex in the minimum cut is</p>
+    <p>Let</p>
+    <p>In one round, the expected number of pairs to contract is.</p>
+    <p>So for the sake of making progress, I guess the expected number is fine after we have selected a center. Now I get why you have to do things “proportional” and I also have a lot better intuition for hyperedges (not that that means anything neccessarily). —</p>
+    <p>If you were to refuse to contract a pair</p>
+    <p>, every other vertex</p>
+    <p>—</p>
+    <p>I suppose the point of all minimum cut algorithms is to look at the proportion of weight crossing the cut, regardless of size. With constant rank, then this is obviously the same no matter what, but otherwise I guess its more complicated</p>
+    <p>I want to say that contracting proportional to the expected weight of a pair, then the weight of a pair should work? But then you can cross the cut easily if that side of the cut is too light</p>
+    <p>The probability of contracting a hyperedge is proportional to</p>
+    <p>, so the probability of contracting a hyperedge is</p>
+    <p>. The probability of contracting a pair is</p>
+    <p>.</p>
+    <p>There are exactly</p>
+    <p>vertices to contract in every hyperedge, so each hyperedge contributes</p>
+    <p>to the numerator of the probability.</p>
+    <p>First, I guess it is important to note that</p>
+    <p>.</p>
+    <p>, so</p>
+    <p>. This implies that</p>
+    <p>.</p>
+    <p>For the numerator,</p>
+    <p>, since the 2-edges are double-counted.</p>
+    <p>Since</p>
+    <p>is strictly greater than</p>
+    <p>by definition, we need to approximate it by using</p>
+    <p>and</p>
+    <p>. We know</p>
+    <p>and</p>
+    <p>. We can also compute (in linear time)</p>
+    <p>The maximum number of hyperedges containing the pair is</p>
+    <p>—</p>
+    <p>Emily says</p>
+    <p>Contract a star by</p>
+    <p>Choosing a vertex uniformly at random</p>
+    <p>Contract neighbors with probability</p>
+    <p>For graphs this is the same as contracting an edge uniformly at random</p>
+    <p>For hypergraphs this is</p>
+    <p>The probability of crossing the cut is</p>
+    <p>How many pairs do you contract in expectation?</p>
+    <p>We contract at least one thing because of the Handshake Lemma.</p>
+    <p><br></p>
+    <p>What about for symmetric submodular functions?</p>
+    <p>This holds true if</p>
+    <p>for</p>
+    <p>—</p>
+    <p>A thought, was is the relationship between</p>
+    <p>and</p>
+    <p>nah that doesn’t work for hypergraphs.</p>
+    <p>—</p>
+    <p>We are trying to contract a star. Select the center of the star</p>
+    <p>with probability</p>
+    <p>Then, contract vertex</p>
+    <p>from</p>
+    <p>with probability proportional to</p>
+    <p>Each pair is contracted with probability</p>
+    <p>Create a set</p>
+    <p>With probability</p>
+    <p>, contract</p>
+    <p>and repeat from a new vertex</p>
+    <p>. Otherwise, select</p>
+    <p>proportional to</p>
+    <p>and repeat the coin flip procedure.</p>
+    <p>Let</p>
+    <p>represent the probability of contracting a pair</p>
+    <p>which crosses the cut</p>
+    <p>The probability of selecting a set</p>
+    <p>which crosses the minimum cut is</p>
+    <p>Ok so the probability of contracting across the cut is the probability of contracting at any point.</p>
+    <p>Thus the probability of breaking the cut in one round is</p>
+    <p>The probability of contracting any pair is</p>
+    <p>. Thus, in expectation, we will contract a pair on the</p>
+    <p>th iteration.</p>
+    <p>This is repeated for</p>
+    <p>vertices, this gives so the algorithm takes</p>
+    <p>in expectation to contract all vertices.</p>
+    <p>Does this extend to symmetric submodular functions? Given vertices</p>
+    <p>in a hypergraph: For a contraction of a pair</p>
+    <p>with probability</p>
+    <p>, where</p>
+    <p>is a bias</p>
+    <p>, and</p>
+    <p>Note on submodularity: 2-edges may be double counted, by the cut function, thus for each pair</p>
+    <p>which crosses the minimum cut,</p>
+    <p>At most</p>
+    <p>pairs of vertices cross the minimum cut. Thus the summed probabilities of selecting across the minimum cut is:</p>
+    <p>For the optimal</p>
+    <p>We expect to try to attempt to contract</p>
+    <p>times</p>
+    <p>We will stop when the size of the graph is</p>
+    <p>,</p>
+    <p>. Thus we must contract</p>
+    <p>vertices.</p>
+    <p>. We want this to be</p>
+    <p>is the running time, where the second part is from running Queyranne’s algorithm</p>
+    <p>For example, with</p>
+    <p>and</p>
+    <p>, the probability of success is</p>
+    <p>, and the running time is</p>
+  </body>
+</html>
