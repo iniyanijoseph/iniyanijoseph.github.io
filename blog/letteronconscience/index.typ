@@ -2,7 +2,7 @@
 #import "@preview/bullseye:0.1.0": *
 #import "../index.typ":template,margin-note, linked-image, linked-video
 
-#show: template.with(title: "Amtrak Rail Pass", root: "../../")
+#show: template.with(title: "Letter on Conscience", root: "../../")
 
 #context {
   if target() != "html" {

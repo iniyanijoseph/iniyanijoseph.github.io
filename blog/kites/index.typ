@@ -1,7 +1,7 @@
 #import "@preview/bullseye:0.1.0": *
 #import "../index.typ":template,margin-note, linked-image, linked-video
 
-#show: template.with(title: "Amtrak Rail Pass", root: "../../")
+#show: template.with(title: "Kiting", root: "../../")
 
 For many around the world, kites are a childhood joy. Kites were first developed in China around 1000 BCE. Although kites traditionally have only one string and no control, precise manufacturing techniques and materials have made it possible to make steerable kites.
 

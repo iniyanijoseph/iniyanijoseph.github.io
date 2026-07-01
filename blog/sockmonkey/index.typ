@@ -1,6 +1,6 @@
 #import "../index.typ":template,margin-note, linked-image, linked-video
 
-#show: template.with(title: "Amtrak Rail Pass", root: "../../")
+#show: template.with(title: "How to Make a Sock Monkey", root: "../../")
 
 On average, people lose 15 socks a year. We even have a (unofficial, but amusing) holiday for them: Lost Sock Memorial Day. And unless all your socks are the same, this means a decent number of mismatched socks.
 

@@ -1,7 +1,7 @@
 #import "@preview/bullseye:0.1.0": *
 #import "../index.typ":template,margin-note, linked-image, linked-video
 
-#show: template.with(title: "Amtrak Rail Pass", root: "../../")
+#show: template.with(title: "Applying for PhD", root: "../../")
 
 Applying to PhD programs is a significant decision that shapes academic careers. Here, I share my insights on the application process and offer my own admissions documents as guidance for prospective applicants.
 

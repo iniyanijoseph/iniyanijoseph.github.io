@@ -1,6 +1,7 @@
 #import "../index.typ":template,margin-note, linked-image, linked-video
 
-#show: template.with(title: "Amtrak Rail Pass", root: "../../")
+#show: template.with(title: "List of Things to Kill Time, a.k.a, the \"Weekend List\"", root: "../../")
+
 == Chill
 - Play Cuphead
 - Death March
@@ -26,11 +27,12 @@
 - God Bless You, Mr. Rosewater
 - #strike[God Bless You, Dr. Kevorkian]
 - A Man without A Country
-- [Hitchhiker's Guide to the Galaxy]
+- #strike[Hitchhiker's Guide to the Galaxy]
 - Flowers for Algernon
 - The Count of Monte Cristo (in French?)
 - Les Miserable (in French)
 - The Grapes of Wrath
+- #strike[Invincible]
 
 == Movies
 - Naked Gun $2 1/2$

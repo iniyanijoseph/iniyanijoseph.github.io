@@ -8,14 +8,14 @@
 - #link("train")[Guide to Greater Lafayette]
 
 == Other
-- #link("school/phdapplications.html")[My Experience with PhD Applications]
+- #link("phdapplications")[My Experience with PhD Applications]
 
 == File on Conscience
-- #link("letteronconscience/index.html")[Statement of Conscience]
+- #link("letteronconscience")[Statement of Conscience]
 
 == Hobbies
-- #link("hobbies/kites.html")[Kites]
-- #link("hobbies/sockmonkeys.html",)[Sock Monkeys]
-- #link("hobbies/weekendlist.html",)[Weekend List]
+- #link("kites")[Kites]
+- #link("sockmonkeys",)[Sock Monkeys]
+- #link("weekendlist",)[Weekend List]
 
 
