@@ -6,18 +6,18 @@
 #import "layout.typ": full-width, margin-note
 #import "@preview/bullseye:0.1.0": *
 
-#let make-header(links) = html.header(
+#let make-header(links, root) = html.header(
   if links != none {
     html.nav(
       for (href, title) in links {
-        html.a(href: href, title)
+        html.a(href: root+href, title)
       },
     )
   },
 )
 
 #let tufted-web(
-  title: "Tufted",
+  title: "Iniyan Joseph",
   description: [],
   lang: "en",
   nav: (),
@@ -48,13 +48,13 @@
 
           // Stylesheets
           html.link(rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css")
-          html.link(rel: "stylesheet", href: root+"/src/assets/tufted.css")
-          html.link(rel: "stylesheet", href: root+"/src/assets/custom.css")
+          html.link(rel: "stylesheet", href: root+"src/assets/tufted.css")
+          html.link(rel: "stylesheet", href: root+"src/assets/custom.css")
         })
         // Body
         html.body({
           // Add website header
-          make-header(nav)
+          make-header(nav, root)
           // Main content
           html.article(
           {

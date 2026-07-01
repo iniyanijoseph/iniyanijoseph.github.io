@@ -1,8 +1,8 @@
 #import "@preview/pro-letter:0.1.1": pro-letter
 #import "@preview/bullseye:0.1.0": *
-#import "../../cv.typ": *
+#import "../index.typ":template,margin-note, linked-image, linked-video
 
-#show: cv.with(subpage: true, root: "../../")
+#show: template.with(title: "Amtrak Rail Pass", root: "../../")
 
 #context {
   if target() != "html" {

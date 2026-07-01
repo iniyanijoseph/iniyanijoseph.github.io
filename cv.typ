@@ -1,10 +1,13 @@
 #import "src/tufted.typ": *
 #import "@preview/bullseye:0.1.0":*
 
-#show: tufted-web.with(
-  title: "Iniyan Joseph",
+#let linked-image(src) = context if target() == "html" {margin-note(html.elem("img", attrs:(src: src)))}
+
+#let linked-video(src) = context if target() == "html" {margin-note(html.elem("video",  attrs: (src: src, controls:"true"))[Your browser doesn't support video])}
+
+#let template = tufted-web.with(
   nav: (
-    ("index.html",  "Home"),
+    ("",  "Home"),
     ("blog",  "Blog"),
     ("cv.pdf",    "CV"),
   ),
@@ -12,7 +15,10 @@
   website: "https://iniyanjoseph.com",
   icon: "./photo.jpg",
 )
-#margin-note(image("photo.jpg"))
+
+#show: template.with(title: "Iniyan Joseph", root:"./")
+
+#margin-note(linked-image("photo.jpg"))
 #margin-note([My name is Iniyan Joseph. I am an incoming Ph.D. Computer Science student at Purdue, advised by #link("https://www.alexpsomas.com/home")[Alex Psomas]. I completed my undergraduate degree at the University of Texas at Dallas, where I had the honor of working with #link("https://ekfox.web.illinois.edu/")[Emily K. Fox] and #link("https://jessekim.com/")[Jin-Ryong Kim]. Broadly, I am interested in Theory CS — especially Algorithmic Game Theory and Combinatorial Optimization.])
 #margin-note(link("mailto:iniyanijoseph@gmail.com")[Email])
 #margin-note(link("https://calendar.app.google/UfMqmGkxtsVEtBMN9")[Schedule a Meeting])

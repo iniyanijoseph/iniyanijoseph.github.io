@@ -1,21 +1,11 @@
-#import "../cv.typ":*
+#import "../cv.typ":template,margin-note, linked-image, linked-video
 
-#show: tufted-web.with(
-  title: "Blog",
-  nav: (
-    ("..",  "Home"),
-    ("blog",  "Blog"),
-    ("cv.pdf",    "CV"),
-  ),
-  email: "iniyanijoseph@gmail.com",
-  website: "https://iniyanjoseph.com",
-  icon: "./photo.jpg",
-  root: "..",
-)
+#show: template.with(title: "Blog", root: "../")
 
 == Travel
-- #link("travel/train")[Amtrak Rail Pass]
-- #link("travel/mcallencorpuschristi.html")[South Texas]
+- #link("train")[Amtrak Rail Pass]
+- #link("southtexas")[South Texas]
+- #link("train")[Guide to Greater Lafayette]
 
 == Other
 - #link("school/phdapplications.html")[My Experience with PhD Applications]
@@ -23,12 +13,9 @@
 == File on Conscience
 - #link("letteronconscience/index.html")[Statement of Conscience]
 
-// === Hobbies
-// name: "Kiting",
-// url: "hobbies/kites.html",
+== Hobbies
+- #link("hobbies/kites.html")[Kites]
+- #link("hobbies/sockmonkeys.html",)[Sock Monkeys]
+- #link("hobbies/weekendlist.html",)[Weekend List]
 
-
-// name: "Sock Monkeys",
-// ("hobbies/sockmonkeys.html",)
-// #link("hobbies/weekendlist.html",)[Weekend List]
 
