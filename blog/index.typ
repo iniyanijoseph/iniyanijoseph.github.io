@@ -20,7 +20,7 @@
   link(path)[#title]
 }
 
-== Travels
+== Travel
 - #post("Amtrak Rail Pass", datetime(year: 2025, month: 1, day: 1), "train")
 - #post("South Texas", datetime(year: 2025, month: 1, day: 1), "southtexas")
 - #post("Guide to Greater Lafayette", datetime(year: 2025, month: 1, day: 1), "guidetolafayette")
@@ -33,7 +33,7 @@
 
 == Hobbies
 - #post("Kites", datetime(year: 2025, month: 1, day: 1), "kites")
-- #post("Sock Monkeys", datetime(year: 2025, month: 1, day: 1), "sockmonkeys")
+- #post("Sock Monkeys", datetime(year: 2025, month: 1, day: 1), "sockmonkey")
 - #post("Weekend List", datetime(year: 2025, month: 1, day: 1), "weekendlist")
 
 // Everything below is invisible on the rendered page -- #metadata
