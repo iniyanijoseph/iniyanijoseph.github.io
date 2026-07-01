@@ -1,11 +1,23 @@
 #import "@preview/bullseye:0.1.0": *
-#import "../../cv.typ": *
+#import "../../index.typ":*
 
-#show: cv.with(subpage: true, root: "../../", fancylist: false)
-#let linked-image(src) = context if target() == "html" {html.elem("img", attrs:(src: src))}
-#let linked-video(src) = context if target() == "html" {html.elem("video",  attrs: (src: src, controls:"true"))[Your browser doesn't support video]}
+#show: tufted-web.with(
+  title: "Amtrak Rail Pass",
+  nav: (
+    ("..",  "Home"),
+    ("blog",  "Blog"),
+    ("cv.pdf",    "CV"),
+  ),
+  email: "iniyanijoseph@gmail.com",
+  website: "https://iniyanjoseph.com",
+  icon: "./photo.jpg",
+  root: "..",
+)
 
-= Amtrak Rail Pass
+#let linked-image(src) = context if target() == "html" {margin-note(html.elem("img", attrs:(src: src)))}
+
+#let linked-video(src) = context if target() == "html" {margin-note(html.elem("video",  attrs: (src: src, controls:"true"))[Your browser doesn't support video])}
+
 This summer, I plan to use the Amtrak Rail Pass to travel for 1 month. This blog will contain my plans for the journey, and my thoughts on each day's experiences. 
 
 The following map gives an overview of the approximate Amtrak routes across the U.S. Chicago is the center of the rail network.

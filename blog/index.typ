@@ -14,7 +14,7 @@
 )
 
 == Travel
-- #link("travel/train.html")[Amtrak Rail Pass]
+- #link("travel/train")[Amtrak Rail Pass]
 - #link("travel/mcallencorpuschristi.html")[South Texas]
 
 == Other
