@@ -25,9 +25,6 @@
 - #post("South Texas", datetime(year: 2025, month: 1, day: 1), "southtexas")
 - #post("Guide to Greater Lafayette", datetime(year: 2025, month: 1, day: 1), "guidetolafayette")
 
-== Other
-- #post("My Experience with PhD Applications", datetime(year: 2025, month: 1, day: 1), "phdapplications")
-
 == File on Conscience
 - #post("Statement of Conscience", datetime(year: 2025, month: 1, day: 1), "letteronconscience")
 
@@ -35,6 +32,10 @@
 - #post("Kites", datetime(year: 2025, month: 1, day: 1), "kites")
 - #post("Sock Monkeys", datetime(year: 2025, month: 1, day: 1), "sockmonkey")
 - #post("Weekend List", datetime(year: 2025, month: 1, day: 1), "weekendlist")
+
+== Other
+- #post("My Experience with PhD Applications", datetime(year: 2025, month: 1, day: 1), "phdapplications")
+- #post("Productivity Tips", datetime(year: 2026, month: 7, day: 1), "productivity")
 
 // Everything below is invisible on the rendered page -- #metadata
 // never produces visible output. It just exposes the collected posts
