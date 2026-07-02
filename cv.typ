@@ -46,8 +46,8 @@
 
 == Research
 #paper("papers/publications.bib")
-== Employment
 
+== Employment
 #job(
   start: dt(2025, 10),
   end: dt(2026, 7),
