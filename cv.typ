@@ -50,7 +50,7 @@
 
 #job(
   start: dt(2025, 10),
-  end: "Present",
+  end: dt(2025, 7),
   role: "Math Teacher",
   location: "KD College Prep",
 )
