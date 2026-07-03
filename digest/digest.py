@@ -285,10 +285,15 @@ def send_email(subject, html):
 
 
 def main():
+    print("Fetching RSS...")
     rss = get_rss_items()
+    print("Fetching Reddit...")
     reddit = get_reddit_items()
+    print("Fetching YouTube...")
     youtube = get_youtube_items()
+    print("Fetching weather...")
     weather = get_weather()
+    print("Fetching newsletters...")
     newsletters = get_newsletter_items()
 
     digest_html = build_digest_html(rss, reddit, youtube, weather, newsletters)
@@ -297,8 +302,10 @@ def main():
     typst_path = os.path.join(os.path.dirname(__file__), "digest.typ")
     with open(typst_path, "w") as f:
         f.write(digest_typst)
+    print(f"Wrote {typst_path}")
 
     send_email(f"Weekly Digest — {datetime.now().strftime('%b %d, %Y')}", digest_html)
+    print("Email sent")
 
 
 if __name__ == "__main__":
