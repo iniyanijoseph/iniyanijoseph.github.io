@@ -19,12 +19,17 @@ with open(os.path.join(os.path.dirname(__file__), "config.yml")) as f:
 
 
 def entry_thumbnail(entry):
+    url = None
     thumbs = entry.get("media_thumbnail")
     if thumbs:
-        return thumbs[0].get("url")
-    for link in entry.get("links", []):
-        if link.get("rel") == "enclosure" and "image" in link.get("type", ""):
-            return link.get("href")
+        url = thumbs[0].get("url")
+    else:
+        for link in entry.get("links", []):
+            if link.get("rel") == "enclosure" and "image" in link.get("type", ""):
+                url = link.get("href")
+                break
+    if url and url.startswith(("http://", "https://")):
+        return url
     return None
 
 
@@ -36,10 +41,22 @@ def entry_dt(entry):
     return None
 
 
+def safe_get(url, **kwargs):
+    try:
+        resp = requests.get(url, timeout=15, **kwargs)
+        resp.raise_for_status()
+        return resp
+    except requests.RequestException as e:
+        print(f"WARN: fetch failed for {url}: {e}")
+        return None
+
+
 def get_rss_items():
     sections = []
     for url in CFG.get("rss_feeds", []):
-        resp = requests.get(url, timeout=15)
+        resp = safe_get(url)
+        if resp is None:
+            continue
         feed = feedparser.parse(resp.content)
         title = feed.feed.get("title", url)
         items = []
@@ -57,7 +74,10 @@ def get_reddit_items():
     sections = []
     for sub in CFG["reddit"]["subreddits"]:
         url = f"https://www.reddit.com/r/{sub}/.rss"
-        resp = requests.get(url, headers=headers, timeout=15)
+        resp = safe_get(url, headers=headers)
+        if resp is None:
+            sections.append((sub, []))
+            continue
         feed = feedparser.parse(resp.content)
         items = []
         for e in feed.entries:
@@ -72,7 +92,9 @@ def get_youtube_items():
     sections = []
     for cid in CFG["youtube"]["channel_ids"]:
         url = f"https://www.youtube.com/feeds/videos.xml?channel_id={cid}"
-        resp = requests.get(url, timeout=15)
+        resp = safe_get(url)
+        if resp is None:
+            continue
         feed = feedparser.parse(resp.content)
         title = feed.feed.get("title", cid)
         items = []
@@ -115,7 +137,10 @@ def get_weather():
 def get_newsletter_items():
     sections = []
     for url in CFG.get("newsletters", []):
-        resp = requests.get(url, timeout=15)
+        resp = safe_get(url)
+        if resp is None:
+            sections.append((url, []))
+            continue
         feed = feedparser.parse(resp.content)
         title = feed.feed.get("title", url)
         items = []
