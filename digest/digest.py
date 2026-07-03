@@ -156,6 +156,59 @@ def build_digest_html(rss, reddit, youtube, weather):
     return "\n".join(html)
 
 
+def typst_escape(s):
+    special = "\\#*_`$<>@[]"
+    return "".join("\\" + c if c in special else c for c in s)
+
+
+def build_digest_typst(rss, reddit, youtube, weather):
+    """Plain/unstyled Typst version of the digest. Intentionally has no styling
+    beyond default headings/lists so it's easy to drop your own preamble in."""
+    loc, forecast = weather
+    lines = []
+
+    # === Insert your preamble / styling here, e.g.: ===
+    # #set page(margin: 1in)
+    # #set text(font: "New Computer Modern", size: 11pt)
+    # #set heading(numbering: none)
+    # ====================================================
+
+    lines.append(f"= Weekly Digest --- {datetime.now().strftime('%B %d, %Y')}")
+
+    lines.append(f"== Weather --- {typst_escape(loc)}")
+    for line in forecast:
+        lines.append(f"- {typst_escape(line)}")
+
+    lines.append("== Reddit")
+    for sub, items in reddit:
+        lines.append(f"=== r/{typst_escape(sub)}")
+        if items:
+            for title, link in items:
+                lines.append(f"- #link(\"{link}\")[{typst_escape(title)}]")
+        else:
+            lines.append("- No new posts this week")
+
+    lines.append("== YouTube Subscriptions")
+    if youtube:
+        for feed_title, items in youtube:
+            lines.append(f"=== {typst_escape(feed_title)}")
+            for title, link in items:
+                lines.append(f"- #link(\"{link}\")[{typst_escape(title)}]")
+    else:
+        lines.append("No new videos this week")
+
+    lines.append("== RSS Feeds")
+    if rss:
+        for feed_title, items in rss:
+            lines.append(f"=== {typst_escape(feed_title)}")
+            for title, link in items:
+                lines.append(f"- #link(\"{link}\")[{typst_escape(title)}]")
+    else:
+        lines.append("No new items this week")
+
+    return "\n\n".join(lines) + "\n"
+
+
 def build_newsletter_html(newsletters):
     html = ["<html><body style='font-family:sans-serif'>"]
     html.append(f"<h1>Newsletters — {datetime.now().strftime('%B %d, %Y')}</h1>")
@@ -192,6 +245,12 @@ def main():
     youtube = get_youtube_items()
     weather = get_weather()
     digest_html = build_digest_html(rss, reddit, youtube, weather)
+    digest_typst = build_digest_typst(rss, reddit, youtube, weather)
+
+    typst_path = os.path.join(os.path.dirname(__file__), "digest.typ")
+    with open(typst_path, "w") as f:
+        f.write(digest_typst)
+
     send_email(f"Weekly Digest — {datetime.now().strftime('%b %d, %Y')}", digest_html)
 
     newsletters = get_newsletter_items()
