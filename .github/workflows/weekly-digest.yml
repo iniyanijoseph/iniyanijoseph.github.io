@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   digest:
@@ -42,3 +43,7 @@ jobs:
             exit 1
           fi
         working-directory: digest
+
+      - run: gh workflow run build.yml --ref "$GITHUB_REF_NAME"
+        env:
+          GH_TOKEN: ${{ github.token }}
