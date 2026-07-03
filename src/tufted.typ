@@ -51,23 +51,6 @@
           html.link(rel: "stylesheet", href: root + "src/assets/tufted.css")
           html.link(rel: "stylesheet", href: root + "src/assets/custom.css")
 
-          // Load Google Analytics.
-          html.elem(
-            "script",
-            attrs: (
-              async: "",
-              src: "https://www.googletagmanager.com/gtag/js?id=G-VVQFY56H79",
-            ),
-          )
-
-          // Keep the JavaScript in a string so Typst does not interpret or reformat it.
-          let gtag-js = (
-            "window.dataLayer = window.dataLayer || [];\n"
-              + "function gtag(){dataLayer.push(arguments);}\n"
-              + "gtag('js', new Date());\n\n"
-              + "gtag('config', 'G-VVQFY56H79');"
-          )
-
           html.elem("script")[#gtag-js]
         })
 
