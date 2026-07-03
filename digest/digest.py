@@ -39,7 +39,8 @@ def entry_dt(entry):
 def get_rss_items():
     sections = []
     for url in CFG.get("rss_feeds", []):
-        feed = feedparser.parse(url)
+        resp = requests.get(url, timeout=15)
+        feed = feedparser.parse(resp.content)
         title = feed.feed.get("title", url)
         items = []
         for e in feed.entries:
@@ -71,7 +72,8 @@ def get_youtube_items():
     sections = []
     for cid in CFG["youtube"]["channel_ids"]:
         url = f"https://www.youtube.com/feeds/videos.xml?channel_id={cid}"
-        feed = feedparser.parse(url)
+        resp = requests.get(url, timeout=15)
+        feed = feedparser.parse(resp.content)
         title = feed.feed.get("title", cid)
         items = []
         for e in feed.entries:
@@ -113,7 +115,8 @@ def get_weather():
 def get_newsletter_items():
     sections = []
     for url in CFG.get("newsletters", []):
-        feed = feedparser.parse(url)
+        resp = requests.get(url, timeout=15)
+        feed = feedparser.parse(resp.content)
         title = feed.feed.get("title", url)
         items = []
         for e in feed.entries:
