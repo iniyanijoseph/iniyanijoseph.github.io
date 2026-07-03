@@ -19,6 +19,16 @@ with open(os.path.join(os.path.dirname(__file__), "config.yml")) as f:
     CFG = yaml.safe_load(f)
 
 
+def entry_thumbnail(entry):
+    thumbs = entry.get("media_thumbnail")
+    if thumbs:
+        return thumbs[0].get("url")
+    for link in entry.get("links", []):
+        if link.get("rel") == "enclosure" and "image" in link.get("type", ""):
+            return link.get("href")
+    return None
+
+
 def entry_dt(entry):
     for key in ("published_parsed", "updated_parsed"):
         t = entry.get(key)
@@ -36,7 +46,7 @@ def get_rss_items():
         for e in feed.entries:
             dt = entry_dt(e)
             if dt and dt >= SINCE:
-                items.append((e.get("title", "untitled"), e.get("link", "")))
+                items.append((e.get("title", "untitled"), e.get("link", ""), entry_thumbnail(e)))
         if items:
             sections.append((title, items))
     return sections
@@ -53,7 +63,7 @@ def get_reddit_items():
         for e in feed.entries:
             dt = entry_dt(e)
             if dt and dt >= SINCE:
-                items.append((e.get("title", "untitled"), e.get("link", "")))
+                items.append((e.get("title", "untitled"), e.get("link", ""), entry_thumbnail(e)))
         sections.append((sub, items))
     return sections
 
@@ -68,7 +78,7 @@ def get_youtube_items():
         for e in feed.entries:
             dt = entry_dt(e)
             if dt and dt >= SINCE:
-                items.append((e.get("title", "untitled"), e.get("link", "")))
+                items.append((e.get("title", "untitled"), e.get("link", ""), entry_thumbnail(e)))
         if items:
             sections.append((title, items))
     return sections
@@ -128,7 +138,7 @@ def build_digest_html(rss, reddit, youtube, weather):
     html.append("<h2>Reddit</h2>")
     for sub, items in reddit:
         html.append(f"<h3>r/{sub}</h3><ul>")
-        for title, link in items:
+        for title, link, _thumb in items:
             html.append(f"<li><a href='{link}'>{title}</a></li>")
         if not items:
             html.append("<li>No new posts this week</li>")
@@ -137,7 +147,7 @@ def build_digest_html(rss, reddit, youtube, weather):
     html.append("<h2>YouTube Subscriptions</h2>")
     for feed_title, items in youtube:
         html.append(f"<h3>{feed_title}</h3><ul>")
-        for title, link in items:
+        for title, link, _thumb in items:
             html.append(f"<li><a href='{link}'>{title}</a></li>")
         html.append("</ul>")
     if not youtube:
@@ -146,7 +156,7 @@ def build_digest_html(rss, reddit, youtube, weather):
     html.append("<h2>RSS Feeds</h2>")
     for feed_title, items in rss:
         html.append(f"<h3>{feed_title}</h3><ul>")
-        for title, link in items:
+        for title, link, _thumb in items:
             html.append(f"<li><a href='{link}'>{title}</a></li>")
         html.append("</ul>")
     if not rss:
@@ -161,17 +171,21 @@ def typst_escape(s):
     return "".join("\\" + c if c in special else c for c in s)
 
 
+def typst_item(title, link, thumbnail, kind):
+    """kind is 'video' or 'image'. Falls back to a plain link if no thumbnail."""
+    t = typst_escape(title)
+    if not thumbnail:
+        return f"- #link(\"{link}\")[{t}]"
+    fn = "linked-video" if kind == "video" else "linked-image"
+    return f"- #{fn}(\"{link}\", \"{thumbnail}\", \"{t}\")"
+
+
 def build_digest_typst(rss, reddit, youtube, weather):
-    """Plain/unstyled Typst version of the digest. Intentionally has no styling
-    beyond default headings/lists so it's easy to drop your own preamble in."""
     loc, forecast = weather
     lines = []
 
-    # === Insert your preamble / styling here, e.g.: ===
-    # #set page(margin: 1in)
-    # #set text(font: "New Computer Modern", size: 11pt)
-    # #set heading(numbering: none)
-    # ====================================================
+    lines.append('#import "../cv.typ":template,margin-note, linked-image, linked-video')
+    lines.append('#show: template.with(title: "Digest - " + datetime.today().display(), root: "../")')
 
     lines.append(f"= Weekly Digest --- {datetime.now().strftime('%B %d, %Y')}")
 
@@ -183,8 +197,8 @@ def build_digest_typst(rss, reddit, youtube, weather):
     for sub, items in reddit:
         lines.append(f"=== r/{typst_escape(sub)}")
         if items:
-            for title, link in items:
-                lines.append(f"- #link(\"{link}\")[{typst_escape(title)}]")
+            for title, link, thumb in items:
+                lines.append(typst_item(title, link, thumb, "image"))
         else:
             lines.append("- No new posts this week")
 
@@ -192,8 +206,8 @@ def build_digest_typst(rss, reddit, youtube, weather):
     if youtube:
         for feed_title, items in youtube:
             lines.append(f"=== {typst_escape(feed_title)}")
-            for title, link in items:
-                lines.append(f"- #link(\"{link}\")[{typst_escape(title)}]")
+            for title, link, thumb in items:
+                lines.append(typst_item(title, link, thumb, "video"))
     else:
         lines.append("No new videos this week")
 
@@ -201,8 +215,8 @@ def build_digest_typst(rss, reddit, youtube, weather):
     if rss:
         for feed_title, items in rss:
             lines.append(f"=== {typst_escape(feed_title)}")
-            for title, link in items:
-                lines.append(f"- #link(\"{link}\")[{typst_escape(title)}]")
+            for title, link, thumb in items:
+                lines.append(typst_item(title, link, thumb, "image"))
     else:
         lines.append("No new items this week")
 
