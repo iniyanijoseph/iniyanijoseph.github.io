@@ -299,7 +299,7 @@ def main():
     digest_html = build_digest_html(rss, reddit, youtube, weather, newsletters)
     digest_typst = build_digest_typst(rss, reddit, youtube, weather, newsletters)
 
-    typst_path = os.path.join(os.path.dirname(__file__), "digest.typ")
+    typst_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "digest.typ")
     with open(typst_path, "w") as f:
         f.write(digest_typst)
     print(f"Wrote {typst_path}")
