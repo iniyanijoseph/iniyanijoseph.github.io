@@ -8,7 +8,7 @@ Nearly everyone wants to be more productive. There is a huge amount of advice, #
 
 I think it is important why we aim to be productive. After all, with infinite time and no deadlines, productivity stops being important. But in reality, my personal philosophy is to use productivity as a tool to create free time for health, activities, and people you care about while still achieving your goals. To this end, explicitly or implicitly recognizing the things important to you can be productive. Being fast at responding to emails frees up more time for research. Being a productive researcher frees up time for friends and family. When thinking of how to be productive, I try to answer a few different questions, and follow a few principles.
 
-== Guiding questions
+== Guiding questions and advices
 
 === Consolidate recurring effort into one-time effort
 
