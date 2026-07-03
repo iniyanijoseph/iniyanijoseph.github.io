@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  actions: write
 
 jobs:
   digest:
@@ -35,7 +34,3 @@ jobs:
           git add digest.typ
           git diff --quiet --cached || git commit -m "Update digest.typ"
           git push
-
-      - run: gh workflow run build.yml
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

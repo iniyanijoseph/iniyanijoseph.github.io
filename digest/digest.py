@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""Weekly digest: RSS + r/purdue + YouTube subs + weather -> one email.
-Separate email: new newsletters from IMAP inbox.
+"""Weekly digest: RSS + r/purdue + YouTube subs + weather + newsletters -> one email.
 Runs via GitHub Actions cron. No state file - filters by 'published in last 7 days'.
 """
 import os
@@ -120,12 +119,12 @@ def get_newsletter_items():
         for e in feed.entries:
             dt = entry_dt(e)
             if dt and dt >= SINCE:
-                items.append((e.get("title", "untitled"), e.get("link", "")))
+                items.append((e.get("title", "untitled"), e.get("link", ""), entry_thumbnail(e)))
         sections.append((title, items))
     return sections
 
 
-def build_digest_html(rss, reddit, youtube, weather):
+def build_digest_html(rss, reddit, youtube, weather, newsletters):
     loc, forecast = weather
     html = ["<html><body style='font-family:sans-serif'>"]
     html.append(f"<h1>Weekly Digest — {datetime.now().strftime('%B %d, %Y')}</h1>")
@@ -162,6 +161,15 @@ def build_digest_html(rss, reddit, youtube, weather):
     if not rss:
         html.append("<p>No new items this week</p>")
 
+    html.append("<h2>Newsletters</h2>")
+    for feed_title, items in newsletters:
+        html.append(f"<h3>{feed_title}</h3><ul>")
+        for title, link, _thumb in items:
+            html.append(f"<li><a href='{link}'>{title}</a></li>")
+        if not items:
+            html.append("<li>No new issues this week</li>")
+        html.append("</ul>")
+
     html.append("</body></html>")
     return "\n".join(html)
 
@@ -180,7 +188,7 @@ def typst_item(title, link, thumbnail, kind):
     return f"- #{fn}(\"{link}\", \"{thumbnail}\", \"{t}\")"
 
 
-def build_digest_typst(rss, reddit, youtube, weather):
+def build_digest_typst(rss, reddit, youtube, weather, newsletters):
     loc, forecast = weather
     lines = []
 
@@ -220,21 +228,16 @@ def build_digest_typst(rss, reddit, youtube, weather):
     else:
         lines.append("No new items this week")
 
-    return "\n\n".join(lines) + "\n"
-
-
-def build_newsletter_html(newsletters):
-    html = ["<html><body style='font-family:sans-serif'>"]
-    html.append(f"<h1>Newsletters — {datetime.now().strftime('%B %d, %Y')}</h1>")
+    lines.append("== Newsletters")
     for feed_title, items in newsletters:
-        html.append(f"<h3>{feed_title}</h3><ul>")
-        for title, link in items:
-            html.append(f"<li><a href='{link}'>{title}</a></li>")
-        if not items:
-            html.append("<li>No new issues this week</li>")
-        html.append("</ul>")
-    html.append("</body></html>")
-    return "\n".join(html)
+        lines.append(f"=== {typst_escape(feed_title)}")
+        if items:
+            for title, link, thumb in items:
+                lines.append(typst_item(title, link, thumb, "image"))
+        else:
+            lines.append("- No new issues this week")
+
+    return "\n\n".join(lines) + "\n"
 
 
 def send_email(subject, html):
@@ -258,18 +261,16 @@ def main():
     reddit = get_reddit_items()
     youtube = get_youtube_items()
     weather = get_weather()
-    digest_html = build_digest_html(rss, reddit, youtube, weather)
-    digest_typst = build_digest_typst(rss, reddit, youtube, weather)
+    newsletters = get_newsletter_items()
+
+    digest_html = build_digest_html(rss, reddit, youtube, weather, newsletters)
+    digest_typst = build_digest_typst(rss, reddit, youtube, weather, newsletters)
 
     typst_path = os.path.join(os.path.dirname(__file__), "digest.typ")
     with open(typst_path, "w") as f:
         f.write(digest_typst)
 
     send_email(f"Weekly Digest — {datetime.now().strftime('%b %d, %Y')}", digest_html)
-
-    newsletters = get_newsletter_items()
-    newsletter_html = build_newsletter_html(newsletters)
-    send_email(f"Newsletters — {datetime.now().strftime('%b %d, %Y')}", newsletter_html)
 
 
 if __name__ == "__main__":
