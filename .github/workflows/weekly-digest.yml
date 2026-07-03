@@ -1,0 +1,26 @@
+name: Weekly Digest
+
+on:
+  schedule:
+    - cron: "0 13 * * MON"  # Monday 8am America/Chicago (13:00 UTC, adjust for DST)
+  workflow_dispatch: {}
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+        working-directory: digest
+
+      - run: python digest.py
+        working-directory: digest
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}

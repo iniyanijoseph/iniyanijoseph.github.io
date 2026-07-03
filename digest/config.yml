@@ -1,0 +1,50 @@
+rss_feeds:
+  - https://xkcd.com/rss.xml # XKCD
+  - https://matt.might.net/articles/feed.rss # Matt Might
+  - https://iniyanjoseph.com/blog/feed.xml # My Blog
+
+newsletters:
+  - https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba.xml # Tangle News
+  - https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8.xml # Now I Know - Dan Lewis
+  - https://kill-the-newsletter.com/feeds/0syuzm0uu2yx0o38v8i6.xml # Sandwiches of History
+  - https://kill-the-newsletter.com/feeds/bmkn1tey7lg9jgc4xbb0.xml # VeMail
+  - https://kill-the-newsletter.com/feeds/dzze23ubhfsr1qvdgrpx.xml # FCNL
+
+reddit:
+  subreddits:
+    - purdue
+
+youtube:
+  channel_ids:
+    - UCQBQeWDycPczq1zril7hHHg  # Polylog
+    - UCy0tKL1T7wFoYcxCe0xjN6Q  # Technology Connections
+    - UCj1VqrHhDte54oLgPG4xpuQ  # Stuff Made Here
+    - UCFhXFikryT4aFcLkLw2LBLA  # NileRed
+    - UCBrC-rXudnuQuh3G5V5WNMg  # Sandwiches of History
+    - UCzJ-RZqsYAkBj5Z_londxrA  # In The Chips
+    - UCJHA_jMfCvEnv-3kRjTCQXw  # Binging with Babish
+    - UC4avs5jYd_FvzQ8f0XYziqw  # Beyond Babish
+    - UCOhzOImpPwT1klYmttywq3w  # Dylan Huynh
+    - UCDq5v10l4wkV5-ZBIJJFbzQ  # Ethan Chlebowski
+    - UC564S9buRhcOq0Lhxh5UGSQ  # Beard's Flavour Of The Month
+    - UCc9CjaAjsMMvaSghZB7-Kog  # BeardMeatsFood
+    - UCsaGKqPZnGp_7N80hcHySGQ  # Tasting History with Max Miller
+    - UCS5YtyTzVJo_N-vjub8te3g  # Heliocentric
+    - UCXLAlx4YZCKKH479VJU_gVg  # Quaker Videos
+    - UCL14t3D_hreM5WnorC3VJ5g  # What On Earth Is This?
+    - UCBa659QWEk1AI4Tg--mrJ2A  # Tom Scott
+    - UCgNg3vwj3xt7QOrcIDaHdFg  # PolyMatter
+    - UCYAm24PkejQR2xMgJgn7xwg  # Stewart Hicks
+    - UC1DTYW241WD64ah5BFWn4JA  # Sam O'Nella Academy
+    - UCNIuvl7V8zACPpTmmNIqP2A  # OverSimplified
+    - UC-2YHgc363EdcusLIBbgxzg  # Joe Scott
+    - UCqVEHtQoXHmUCfJ-9smpTSg  # Answer in Progress
+    - UCbxQcz9k0NRRuy0ukgQTDQQ  # AustinMcConnell
+    - UC-4-Itv3ved9ZWkSso9VE8A  # Renzy
+    - UCHJuQZuzapBh-CuhRYxIZrg  # Insider (How Crime Works)
+    - UCIRiWCPZoUyZDbydIqitHtQ  # Mike Boyd
+
+weather:
+  location_name: West Lafayette, IN
+  lat: 40.4259
+  lon: -86.9081
