@@ -31,13 +31,14 @@ jobs:
 
       - run: |
           ls -la
-          if [ -f digest.typ ]; then
+          if [ -f index.typ ]; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add digest.typ
-            git diff --quiet --cached || git commit -m "Update digest.typ"
+            git add index.typ
+            git diff --quiet --cached || git commit -m "Update index.typ"
             git push
           else
-            echo "digest.typ not found, skipping commit"
+            echo "index.typ not found, skipping commit"
             exit 1
           fi
+        working-directory: digest

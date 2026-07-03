@@ -207,13 +207,8 @@ def typst_escape(s):
     return "".join("\\" + c if c in special else c for c in s)
 
 
-def typst_item(title, link, thumbnail, kind):
-    """kind is 'video' or 'image'. Falls back to a plain link if no thumbnail."""
-    t = typst_escape(title)
-    if not thumbnail:
-        return f"- #link(\"{link}\")[{t}]"
-    fn = "linked-video" if kind == "video" else "linked-image"
-    return f"- #{fn}(\"{link}\", \"{thumbnail}\", \"{t}\")"
+def typst_item(title, link):
+    return f"- #link(\"{link}\")[{typst_escape(title)}]"
 
 
 def build_digest_typst(rss, reddit, youtube, weather, newsletters):
@@ -234,7 +229,7 @@ def build_digest_typst(rss, reddit, youtube, weather, newsletters):
         lines.append(f"=== r/{typst_escape(sub)}")
         if items:
             for title, link, thumb in items:
-                lines.append(typst_item(title, link, thumb, "image"))
+                lines.append(typst_item(title, link))
         else:
             lines.append("- No new posts this week")
 
@@ -243,7 +238,7 @@ def build_digest_typst(rss, reddit, youtube, weather, newsletters):
         for feed_title, items in youtube:
             lines.append(f"=== {typst_escape(feed_title)}")
             for title, link, thumb in items:
-                lines.append(typst_item(title, link, thumb, "video"))
+                lines.append(typst_item(title, link))
     else:
         lines.append("No new videos this week")
 
@@ -252,7 +247,7 @@ def build_digest_typst(rss, reddit, youtube, weather, newsletters):
         for feed_title, items in rss:
             lines.append(f"=== {typst_escape(feed_title)}")
             for title, link, thumb in items:
-                lines.append(typst_item(title, link, thumb, "image"))
+                lines.append(typst_item(title, link))
     else:
         lines.append("No new items this week")
 
@@ -261,7 +256,7 @@ def build_digest_typst(rss, reddit, youtube, weather, newsletters):
         lines.append(f"=== {typst_escape(feed_title)}")
         if items:
             for title, link, thumb in items:
-                lines.append(typst_item(title, link, thumb, "image"))
+                lines.append(typst_item(title, link))
         else:
             lines.append("- No new issues this week")
 
@@ -299,7 +294,7 @@ def main():
     digest_html = build_digest_html(rss, reddit, youtube, weather, newsletters)
     digest_typst = build_digest_typst(rss, reddit, youtube, weather, newsletters)
 
-    typst_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "digest.typ")
+    typst_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "index.typ")
     with open(typst_path, "w") as f:
         f.write(digest_typst)
     print(f"Wrote {typst_path}")
