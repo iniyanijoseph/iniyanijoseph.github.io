@@ -6,19 +6,19 @@
 
 == Weather --- West Lafayette, IN
 
-- 2026-07-02: Mostly clear, 73-93F, 3% precip
+- 2026-07-03: Mostly clear, 74-94F, 16% precip
 
-- 2026-07-03: Thunderstorm, 76-94F, 20% precip
+- 2026-07-04: Rain, 72-90F, 35% precip
 
-- 2026-07-04: Thunderstorm, 74-92F, 61% precip
+- 2026-07-05: code 55, 69-85F, 60% precip
 
-- 2026-07-05: code 96, 71-85F, 49% precip
+- 2026-07-06: Overcast, 64-82F, 22% precip
 
-- 2026-07-06: Light drizzle, 62-79F, 27% precip
+- 2026-07-07: Overcast, 60-78F, 15% precip
 
-- 2026-07-07: Overcast, 58-78F, 15% precip
+- 2026-07-08: Clear, 67-85F, 8% precip
 
-- 2026-07-08: Partly cloudy, 65-83F, 9% precip
+- 2026-07-09: Thunderstorm, 69-82F, 28% precip
 
 == Reddit
 
@@ -26,11 +26,31 @@
 
 - #link("https://www.reddit.com/r/Purdue/comments/1ullnl4/official_purdue_deluxe_calculator/")[official purdue deluxe calculator]
 
+- #link("https://www.reddit.com/r/Purdue/comments/1um4l5h/windows_vs_mac_for_meche/")[Windows vs Mac for MechE]
+
 - #link("https://www.reddit.com/r/Purdue/comments/1um17wc/polish_culture/")[Polish culture?]
+
+- #link("https://www.reddit.com/r/Purdue/comments/1um5r38/anyone_else_in_rise_dealing_with_bad_ac/")[Anyone else in Rise dealing with bad AC?]
+
+- #link("https://www.reddit.com/r/Purdue/comments/1um5gf6/52_days_until_im_back_in_my_own_personal_hell_ama/")[52 days until I’m back in my own personal hell, AMA]
 
 - #link("https://www.reddit.com/r/Purdue/comments/1ulrshe/retaking_math_class/")[retaking math class]
 
+- #link("https://www.reddit.com/r/Purdue/comments/1um4c0h/aspire_extra_slot/")[Aspire extra slot]
+
 - #link("https://www.reddit.com/r/Purdue/comments/1um0ptg/stat_35000/")[Stat 35000]
+
+- #link("https://www.reddit.com/r/Purdue/comments/1ulzjzg/summer_phys_241_study_group/")[Summer PHYS 241 study group?]
+
+- #link("https://www.reddit.com/r/Purdue/comments/1ul278l/please_help/")[PLEASE HELP]
+
+- #link("https://www.reddit.com/r/Purdue/comments/1ulz06v/com_114_test_out_study_materials/")[com 114 test out study materials]
+
+- #link("https://www.reddit.com/r/Purdue/comments/1um31xa/ap_calc_bc_credit/")[ap calc bc credit]
+
+- #link("https://www.reddit.com/r/Purdue/comments/1ul2472/my_assigned_roommate_for_next_year_is_someone_ive/")[My assigned roommate for next year is someone I've been trying to cut off for months. How do I get a room switch?]
+
+- #link("https://www.reddit.com/r/Purdue/comments/1ulvo6m/questions_about_aet_at_polytechnic_institute/")[Questions about AET at Polytechnic Institute]
 
 - #link("https://www.reddit.com/r/Purdue/comments/1um0nn2/looking_for_a_place_to_temporarily_stay_from_july/")[Looking for a place to temporarily stay from July 20 to August.]
 
@@ -38,39 +58,19 @@
 
 - #link("https://www.reddit.com/r/Purdue/comments/1ulzook/brightspace_courses_incoming_freshman/")[Brightspace courses (incoming freshman)]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ulzjzg/summer_phys_241_study_group/")[Summer PHYS 241 study group?]
-
-- #link("https://www.reddit.com/r/Purdue/comments/1ulz06v/com_114_test_out_study_materials/")[com 114 test out study materials]
-
-- #link("https://www.reddit.com/r/Purdue/comments/1ul278l/please_help/")[PLEASE HELP]
-
 - #link("https://www.reddit.com/r/Purdue/comments/1ulxg9r/powercut/")[Powercut?]
-
-- #link("https://www.reddit.com/r/Purdue/comments/1ul2472/my_assigned_roommate_for_next_year_is_someone_ive/")[My assigned roommate for next year is someone I've been trying to cut off for months. How do I get a room switch?]
-
-- #link("https://www.reddit.com/r/Purdue/comments/1ulvo6m/questions_about_aet_at_polytechnic_institute/")[Questions about AET at Polytechnic Institute]
 
 - #link("https://www.reddit.com/r/Purdue/comments/1ulprw9/reference_normal_workload_for_cs/")[reference: normal workload for cs]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ult0nl/ap_scores_released_sorta/")[AP Scores Released (sorta)]
-
 - #link("https://www.reddit.com/r/Purdue/comments/1ulroxh/ap_scores_early/")[AP SCORES EARLY]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ulgx0g/housing_switch/")[Housing switch]
+- #link("https://www.reddit.com/r/Purdue/comments/1ult0nl/ap_scores_released_sorta/")[AP Scores Released (sorta)]
 
 - #link("https://www.reddit.com/r/Purdue/comments/1ulgoch/thoughts_suggestions/")[Thoughts + Suggestions ?]
-
-- #link("https://www.reddit.com/r/Purdue/comments/1ukp3k8/when_you_start_a_four_week_long_project_five/")[When you start a four week long project five hours before it's due]
 
 - #link("https://www.reddit.com/r/Purdue/comments/1ul6lrd/com_217_worth_it/")[COM 217 worth it?]
 
 - #link("https://www.reddit.com/r/Purdue/comments/1ulgzty/ap_scores_are_out_early/")[ap scores are out early]
-
-- #link("https://www.reddit.com/r/Purdue/comments/1ulnd15/have_ap_scores_been_sent_to_purdue_from_2026/")[have ap scores been sent to Purdue from 2026?]
-
-- #link("https://www.reddit.com/r/Purdue/comments/1uktwck/questions_about_flying_from_purdue_airport_laf_to/")[Questions about flying from Purdue Airport (LAF) to Chicago O’Hare and then to Canada]
-
-- #link("https://www.reddit.com/r/Purdue/comments/1ul1h1h/easiest_english_course_for_fye/")[Easiest English Course for FYE]
 
 == YouTube Subscriptions
 
@@ -118,13 +118,17 @@
 
 === Tasting History with Max Miller
 
-- #link("https://www.youtube.com/watch?v=NsxtQpczK10")[Tasting Victory: The 20 Best Tasting History Recipes]
+- #link("https://www.youtube.com/shorts/nG9kF_11wpw")[Apricot Dumplings for the Austrian Emperor]
 
-- #link("https://www.youtube.com/shorts/KT9x6jPUNTw")[Why John Adams Hated the 4th of July]
+- #link("https://www.youtube.com/watch?v=NsxtQpczK10")[Tasting Victory: The 20 Best Tasting History Recipes]
 
 === Tom Scott
 
 - #link("https://www.youtube.com/watch?v=hCZwH5CSlEY")[I got hit in the teeth at England's oldest ritual]
+
+=== PolyMatter
+
+- #link("https://www.youtube.com/watch?v=Jz5L3X453Jw")[How America’s 4,488 Banks Work]
 
 === Joe Scott
 
@@ -146,8 +150,6 @@
 
 - #link("https://xkcd.com/3265/")[Asteroid Threat]
 
-- #link("https://xkcd.com/3264/")[720 Ollie]
-
 === My Blog
 
 - #link("https://iniyanjoseph.com/blog/productivity")[Productivity Tips]
@@ -164,13 +166,15 @@
 
 - #link("https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8/entries/eta1fk7r2gmo9oq6y7gy.html")[Confirm your Now I Know subscription]
 
-=== https://kill-the-newsletter.com/feeds/0syuzm0uu2yx0o38v8i6.xml
+=== Sandwiches of History
 
-- No new issues this week
+- #link("https://kill-the-newsletter.com/feeds/0syuzm0uu2yx0o38v8i6/entries/ph4wxhl0agcxwlh2clut.html")[🔑 Secure sign in link for Sandwiches of History]
 
-=== https://kill-the-newsletter.com/feeds/bmkn1tey7lg9jgc4xbb0.xml
+- #link("https://kill-the-newsletter.com/feeds/0syuzm0uu2yx0o38v8i6/entries/um6jdlkdrrvg4p7g53fa.html")[📫 Confirm your email update for Sandwiches of History!]
 
-- No new issues this week
+=== VeMail
+
+- #link("https://kill-the-newsletter.com/feeds/bmkn1tey7lg9jgc4xbb0/entries/caofx3nm6u9qx5x214rw.html")[Important: confirm your subscription]
 
 === https://kill-the-newsletter.com/feeds/dzze23ubhfsr1qvdgrpx.xml
 
