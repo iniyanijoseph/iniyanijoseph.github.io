@@ -95,7 +95,7 @@
 - #strike[Farmer's Cheese]
 - Frittata
 - Focaccia
-- Horiatiki
+- #strike[Horiatiki]
 - Avoglemono
 - Spanakopita
 - Portokalopita
@@ -143,6 +143,7 @@
 - CCCP Market
 - Handel's Ice Cream
 - #strike[Manoli's]
+- Shake Shack Mushroom Burger
 - Silver Dipper
 - Knight Spot
 - West Side Scoops
