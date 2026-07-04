@@ -14,6 +14,8 @@
 
 == Lafayette
 - Samara House
+- Colombian Park zoo
+- Haan Museum
 
 == Books
 - Madame Bovary
