@@ -51,7 +51,6 @@
           html.link(rel: "stylesheet", href: root + "src/assets/tufted.css")
           html.link(rel: "stylesheet", href: root + "src/assets/custom.css")
 
-          html.elem("script")[#gtag-js]
         })
 
         html.body({
