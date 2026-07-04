@@ -69,6 +69,10 @@
 - Fiddler on the Roof
 - Porgy and Bess
 
+== TV
+- The Sopranos
+- Arcane
+
 == Food to Cook
 - #link("https://www.youtube.com/watch?v==YMZwS7-roRs")[Mars Bar and Apple Sandwich]
 - #link("https://en.wikipedia.org/wiki/Marzipan")[Marzipan]
@@ -121,6 +125,10 @@
 - Lemon Cake
 - Level 10 Chocolate Chip Cookie
 - Meet Fresh
+- Lemonade
+- Candied Citrus Peels
+- Golden Berries
+- Yuzu
 
 == Music to Listen To
 - Porgy and Bess
@@ -140,7 +148,7 @@
 - P-Terry
 - #strike[Burger King]
 - Chico's Tacos
-- CCCP Market
+- #strike[CCCP Market]
 - Handel's Ice Cream
 - #strike[Manoli's]
 - Shake Shack Mushroom Burger
