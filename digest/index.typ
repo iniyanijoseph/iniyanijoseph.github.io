@@ -2,79 +2,85 @@
 
 #show: template.with(title: "Digest - " + datetime.today().display(), root: "../")
 
-= Weekly Digest --- July 03, 2026
+= Weekly Digest --- July 05, 2026
 
 == Weather --- West Lafayette, IN
 
-- 2026-07-03: Mostly clear, 74-94F, 16% precip
+- 2026-07-05: Rain, 70-80F, 23% precip
 
-- 2026-07-04: Rain, 72-90F, 35% precip
+- 2026-07-06: Overcast, 69-81F, 19% precip
 
-- 2026-07-05: code 55, 69-85F, 60% precip
+- 2026-07-07: Overcast, 66-81F, 3% precip
 
-- 2026-07-06: Overcast, 64-82F, 22% precip
+- 2026-07-08: Clear, 65-84F, 4% precip
 
-- 2026-07-07: Overcast, 60-78F, 15% precip
+- 2026-07-09: Thunderstorm, 67-84F, 58% precip
 
-- 2026-07-08: Clear, 67-85F, 8% precip
+- 2026-07-10: code 81, 68-82F, 58% precip
 
-- 2026-07-09: Thunderstorm, 69-82F, 28% precip
+- 2026-07-11: code 96, 68-82F, 27% precip
 
 == Reddit
 
 === r/purdue
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ullnl4/official_purdue_deluxe_calculator/")[official purdue deluxe calculator]
+- #link("https://www.reddit.com/r/Purdue/comments/1uo7wfb/best_days_to_book_holiday_travel_home_to_nj/")[Best days to book holiday travel home to NJ? (Thanksgiving & Winter Break)]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1um4l5h/windows_vs_mac_for_meche/")[Windows vs Mac for MechE]
+- #link("https://www.reddit.com/r/Purdue/comments/1uo9mvf/ece_301_exam_1/")[ECE 301 Exam 1]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1um17wc/polish_culture/")[Polish culture?]
+- #link("https://www.reddit.com/r/Purdue/comments/1unrveb/order_of_engineer_ceremony_for_those_who_dont_know/")[Order of Engineer Ceremony for those who don't know]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1um5r38/anyone_else_in_rise_dealing_with_bad_ac/")[Anyone else in Rise dealing with bad AC?]
+- #link("https://www.reddit.com/r/Purdue/comments/1unmiic/what_will_happen_if_i_do_not_disclose_im_trans/")[What will happen if I do not disclose I'm trans over time]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1um5gf6/52_days_until_im_back_in_my_own_personal_hell_ama/")[52 days until I’m back in my own personal hell, AMA]
+- #link("https://www.reddit.com/r/Purdue/comments/1uo1dm6/photos_of_3rd_wests_4bed_4bath/")[Photos of 3rd & West’s 4Bed 4Bath?]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ulrshe/retaking_math_class/")[retaking math class]
+- #link("https://www.reddit.com/r/Purdue/comments/1unm8wt/question_about_roommates/")[Question about Roommates]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1um4c0h/aspire_extra_slot/")[Aspire extra slot]
+- #link("https://www.reddit.com/r/Purdue/comments/1unq1ai/traveling_home_for_fall_break_vs_family_weekend/")[Traveling home for Fall Break vs. Family Weekend (FYE freshman question) 2026]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1um0ptg/stat_35000/")[Stat 35000]
+- #link("https://www.reddit.com/r/Purdue/comments/1untjvn/chair_for_under_bed/")[chair for under bed?]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ulzjzg/summer_phys_241_study_group/")[Summer PHYS 241 study group?]
+- #link("https://www.reddit.com/r/Purdue/comments/1unns7a/i_have_not_heard_back_for_fasfa/")[I have not heard back for FASFA]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ul278l/please_help/")[PLEASE HELP]
+- #link("https://www.reddit.com/r/Purdue/comments/1umw9rs/rise_is_terrible/")[Rise is terrible]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ulz06v/com_114_test_out_study_materials/")[com 114 test out study materials]
+- #link("https://www.reddit.com/r/Purdue/comments/1umuejb/my_fart_today_had_significant_frequency_content/")[My fart today had significant frequency content around 214 hertz]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1um31xa/ap_calc_bc_credit/")[ap calc bc credit]
+- #link("https://www.reddit.com/r/Purdue/comments/1unlwqa/chemistry_summer_academic_resources/")[Chemistry Summer Academic Resources]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ul2472/my_assigned_roommate_for_next_year_is_someone_ive/")[My assigned roommate for next year is someone I've been trying to cut off for months. How do I get a room switch?]
+- #link("https://www.reddit.com/r/Purdue/comments/1unl4e9/advice_from_students_who_got_an_a_in_cnit/")[Advice from students who got an A in CNIT]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ulvo6m/questions_about_aet_at_polytechnic_institute/")[Questions about AET at Polytechnic Institute]
+- #link("https://www.reddit.com/r/Purdue/comments/1undmrk/where_to_see_credit_applied_to_masters_degree/")[Where to see credit applied to masters degree]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1um0nn2/looking_for_a_place_to_temporarily_stay_from_july/")[Looking for a place to temporarily stay from July 20 to August.]
+- #link("https://www.reddit.com/r/Purdue/comments/1uncoif/summer_prep/")[Summer Prep]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ulzryg/fall_2026_spring_2027_housing_available/")[Fall 2026 - Spring 2027 Housing Available]
+- #link("https://www.reddit.com/r/Purdue/comments/1unmbt1/ap_purdue_scores_not_out/")[AP Purdue scores not out…]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ulzook/brightspace_courses_incoming_freshman/")[Brightspace courses (incoming freshman)]
+- #link("https://www.reddit.com/r/Purdue/comments/1unbyxn/clubs/")[clubs]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ulxg9r/powercut/")[Powercut?]
+- #link("https://www.reddit.com/r/Purdue/comments/1un2hdt/purdue_cheme_without_ib_physics/")[purdue chemE without ib physics]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ulprw9/reference_normal_workload_for_cs/")[reference: normal workload for cs]
+- #link("https://www.reddit.com/r/Purdue/comments/1un184s/advice_for_phys_272_exam/")[advice for phys 272 exam]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ulroxh/ap_scores_early/")[AP SCORES EARLY]
+- #link("https://www.reddit.com/r/Purdue/comments/1umi4sq/keys_and_airpods_near_grant_street_station/")[Keys and AirPods near Grant Street Station]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ult0nl/ap_scores_released_sorta/")[AP Scores Released (sorta)]
+- #link("https://www.reddit.com/r/Purdue/comments/1umvxue/anyone_else_taking_phys241_this_summer/")[Anyone else taking PHYS241 This summer]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ulgoch/thoughts_suggestions/")[Thoughts + Suggestions ?]
+- #link("https://www.reddit.com/r/Purdue/comments/1umul19/phys_241/")[Phys 241]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ul6lrd/com_217_worth_it/")[COM 217 worth it?]
+- #link("https://www.reddit.com/r/Purdue/comments/1umorws/what_are_the_math_resource_rooms_like/")[what are the math resource rooms like?]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ulgzty/ap_scores_are_out_early/")[ap scores are out early]
+- #link("https://www.reddit.com/r/Purdue/comments/1un1qts/fye_schedule_help/")[FYE Schedule Help]
 
 == YouTube Subscriptions
 
 === Sandwiches of History
+
+- #link("https://www.youtube.com/watch?v=klRPwTLP91E")[Kudu Style Chicken Sandwich (Arabic Cuisine) on Sandwiches of History]
+
+- #link("https://www.youtube.com/watch?v=S9kvq_21U9c")[Darryl’s Dad’s Sandwich (our history) on Sandwiches of History⁣]
+
+- #link("https://www.youtube.com/watch?v=M-JbNuu4ykM")[Flag Sandwich Number 2 (1936) on Sandwiches of History⁣]
 
 - #link("https://www.youtube.com/watch?v=O3TOdBp1VOk")[Olive and Anchovy Sandwich (1943) on Sandwiches of History⁣]
 
@@ -84,39 +90,35 @@
 
 - #link("https://www.youtube.com/watch?v=En5-6eTCUzo")[Cabbage & Bacon Sandwich (1925) on Sandwiches of History⁣]
 
-- #link("https://www.youtube.com/watch?v=ajOZ23WEj30")[Toasted Shrimp Box (Taiwan) on Sandwiches of History⁣]
-
-- #link("https://www.youtube.com/watch?v=Z7RqKN8OmBo")[Sage’s Sandwich (our history) on Sandwiches of History⁣]
-
-- #link("https://www.youtube.com/watch?v=ZsIiosWAMPY")[Dagwood (1957) on Sandwiches of History]
-
 === In The Chips
+
+- #link("https://www.youtube.com/watch?v=CMZrjIEXkP4")[🥪 Can It Sandwich? on In The Chips with Barry July 4, 2026]
+
+- #link("https://www.youtube.com/watch?v=4_6QAxsT9-4")[🇺🇸 Local Style Chicago Hot Dog Potato Chips on In The Chips with Barry]
 
 - #link("https://www.youtube.com/watch?v=Opas6LbK_Gg")[🇺🇸 Local Style Hot Giard Potato Chips on In The Chips with Barry]
 
 - #link("https://www.youtube.com/watch?v=-cIwrv2r-Jk")[🇺🇸 Local Style Deep Dish Pizza Potato Chips on In The Chips with Barry]
 
-- #link("https://www.youtube.com/watch?v=JPd7Z-nwW34")[🇺🇦 Lay’s Ukraine Mushroom & Sour Cream Potato Chips on In The Chips with Barry]
-
 === Binging with Babish
+
+- #link("https://www.youtube.com/shorts/pja_69-3ty8")[How to make the chicken fingers from Community]
 
 - #link("https://www.youtube.com/shorts/IYFrak_g_V4")[Deadpool-style chimichangas!]
 
 - #link("https://www.youtube.com/shorts/BvLlEz7uDFc")[How to make the best nachos!]
 
-- #link("https://www.youtube.com/watch?v=6wxIGsk1BFM")[Brazil's Most Popular Street Food | With Babish]
+=== Beyond Babish
 
-- #link("https://www.youtube.com/shorts/icWyJlVlg9c")[You need to try this loaded baked potato lasagna!]
-
-=== Dylan Huynh
-
-- #link("https://www.youtube.com/watch?v=PiqW2gS1PEg")[I Tried "Hole In The Wall" Restaurants]
+- #link("https://www.youtube.com/watch?v=lCvoe9J3rEg")[Ranking EVERY Hot Pocket]
 
 === BeardMeatsFood
 
-- #link("https://www.youtube.com/watch?v=Bhq-_tXQtJQ")[THIS HUGE MEDIEVAL BANQUET CHALLENGE HAS NEVER BEEN BEATEN SOLO! | BeardMeatsFood]
+- #link("https://www.youtube.com/watch?v=W0jm07x9hRE")[I ORDERED THE BIGGEST BURGER IN THE CZECH REPUBLIC...THE TIME TO BEAT IS 12 MINUTES | BeardMeatsFood]
 
 === Tasting History with Max Miller
+
+- #link("https://www.youtube.com/shorts/T5b49-Ymf6E")[The Bun that made 18th century London go crazy]
 
 - #link("https://www.youtube.com/shorts/nG9kF_11wpw")[Apricot Dumplings for the Austrian Emperor]
 
@@ -134,10 +136,6 @@
 
 - #link("https://www.youtube.com/watch?v=mVynCey4xXc")[Are We Due For Another One? | Lightning Round]
 
-- #link("https://www.youtube.com/shorts/BzadduLdNj8")[Astronauts Aren’t Floating - They’re Falling]
-
-- #link("https://www.youtube.com/shorts/qrUl0wpPTpM")[You Don’t Feel “Cold”]
-
 === Answer in Progress
 
 - #link("https://www.youtube.com/shorts/VaCVTOTN39I")[is there too much tv?]
@@ -145,6 +143,8 @@
 == RSS Feeds
 
 === xkcd.com
+
+- #link("https://xkcd.com/3267/")[Types of Tornado Alert]
 
 - #link("https://xkcd.com/3266/")[Holes]
 
@@ -156,9 +156,17 @@
 
 == Newsletters
 
-=== https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba.xml
+=== Tangle
 
-- No new issues this week
+- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/9walatstoza59fiwn2mk.html")[The Sunday — July 5]
+
+- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/lxasp58xzksonzy86lq1.html")[What I'll be celebrating this weekend.]
+
+- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/ywzh9pzisu5z64g975nu.html")[Welcome to Tangle! Please read me :)]
+
+- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/fhso6a1xf9wk3iin6itw.html")[🙌 Complete your sign up to Tangle!]
+
+- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/w25k6nl9omb5x3g99shc.html")[🙌 Complete your sign up to Tangle!]
 
 === Now I Know - Dan Lewis
 
@@ -176,6 +184,6 @@
 
 - #link("https://kill-the-newsletter.com/feeds/bmkn1tey7lg9jgc4xbb0/entries/caofx3nm6u9qx5x214rw.html")[Important: confirm your subscription]
 
-=== https://kill-the-newsletter.com/feeds/dzze23ubhfsr1qvdgrpx.xml
+=== FCNL
 
-- No new issues this week
+- #link("https://kill-the-newsletter.com/feeds/dzze23ubhfsr1qvdgrpx/entries/bjeslg9odc0yje3bhyi8.html")[Welcome to FCNL!]
