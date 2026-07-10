@@ -16,6 +16,7 @@
 - Samara House
 - Colombian Park zoo
 - Haan Museum
+- Fort Ouiatenon
 
 == Books
 - Madame Bovary
