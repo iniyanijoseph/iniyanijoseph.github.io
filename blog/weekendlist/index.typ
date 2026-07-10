@@ -17,6 +17,7 @@
 - Colombian Park zoo
 - Haan Museum
 - Fort Ouiatenon
+- Morris Schoolhouse
 
 == Books
 - Madame Bovary
