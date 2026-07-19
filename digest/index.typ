@@ -2,210 +2,230 @@
 
 #show: template.with(title: "Digest - " + datetime.today().display(), root: "../")
 
-= Weekly Digest --- July 12, 2026
+= Weekly Digest --- July 19, 2026
 
 == Weather --- West Lafayette, IN
 
-- 2026-07-12: Clear, 65-86F, 0% precip
+- 2026-07-19: Overcast, 64-82F, 0% precip
 
-- 2026-07-13: Clear, 64-89F, 0% precip
+- 2026-07-20: Overcast, 63-87F, 3% precip
 
-- 2026-07-14: Clear, 67-87F, 0% precip
+- 2026-07-21: code 82, 64-83F, 61% precip
 
-- 2026-07-15: Overcast, 73-89F, 1% precip
+- 2026-07-22: Light drizzle, 52-72F, 4% precip
 
-- 2026-07-16: Thunderstorm, 68-89F, 5% precip
+- 2026-07-23: Overcast, 53-74F, 1% precip
 
-- 2026-07-17: Overcast, 61-80F, 9% precip
+- 2026-07-24: Overcast, 58-69F, 5% precip
 
-- 2026-07-18: Overcast, 63-82F, 15% precip
+- 2026-07-25: Partly cloudy, 58-80F, 7% precip
 
 == Reddit
 
 === r/purdue
 
-- #link("https://www.reddit.com/r/Purdue/comments/1uupx3z/advice_for_maintaining_healthy_weight_while_at/")[Advice for maintaining healthy weight while at Purdue]
+- #link("https://www.reddit.com/r/Purdue/comments/1v0vjl9/gnorts_mr_alien/")[“Gnorts, Mr. Alien!”]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1uuiy4a/thoughts_on_purdue_theatre_degrees/")[Thoughts on Purdue theatre degrees]
+- #link("https://www.reddit.com/r/Purdue/comments/1v0y88b/campus_last_night/")[Campus last night]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1uu91ia/cactus_wabash_landing_emergency/")[Cactus / Wabash Landing Emergency]
+- #link("https://www.reddit.com/r/Purdue/comments/1v0hz4c/gym_that_is_not_the_corec/")[Gym that is not the co-rec]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1uu0ow9/please_help_explain_my_final_exam_instructions/")[Please help explain my final exam instructions]
+- #link("https://www.reddit.com/r/Purdue/comments/1v0idnb/big_league_bar_horrible/")[Big League Bar HORRIBLE]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1uu8wxl/ride_to_michigan_detroit/")[Ride to Michigan - Detroit]
+- #link("https://www.reddit.com/r/Purdue/comments/1v0lo1b/purdue_fees_payment_option/")[Purdue Fees Payment Option]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1uudkwb/air_purifier_necessary/")[Air purifier necessary?]
+- #link("https://www.reddit.com/r/Purdue/comments/1v0bq6l/when_do_residence_hall_parking_passes_go_on_sale/")[When do residence hall parking passes go on sale?]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1utzcvt/switching_vip_teams/")[Switching VIP Teams]
+- #link("https://www.reddit.com/r/Purdue/comments/1v0fopb/moveout_sale/")[MOVE-OUT SALE!!!]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1uu32uu/question_on_ad_22700/")[Question on AD 22700]
+- #link("https://www.reddit.com/r/Purdue/comments/1v0hmtd/ib_university_services_to_purdue/")[IB University Services to Purdue]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1uttjrz/3rd_and_west_at_purdue/")[3rd and west at purdue]
+- #link("https://www.reddit.com/r/Purdue/comments/1v07kvw/honors_triple_room_dorm/")[Honors triple room dorm]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1uu19ub/how_important_is_anatomy_physiology_biol_203_biol/")[How important is Anatomy & Physiology (BIOL 203 & BIOL 204) for a Pharmaceutical Sciences major?]
+- #link("https://www.reddit.com/r/Purdue/comments/1uzdwe1/saw_pete_headed_out_on_vaca/")[Saw Pete headed out on vaca]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1utb5ag/affordable_forensic_risk_assessment_or_any_other/")[Affordable forensic risk assessment, or any other advice?]
+- #link("https://www.reddit.com/r/Purdue/comments/1v0ay64/graduate_certificate_in_applied_ai_and/")[Graduate Certificate in Applied AI and Cybersecurity reviews]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1usu8me/i_went_to_purdue_from_88_to_93_ask_away/")[I went to Purdue from 88 to 93 ask away!]
+- #link("https://www.reddit.com/r/Purdue/comments/1v0al8l/south_hall_furniture/")[South Hall furniture]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1uts0ee/parking_permit_for_residence_hallaspire/")[parking permit for residence hall/aspire]
+- #link("https://www.reddit.com/r/Purdue/comments/1v048y9/affordable_place_to_stay_near_campus_for_2_nights/")[Affordable place to stay near campus for 2 nights?]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1utqq7o/aleks_math_placement_question/")[ALEKS Math Placement question]
+- #link("https://www.reddit.com/r/Purdue/comments/1uzkpsb/evening/")[Evening]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1utqb64/engt_182/")[ENGT 182]
+- #link("https://www.reddit.com/r/Purdue/comments/1uzygtg/need_temporary_housing_late_july_first_week_of/")[Need temporary Housing (Late July - First week of September)]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1utoij9/soccer_at_trec_during_summer/")[Soccer at TREC during Summer?]
+- #link("https://www.reddit.com/r/Purdue/comments/1uzmnlo/what_to_do_on_campus_aug_1315th/")[what to do on campus aug 13-15th?]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1utnwrb/borrow_phd_graduation_cap_for_pictures/")[Borrow PhD graduation cap for pictures]
+- #link("https://www.reddit.com/r/Purdue/comments/1uzquxr/time_for_member_signup/")[Time for member sign-up :)]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1uszvsq/trustees_request_wide_input_in_search_for_next/")[Trustees request wide input in search for next Purdue president]
+- #link("https://www.reddit.com/r/Purdue/comments/1v0apxi/best_backpack/")[Best Backpack?]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1utcwa4/housing_assignments/")[Housing assignments]
+- #link("https://www.reddit.com/r/Purdue/comments/1v04rvp/height_of_owens_standard_double_third_floor/")[Height of Owen's standard double third floor?]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1utr53m/please_buy_these_items/")[Please buy these items]
+- #link("https://www.reddit.com/r/Purdue/comments/1v00el9/review_for_qa_tester_for_pol_course_job/")[Review for QA tester for POL course job]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1us8hu0/pixelated_purdue_pete/")[Pixelated Purdue Pete 🍄⭐🐢🏰👸🏼]
+- #link("https://www.reddit.com/r/Purdue/comments/1uyw58i/grad_on_the_engineering_fountain/")[Grad on the engineering fountain]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1utn1gt/the_freshmen_are_now_my_opps/")[The freshmen are now my opps.]
+- #link("https://www.reddit.com/r/Purdue/comments/1uyym56/former_purdue_running_back_takes_on_new_role_with/")[Former Purdue running back takes on new role with IndyCar team - Devin Mockobee is taking on a new challenge, as a mechanic at ECR]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1uso7ut/who_we_voting_purdue_president/")[Who we voting Purdue president?]
+- #link("https://www.reddit.com/r/Purdue/comments/1v06qlv/south_hall_thoughts/")[South Hall thoughts]
 
-- #link("https://www.reddit.com/r/Purdue/comments/1ut7n1w/i_need_campus_ministrychurch_suggestions/")[I need campus ministry/church suggestions]
+- #link("https://www.reddit.com/r/Purdue/comments/1uyp2qz/hawkins_single_w_private_bath/")[Hawkins Single w/ Private Bath]
 
 == YouTube Subscriptions
 
+=== 3Blue1Brown
+
+- #link("https://www.youtube.com/watch?v=GlYgs6v2YfU")[But what is cross-entropy? | Compression is Intelligence Part 2]
+
+=== Will Tennyson
+
+- #link("https://www.youtube.com/shorts/oyfjQqHMMIg")[I Tried The Rock’s Energy Drink]
+
+- #link("https://www.youtube.com/shorts/5TGteohlnro")[The World’s STRONGEST Pre-Workout!]
+
+- #link("https://www.youtube.com/shorts/U8QTRaYLTBg")[I Tried Natural Steroids…]
+
+- #link("https://www.youtube.com/shorts/1OG1KrJBsRE")[I Injected Pre Workout!]
+
+- #link("https://www.youtube.com/shorts/Bjnfh0-scV8")[I Tried Smelling Salts!]
+
+- #link("https://www.youtube.com/shorts/ZPRZKEk9a6g")[I Tried Sm\*king Pre Workout]
+
+- #link("https://www.youtube.com/shorts/iDcZWWuBF0g")[I Tried Celebrity Supplements!]
+
+- #link("https://www.youtube.com/shorts/sec1ceAgW58")[I Tried Nicotine As Pre Workout!]
+
 === Sandwiches of History
 
-- #link("https://www.youtube.com/watch?v=H8DDepM-f8E")[Garantita Sandwich (Algeria) on Sandwiches of History]
+- #link("https://www.youtube.com/watch?v=eFmr-BcIQUQ")[Goan Beef Cutlet Pao (India) on Sandwiches of History]
 
-- #link("https://www.youtube.com/watch?v=3zEQqGsAZ0o")[Little Sister Sandwich (our history) on Sandwiches of History⁣]
+- #link("https://www.youtube.com/watch?v=4H-YiDRKOO4")[Grandfather’s Sandwich (our history) on Sandwiches of History⁣]
 
-- #link("https://www.youtube.com/watch?v=pGTBaN2V7rg")[Twitty Burger (1960s) on Sandwiches of History⁣]
+- #link("https://www.youtube.com/watch?v=U-IYA-CQ-8U")[Sandwich \#2 (1877) on Sandwiches of History]
 
-- #link("https://www.youtube.com/watch?v=Sq8C9xkU7tM")[Halibut Sandwich (1909) on Sandwiches of History⁣]
+- #link("https://www.youtube.com/watch?v=GYrDcZ4WN6w")[Delightful Sardine Sandwich (1915) on Sandwiches of History]
 
-- #link("https://www.youtube.com/watch?v=OA4ivMdcZaA")[Cheese Sandwich (1911) on Sandwiches of History⁣]
+- #link("https://www.youtube.com/watch?v=LZ0nKfVBVlw")[Dagwood’s Delight (1957) on Sandwiches of History]
 
-- #link("https://www.youtube.com/watch?v=QPvn4Y-_PoU")[Traveler’s Sandwich (1934) on Sandwiches of History⁣]
+- #link("https://www.youtube.com/watch?v=-8hM-_KNoEg")[Sandwich à la Stanley (1912) on Sandwiches of History⁣]
 
-- #link("https://www.youtube.com/watch?v=dZYmHm_RVpU")[Veggie Sandwich Number 12 (1989) on Sandwiches of History]
+- #link("https://www.youtube.com/watch?v=EtXkFo5MGEE")[Mel Brooks’ Favorite Sandwich (our history) on Sandwiches of History⁣]
 
 === In The Chips
 
-- #link("https://www.youtube.com/watch?v=AJtNoKVqsLk")[🥪 Can It Sandwich? on In The Chips with Barry July 11, 2026]
+- #link("https://www.youtube.com/watch?v=-trbx6JAgAI")[🥪 Can It Sandwich? on In The Chips with Barry July 18, 2026]
 
-- #link("https://www.youtube.com/watch?v=qiEIQf4sig0")[🇺🇸 Kroger Cheese Burger Potato Chips on In The Chips with Barry]
+- #link("https://www.youtube.com/watch?v=0fLhuscnuQU")[🇺🇸 Dutch Crunch Jalapeño Watermelon Chips on In The Chips with Barry]
 
-- #link("https://www.youtube.com/watch?v=osKss2o4Il0")[🇺🇸 Kroger Chili Cheese Potato Chips on In The Chips with Barry]
+- #link("https://www.youtube.com/watch?v=3I7ZzrX-fvw")[🇳🇴 Fjord Chips Dill Pickle Potato Chips on In The Chips with Barry]
 
-- #link("https://www.youtube.com/watch?v=Tvfp0Pi9pW8")[🇺🇸 Kroger Buttered Corn Potato Chips on In The Chips with Barry]
+- #link("https://www.youtube.com/watch?v=cjHZEjfOmws")[🇳🇱 Croky Fincadelle Especial Potato Chips on In The Chips with Barry]
 
 === Binging with Babish
 
-- #link("https://www.youtube.com/shorts/F6Fr5KyVBBk")[Regular Show's eggscellent challenge in real life!]
+- #link("https://www.youtube.com/watch?v=eDKuE-LNddY")[Recreating Bobby Hill’s Restaurant Menu | Binging with Babish]
 
-- #link("https://www.youtube.com/shorts/7B132m9g5FY")[Crème brûlée to impress!]
+- #link("https://www.youtube.com/shorts/y28G9MWc-IQ")[Real authentic British fish and chips 🇬🇧]
 
-- #link("https://www.youtube.com/shorts/dGSl12zPPc0")[The ultimate guide to freezer meal prep!]
+- #link("https://www.youtube.com/shorts/CX_8AuAY_Vo")[The ultimate taco night recipe!]
+
+=== Alton Brown
+
+- #link("https://www.youtube.com/watch?v=ihJS1KBEc9A")[Alton Brown Cooks Food | Episode 33: Kentucky Fried Mint]
 
 === Beyond Babish
 
-- #link("https://www.youtube.com/watch?v=qikywe9iRtM")[Ranking Everything at 7 Eleven's WORST Location | Best with Babish]
+- #link("https://www.youtube.com/shorts/qwdGdhJDQOs")[Lunchables Ranking Lightning Round]
 
-- #link("https://www.youtube.com/shorts/ChX82VCrhfM")[Is Lunchly worth it?]
+- #link("https://www.youtube.com/shorts/C633y1Ebx08")[Redeemed by White Mystery]
 
-- #link("https://www.youtube.com/shorts/uyymCiChmBM")[Brutally honest review of Lunchables PB&J.]
+- #link("https://www.youtube.com/shorts/sZgLSSUdSgg")[Are Lunchables better hot or cold?]
 
-=== Dylan Huynh
+=== Ethan Chlebowski
 
-- #link("https://www.youtube.com/watch?v=9CnEXzDjqrw")[I Ate At China's Oldest Restaurant]
+- #link("https://www.youtube.com/watch?v=aj8q0urRhYU")[Give me 18 minutes and I will completely change how you cook.]
 
 === BeardMeatsFood
 
-- #link("https://www.youtube.com/watch?v=I3rvTLFy7_U")[NOBODY HAS EVER BEATEN 'THE EIGHTH WONDER OF THE WORLD' CHALLENGE! | BeardMeatsFood]
+- #link("https://www.youtube.com/watch?v=LDWtr2ZDyRE")[THAT VIRAL WHEELBARROW OF TIRAMISU CHALLENGE THAT HAS NEVER BEEN BEATEN! | BeardMeatsFood]
 
 === Tasting History with Max Miller
 
-- #link("https://www.youtube.com/shorts/K3wGEOGY0wE")[A Tudor Era Strawberry Tart for a King]
+- #link("https://www.youtube.com/shorts/LN-m6eQp_0I")[Ancient Greek Kykeon from The Odyssey]
 
-- #link("https://www.youtube.com/watch?v=ZVrT8mrll-0")[Why Did the Chocolate Bar Ration of WW2 Taste Terrible?]
+- #link("https://www.youtube.com/shorts/s7bgTGWMVVo")[Making the WW2 Chocolate D Ration]
 
-=== Heliocentric
+- #link("https://www.youtube.com/watch?v=UAvZlsKsPg8")[Eating the Food of Homer's Odyssey]
 
-- #link("https://www.youtube.com/watch?v=zQmvf9-jvT0")[The Secret World of INDIAN ORTHODOXY]
+=== What On Earth Is This?
 
-=== Quaker Videos
-
-- #link("https://www.youtube.com/watch?v=8cDtrRyWmJg")[Quaker Pacifism: A Better Way to Engage in Conflict (re-release)]
+- #link("https://www.youtube.com/watch?v=ONsQlxlEo4o")[This Building Has Been Covered In Scaffolding For 42 Years (ft. The Tim Traveller)]
 
 === Tom Scott
 
-- #link("https://www.youtube.com/watch?v=blubg9l8AVc")[To help fire this trebuchet, I climbed inside it]
+- #link("https://www.youtube.com/watch?v=WGia1R3xacM")[If I get this wrong, 50,000 people will hear it.]
+
+=== Stewart Hicks
+
+- #link("https://www.youtube.com/watch?v=7sfoLUumGnc")[Why We Can’t Build Apartments Like This Anymore]
 
 === Joe Scott
 
-- #link("https://www.youtube.com/watch?v=n0fwWHcPIYk")[Project Chariot: The US Government's Plan To Nuke Alaska SIX Times]
+- #link("https://www.youtube.com/watch?v=J0nCczuTOAM")[Hundreds Of These Have Been Found Across Scotland]
 
-=== Renzy
+=== Answer in Progress
 
-- #link("https://www.youtube.com/watch?v=bpnDsi2_QuI")[Four Words That Completely Changed a Character]
-
-=== Insider
-
-- #link("https://www.youtube.com/watch?v=M86GhDS6vBI")[How Drug Smuggling For Mexican Cartels Actually Works | How Crime Works | Insider]
+- #link("https://www.youtube.com/watch?v=iPw-gDw6Nxk")[the broken promise of streaming]
 
 == RSS Feeds
 
 === xkcd.com
 
-- #link("https://xkcd.com/3270/")[Toasting Marshmallows]
+- #link("https://xkcd.com/3273/")[Latitude and Longitude]
 
-- #link("https://xkcd.com/3269/")[Airport Meeting]
+- #link("https://xkcd.com/3272/")[Time Change]
 
-- #link("https://xkcd.com/3268/")[Offside]
+- #link("https://xkcd.com/3271/")[The Princess and the Pea]
 
 == Newsletters
 
 === Tangle
 
-- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/wl6eo2aoc9umbmgz2zb1.html")[The Sunday — July 12]
+- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/dskcu79d5jw7mi71z9u4.html")[The Sunday — July 19]
 
-- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/071w3sxzg9kqjps1l7ek.html")[We couldn’t ignore your questions.]
+- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/snzkynnplrd79glafsl8.html")[The conspiracy theories are getting dumber.]
 
-- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/mh360c5kvi1j0zwedo0a.html")[The Mitch McConnell mystery.]
+- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/d46rn2nnftn5uux8eu7u.html")[Have you been enjoying Tangle?]
 
-- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/mlaf4yuw46xef5v37l55.html")[Accused again: Platner faces fresh allegations.]
+- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/5brpvpmnom4xksefrbl0.html")[Spring forward — forever?]
 
-- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/zpavbcngts892kq5ampy.html")[Open season on campaign spending?]
+- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/54vpfvmmd5hho4wbdznz.html")[“A ticking time bomb.”]
 
-- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/ezn6xywrajn90tw3dfry.html")[250 years later.]
+- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/wlu0oxfk5kqbiekn3gdr.html")[On. Off. On. Off. On.]
 
-=== Now I Know - Dan Lewis
+- #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/czbea5sq1cgz3n4g3u4k.html")[Lindsey Graham’s death (and legacy).]
 
-- #link("https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8/entries/jb9eb9fxzs4s4dvdyu1l.html")[The Inspiration I Didn't Know I Needed]
-
-- #link("https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8/entries/s885xvg6m4rxb8ha1q7m.html")[The Senior on The Cheerleading Squad]
-
-- #link("https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8/entries/dp6hqlq24h2ufsv57tx3.html")[How a Texas Farm Helps Explore Space]
-
-- #link("https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8/entries/o7on27vt1gbz8m483ug2.html")[Witch Way to Victory?]
-
-- #link("https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8/entries/s3o40edom9gbmwz27waw.html")[The 18 Month Soccer Bet]
-
-=== Sandwiches of History
-
-- #link("https://kill-the-newsletter.com/feeds/0syuzm0uu2yx0o38v8i6/entries/9b54nqrg6bwgqn81jknj.html")[The Sandwiching Hour]
-
-=== VeMail
-
-- #link("https://kill-the-newsletter.com/feeds/bmkn1tey7lg9jgc4xbb0/entries/p5emqwjlzr3gwndmddnk.html")[📡 Satellite Uses AI to “Understand” What It Sees]
-
-=== FCNL
+=== https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8.xml
 
 - No new issues this week
 
+=== Sandwiches of History
+
+- #link("https://kill-the-newsletter.com/feeds/0syuzm0uu2yx0o38v8i6/entries/mk0e0do689fqylezlwar.html")[Open Up To Sandwiches...]
+
+=== VeMail
+
+- #link("https://kill-the-newsletter.com/feeds/bmkn1tey7lg9jgc4xbb0/entries/d7ai5y3yeli9bubyrpkw.html")[🛰️ How To Catch A Nuclear Weapon Hiding In Orbit]
+
+=== FCNL
+
+- #link("https://kill-the-newsletter.com/feeds/dzze23ubhfsr1qvdgrpx/entries/2op2m9ng4ezyq6836qy4.html")[WNV Newsletter: Subscription Confirmed]
+
 === Tom Scott
 
-- #link("https://kill-the-newsletter.com/feeds/d2qpdjesw5xzb4yrj5bd/entries/blrfk0wkcb2q6cmadewo.html")[This week: bells! Plus a clever word game and a cursed font.]
+- #link("https://kill-the-newsletter.com/feeds/d2qpdjesw5xzb4yrj5bd/entries/2eapf4fok4avgv5k4tm1.html")[This week: finally, bellringing! Also, the Squidmobile.]
 
-- #link("https://kill-the-newsletter.com/feeds/d2qpdjesw5xzb4yrj5bd/entries/nxdcay11oma30lohto5o.html")[Confirm your subscription to Tom Scott's newsletter]
+=== Purdue
+
+- No new issues this week
