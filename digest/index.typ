@@ -8,9 +8,9 @@
 
 - 2026-07-19: Overcast, 64-82F, 0% precip
 
-- 2026-07-20: Overcast, 63-87F, 3% precip
+- 2026-07-20: Overcast, 63-86F, 3% precip
 
-- 2026-07-21: code 82, 64-83F, 61% precip
+- 2026-07-21: Light rain, 64-83F, 61% precip
 
 - 2026-07-22: Light drizzle, 52-72F, 4% precip
 
@@ -27,6 +27,10 @@
 - #link("https://www.reddit.com/r/Purdue/comments/1v0vjl9/gnorts_mr_alien/")[“Gnorts, Mr. Alien!”]
 
 - #link("https://www.reddit.com/r/Purdue/comments/1v0y88b/campus_last_night/")[Campus last night]
+
+- #link("https://www.reddit.com/r/Purdue/comments/1v0zwed/class_schedule/")[Class Schedule]
+
+- #link("https://www.reddit.com/r/Purdue/comments/1v0zvr6/hello_i_am_just_reaching_out_to_see_if_there_are/")[Hello! I am just reaching out to see if there are other veteran/slightly older undergrads students to connect with!]
 
 - #link("https://www.reddit.com/r/Purdue/comments/1v0hz4c/gym_that_is_not_the_corec/")[Gym that is not the co-rec]
 
@@ -67,10 +71,6 @@
 - #link("https://www.reddit.com/r/Purdue/comments/1uyw58i/grad_on_the_engineering_fountain/")[Grad on the engineering fountain]
 
 - #link("https://www.reddit.com/r/Purdue/comments/1uyym56/former_purdue_running_back_takes_on_new_role_with/")[Former Purdue running back takes on new role with IndyCar team - Devin Mockobee is taking on a new challenge, as a mechanic at ECR]
-
-- #link("https://www.reddit.com/r/Purdue/comments/1v06qlv/south_hall_thoughts/")[South Hall thoughts]
-
-- #link("https://www.reddit.com/r/Purdue/comments/1uyp2qz/hawkins_single_w_private_bath/")[Hawkins Single w/ Private Bath]
 
 == YouTube Subscriptions
 
@@ -206,9 +206,17 @@
 
 - #link("https://kill-the-newsletter.com/feeds/ejh01qj6etsq1f0s28ba/entries/czbea5sq1cgz3n4g3u4k.html")[Lindsey Graham’s death (and legacy).]
 
-=== https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8.xml
+=== Now I Know - Dan Lewis
 
-- No new issues this week
+- #link("https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8/entries/hprlzsank2js9fp15g96.html")[Should I Start a Now I Know Online Community?]
+
+- #link("https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8/entries/51zflzwcph9ivvw2zx8o.html")[The Pokémon That Got Banned for Something It Didn't Do]
+
+- #link("https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8/entries/ealdnycal17eb27gpksx.html")[Holy Toledo]
+
+- #link("https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8/entries/3863ji3qb50fl9128wq2.html")[Waymo Directly to Jail, Do Not Pass Go]
+
+- #link("https://kill-the-newsletter.com/feeds/y6r2y0yzry5bq4fgyxm8/entries/58n12nt09va3uqb4313l.html")[Why UAE Will Pay You To Get Married]
 
 === Sandwiches of History
 
