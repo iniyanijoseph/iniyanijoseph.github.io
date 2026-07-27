@@ -13,11 +13,82 @@
 - Plano Farmstead Museum
 
 == Lafayette
-- Samara House
-- Colombian Park zoo
-- Haan Museum
-- Fort Ouiatenon
+=== Museums
+- Haan Museum of Indiana Art
+- Art Museum of Greater Lafayette
+- Imagination Station
+- Fire Station Museum
+
+=== Historic Sites
+- Samara (Frank Lloyd Wright Home)
+- Ouiatenon Preserve
 - Morris Schoolhouse
+- Caretaker's Cottage
+- Adams Mill
+- Delphi Opera House
+- Tippecanoe County Courthouse
+- Wabash & Erie Canal Park
+- St. Boniface Church
+
+=== Arts & Architecture
+- Downtown Architectural Brochure
+- Lafayette Houses of Worship Tour
+- Disconnect Mural
+- Art Gallery Alley / Alleypalooza Murals
+- Civic Theatre of Greater Lafayette
+- Gallery Walk (monthly downtown art event)
+- Public Art Trail (125+ pieces around the community)
+- Historic Neighborhoods Tour (Terra Cotta architecture brochure)
+- John T. Myers Pedestrian Bridge
+
+=== Neighborhoods
+- Ninth Street Hill
+- Centennial Neighborhood
+- Highland Park
+- Columbian Park Neighborhood
+- Hills and Dales
+- New Chauncey
+- Chauncey Village / Chauncey–Stadium Avenues Historic District
+- Happy Hollow Heights
+
+=== Parks
+- Colombian Park Zoo
+- Columbian Park
+- Tapawingo Park
+- Happy Hollow Park
+- Celery Bog Nature Area
+- Cason Family Park
+- Clegg Memorial Garden
+- Martell Forest
+- Prophetstown State Park
+
+=== Hikes
+- Bike from Lafayette to Indianapolis
+- Wabash Heritage Trail (18 miles along the river)
+- West Lafayette Trail Network (27+ miles paved, plus bike lanes)
+- Celery Bog Nature Area trails (~7 miles)
+- Martell Forest trails (6+ miles)
+- Prophetstown State Park trails
+- Cason Family Park trails (~3 miles)
+- Happy Hollow Park trails (2+ miles)
+
+=== Food (local & Midwest)
+- McCord Candies
+- Triple XXX Family Restaurant
+- Smittybread Bakery
+- Scones & Doilies
+- Sweet Revolution Bake Shop
+- Farmer's Market
+- This Old Butcher Shop + Central Pork Coffee Shop
+
+=== Shopping
+- Downtown Lafayette (Arts & Market District)
+- Chauncey Village
+- Green Leaf Botanicals
+- Artists' Own Gallery
+- Boutique by Michele
+- Retail Therapy
+- Inspired Fire Glass Studio and Gallery
 
 == Books
 - Madame Bovary
