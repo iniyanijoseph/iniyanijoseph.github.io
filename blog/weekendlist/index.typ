@@ -107,7 +107,7 @@
 - The Count of Monte Cristo (in French?)
 - Les Miserable (in French)
 - The Grapes of Wrath
-- Things My Son Needs to Know about the World
+- #strike[Things My Son Needs to Know about the World]
 - Writing for Computer Science
 - Komi Can't Communicate
 - Leatherheads
