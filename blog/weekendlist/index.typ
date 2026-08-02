@@ -114,6 +114,7 @@
 - #strike[Invincible]
 
 == Movies
+- Gentle Persuasion
 - Naked Gun $2 1/2$
 - #strike[Man from Earth]
 - #strike[Cunk on Life]
