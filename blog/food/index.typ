@@ -87,7 +87,7 @@
 + Wash and soak white beans with salt at least 8 hours, and ideally overnight. Then drain and set aside. (Canned beans work in a pinch, but may be more expensive for the quantity)
 + Dice celery, carrots, and onion, and mince the garlic.
 + In a large pot, sautee the celery, carrots, onion, and garlic until translucent and fragrant.
-+ Stir in tomato paste and beans, and cover with water, adding at least an inch of water. Spices vary by region, as well as amount of water. Bay leaves and oregano are typical choices, although no spices are truly required. Salt can also be added at this stage, but I prefer it without. Adding an apple whole into the soup will also thicken it, but is not necessary.
++ Stir in tomato paste and beans. Cabbage is nontraditional, but bridges much of the nutrition gap and adds flavor, so I like to add it. Cover with water, adding at least an inch of water. Spices vary by region, as well as amount of water. Bay leaves and oregano are typical choices, although no spices are truly required. Salt can also be added at this stage, but I prefer it without. Adding an apple whole into the soup will also thicken it, but is not necessary.
 + Simmer for around 1 hour, or until the beans and vegetables become soft.
 + Enjoy!
 
