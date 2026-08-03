@@ -16,15 +16,7 @@ Often, replacing long-term recurring tasks with short-term large tasks helps pro
 
 Money can be thought of as a conversion of effort. Spending money on recurring costs is the same as spending the time taken to earn that money. These transactions aren't always lossy, either if the recurring cost is cheap, you earn enough, or you have enough spare time, but generally the act of purchasing recurring items should also be considered part of the time cost. I have also found myself using less disposable items where possible, with the added benefit of eco-friendliness.
 
-=== Use Scarcity to create Pressure
-
-I hate doing the dishes. Truly, I despite it. The one thing I hate more than the thought of having to wash a sink full of kitchenware, is the idea of making the effort to clean in the first place. I care enough about the environment to not use only disposable utensils. I find it much more practical to only eat out of a single pasta bowl. It is microwaveable, can be used as a plate or as a bowl, and is easy to clean with a sponge. Now, I have to clean it as soon as I use it, or I won't have a bowl for the next meal. This also has the side benefit of forcing intentional eating, since I am more limited in the quantity I can serve myself. 
-
-=== Eliminate Redundancy for Inevitable Tasks
-
-Is this tool redundant? I like to use a mail client, not for any composition feature, but because I can consolidate my email accounts across Gmail and Outlook and view them all in the same feed. Similarly, I would not purchase a dicer if I have a knife. A hybrid wok with a lid is also a great kitchen implement, since it can function as both a pot and pan, and can handle many types of ranges. I personally prefer temperature and scratch-resistant nonstick and silicone, since the time taken to clean stainless steel or maintain and season cast iron (not to mention it isn't easy to handle) makes it not worth it. Redundancy can also create major problems, like inconsistencies between C.V. and Website. In fact, this is why I created my website using Typst - so that I could do both at once (which I learned from brutal experience how badly I could let the two get out of sync when accidentally submitting a version of my C.V. with incorrect dates in my grad school applications #footnote[Thankfully nearly every school let me submit a new version of my C.V. since I submitted everything several weeks early in case of disaster.]). These things are inevitable, so creating redundancy does not encourage laziness in the same way having too many plates can. 
-
-=== Automate or build a quick tool
+=== Automate or build a quick tool to outsource labor
 
 Can I write a script or build a tool quickly to solve this? With generative AI and some simple scripting, it is becoming easier and easier to write small scripts. Although generative AI can sometimes struggle with larger projects, for these sorts of smaller scripts it can be very convenient.
 
@@ -35,6 +27,18 @@ Google Calendar has an appointments feature through which other people can book 
 === Favor simple, existing solutions
 
 Try to keep solutions simple. Although it can be better to manage your own tools, also check for simple, readily available solutions. 
+
+=== Create a High Barrier to Unproductivity via. Scarcity
+
+I hate doing the dishes. Truly, I despite it. The one thing I hate more than the thought of having to wash a sink full of kitchenware, is the idea of making the effort to clean in the first place. I care enough about the environment to not use only disposable utensils. I find it much more practical to only eat out of a single pasta bowl. It is microwaveable, can be used as a plate or as a bowl, and is easy to clean with a sponge. Now, I have to clean it as soon as I use it, or I won't have a bowl for the next meal. This also has the side benefit of forcing intentional eating, since I am more limited in the quantity I can serve myself.
+
+This may not be practical for everyone, but it accomplishes the same effect. That the barrier to be unproductive or to let tasks accumulate is diminished.
+
+=== Eliminate Redundancy for Inevitable Tasks
+
+Is this tool redundant? I like to use a mail client, not for any composition feature, but because I can consolidate my email accounts across Gmail and Outlook and view them all in the same feed. Similarly, I would not purchase a dicer if I have a knife. A hybrid wok with a lid is also a great kitchen implement, since it can function as both a pot and pan, and can handle many types of ranges. I personally prefer temperature and scratch-resistant nonstick and silicone, since the time taken to clean stainless steel or maintain and season cast iron (not to mention it isn't easy to handle) makes it not worth it.
+
+Redundancy can also create major problems, like inconsistencies between C.V. and Website. In fact, this is why I created my website using Typst - so that I could do both at once (which I learned from brutal experience how badly I could let the two get out of sync when accidentally submitting a version of my C.V. with incorrect dates in my grad school applications #footnote[Thankfully nearly every school let me submit a new version of my C.V. since I submitted everything several weeks early in case of disaster.]). These things are inevitable, so creating redundancy does not encourage laziness in the same way having too many plates can. 
 
 === Weigh maintenance cost against benefits
 
