@@ -35,8 +35,8 @@
 
 == Other
 - #post("My Experience with PhD Applications", datetime(year: 2025, month: 1, day: 1), "phdapplications")
-- #post("Productivity Tips", datetime(year: 2026, month: 7, day: 2), "productivity")
-- #post("Food", datetime(year: 2025, month: 1, day: 1), "food")
+- #post("Productivity Tips", datetime(year: 2026, month: 8, day: 5), "productivity")
+- #post("Food", datetime(year: 2026, month: 8, day: 4), "food")
 
 // Everything below is invisible on the rendered page -- #metadata
 // never produces visible output. It just exposes the collected posts
