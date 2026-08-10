@@ -1,7 +1,7 @@
-#import "../../../cv.typ":template,margin-note, linked-image, linked-video
+#import "../../../../cv.typ":template,margin-note, linked-image, linked-video
 #import "@preview/tablem:0.3.0": three-line-table, tablem
 
-#show: template.with(title: "", root: "../../../")
+#show: template.with(title: "", root: "../../../../")
 
 Hello! Welcome to CS 18000 (Problem Solving And Object-Oriented Programming). My name is Iniyan and I will be your TA. This course primarily discusses the basics of programming, inheritance, exception handling, and a few algorithms and their implementations.
 
