@@ -28,14 +28,13 @@ cv.pdf: cv.typ
 # printf %b handle \n \t \r \\ etc.
 define FEED_RULE
 $(dir $(1))feed.xml: $(1)
-	json="$$$$(typst eval 'query(<feed>).first().value' --root . $$<)"; \
+	json="$$$$(typst eval 'query(<feed>).first().value' --root . --in $$<)"; \
 	json="$$$${json#\"}"; \
 	json="$$$${json%\"}"; \
 	json="$$$$(printf '%s' "$$$$json" | sed 's/\\"/"/g')"; \
 	printf '%b' "$$$$json" > $$@
 endef
 $(foreach f,$(FEED_TYP_FILES),$(eval $(call FEED_RULE,$(f))))
-
 clean:
 	rm -f $(HTML_FILES) cv.pdf $(FEED_XML_FILES)
 .PHONY: all html clean

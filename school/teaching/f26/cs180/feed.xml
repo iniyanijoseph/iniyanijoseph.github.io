@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
+  <atom:link href="https://iniyanjoseph.com/school/teaching/f26/cs180/feed.xml" rel="self" type="application/rss+xml" />
+  <title>Announcements</title>
+  <link>https://iniyanjoseph.com/school/teaching/f26/cs180/</link>
+  <description>My feed</description>
+  <item>
+    <title>Welcome</title>
+    <link>https://iniyanjoseph.com/school/teaching/f26/cs180/#welcome</link>
+    <guid>https://iniyanjoseph.com/school/teaching/f26/cs180/#welcome</guid>
+    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+  </item>
+</channel></rss>
