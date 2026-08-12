@@ -24,6 +24,8 @@
   As we go through this course, I will share resources and information on this page. If you would like to meet with me to discuss this class, your grades, etc., you can request office hours with me #link("https://calendar.app.google/2v1WK9e2M3tzVKWa8")[here].
 
   Generally, I am most responsive via email, but feel free to follow up if I don't respond in 1 business day.
+
+  You can subscribe to announcements via this RSS feed: #link("https://iniyanjoseph.com/school/teaching/f26/cs180/feed.xml")
 ]
 
 // Everything below stays the same -- RSS export.
