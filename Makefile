@@ -28,7 +28,7 @@ cv.pdf: cv.typ
 # printf %b handle \n \t \r \\ etc.
 define FEED_RULE
 $(dir $(1))feed.xml: $(1)
-	json="$$$$(typst query $$< "<feed>" --field value --one --root .)"; \
+	json="$$$$(typst eval 'query(<feed>).first().value' --root . $$<)"; \
 	json="$$$${json#\"}"; \
 	json="$$$${json%\"}"; \
 	json="$$$$(printf '%s' "$$$$json" | sed 's/\\"/"/g')"; \
