@@ -9,6 +9,7 @@
   nav: (
     ("",  "Home"),
     ("blog",  "Blog"),
+    ("school/teaching",  "Teaching"),
     ("cv.pdf",    "CV"),
   ),
   email: "iniyanijoseph@gmail.com",
