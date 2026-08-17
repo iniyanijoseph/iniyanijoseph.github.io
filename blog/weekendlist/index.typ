@@ -8,6 +8,9 @@
 - Driving/Teach Driving
 - Tennis
 
+== Indianapolis
+- Kurt Vonnegut Museum & Library
+
 == Dallas
 - Opera/Symphony
 - Plano Farmstead Museum
@@ -109,7 +112,7 @@
 - The Grapes of Wrath
 - #strike[Things My Son Needs to Know about the World]
 - Writing for Computer Science
-- Komi Can't Communicate
+- #strike[Komi Can't Communicate]
 - Leatherheads
 - #strike[Invincible]
 
@@ -121,7 +124,7 @@
 - Train to Busan
 - #strike[Exorcist]
 - Riverdance and the Book of Mormon (Not released as movie, but as a musical)
-- Austin Powers
+- #strike[Austin Powers]
 - #strike[Attack on Titan - The Last Stand]
 - #strike[Mandela]
 - American Hustle
@@ -139,10 +142,10 @@
 - The Shape of Water
 - Cinema Paradiso
 - The Godfather
-- The Irishman
+- #strike[The Irishman]
 - Casablanca
 - The Fault in Our Stars
-- Fiddler on the Roof
+- #strike[Fiddler on the Roof]
 - Porgy and Bess
 - Spaceballs 2
 
