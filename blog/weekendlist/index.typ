@@ -117,6 +117,8 @@
 - #strike[Invincible]
 
 == Movies
+- Brother Bear (1 & 2 & 3)
+- Heathers
 - Gentle Persuasion
 - Naked Gun $2 1/2$
 - #strike[Man from Earth]
