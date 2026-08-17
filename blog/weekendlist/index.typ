@@ -152,6 +152,7 @@
 == TV
 - The Sopranos
 - Arcane
+- The Good Doctor
 
 == Food to Cook
 - #link("https://www.youtube.com/watch?v==YMZwS7-roRs")[Mars Bar and Apple Sandwich]
